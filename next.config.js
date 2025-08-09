@@ -1,3 +1,5 @@
+const { withContentlayer } = require('next-contentlayer2')
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // Enable React strict mode for better development experience
@@ -77,4 +79,4 @@ const nextConfig = {
   poweredByHeader: false,
 }
 
-module.exports = nextConfig
+module.exports = withContentlayer(nextConfig)

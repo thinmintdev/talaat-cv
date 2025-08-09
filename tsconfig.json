@@ -16,6 +16,7 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "baseUrl": ".",
     "plugins": [
       {
         "name": "next"
@@ -30,7 +31,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "src/images/logos/*.*"
+    "src/images/logos/*.*",
+    ".contentlayer/generated/**/*.ts"
   ],
   "exclude": ["node_modules"]
 }
