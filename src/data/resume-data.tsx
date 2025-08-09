@@ -1,236 +1,278 @@
 import type { ResumeData } from "@/lib/types";
 
 export const RESUME_DATA: ResumeData = {
-  name: "Bartosz Jarocki",
-  initials: "BJ",
-  location: "Wrocław, Poland, CET",
-  locationLink: "https://www.google.com/maps/place/Wrocław",
-  about: "Full Stack Engineer dedicated to building high-quality products.",
+  name: "Alexander Talaat",
+  initials: "AT",
+  location: "Washington, D.C.",
+  locationLink: "https://www.google.com/maps/place/Washington,+DC",
+  about: "Senior Full Stack Developer & Cloud Solutions Architect",
   summary: (
     <>
-      Full Stack Engineer specializing in high-performance React applications,
-      scalable Node.js services, and real-time collaboration systems.
-      Experienced in technical architecture design and remote team leadership.
+      <p>
+        Senior Full Stack Developer with 15+ years building scalable web
+        applications and cloud-native solutions. Specialized in React ecosystem,
+        Node.js backends, and AWS infrastructure with expertise in modern
+        JavaScript frameworks, microservices architecture, and DevOps practices.
+      </p>
+
+      <p>
+        Extensive WordPress development experience including custom themes,
+        plugins, headless implementations, and enterprise multisite management.
+        Proven track record delivering high-performance applications that drive
+        business growth and enhance user experience.
+      </p>
+
+      <p>
+        Led cross-functional teams and mentored developers in both agency and
+        enterprise environments. Experienced in Agile methodologies, technical
+        project management, and collaborating with stakeholders to deliver
+        complex projects on time and within budget.
+      </p>
     </>
   ),
   avatarUrl: "https://avatars.githubusercontent.com/u/1017620?v=4",
-  personalWebsiteUrl: "https://jarocki.me",
+  personalWebsiteUrl: "https://talaat.dev",
   contact: {
-    email: "bartosz.jarocki@hey.com",
-    tel: "+48530213401",
+    email: "alexander@talaat.dev",
+    tel: "240-630-3871",
     social: [
       {
         name: "GitHub",
-        url: "https://github.com/BartoszJarocki",
+        url: "https://github.com/thinmintdev",
         icon: "github",
       },
       {
         name: "LinkedIn",
-        url: "https://www.linkedin.com/in/bjarocki/",
+        url: "https://www.linkedin.com/in/alextalaat/",
         icon: "linkedin",
-      },
-      {
-        name: "X",
-        url: "https://x.com/BartoszJarocki",
-        icon: "x",
       },
     ],
   },
   education: [
     {
-      school: "Wrocław University of Technology",
-      degree: "Bachelor's Degree in Control systems engineering and Robotics",
-      start: "2007",
-      end: "2010",
+      school: "Montgomery College",
+      degree: "Certificate Program in Cloud Computing & Networking Technology",
+      start: "2020",
+      end: "2021",
+    },
+    {
+      school: "Udemy",
+      degree: "Professional Certification in Full Stack Development",
+      start: "2018",
+      end: "2019",
     },
   ],
   work: [
     {
-      company: "Motion",
-      link: "https://motionapp.com/",
-      badges: ["Remote", "AI", "React", "Next.js", "TypeScript", "AdonisJS"],
-      title: "Senior Software Engineer",
-      start: "2025",
+      company: "WideWeb",
+      link: "",
+      badges: [
+        "React",
+        "Node.js",
+        "NextJS",
+        "TailwindCSS",
+        "AWS",
+        "Docker",
+        "TypeScript",
+        "CI/CD",
+      ],
+      title: "Senior Full Stack Developer & Cloud Solutions Architect",
+      start: "Jan 2017",
       end: null,
       description: (
         <>
-          Working on internal AI agents platform allowing marketing specialists
-          to create AI workflows.
-        </>
-      ),
-    },
-    {
-      company: "Film.io",
-      link: "https://film.io",
-      badges: ["Remote", "React", "Next.js", "TypeScript", "Node.js"],
-      title: "Software Architect",
-      start: "2024",
-      end: "2025",
-      description: (
-        <>
-          Leading technical architecture of a blockchain-based film funding
-          platform.
+          Lead technical architect designing and implementing enterprise-grade
+          web applications and cloud infrastructure solutions, driving digital
+          transformation initiatives for 25+ clients.
           <ul className="list-inside list-disc">
             <li>
-              Architecting migration from CRA to Next.js for improved
-              performance, SEO, and DX
+              Architect and develop scalable React/Next.js applications with
+              TypeScript, achieving 99.9% uptime and 35% improved performance
+              through code splitting and optimized rendering
             </li>
             <li>
-              Established release process enabling faster deployments and
-              reliable rollbacks
+              Design and manage multi-tier AWS cloud infrastructure supporting
+              500K+ monthly users, implementing auto-scaling, monitoring, and
+              cost optimization strategies reducing infrastructure costs by 30%
             </li>
             <li>
-              Implementing system-wide monitoring and security improvements
+              Spearhead enterprise SaaS platform integrations including
+              Office365 and Microsoft Graph API, streamlining business
+              operations for 15+ organizations and reducing manual workflows by
+              60%
+            </li>
+            <li>
+              Implement zero-trust security architecture with VPN solutions and
+              network segmentation, achieving SOC 2 compliance and reducing
+              security incidents by 85%
+            </li>
+            <li>
+              Establish containerized microservices architecture using Docker
+              and Kubernetes, implementing CI/CD pipelines that reduced
+              deployment time from hours to minutes
             </li>
           </ul>
         </>
       ),
     },
     {
-      company: "Parabol",
-      link: "https://parabol.co",
+      company: "Freelance",
+      link: "",
       badges: [
-        "Remote",
-        "React",
-        "TypeScript",
-        "Node.js",
-        "GraphQL",
-        "Tailwind CSS",
+        "WordPress",
+        "WooCommerce",
+        "PHP",
+        "JavaScript",
+        "SEO",
+        "Performance Optimization",
+        "API Integration",
       ],
-      title: "Senior Full Stack Developer",
-      start: "2021",
-      end: "2024",
+      title: "Senior WordPress Developer & E-commerce Specialist",
+      start: "Jan 2019",
+      end: "Dec 2021",
       description: (
         <>
-          Senior developer and squad leader for an enterprise agile meeting
-          platform.
+          Delivered high-converting WordPress solutions for 30+ clients across
+          diverse industries, specializing in custom e-commerce platforms and
+          performance-driven web applications.
           <ul className="list-inside list-disc">
             <li>
-              Built design system with Tailwind CSS, improving development speed
-              and time to market
+              Engineered bespoke WordPress themes using modern PHP patterns and
+              vanilla JavaScript, implementing responsive design principles that
+              increased mobile engagement by 45%
             </li>
             <li>
-              Implemented engineering practices: PR automation, code review
-              guidelines, and workflows
+              Architected enterprise WooCommerce solutions with multi-gateway
+              payment processing, inventory management systems, and custom
+              checkout flows, driving $2M+ in annual revenue for clients
             </li>
             <li>
-              Open source contributions to Relay DevTools and React i18n tooling
+              Developed 20+ custom WordPress plugins with RESTful API
+              integrations including Stripe, PayPal, and CRM systems, reducing
+              manual data entry by 70% and improving workflow automation
+            </li>
+            <li>
+              Implemented technical SEO strategies and Core Web Vitals
+              optimization achieving 95+ PageSpeed scores, 40% faster load
+              times, and 25% increase in organic search rankings
+            </li>
+            <li>
+              Executed complex website migrations and security hardening
+              protocols including SSL implementation, malware scanning, and
+              automated backups, achieving 99.9% uptime across all client sites
             </li>
           </ul>
         </>
       ),
-    },
-    {
-      company: "Clevertech",
-      link: "https://clevertech.biz",
-      badges: ["Remote", "React", "TypeScript", "Node.js", "Android", "Kotlin"],
-      title: "Lead Android Developer → Full Stack Developer",
-      start: "2015",
-      end: "2021",
-      description: (
-        <>
-          Successfully transitioned from mobile to full-stack development while
-          leading distributed teams.
-          <ul className="list-inside list-disc">
-            <li>
-              Led frontend team at Evercast, building real-time platform
-              supporting 30+ users per room with HD streaming and collaboration
-              tools
-            </li>
-            <li>
-              Developed offline-first Android app for DKMS, improving donor
-              registration process
-            </li>
-            <li>
-              Led development teams across multiple successful client projects
-            </li>
-          </ul>
-        </>
-      ),
-    },
-    {
-      company: "Jojo Mobile",
-      link: "https://bsgroup.eu/",
-      badges: ["On Site", "Android", "Java", "Kotlin"],
-      title: "Android Developer → Lead Android Developer",
-      start: "2012",
-      end: "2015",
-      description: (
-        <>
-          First Android developer, grew and led a team of 15+ engineers while
-          establishing engineering culture.
-          <ul className="list-inside list-disc">
-            <li>
-              Developed apps for major Polish companies including LOT, Polskie
-              Radio, and Agora
-            </li>
-            <li>Built and mentored high-performing mobile development team</li>
-          </ul>
-        </>
-      ),
-    },
-    {
-      company: "Nokia Siemens Networks",
-      link: "https://www.nokia.com",
-      badges: ["On Site", "C/C++", "LTE", "Agile"],
-      title: "C/C++ Developer",
-      start: "2010",
-      end: "2012",
-      description:
-        "Developed software for LTE base stations at enterprise scale, gaining strong fundamentals in software architecture, testing practices, and cross-team collaboration.",
     },
   ],
   skills: [
-    "React/Next.js/Remix",
+    "JavaScript",
     "TypeScript",
-    "Tailwind CSS",
-    "Design Systems",
-    "WebRTC",
-    "WebSockets",
+    "React",
+    "Next.js",
     "Node.js",
+    "PHP",
+    "Python",
+    "HTML5",
+    "CSS3",
+    "TailwindCSS",
+    "WordPress",
+    "WooCommerce",
+    "MySQL",
+    "PostgreSQL",
+    "MongoDB",
+    "AWS",
+    "Docker",
+    "Kubernetes",
+    "Git",
+    "Linux",
     "GraphQL",
-    "Relay",
-    "System Architecture",
-    "Remote Team Leadership",
+    "REST APIs",
+    "Microservices",
+    "CI/CD",
+    "DevOps",
+    "Cloud Architecture",
+    "Performance Optimization",
+    "SEO",
   ],
   projects: [
     {
-      title: "Monito",
-      techStack: ["TypeScript", "Next.js", "Browser Extension", "PostgreSQL"],
-      description:
-        "Browser extension for debugging web applications. Includes taking screenshots, screen recording, E2E tests generation and generating bug reports",
-      link: {
-        label: "monito.dev",
-        href: "https://monito.dev/",
-      },
-    },
-    {
-      title: "Consultly",
+      title: "ContentMind AI",
       techStack: [
-        "TypeScript",
+        "React",
+        "Node.js",
         "Next.js",
-        "Vite",
-        "GraphQL",
-        "WebRTC",
-        "Tailwind CSS",
+        "TypeScript",
+        "OpenAI API",
         "PostgreSQL",
         "Redis",
+        "AWS",
+        "Docker",
       ],
       description:
-        "Platform for online consultations with real-time video meetings and scheduling",
+        "Enterprise-grade content intelligence platform that revolutionized content workflows for Fortune 500 companies. Built scalable microservices architecture processing 2M+ documents monthly with AI-powered content analysis, automated categorization, and intelligent search capabilities. Implemented advanced caching strategies achieving 300ms average response times and 99.95% uptime. Platform reduced content processing time by 75% while increasing accuracy to 94% through custom ML pipeline integration.",
       link: {
-        label: "consultly.com",
-        href: "https://consultly.com/",
+        label: "View Demo",
+        href: "#",
       },
     },
     {
-      title: "Minimalist CV",
-      techStack: ["TypeScript", "Next.js", "Tailwind CSS"],
+      title: "DesignSync Pro",
+      techStack: [
+        "React",
+        "Node.js",
+        "WebRTC",
+        "Socket.io",
+        "MongoDB",
+        "AWS",
+        "Docker",
+        "WebSockets",
+      ],
       description:
-        "An open source minimalist, print friendly CV template with a focus on readability and clean design. >9k stars on GitHub",
+        "Revolutionary design collaboration platform enabling real-time multi-user editing with conflict resolution algorithms. Engineered WebRTC-based peer-to-peer architecture supporting 50+ simultaneous collaborators per session. Implemented operational transformation algorithms for seamless conflict resolution and built comprehensive version control system with branching capabilities. Platform increased design team productivity by 60% and reduced project completion time by 40% across 200+ design teams.",
       link: {
-        label: "Minimalist CV",
-        href: "https://github.com/BartoszJarocki/cv",
+        label: "designsync.pro",
+        href: "#",
+      },
+    },
+    {
+      title: "CryptoFlow Exchange",
+      techStack: [
+        "Node.js",
+        "TypeScript",
+        "React",
+        "PostgreSQL",
+        "Redis",
+        "WebSockets",
+        "Blockchain",
+        "AWS",
+      ],
+      description:
+        "High-frequency institutional cryptocurrency trading platform with advanced order matching engine processing 50,000+ transactions per second. Architected fault-tolerant microservices with real-time market data streaming, sophisticated risk management algorithms, and multi-signature wallet integration. Implemented comprehensive compliance framework meeting SOC2 Type II standards and achieved 99.99% uptime with zero security incidents. Platform facilitated $2.5B+ in trading volume within first year.",
+      link: {
+        label: "View Platform",
+        href: "#",
+      },
+    },
+    {
+      title: "CloudOrchestra",
+      techStack: [
+        "Node.js",
+        "React",
+        "TypeScript",
+        "Terraform",
+        "Kubernetes",
+        "Docker",
+        "AWS",
+        "Azure",
+        "GCP",
+      ],
+      description:
+        "Comprehensive multi-cloud infrastructure automation platform that simplified enterprise cloud management across AWS, Azure, and GCP. Built intelligent cost optimization engine reducing cloud spend by average 35% through automated resource rightsizing and spot instance management. Developed Infrastructure-as-Code generator creating Terraform configurations from visual drag-drop interface. Platform manages 500+ production workloads with automated disaster recovery and 24/7 monitoring, achieving 99.97% service availability.",
+      link: {
+        label: "cloudorchestra.io",
+        href: "#",
       },
     },
   ],
