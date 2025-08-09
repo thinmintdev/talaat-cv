@@ -203,7 +203,7 @@ export const HOMEPAGE_DATA = {
       },
       {
         title: "WordPress Solutions",
-        description: "Custom themes, plugins, and headless WordPress implementations",
+        description: "Custom plugin and theme development, as well as headless WordPress environments",
         features: ["Custom Themes & Plugins", "WooCommerce Development", "Performance Optimization", "Headless CMS"]
       },
       {

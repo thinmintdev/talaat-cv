@@ -380,6 +380,36 @@ export default function HomePage() {
             </div>
 
             <div className="lg:col-span-8">
+              {/* Contact Services Cards (01-03) */}
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-12">
+                {HOMEPAGE_DATA.contact.services.map((service, index) => (
+                  <div key={service.title} className="bg-white rounded-2xl p-6 shadow-sm border border-gray-200 hover:shadow-lg transition-shadow duration-300">
+                    <div className="text-center mb-4">
+                      <div className="w-12 h-12 mx-auto mb-3 bg-blue-100 rounded-full flex items-center justify-center">
+                        <span className="text-lg font-bold text-blue-600">
+                          {String(index + 1).padStart(2, '0')}
+                        </span>
+                      </div>
+                      <h3 className="text-lg font-bold text-gray-900 mb-2">
+                        {service.title}
+                      </h3>
+                      <p className="text-gray-600 text-sm">
+                        {service.description}
+                      </p>
+                    </div>
+                    <ul className="space-y-1">
+                      {service.features.map((feature, featureIndex) => (
+                        <li key={featureIndex} className="flex items-start gap-2">
+                          <span className="inline-block w-1.5 h-1.5 mt-2 rounded-full bg-blue-600 flex-shrink-0" />
+                          <span className="text-gray-700 text-sm">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+              
+              {/* Existing Services Cards */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 {HOMEPAGE_DATA.services.offerings.map((service) => (
                   <div key={service.title} className="group cursor-pointer">
@@ -505,49 +535,22 @@ export default function HomePage() {
             </p>
           </div>
 
-          {/* Services Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
-            {HOMEPAGE_DATA.contact.services.map((service, index) => (
-              <div key={service.title} className="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 hover:shadow-lg transition-shadow duration-300">
-                <div className="text-center mb-6">
-                  <div className="w-16 h-16 mx-auto mb-4 bg-blue-100 rounded-full flex items-center justify-center">
-                    <span className="text-2xl font-bold text-blue-600">
-                      {String(index + 1).padStart(2, '0')}
-                    </span>
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">
-                    {service.title}
-                  </h3>
-                  <p className="text-gray-600">
-                    {service.description}
-                  </p>
-                </div>
-                <ul className="space-y-2">
-                  {service.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-start gap-2">
-                      <span className="inline-block w-2 h-2 mt-2 rounded-full bg-blue-600 flex-shrink-0" />
-                      <span className="text-gray-700">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-
-          {/* Consultation CTA */}
+          {/* Get in Touch */}
           <div className="text-center mb-16">
             <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 max-w-2xl mx-auto">
               <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                {HOMEPAGE_DATA.contact.consultation.title}
+                Get in Touch
               </h3>
               <p className="text-gray-600 mb-6">
                 {HOMEPAGE_DATA.contact.consultation.description}
               </p>
+              
+              {/* Primary CTA - Schedule Consultation */}
               <a
                 href={HOMEPAGE_DATA.contact.calendlyUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors duration-300 text-lg"
+                className="inline-flex items-center justify-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors duration-300 text-lg mb-4 w-full sm:w-auto"
               >
                 <svg
                   className="w-5 h-5 mr-2"
@@ -564,76 +567,41 @@ export default function HomePage() {
                 </svg>
                 {HOMEPAGE_DATA.contact.consultation.title}
               </a>
+              
+              {/* Alternative Contact */}
+              <div className="mt-4">
+                <p className="text-sm text-gray-500 mb-3">OR</p>
+                <p className="text-sm text-gray-500 mb-3">Reach Out Directly</p>
+                
+                <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                  {/* Email Button */}
+                  <a
+                    href={`mailto:${RESUME_DATA.contact.email}`}
+                    className="inline-flex items-center justify-center px-6 py-3 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium rounded-lg transition-colors duration-300 border border-gray-200"
+                  >
+                    <Mail className="w-4 h-4 mr-2" />
+                    Email
+                  </a>
+                  
+                  {/* GitHub Button */}
+                  <a
+                    href={
+                      RESUME_DATA.contact.social.find(
+                        (social) => social.name === "GitHub"
+                      )?.url
+                    }
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center px-6 py-3 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium rounded-lg transition-colors duration-300 border border-gray-200"
+                  >
+                    <Github className="w-4 h-4 mr-2" />
+                    GitHub
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* Contact Information */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {/* Email Contact */}
-            <div className="group">
-              <a
-                href={`mailto:${RESUME_DATA.contact.email}`}
-                className="block p-6 bg-white rounded-xl border border-gray-200 transition-all duration-300 hover:bg-gray-50 hover:shadow-lg hover:border-gray-300 hover:-translate-y-1"
-              >
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 flex items-center justify-center bg-blue-100 rounded-full group-hover:bg-blue-200 transition-colors duration-300">
-                    <Mail className="w-6 h-6 text-blue-600" />
-                  </div>
-                  <div>
-                    <h4 className="text-lg font-semibold text-gray-900 mb-1">
-                      {HOMEPAGE_DATA.contact.contact.email.title}
-                    </h4>
-                    <p className="text-gray-600">
-                      {RESUME_DATA.contact.email}
-                    </p>
-                  </div>
-                </div>
-              </a>
-            </div>
-
-            {/* GitHub Contact */}
-            <div className="group">
-              <a
-                href={
-                  RESUME_DATA.contact.social.find(
-                    (social) => social.name === "GitHub"
-                  )?.url
-                }
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block p-6 bg-white rounded-xl border border-gray-200 transition-all duration-300 hover:bg-gray-50 hover:shadow-lg hover:border-gray-300 hover:-translate-y-1"
-              >
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 flex items-center justify-center bg-gray-100 rounded-full group-hover:bg-gray-200 transition-colors duration-300">
-                    <Github className="w-6 h-6 text-gray-700" />
-                  </div>
-                  <div>
-                    <h4 className="text-lg font-semibold text-gray-900 mb-1">
-                      {HOMEPAGE_DATA.contact.contact.github.title}
-                    </h4>
-                    <p className="text-gray-600">
-                      {HOMEPAGE_DATA.contact.contact.github.username}
-                    </p>
-                  </div>
-                  <div className="ml-auto">
-                    <svg
-                      className="w-5 h-5 text-gray-400 group-hover:text-gray-600 transition-colors"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                      />
-                    </svg>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
 
           {/* Availability Info */}
           <div className="mt-12 text-center">
