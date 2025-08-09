@@ -1,8 +1,8 @@
 ![cv](https://github.com/BartoszJarocki/cv/assets/1017620/79bdb9fc-0b20-4d2c-aafe-0526ad4a71d2)
 
-# Minimalist CV
+# Full-Stack Personal Website & Portfolio
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FBartoszJarocki%2Fcv)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fthinmintdev%2Ftalaat.dev)
 [![Next.js](https://img.shields.io/badge/Next.js-14-black?logo=next.js)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?logo=typescript)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-3.4-38B2AC?logo=tailwind-css)](https://tailwindcss.com/)
@@ -10,19 +10,32 @@
 [![Docker](https://img.shields.io/badge/Docker-ready-2496ED?logo=docker)](https://www.docker.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-A clean and modern web app that renders a minimalist CV/Resume with a print-friendly layout.
+A comprehensive full-stack personal website featuring CV, Portfolio, and Blog functionality with clean, print-friendly layouts and modern web features.
 
 ## ✨ Features
 
-- 📝 **Single Config File** - Update all your resume data in [one place](./src/data/resume-data.tsx)
+### Core Features
+- 📝 **Single Config File** - Update all personal/resume data in [one place](./src/data/resume-data.tsx)
+- 🌐 **Multi-Section Navigation** - CV (`/`), Portfolio (`/portfolio`), Blog (`/blog`)
 - 🎨 **Minimalist Design** - Clean, professional layout focused on content
 - 📱 **Responsive** - Looks great on all devices, from mobile to desktop
-- 🖨️ **Print Optimized** - Specially designed print styles for physical copies
-- ⌨️ **Keyboard Navigation** - Press `Cmd/Ctrl + K` to quickly navigate through sections
+- 🖨️ **Print Optimized** - Specially designed print styles for CV/Resume printing
+- ⌨️ **Command Palette** - Press `Cmd/Ctrl + K` for quick navigation and actions
 - 🚀 **Fast Performance** - Built with Next.js 14 and optimized for Core Web Vitals
-- 🔄 **Auto Layout** - Sections automatically adjust based on your content
-- 📊 **GraphQL API** - Access your resume data programmatically at `/graphql`
-- 🎯 **SEO Friendly** - Optimized metadata for better search visibility
+
+### Blog Features  
+- 📝 **MDX Blog Posts** - Write rich blog content with markdown and components
+- 🔍 **Blog Search** - Full-text search across all blog posts
+- 🧭 **Post Navigation** - Previous/Next navigation between posts
+- 📤 **Social Sharing** - Share posts on Twitter, LinkedIn, or copy links
+- 📋 **Copy Code Blocks** - Toggleable copy functionality for code snippets
+- 🏷️ **Post Tags & Categories** - Organize posts with tags and featured flags
+
+### Technical Features
+- 📊 **GraphQL API** - Access resume data programmatically at `/graphql`
+- 🎯 **SEO Friendly** - Optimized metadata for better search visibility  
+- 🔄 **Auto Layout** - Sections automatically adjust based on content
+- 🎨 **Constants Management** - Centralized text content management
 - 🐳 **Docker Support** - Easy containerized deployment
 
 ## 🛠️ Tech Stack
@@ -31,7 +44,10 @@ A clean and modern web app that renders a minimalist CV/Resume with a print-frie
 - **Language**: [TypeScript](https://www.typescriptlang.org/)
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/)
 - **UI Components**: [shadcn/ui](https://ui.shadcn.com/) (Radix UI)
+- **Content**: [Contentlayer2](https://contentlayer.dev/) for MDX blog posts
 - **GraphQL**: [Apollo Server](https://www.apollographql.com/) + [TypeGraphQL](https://typegraphql.com/)
+- **Code Quality**: [Biome.js](https://biomejs.dev/) (replaces ESLint/Prettier)
+- **Command Palette**: [cmdk](https://cmdk.paco.me/) for keyboard navigation
 - **Package Manager**: [pnpm](https://pnpm.io/)
 - **Deployment**: Optimized for [Vercel](https://vercel.com/)
 
@@ -47,8 +63,8 @@ A clean and modern web app that renders a minimalist CV/Resume with a print-frie
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/BartoszJarocki/cv.git
-   cd cv
+   git clone https://github.com/thinmintdev/talaat.dev.git
+   cd talaat.dev
    ```
 
 2. **Install dependencies**
@@ -75,7 +91,12 @@ A clean and modern web app that renders a minimalist CV/Resume with a print-frie
 pnpm dev          # Start development server
 pnpm build        # Build for production
 pnpm start        # Start production server
-pnpm lint         # Run ESLint
+pnpm lint         # Run Biome linting checks
+pnpm lint:fix     # Run Biome linting with auto-fix
+pnpm format       # Check code formatting
+pnpm format:fix   # Format code with Biome
+pnpm check        # Run both linting and formatting
+pnpm check:fix    # Run both with auto-fix
 ```
 
 ## 📁 Project Structure
@@ -83,36 +104,80 @@ pnpm lint         # Run ESLint
 ```
 src/
 ├── app/              # Next.js App Router
-│   ├── layout.tsx    # Root layout with metadata
-│   └── page.tsx      # Main resume page
+│   ├── blog/         # Blog functionality
+│   │   ├── [slug]/   # Individual blog posts
+│   │   └── page.tsx  # Blog listing
+│   ├── cv/           # CV/Resume page
+│   ├── portfolio/    # Portfolio showcase
+│   ├── graphql/      # GraphQL API endpoint
+│   ├── layout.tsx    # Root layout with navigation
+│   └── page.tsx      # Homepage
 ├── components/       # React components
 │   ├── ui/          # shadcn/ui components
-│   └── icons/       # Icon components
-├── data/            # Resume data configuration
-│   └── resume-data.tsx
+│   ├── blog-*.tsx   # Blog-specific components
+│   ├── copy-code.tsx # Code block copying
+│   ├── command-menu.tsx # Command palette (Cmd+K)
+│   └── site-*.tsx   # Site layout components
+├── data/            # Configuration files
+│   ├── resume-data.tsx  # Main data configuration
+│   └── homepage-data.ts # Homepage text constants
 ├── images/          # Static assets
 │   └── logos/       # Company logos
-└── apollo/          # GraphQL server setup
-    ├── resolvers.ts
-    └── type-defs.ts
+├── apollo/          # GraphQL server setup
+│   ├── resolvers.ts
+│   └── type-defs.ts
+└── content/         # Blog posts (MDX)
+    └── blog/        # Blog post markdown files
 ```
 
 ## 🎨 Customization
 
 ### Resume Data
 
-All resume content is stored in a single configuration file:
+All resume/personal content is stored in configuration files:
 
 ```typescript
 // src/data/resume-data.tsx
 export const RESUME_DATA = {
   name: "Your Name",
-  initials: "YN",
+  initials: "YN", 
   location: "Your City, Country",
   about: "Brief description",
   summary: "Professional summary",
+  work: [...], // Work experience
+  projects: [...], // Portfolio projects
   // ... more fields
 }
+```
+
+### Homepage Content
+
+Homepage text content is centralized for easy management:
+
+```typescript
+// src/data/homepage-data.ts
+export const HOMEPAGE_DATA = {
+  hero: { greeting: "Hello! 👋", namePrefix: "I'm" },
+  about: { title: "About Me" },
+  projects: { title: "Projects" },
+  // ... more sections
+}
+```
+
+### Blog Posts
+
+Create new blog posts as MDX files in `content/blog/`:
+
+```markdown
+---
+title: "Your Blog Post Title"
+publishedAt: "2024-01-15"
+summary: "Brief description"
+tags: ["tag1", "tag2"]
+featured: true
+---
+
+Your blog content with **markdown** support and React components.
 ```
 
 ### Styling
@@ -183,5 +248,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 <p align="center">
-  Made with ❤️ by <a href="https://github.com/BartoszJarocki">Bartosz Jarocki</a>
+  Made with ❤️ by <a href="https://github.com/thinmintdev">Alexander Talaat</a>
 </p>

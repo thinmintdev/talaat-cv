@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a **Minimalist CV/Resume web application** built with Next.js 14, React, TypeScript, and Tailwind CSS. The app renders a clean, print-friendly CV layout with data configured in a single file.
+This is a **Full-Stack Personal Website** featuring CV, Portfolio, and Blog functionality, built with Next.js 14, React, TypeScript, and Tailwind CSS. The application provides a comprehensive professional presence with clean, print-friendly layouts and modern web features.
 
 ## Commands
 
@@ -34,37 +34,84 @@ docker compose down      # Stop the container
 
 ### Project Structure
 - **`/src/app/`** - Next.js App Router pages and layouts
+  - **`/blog/`** - Blog functionality with MDX content
+  - **`/portfolio/`** - Portfolio showcase page
+  - **`/graphql/`** - GraphQL API endpoint
 - **`/src/components/`** - Reusable UI components (using shadcn/ui)
-- **`/src/data/resume-data.tsx`** - Single configuration file for all CV content
+- **`/src/data/resume-data.tsx`** - Single configuration file for all personal data
 - **`/src/apollo/`** - GraphQL server setup with resolvers and type definitions
 - **`/src/images/logos/`** - Company logo components
+- **`/content/blog/`** - MDX blog posts
+- **`/.contentlayer/`** - Generated blog content (auto-generated)
 
 ### Key Technologies
 - **Framework**: Next.js 14 with App Router
 - **Language**: TypeScript with decorators enabled
 - **Styling**: Tailwind CSS with custom theme extensions
 - **UI Components**: shadcn/ui (Radix UI based)
+- **Content Management**: Contentlayer2 for MDX blog posts
 - **GraphQL**: Apollo Server with type-graphql at `/graphql` endpoint
-- **Command Palette**: cmdk library for keyboard navigation
-- **Print Optimization**: Custom print styles in global CSS
+- **Command Palette**: cmdk library for keyboard navigation (Cmd+K)
+- **Code Quality**: Biome.js for linting and formatting
+- **Print Optimization**: Custom print styles for CV functionality
 
 ### Important Files
-- **`src/data/resume-data.tsx`** - Main configuration file containing all CV data (personal info, work experience, education, skills, projects)
-- **`src/app/page.tsx`** - Main resume page component that renders the CV
-- **`src/app/layout.tsx`** - Root layout with metadata and analytics
-- **`src/components/command-menu.tsx`** - Keyboard shortcuts (Cmd+K) for navigation
-- **`src/components/print-drawer.tsx`** - Print functionality component
+- **`src/data/resume-data.tsx`** - Main configuration file containing all personal data (CV, portfolio projects, contact info)
+- **`src/app/page.tsx`** - Main CV/resume page
+- **`src/app/portfolio/page.tsx`** - Portfolio showcase page
+- **`src/app/blog/page.tsx`** - Blog listing page
+- **`src/app/blog/[slug]/page.tsx`** - Individual blog post pages
+- **`src/app/layout.tsx`** - Root layout with navigation and analytics
+- **`src/components/site-header.tsx`** - Main navigation header
+- **`src/components/command-menu.tsx`** - Keyboard shortcuts for navigation
+- **`contentlayer.config.ts`** - Blog content configuration
 
 ## Development Notes
 
-### Adding New Sections
-To add new sections to the CV, modify the `RESUME_DATA` object in `src/data/resume-data.tsx`. The layout automatically adjusts based on the data provided.
+### Adding New Content
 
-### GraphQL API
-The app exposes a GraphQL endpoint at `/graphql` that serves the resume data. This can be used to integrate the CV data with other applications.
+#### CV/Resume Data
+To add new sections to the CV or update personal information, modify the `RESUME_DATA` object in `src/data/resume-data.tsx`. This single configuration file controls all personal data across the site.
 
-### Print Optimization
-The app includes special print styles to ensure the CV looks good when printed. Test print functionality when making layout changes.
+#### Blog Posts  
+Create new MDX files in the `content/blog/` directory. Each post requires frontmatter with title, publishedAt, summary, tags, and optional featured flag.
+
+#### Portfolio Projects
+Portfolio projects are managed through the `RESUME_DATA.projects` array in `src/data/resume-data.tsx`. The portfolio page automatically displays all projects with proper categorization.
+
+### Features
+
+#### Multi-Section Navigation
+- **CV** (`/`) - Professional resume/CV display
+- **Portfolio** (`/portfolio`) - Project showcase with tech stack details  
+- **Blog** (`/blog`) - Technical blog with MDX support
+- **Command Palette** (Cmd+K) - Quick navigation between sections
+
+#### GraphQL API
+The app exposes a GraphQL endpoint at `/graphql` that serves all personal data in a structured format. This enables integration with other applications and provides a clean API for the data.
+
+#### Print Optimization
+The CV page includes specialized print styles to ensure professional appearance when printed. Print functionality is accessible via the header button or command palette.
+
+### Content Management
+
+#### Blog Configuration
+- Uses Contentlayer2 for processing MDX files
+- Automatic slug generation and reading time calculation
+- Support for tags, featured posts, and draft status
+- Generated TypeScript types for type-safe content access
+
+#### Performance Features
+- Static generation for all pages where possible
+- Optimized images and assets
+- Code splitting and lazy loading
+- Minimal bundle size with tree shaking
+
+### Code Quality
+- **Biome.js** for linting and formatting (not ESLint/Prettier)
+- **TypeScript** with strict type checking
+- **Error boundaries** for graceful error handling
+- **Consistent coding standards** enforced through tooling
 
 ### Deployment
-The app is optimized for Vercel deployment but can be deployed anywhere that supports Next.js applications. Docker support is included for containerized deployments.
+The app is optimized for Vercel deployment but supports any platform that handles Next.js applications. Docker support is included for containerized deployments.
