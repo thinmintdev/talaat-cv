@@ -320,7 +320,7 @@ export default function HomePage() {
                                 return bullets.map(
                                   (line: string, i: number) => (
                                     <li
-                                      key={i}
+                                      key={`${project.title}-bullet-${i}`}
                                       className="flex items-start gap-2"
                                     >
                                       <span className="inline-block w-3 h-3 mt-2 rounded-sm bg-blue-600 flex-shrink-0" />
@@ -495,7 +495,7 @@ export default function HomePage() {
                           <div className="flex items-center gap-1 mt-2">
                             {Array.from({ length: 10 }, (_, idx) => idx + 1).map(
                               (i) => (
-                                <span
+                                <div
                                   key={i}
                                   className={`inline-block w-5 h-5 border-2 ${
                                     i <= Math.ceil((tech.level / 5) * 10)
@@ -503,6 +503,7 @@ export default function HomePage() {
                                       : "bg-gray-200 border-gray-300"
                                   }`}
                                   style={{ borderRadius: 2 }}
+                                  role="img"
                                   aria-label={
                                     i <= Math.ceil((tech.level / 5) * 10)
                                       ? HOMEPAGE_DATA.platformProficiency.accessibility

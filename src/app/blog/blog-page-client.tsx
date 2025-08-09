@@ -60,6 +60,7 @@ export function BlogPageClient({ posts }: BlogPageClientProps) {
                     ? `Found ${filteredPosts.length} post${filteredPosts.length === 1 ? "" : "s"} matching "${searchQuery}"`
                     : `No posts found matching "${searchQuery}"`}
                   <button
+                    type="button"
                     onClick={() => setSearchQuery("")}
                     className="ml-2 underline hover:no-underline"
                   >
@@ -161,6 +162,7 @@ export function BlogPageClient({ posts }: BlogPageClientProps) {
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
+                            aria-hidden="true"
                           >
                             <path
                               strokeLinecap="round"

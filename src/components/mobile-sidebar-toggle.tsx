@@ -20,6 +20,7 @@ export function MobileSidebarToggle({
     <>
       {/* Mobile sidebar toggle button */}
       <button
+        type="button"
         onClick={() => setIsOpen(true)}
         className="lg:hidden fixed bottom-6 right-6 z-40 bg-primary-600 hover:bg-primary-700 text-white p-3 rounded-full shadow-lg transition-colors"
         aria-label="Open sidebar"
@@ -34,6 +35,14 @@ export function MobileSidebarToggle({
           <div
             className="absolute inset-0 bg-black/50 backdrop-blur-sm"
             onClick={() => setIsOpen(false)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                setIsOpen(false);
+              }
+            }}
+            role="button"
+            tabIndex={0}
+            aria-label="Close sidebar"
           />
 
           {/* Sidebar panel */}
@@ -44,6 +53,7 @@ export function MobileSidebarToggle({
                 Blog Navigation
               </h2>
               <button
+                type="button"
                 onClick={() => setIsOpen(false)}
                 className="p-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
                 aria-label="Close sidebar"

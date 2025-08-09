@@ -66,7 +66,7 @@ export function BlogShare({ title, url }: BlogShareProps) {
 
         <div className="flex items-center gap-2">
           {/* Native Share (mobile) */}
-          {typeof navigator !== "undefined" && navigator.share && (
+          {typeof navigator !== "undefined" && "share" in navigator && (
             <Button
               variant="ghost"
               size="sm"
