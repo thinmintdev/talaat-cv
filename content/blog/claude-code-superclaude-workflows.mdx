@@ -1,0 +1,229 @@
+---
+title: "Claude Code + SuperClaude: Workflows That Actually Save Time"
+publishedAt: "2025-08-08"
+summary: "The Claude workflows I run daily—scaffolds, migrations, and performance audits—with real configs you can copy."
+tags:
+  - Claude Code
+  - SuperClaude
+  - Workflows
+  - Productivity
+featured: true
+---
+
+I don’t ask Claude to “build the app.” I ask it to do the high‑leverage, low‑joy work so I can keep my head in the architecture: scaffolding, migrations, refactors, performance hunts, and safety checks. SuperClaude turns those into repeatable workflows you can run and re‑run without fear.
+
+This is the playbook I actually use—commands, configs, and the guardrails that save hours without creating a black box.
+
+## The philosophy: fewer keystrokes, more certainty
+
+Good AI workflows shouldn’t surprise your teammates or break CI. The litmus test:
+
+- Re‑runnable: If you run the command twice, the second run should be a no‑op.
+- Diffable: Every change is visible in a PR; no hidden state.
+- Test‑aware: Where risk is high, tests appear with the code.
+- Convention‑first: Output matches your existing patterns (naming, lint, types).
+
+SuperClaude encodes those expectations with personas, quality gates, and wave orchestration.
+
+## My SuperClaude base config
+
+```yaml
+# ~/.claude/superclaude/config.yml
+personas:
+  default: architect
+  frontend: frontend
+  backend: backend
+
+quality_gates:
+  typescript_check: true
+  lint_validation: true
+  test_coverage: 75
+  forbid_todo: true
+
+wave_orchestration:
+  auto_delegation: true
+  complexity_threshold: 0.6
+  max_concurrent: 5
+  commit_granularity: feature
+
+conventions:
+  component_style: tailwind
+  test_runner: vitest
+  e2e: playwright
+  api_validation: zod
+  env_management: dotenv
+```
+
+This tells SuperClaude how “opinionated” to be. The higher the quality gates, the more often the agent will pause and ask for confirmation or produce tests.
+
+## Workflow 1: Component scaffolds you won’t have to re‑do
+
+Slash command:
+
+```
+/component Button --style tailwind --tests --a11y
+```
+
+What it does (and why it saves time):
+
+1) Creates `src/components/Button/Button.tsx` with typed props and variants.
+2) Generates `Button.test.tsx` (RTL + happy/error states) and `Button.stories.tsx`.
+3) Emits `index.ts` barrel, updates central `src/components/index.ts` if you have one.
+4) Lints, typechecks, and runs tests before offering the diff.
+
+Example output (trimmed to key parts):
+
+```tsx
+// src/components/Button/Button.tsx
+import { cva, type VariantProps } from 'class-variance-authority'
+import { cn } from '@/lib/utils'
+
+const button = cva('inline-flex items-center rounded-md font-medium focus:outline-none focus:ring-2', {
+  variants: {
+    variant: {
+      primary: 'bg-blue-600 text-white hover:bg-blue-700',
+      ghost: 'bg-transparent text-gray-900 hover:bg-gray-100 dark:text-gray-100 dark:hover:bg-gray-800',
+    },
+    size: {
+      sm: 'px-2.5 py-1.5 text-sm',
+      md: 'px-3 py-2 text-sm',
+      lg: 'px-4 py-2.5 text-base',
+    },
+  },
+  defaultVariants: { variant: 'primary', size: 'md' },
+})
+
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof button> {}
+export function Button({ className, variant, size, ...props }: ButtonProps) {
+  return <button className={cn(button({ variant, size }), className)} {...props} />
+}
+```
+
+Pitfalls avoided:
+
+- It won’t create duplicate exports; it checks existing indices.
+- It matches your ESLint/Prettier configs.
+- It uses your `cn`/CVA stack if present; otherwise, it falls back cleanly.
+
+## Workflow 2: State management migration without the big‑bang rewrite
+
+Command:
+
+```
+/migrate redux zustand --slices auth,cart,ui --keep-actions --pr
+```
+
+The migration plan the agent generates (and executes if approved):
+
+1) Inventory: where Redux is imported, slice shapes, thunk usage, selectors.
+2) Adapter layer: create Zustand stores that mirror slice state and actions.
+3) Incremental switch: component by component, replace `useSelector` with store hooks.
+4) Tests: Snapshot a few critical selectors; ensure behavior parity.
+5) Cleanup: remove unused reducers/middleware, strip Redux devtools.
+
+Example adapter snippet:
+
+```ts
+// src/store/auth.ts
+import { create } from 'zustand'
+
+type State = { user: { id: string; email: string } | null; token?: string }
+type Actions = { login: (user: State['user'], token?: string) => void; logout: () => void }
+
+export const useAuth = create<State & Actions>((set) => ({
+  user: null,
+  login: (user, token) => set({ user, token }),
+  logout: () => set({ user: null, token: undefined }),
+}))
+```
+
+Safety rails:
+
+- The agent groups commits per slice so you can revert in isolation.
+- It inserts TODO comments only behind a `--allow-todo` flag; otherwise, it files issues.
+- It leaves the Redux store in place until the last consumer moves.
+
+## Workflow 3: Performance audits that land as green PRs
+
+Command:
+
+```
+/optimize bundle --metrics lighthouse --target LCP,TBT
+```
+
+What you get:
+
+- A baseline Lighthouse report committed to `docs/perf/DATE.md`.
+- An optimization plan ranked by ROI (code split routes X/Y, convert unoptimized images A/B, lazy‑load charts).
+- A PR with atomic commits and a follow‑up report re‑run showing deltas.
+
+Representative change:
+
+```tsx
+// Before: dashboard imports the heavy chart lib at module scope
+import Chart from 'super-charts'
+
+// After: lazy import with SSR guard
+const Chart = dynamic(() => import('super-charts'), { ssr: false, loading: () => <Spinner /> })
+```
+
+Guardrails:
+
+- It won’t ship `ssr: false` on pages that render above the fold without a placeholder.
+- It refuses to inline large images; it switches to `next/image` or a CDN URL.
+
+## Wave orchestration: getting the order right
+
+“Waves” are staged passes: analyze → plan → refactor → validate. For complex changes, the tool proposes waves and pauses between them.
+
+Example for a design‑system adoption:
+
+1) Inventory usage of Tailwind utilities and bespoke CSS modules.
+2) Introduce primitives (Button, Input, Card) with CVA and tokens.
+3) Replace instances in low‑risk pages; run visual tests.
+4) Roll through critical flows; measure regressions.
+
+The orchestration prevents giant diffs that are hard to review and even harder to roll back.
+
+## Personas: targeted competence on demand
+
+- Architect: cares about boundaries, types, and interfaces.
+- Frontend: optimizes a11y, focus rings, keyboard traps.
+- Backend: trims allocations, standardizes error envelopes, adds Zod validation.
+- Performance: chases LCP/INP; caches right, not just hard.
+
+Select with flags or set per‑project defaults in the config.
+
+## MCP integration: tools, not magic
+
+The agent is strongest when it can look things up and run checks. Useful servers:
+
+- Context7 for docs lookup (framework APIs)
+- Sequential for deep analysis
+- Playwright for smoke testing
+
+Hook them in your Claude config and they’ll light up for relevant commands.
+
+## Keeping humans in the loop
+
+- Always request a plan before execution on wide‑ranging changes.
+- Ask for a commit breakdown ahead of time; review sequence matters.
+- Expect the agent to write tests when it modifies behavior. If it can’t, it should file an issue with a failing reproduction you can complete.
+
+## Common pitfalls and how to avoid them
+
+- Letting unstaged changes confuse the agent: commit or stash before large runs.
+- Accepting API schema guesses: provide types or a schema file; the agent will respect them.
+- Allowing hidden TODOs to creep in: fail builds on `TODO(` unless a flag explicitly allows.
+
+## A practical checklist
+
+- [ ] Base config with personas, gates, and conventions checked into the repo
+- [ ] Slash commands `/component`, `/migrate`, `/optimize` (documented for the team)
+- [ ] CI jobs for typecheck, lint, unit, and a quick e2e smoke
+- [ ] Playwright smoke script for top 3 flows
+- [ ] A “no hidden TODOs” rule or bot
+
+## Conclusion
+
+SuperClaude + Claude Code shines when you treat it like power tooling, not an autopilot. Keep changes reviewable, tests close to code, and conventions explicit. Start with scaffolds, add migrations, then tackle performance. Over time you’ll build a personal automation layer that feels like you—but faster and more consistent on the work you used to dread.

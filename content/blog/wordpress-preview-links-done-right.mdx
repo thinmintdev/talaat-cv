@@ -1,0 +1,22 @@
+---
+title: "WordPress Preview Links, Done Right (No Plugin Spaghetti)"
+publishedAt: "2025-08-08"
+summary: "Secure, editor‑friendly preview links for headless WordPress without turning your stack into a haunted house."
+tags:
+  - Headless WordPress
+  - Previews
+  - Security
+featured: false
+---
+
+The preview story doesn’t have to be scary. Tokenize it, timebox it, and keep editors happy.
+
+## Recipe
+1. Add a per‑post `preview_token` meta field
+2. WP: Add a REST endpoint to validate token + slug
+3. Next.js: `/api/preview` reads token → sets cookie → redirects
+
+### Why this works
+- No plugin mega‑config
+- Tokens can be rotated per post
+- Auditable and debuggable

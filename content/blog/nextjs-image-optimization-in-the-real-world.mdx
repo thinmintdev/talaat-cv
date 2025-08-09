@@ -1,0 +1,15 @@
+---
+title: "Next.js Image Optimization in the Real World"
+publishedAt: "2025-08-08"
+summary: "Not a docs rehash—practical patterns for `next/image`: CDNs, aggressive caching, and avoiding layout shifts."
+tags:
+  - Next.js
+  - Performance
+  - Images
+featured: false
+---
+
+- Use `fill` + intrinsic aspect ratios for cards and grids
+- Pre-size hero images; don’t lazy-load above the fold
+- Cache at CDN with 1d TTL; purge on publish
+- For CMS origins, proxy via Edge to normalize headers

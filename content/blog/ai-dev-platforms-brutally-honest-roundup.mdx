@@ -1,0 +1,140 @@
+---
+title: "AI Dev Platforms: A Brutally Honest Roundup (21st.dev, Vercel v0, Copilot, Claude Code, more)"
+publishedAt: "2025-08-08"
+summary: "I used the big AI dev tools for real work. Here’s where they shine, where they stumble, and which I’d actually pay for."
+tags:
+  - Reviews
+  - AI Tools
+  - Developer Experience
+featured: true
+---
+
+Short version: there’s no autopilot. But there are real accelerants—if you use them where they’re strong and never hand them the keys to your repo. I tested the current wave of AI dev platforms on a real app and kept them in rotation for a month. This is the report I’d give a team choosing what to adopt.
+
+## Methodology (so we’re comparing apples)
+
+Project: a Next.js 14 app with Postgres (Prisma), Auth.js, Stripe webhooks, and a handful of API routes. The tasks I asked tools to help with:
+
+1) Scaffold components that match an existing design system (CVA + Tailwind)
+2) Add a feature end‑to‑end (new API, form, validation, tests)
+3) Migrate a small module (switch state management lib)
+4) Performance sweep (code split, image fixes, guard SSR)
+5) Write unit tests for non‑trivial logic
+
+I graded on accuracy, code quality, speed, recovery from confusion, and how much cleanup I had to do.
+
+## Scorecard (out of 10)
+
+- Claude Code: 9 — best at multi‑file context, safest diffs, real plans
+- GitHub Copilot: 8 — fast inline completion, great “fill‑in‑the‑middle”
+- Cursor: 7 — pleasant agent UX, gets jumpy on large refactors
+- 21st.dev: 7 — impressive prompts‑to‑repo, opinionated rails
+- Vercel v0: 6 — flashy UI scaffolds, struggles on data flows and auth
+
+Why Claude wins: it talks in plans and diffs instead of “trust me.” It’s the most comfortable at refactors that span multiple files, and it asks for confirmation at the right times.
+
+## Tool by tool: where they shine
+
+### Claude Code
+
+Use it for: multi‑file changes, scaffolds with tests, migrations with a plan, performance passes.
+
+It excels at: seeing your codebase as a system and proposing steps. If you give it types, it respects them. If you set quality gates, it will try to hit them.
+
+Weaknesses: it can over‑explain when you just want a one‑liner; be specific with prompts. For very niche library APIs, it benefits from a docs MCP.
+
+### GitHub Copilot
+
+Use it for: speed boosts while typing; templatey code; repetitive transforms.
+
+It excels at: in‑line “I know what you mean” completion when the surrounding context is clear. Good at TypeScript ergonomics.
+
+Weaknesses: it doesn’t know your project intent; it’ll happily hallucinate a function that looks right but doesn’t exist.
+
+### Cursor
+
+Use it for: agent‑style chats scoped to a set of files; quick PR preparation.
+
+It excels at: making it easy to include/exclude files and propose diffs.
+
+Weaknesses: state drifts on long sessions. Keep sessions short and commit frequently.
+
+### 21st.dev
+
+Use it for: spinning up a new repo from a high‑level spec; getting a starting point with architecture patterns baked in.
+
+It excels at: opinionated scaffolds (auth, db, routing) that are closer to “real” than most templates.
+
+Weaknesses: opinions leak into places you may not want; unpicking can cost the time you “saved.”
+
+### Vercel v0
+
+Use it for: quick UI explorations from designs; throwaway branches to try component ideas.
+
+It excels at: generating attractive, modern components that look good enough for a demo.
+
+Weaknesses: connecting to real data and auth flows is where the illusion breaks.
+
+## Scenarios: how they did on real tasks
+
+1) Component scaffold (Button, Modal, Table)
+
+- Claude: produced TSX + tests + stories matching CVA conventions, minimal fixups.
+- Copilot: great at filling in the cva variants once I stubbed the component.
+- v0: gorgeous UI but more CSS than I wanted; rework needed to match tokens.
+
+2) End‑to‑end feature (feedback form → API → validation → email)
+
+- Claude: proposed a plan, created a Zod schema, API route, and minimal tests.
+- Cursor: helped wire the pieces once they existed; decent with small diffs.
+- Copilot: excelled at schema → form glue in TS.
+
+3) Migration (Redux → Zustand)
+
+- Claude: produced a para‑plan, moved one slice at a time, grouped commits nicely.
+- Cursor: okay for simple slices; struggled when selectors were complex.
+
+4) Perf sweep
+
+- Claude: found and fixed obvious SSR pitfalls, added dynamic imports prudently.
+- Copilot: sped up mechanical changes once the pattern was clear.
+
+5) Unit tests for logic
+
+- Claude: can write high‑quality tests if you show the function surface and examples.
+- Copilot: quick at writing the “expected” shape once a test exists.
+
+## How these tools break (and how to keep them honest)
+
+- Uncommitted changes confuse long‑running agents. Commit or stash first.
+- Ambiguous prompts create confident nonsense. Provide types, signatures, or a failing test.
+- No tests? You’ll clean up subtle errors later. Ask for tests with the code.
+
+Process I use:
+
+1) Write a short spec and constraints (“use Zod; keep API envelopes standard”).
+2) Ask for a plan and a commit breakdown.
+3) Let the tool implement one chunk; run tests and typecheck.
+4) Iterate, keeping diffs small. If it thrashes, reset context or start a new session.
+
+## Team adoption: what to turn on now
+
+- Claude Code for refactors, migrations, and performance PRs.
+- Copilot for in‑line acceleration across the team.
+- v0 for design‑heavy teams prototyping components (opt‑in; separate branch).
+
+Guardrails:
+
+- A CI check that fails on `TODO(` or `FIXME(` unless the PR is flagged.
+- A “tests required” rule for PRs that touch core logic.
+- A short guide of blessed prompts and commands (keep a `/docs/ai-playbook.md`).
+
+## What I’d pay for (and what I’d wait on)
+
+Pay for Claude Code and Copilot if your team writes TypeScript and ships web apps. They complement each other: Claude for thinking across files, Copilot for speed in a file.
+
+Wait on “full agents that manage your repo.” The UX is getting better, but they still get lost on edge cases and state drift. Until they’re hermetic (tests plus state snapshots), keep them on a leash.
+
+## Final recommendations
+
+Adopt AI tools where the benefits compound: scaffolding, migrations, tests, and perf sweeps. Keep humans in charge of architecture, boundaries, and product intuition. Demand plans, small diffs, and tests. You’ll ship faster without handing your codebase to a black box.

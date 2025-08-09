@@ -1,0 +1,244 @@
+---
+title: "Headless WordPress on Next.js: A Real‑World Stack That Doesn’t Hurt"
+publishedAt: "2025-08-08"
+summary: "Practical headless WordPress with Next.js using WPGraphQL, ISR, and editor‑friendly previews without yak shaving."
+tags:
+  - Headless WordPress
+  - Next.js
+  - WPGraphQL
+  - ISR
+featured: true
+---
+
+If you want headless WordPress without the drama, you need three things to feel boringly reliable: a clean schema (WPGraphQL), predictable caching (ISR + on‑demand revalidation), and previews that feel native to editors. The stack below is opinionated, repeatable, and battle‑tested on real launches.
+
+## Architecture at a glance
+
+- Authoring: WordPress with WPGraphQL, ACF, and ACF GraphQL
+- Delivery: Next.js App Router (RSC), edge cache via your host (e.g., Vercel)
+- Data: GraphQL queries with typed fragments; cache tags for precise invalidation
+- Previews: token‑based preview cookie → draft fetches (`cache: 'no-store'`)
+- DX: contentlayer for MDX docs/notes that live in the repo alongside CMS pages
+
+Why this works: WordPress remains an excellent editor experience; Next.js gives you modern rendering, data ownership, and performance. The glue is WPGraphQL with a schema that you actually control.
+
+## The WordPress side: keep it simple, keep it consistent
+
+Required plugins:
+
+- WPGraphQL
+- ACF Pro + WPGraphQL for ACF
+- (Optional) WPGraphQL Smart Cache (adds cache bust webhooks)
+- (Optional) WPGraphQL Yoast (if you use Yoast SEO fields)
+
+Conventions that pay off later:
+
+- Use ACF field groups with consistent field keys and locations (e.g., “Post: SEO”, “Post: Hero”).
+- Favor primitive fields + repeaters over deeply nested flexible content until you truly need it.
+- Lock down roles and capabilities (Editors publish; Authors draft; no plugin installation in production).
+
+## Modeling content with GraphQL fragments
+
+Keep your queries small, typed, and reusable with fragments. Example post fragments:
+
+```graphql
+fragment SeoFields on Post {
+  seo: seo {
+    title
+    metaDesc
+    opengraphImage {
+      mediaItemUrl
+      altText
+    }
+  }
+}
+
+fragment PostCard on Post {
+  slug
+  title
+  date
+  excerpt
+  featuredImage {
+    node { sourceUrl altText }
+  }
+}
+
+query PostBySlug($slug: ID!) {
+  post(id: $slug, idType: SLUG) {
+    ...SeoFields
+    content
+    ...PostCard
+  }
+}
+```
+
+Pro tip: generate TypeScript types from your GraphQL schema (e.g., `graphql-code-generator`) so your Next.js code gets real intellisense and nullability.
+
+## Next.js data‑fetching: RSC by default, opt into client only when needed
+
+In the App Router, fetch content in server components for maximum cache control. Tag your queries so you can surgically invalidate later.
+
+```ts
+// lib/wp.ts
+export async function wpFetch<T>(query: string, variables?: Record<string, any>, tags: string[] = []) {
+  const res = await fetch(process.env.WP_GRAPHQL_ENDPOINT!, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ query, variables }),
+    next: { revalidate: 300, tags }, // default 5 min ISR, override per call
+  })
+  if (!res.ok) throw new Error('WPGraphQL fetch failed')
+  const json = await res.json()
+  if (json.errors) throw new Error(JSON.stringify(json.errors))
+  return json.data as T
+}
+```
+
+Use it in a route segment:
+
+```tsx
+// app/blog/[slug]/page.tsx
+import { wpFetch } from '@/lib/wp'
+import { notFound } from 'next/navigation'
+
+export default async function PostPage({ params }: { params: { slug: string } }) {
+  const data = await wpFetch<{ post: any }>(
+    /* GraphQL */ `query PostBySlug($slug: ID!) { post(id: $slug, idType: SLUG) { title date content } }`,
+    { slug: params.slug },
+    ["post:" + params.slug]
+  )
+  if (!data.post) return notFound()
+  return (
+    <article className="prose dark:prose-invert">
+      <h1>{data.post.title}</h1>
+      <div dangerouslySetInnerHTML={{ __html: data.post.content }} />
+    </article>
+  )
+}
+```
+
+## ISR + On‑demand revalidation you can reason about
+
+Rules of thumb:
+
+- Landing/marketing pages: `revalidate: 60` during launches, longer otherwise.
+- Blog posts: `revalidate: 300` and tag by `post:{slug}` so you can revalidate just that one.
+- Taxonomies and lists: tag by `posts` and revalidate when anything publishes.
+
+Wire revalidation from WordPress via webhook. You can use WPGraphQL Smart Cache or a tiny custom action.
+
+```php
+// functions.php (theme or mu-plugin)
+add_action('transition_post_status', function($new_status, $old_status, $post) {
+  if ($post->post_type !== 'post') return;
+  if ($new_status === 'publish') {
+    wp_remote_post(getenv('NEXT_REVALIDATE_ENDPOINT'), [
+      'headers' => ['Authorization' => 'Bearer ' . getenv('REVALIDATE_TOKEN')],
+      'body' => ['slug' => $post->post_name],
+      'timeout' => 5
+    ]);
+  }
+}, 10, 3);
+```
+
+```ts
+// app/api/revalidate/route.ts
+import { NextResponse } from 'next/server'
+import { revalidateTag } from 'next/cache'
+
+export async function POST(req: Request) {
+  const auth = req.headers.get('authorization')
+  if (auth !== `Bearer ${process.env.REVALIDATE_TOKEN}`) return NextResponse.json({ ok: false }, { status: 401 })
+  const { slug } = await req.json()
+  revalidateTag('posts')
+  revalidateTag(`post:${slug}`)
+  return NextResponse.json({ ok: true })
+}
+```
+
+## Previews editors actually trust
+
+Preview flow in 3 steps:
+
+1) Editor clicks Preview in WP → WP opens your Next.js `/api/preview` with a one‑time token.
+2) Your handler validates token, sets a `preview` cookie, redirects to the draft URL.
+3) Pages read the cookie and fetch drafts with `cache: 'no-store'` and explicit `preview: true` inputs.
+
+```ts
+// app/api/preview/route.ts
+import { cookies } from 'next/headers'
+import { NextResponse } from 'next/server'
+
+export async function GET(req: Request) {
+  const { searchParams } = new URL(req.url)
+  const token = searchParams.get('token')
+  if (token !== process.env.WP_PREVIEW_TOKEN) return NextResponse.json({ ok: false }, { status: 401 })
+  cookies().set('wp-preview', '1', { httpOnly: true, secure: true, sameSite: 'lax' })
+  const to = searchParams.get('to') || '/'
+  return NextResponse.redirect(new URL(to, req.url))
+}
+```
+
+```ts
+// lib/wp-preview.ts
+export async function wpPreviewFetch<T>(query: string, variables?: Record<string, any>) {
+  const res = await fetch(process.env.WP_GRAPHQL_ENDPOINT!, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ query, variables }),
+    cache: 'no-store',
+  })
+  const json = await res.json()
+  return json.data as T
+}
+```
+
+In your page, branch on cookie presence (RSC can read headers) and call the preview fetcher.
+
+## Media and images: avoid the slow path
+
+- Use `next/image` with the WordPress domain whitelisted in `next.config.js`.
+- Prefer the `sourceUrl` that maps to an optimized size (e.g., `medium_large`) when available.
+- If you control infra, put a thumbor/imgproxy in front of WordPress and serve every image through it.
+
+## Caching and performance guardrails
+
+- Tag everything; never revalidate the entire site unless truly necessary.
+- Avoid `cache: 'no-store'` except for previews and admin‑only views.
+- Batch GraphQL queries where sensible, but prefer smaller, targeted queries over a giant “one to rule them all.”
+- Consider a micro cache for GraphQL responses (e.g., 30–120 seconds) if your WordPress can’t handle traffic spikes.
+
+## Failure modes you should plan for
+
+- Slug changes: store previous slugs and emit `308` redirects.
+- Deleted posts: return 410 Gone, not 404, to help caches converge.
+- Partial downtime: if WordPress is flaky, keep serving ISR‑cached pages and degrade gracefully on lists.
+- Editor mistakes: required field nulls → guard in renderers; never let a missing image crash a page.
+
+## Security and operations
+
+- Disable file editing in WP (`DISALLOW_FILE_EDIT`), restrict plugin installs.
+- Put WP behind basic auth on non‑production environments.
+- Keep tokens secret; rotate your preview and revalidation tokens periodically.
+- Backups and staging refreshes: scripts, not manual checklists.
+
+## Testing the contract
+
+- Schema drift catches: generate TS types; run `codegen` in CI when schema changes.
+- Critical queries get smoke tests (does `postBySlug` return required fields?).
+- Visual preview baseline: lightweight Playwright test to load draft pages.
+
+## A pragmatic checklist
+
+- [ ] WPGraphQL, ACF, and ACF GraphQL installed and configured
+- [ ] GraphQL fragments for SEO, card, hero blocks
+- [ ] Revalidation endpoint secured and wired to WP webhook
+- [ ] Preview cookie flow implemented and tested end‑to‑end
+- [ ] Image domains whitelisted; large images optimized
+- [ ] Tags applied to all fetches; list + detail cached appropriately
+- [ ] Redirects for slug changes; 410 for deletions
+- [ ] Backups, staging auth, and CI schema checks
+
+## Conclusion
+
+Headless WordPress doesn’t have to be a maze of plugins and mystery caches. Treat WordPress like a stable editor UI, keep the data model clean in GraphQL, let Next.js own rendering and caching, and give editors previews that look exactly like production. Start simple, tag your fetches, and add complexity only when a real production need shows up. That’s how you ship headless without the headache.

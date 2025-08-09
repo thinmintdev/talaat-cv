@@ -1,0 +1,169 @@
+---
+title: "MDX or CMS? When to Choose Which"
+publishedAt: "2025-08-08"
+summary: "If your site has editors, MDX is not a CMS. If your site has engineers, a CMS is not a codebase. Here’s my decision tree."
+tags:
+  - MDX
+  - CMS
+  - Content Strategy
+featured: false
+---
+
+MDX and CMSes solve different problems that often get conflated. MDX shines when content is part of the codebase, shaped by the same tooling, versioned with the same PRs, and deployed in lock‑step with features. A CMS shines when publishing cadence and editorial workflows outweigh the benefits of “content as code.”
+
+Here’s how I decide, with real‑world scenarios, hybrids that work, and migration patterns that don’t wreck your roadmap.
+
+## The one‑page decision tree
+
+Start from the top; the first “Yes” that fits your situation tends to be the right call.
+
+1) Do non‑technical editors publish frequently (daily/weekly)?
+  - Yes → CMS.
+2) Is preview parity with production crucial for stakeholders?
+  - Yes → CMS (or a hybrid with CMS‑driven pages).
+3) Do you require translations/localization managed by editors?
+  - Yes → CMS (with a proper i18n workflow).
+4) Is content coupled to the code (release notes, developer docs, component examples)?
+  - Yes → MDX.
+5) Is the team comfortable reviewing content changes in Git PRs?
+  - Yes → MDX (possibly with a visual editor on top).
+6) Do you want to type‑check content and catch schema issues at build time?
+  - Yes → MDX (with contentlayer or similar).
+
+If you fall on both sides, go hybrid.
+
+## MDX: when content is part of the product
+
+Strengths:
+
+- Types, lint, and tests work for content, too. Frontmatter can be typed. Inline components can be tested.
+- Docs that evolve with code. You can update examples and copy as you refactor.
+- Versioning and releases just work (e.g., docs tied to a library version).
+
+Trade‑offs:
+
+- Publishing requires engineering support (PRs, reviews, deploys).
+- Preview is often weaker or bespoke unless you add tooling.
+- Non‑technical editors will struggle without a visual layer.
+
+MDX sweet spots:
+
+- Technical blogs and devrel content that use live components.
+- Design system docs, prop tables, and interactive sandboxes.
+- Internal engineering handbooks where Git is already the norm.
+
+DX stack that scales:
+
+- contentlayer for typing/frontmatter → generated TS types for posts
+- MDX components for common patterns (Callout, Video, CodeDemo)
+- Lint rules to forbid raw HTML or unapproved components
+
+```ts
+// contentlayer.config.ts (MDX typing)
+export const Post = defineDocumentType(() => ({
+  name: 'Post',
+  filePathPattern: 'blog/**/*.mdx',
+  fields: {
+   title: { type: 'string', required: true },
+   publishedAt: { type: 'date', required: true },
+   summary: { type: 'string', required: true },
+   tags: { type: 'list', of: { type: 'string' }, default: [] },
+   featured: { type: 'boolean', default: false },
+  },
+}))
+```
+
+## CMS: when cadence and collaboration lead
+
+Strengths:
+
+- Roles, permissions, review workflows, and scheduling are built‑in.
+- Previews that match production without dev cycles.
+- Multi‑language editorial workflows with translation memory.
+
+Trade‑offs:
+
+- Another datastore and schema to maintain (and migrate).
+- Content is “at a distance” from code; drift can happen.
+- Vendor lock‑in or self‑hosting complexity, depending on choice.
+
+CMS sweet spots:
+
+- Marketing sites with frequent updates from non‑technical teams.
+- Multi‑country content where timezones and calendars matter.
+- Complex editorial production (legal review, embargoes, multi‑step approvals).
+
+Choosing a CMS:
+
+- Hosted headless (e.g., Hygraph, Contentful, Sanity) if you want low ops.
+- Self‑hosted (e.g., WordPress headless, Strapi) if you need data residency or custom workflows.
+
+## Hybrid patterns that work in practice
+
+You don’t have to pick one. Split by audience and coupling:
+
+- CMS for public pages (Home, Pricing, Solutions, Case Studies)
+- MDX for dev docs, changelogs, and internal technical blogs
+- Shared components and tokens so both sides look and feel the same
+
+Routing strategy:
+
+- `/blog/*`: MDX (contentlayer)
+- `/customers/*`, `/solutions/*`: CMS‑driven (GraphQL/REST)
+- `/docs/*`: MDX with versioning and live examples
+
+Preview strategy:
+
+- CMS pages: native preview via CMS tokens → Next.js preview cookies
+- MDX pages: local preview behind an authoring branch or a Git‑based visual editor (e.g., a Netlify CMS/Tina overlay), or a “drafts” folder filtered out of production builds
+
+Design continuity:
+
+- Central `MDXProvider` that exposes `Callout`, `Image`, `CodeBlock`
+- The same components are available to CMS renderers (portable text, rich text → React components)
+
+## Migration strategies (both directions)
+
+MDX → CMS:
+
+- Extract frontmatter fields into a CMS model (title, date, summary, tags).
+- Import MDX body as “rich text” or keep it as MDX field if the CMS supports it.
+- Keep slugs stable; record redirects in case of structure shifts.
+- Add a “code component allowlist” if you keep MDX inside the CMS.
+
+CMS → MDX:
+
+- Export entries as markdown/MDX; write a script to convert fields to frontmatter.
+- Store media assets locally or via a CDN with signed URLs.
+- Re‑implement rich text marks as MDX components where needed.
+
+Guardrails to avoid pain:
+
+- Never migrate without a slug map. Keep old → new.
+- Freeze content changes during the cutover window or maintain two‑way sync temporarily.
+- Validate with a crawler (broken links, missing images) before flipping DNS.
+
+## Cost and performance
+
+- MDX build costs are mostly CI time; serving is as fast as your host.
+- CMS adds a data fetch layer; use ISR/SSR wisely and tag cache keys.
+- For traffic spikes, CMS rate limits matter; keep a micro cache for list queries.
+
+## Team ergonomics
+
+- Engineers: MDX feels native. PR reviews include content; refactors include docs.
+- Editors: CMS feels native. They get drafts, schedules, and clear ownership.
+- Product: Hybrid lets each team move at its natural cadence without stepping on the other.
+
+## A quick checklist
+
+- [ ] Identify who publishes and how often
+- [ ] Decide what needs preview parity with production
+- [ ] Map which content is coupled to code vs. coupled to campaigns
+- [ ] Choose MDX/CMS/hybrid accordingly
+- [ ] Design the preview path(s) and cache strategy up front
+- [ ] Write down the migration/rollback plan before touching prod
+
+## Conclusion
+
+Pick the tool that matches your publishing reality. MDX is unbeatable for code‑adjacent content and tight developer feedback loops. A CMS is irreplaceable for editorial workflows and non‑technical ownership. The best stacks mix both: engineers control the docs and developer surfaces with MDX, while marketing and comms publish confidently through a CMS—with shared components so the site reads as one voice. Start from the decision tree, prototype the preview path, and only then commit. You’ll save weeks of rework and keep both worlds happy.

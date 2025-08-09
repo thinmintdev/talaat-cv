@@ -1,0 +1,35 @@
+---
+title: "Next.js App Router: The Hard Parts I Wish I’d Known"
+publishedAt: "2025-08-08"
+summary: "Real-world App Router snags: caching, streaming, server actions, and how to avoid shooting yourself in the foot."
+tags:
+  - Next.js
+  - App Router
+  - Performance
+  - Caching
+featured: false
+---
+
+> App Router is fantastic—until you mix cache boundaries, server actions, and dynamic routes. Here are the traps and how I defuse them.
+
+## 1) Caching is a contract
+- `fetch(..., { cache: 'no-store' })` wins over everything
+- `revalidate` propagates, but children can still opt out
+- On-demand revalidation: keep IDs stable or you’ll miss entries
+
+## 2) Streaming ≠ free
+- Use Suspense for expensive components only
+- Avoid “spinner waterfalls”; group Suspense boundaries
+
+## 3) Server Actions gotchas
+- Treat them like RPC: validate inputs (Zod), handle errors
+- Don’t leak secrets through thrown errors
+
+## 4) SEO and OG images
+- Use dynamic OG routes, cache for ~1 day, purge on publish
+
+## My default checklist
+- [ ] Explicit cache policy per route
+- [ ] All actions validated
+- [ ] Streaming boundaries are intentional
+- [ ] Logs for revalidate events
