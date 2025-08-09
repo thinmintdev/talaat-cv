@@ -1,0 +1,34 @@
+{
+  "title": "Headless WordPress Caching Playbook",
+  "publishedAt": "2025-08-08T00:00:00.000Z",
+  "summary": "A practical cache strategy for WPGraphQL + Next.js: what to cache, where to purge, and how to avoid 500s.",
+  "tags": [
+    "Headless WordPress",
+    "Next.js",
+    "Performance"
+  ],
+  "draft": false,
+  "featured": false,
+  "body": {
+    "raw": "\n## TL;DR\n- Cache HTML at the edge for list pages.\n- Cache GraphQL responses with SWR/React Query on the client.\n- Purge selectively on post updates using webhooks.\n",
+    "code": "var Component=(()=>{var u=Object.create;var a=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var x=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var g=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),j=(t,e)=>{for(var r in e)a(t,r,{get:e[r],enumerable:!0})},c=(t,e,r,o)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let s of p(e))!f.call(t,s)&&s!==r&&a(t,s,{get:()=>e[s],enumerable:!(o=m(e,s))||o.enumerable});return t};var _=(t,e,r)=>(r=t!=null?u(x(t)):{},c(e||!t||!t.__esModule?a(r,\"default\",{value:t,enumerable:!0}):r,t)),w=t=>c(a({},\"__esModule\",{value:!0}),t);var i=g((L,l)=>{l.exports=_jsx_runtime});var P={};j(P,{default:()=>d,frontmatter:()=>y});var n=_(i()),y={title:\"Headless WordPress Caching Playbook\",publishedAt:\"2025-08-08\",summary:\"A practical cache strategy for WPGraphQL + Next.js: what to cache, where to purge, and how to avoid 500s.\",tags:[\"Headless WordPress\",\"Next.js\",\"Performance\"],featured:!1};function h(t){let e={h2:\"h2\",li:\"li\",ul:\"ul\",...t.components};return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.h2,{children:\"TL;DR\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:\"Cache HTML at the edge for list pages.\"}),`\n`,(0,n.jsx)(e.li,{children:\"Cache GraphQL responses with SWR/React Query on the client.\"}),`\n`,(0,n.jsx)(e.li,{children:\"Purge selectively on post updates using webhooks.\"}),`\n`]})]})}function d(t={}){let{wrapper:e}=t.components||{};return e?(0,n.jsx)(e,{...t,children:(0,n.jsx)(h,{...t})}):h(t)}return w(P);})();\n;return Component;"
+  },
+  "_id": "blog/headless-wordpress-caching-playbook.mdx",
+  "_raw": {
+    "sourceFilePath": "blog/headless-wordpress-caching-playbook.mdx",
+    "sourceFileName": "headless-wordpress-caching-playbook.mdx",
+    "sourceFileDir": "blog",
+    "contentType": "mdx",
+    "flattenedPath": "blog/headless-wordpress-caching-playbook"
+  },
+  "type": "Post",
+  "readingTime": {
+    "text": "1 min read",
+    "minutes": 0.145,
+    "time": 8700,
+    "words": 29
+  },
+  "slug": "headless-wordpress-caching-playbook",
+  "path": "blog/headless-wordpress-caching-playbook",
+  "filePath": "blog/headless-wordpress-caching-playbook.mdx"
+}

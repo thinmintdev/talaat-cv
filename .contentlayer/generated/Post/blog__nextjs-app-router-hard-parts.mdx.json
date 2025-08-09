@@ -1,0 +1,35 @@
+{
+  "title": "Next.js App Router: The Hard Parts I Wish I’d Known",
+  "publishedAt": "2025-08-08T00:00:00.000Z",
+  "summary": "Real-world App Router snags: caching, streaming, server actions, and how to avoid shooting yourself in the foot.",
+  "tags": [
+    "Next.js",
+    "App Router",
+    "Performance",
+    "Caching"
+  ],
+  "draft": false,
+  "featured": false,
+  "body": {
+    "raw": "\n> App Router is fantastic—until you mix cache boundaries, server actions, and dynamic routes. Here are the traps and how I defuse them.\n\n## 1) Caching is a contract\n- `fetch(..., { cache: 'no-store' })` wins over everything\n- `revalidate` propagates, but children can still opt out\n- On-demand revalidation: keep IDs stable or you’ll miss entries\n\n## 2) Streaming ≠ free\n- Use Suspense for expensive components only\n- Avoid “spinner waterfalls”; group Suspense boundaries\n\n## 3) Server Actions gotchas\n- Treat them like RPC: validate inputs (Zod), handle errors\n- Don’t leak secrets through thrown errors\n\n## 4) SEO and OG images\n- Use dynamic OG routes, cache for ~1 day, purge on publish\n\n## My default checklist\n- [ ] Explicit cache policy per route\n- [ ] All actions validated\n- [ ] Streaming boundaries are intentional\n- [ ] Logs for revalidate events\n",
+    "code": "var Component=(()=>{var u=Object.create;var l=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var v=(r,e)=>()=>(e||r((e={exports:{}}).exports,e),e.exports),x=(r,e)=>{for(var i in e)l(r,i,{get:e[i],enumerable:!0})},c=(r,e,i,o)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let t of m(e))!g.call(r,t)&&t!==i&&l(r,t,{get:()=>e[t],enumerable:!(o=p(e,t))||o.enumerable});return r};var y=(r,e,i)=>(i=r!=null?u(f(r)):{},c(e||!r||!r.__esModule?l(i,\"default\",{value:r,enumerable:!0}):i,r)),b=r=>c(l({},\"__esModule\",{value:!0}),r);var s=v((k,a)=>{a.exports=_jsx_runtime});var A={};x(A,{default:()=>h,frontmatter:()=>w});var n=y(s()),w={title:\"Next.js App Router: The Hard Parts I Wish I\\u2019d Known\",publishedAt:\"2025-08-08\",summary:\"Real-world App Router snags: caching, streaming, server actions, and how to avoid shooting yourself in the foot.\",tags:[\"Next.js\",\"App Router\",\"Performance\",\"Caching\"],featured:!1};function d(r){let e={blockquote:\"blockquote\",code:\"code\",h2:\"h2\",li:\"li\",p:\"p\",ul:\"ul\",...r.components};return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsxs)(e.blockquote,{children:[`\n`,(0,n.jsx)(e.p,{children:\"App Router is fantastic\\u2014until you mix cache boundaries, server actions, and dynamic routes. Here are the traps and how I defuse them.\"}),`\n`]}),`\n`,(0,n.jsx)(e.h2,{children:\"1) Caching is a contract\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.code,{children:\"fetch(..., { cache: 'no-store' })\"}),\" wins over everything\"]}),`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.code,{children:\"revalidate\"}),\" propagates, but children can still opt out\"]}),`\n`,(0,n.jsx)(e.li,{children:\"On-demand revalidation: keep IDs stable or you\\u2019ll miss entries\"}),`\n`]}),`\n`,(0,n.jsx)(e.h2,{children:\"2) Streaming \\u2260 free\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:\"Use Suspense for expensive components only\"}),`\n`,(0,n.jsx)(e.li,{children:\"Avoid \\u201Cspinner waterfalls\\u201D; group Suspense boundaries\"}),`\n`]}),`\n`,(0,n.jsx)(e.h2,{children:\"3) Server Actions gotchas\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:\"Treat them like RPC: validate inputs (Zod), handle errors\"}),`\n`,(0,n.jsx)(e.li,{children:\"Don\\u2019t leak secrets through thrown errors\"}),`\n`]}),`\n`,(0,n.jsx)(e.h2,{children:\"4) SEO and OG images\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:\"Use dynamic OG routes, cache for ~1 day, purge on publish\"}),`\n`]}),`\n`,(0,n.jsx)(e.h2,{children:\"My default checklist\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:\"[ ] Explicit cache policy per route\"}),`\n`,(0,n.jsx)(e.li,{children:\"[ ] All actions validated\"}),`\n`,(0,n.jsx)(e.li,{children:\"[ ] Streaming boundaries are intentional\"}),`\n`,(0,n.jsx)(e.li,{children:\"[ ] Logs for revalidate events\"}),`\n`]})]})}function h(r={}){let{wrapper:e}=r.components||{};return e?(0,n.jsx)(e,{...r,children:(0,n.jsx)(d,{...r})}):d(r)}return b(A);})();\n;return Component;"
+  },
+  "_id": "blog/nextjs-app-router-hard-parts.mdx",
+  "_raw": {
+    "sourceFilePath": "blog/nextjs-app-router-hard-parts.mdx",
+    "sourceFileName": "nextjs-app-router-hard-parts.mdx",
+    "sourceFileDir": "blog",
+    "contentType": "mdx",
+    "flattenedPath": "blog/nextjs-app-router-hard-parts"
+  },
+  "type": "Post",
+  "readingTime": {
+    "text": "1 min read",
+    "minutes": 0.74,
+    "time": 44400,
+    "words": 148
+  },
+  "slug": "nextjs-app-router-hard-parts",
+  "path": "blog/nextjs-app-router-hard-parts",
+  "filePath": "blog/nextjs-app-router-hard-parts.mdx"
+}

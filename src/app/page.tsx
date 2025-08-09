@@ -492,21 +492,27 @@ export default function HomePage() {
                         {tech.description}
                       </span>
                     </div>
-                    <div className="flex items-center gap-1 mt-2">
-                      {[1, 2, 3, 4, 5].map((i) => (
-                        <span
-                          key={i}
-                          className={`inline-block w-5 h-5 border-2 ${i <= tech.level ? "bg-blue-600 border-blue-600" : "bg-gray-200 border-gray-300"}`}
-                          style={{ borderRadius: 2 }}
-                          aria-label={
-                            i <= tech.level
-                              ? HOMEPAGE_DATA.platformProficiency.accessibility
-                                  .proficiencySquare
-                              : HOMEPAGE_DATA.platformProficiency.accessibility
-                                  .noProficiency
-                          }
-                        />
-                      ))}
+                          <div className="flex items-center gap-1 mt-2">
+                            {Array.from({ length: 10 }, (_, idx) => idx + 1).map(
+                              (i) => (
+                                <span
+                                  key={i}
+                                  className={`inline-block w-5 h-5 border-2 ${
+                                    i <= Math.ceil((tech.level / 5) * 10)
+                                      ? "bg-blue-600 border-blue-600"
+                                      : "bg-gray-200 border-gray-300"
+                                  }`}
+                                  style={{ borderRadius: 2 }}
+                                  aria-label={
+                                    i <= Math.ceil((tech.level / 5) * 10)
+                                      ? HOMEPAGE_DATA.platformProficiency.accessibility
+                                          .proficiencySquare
+                                      : HOMEPAGE_DATA.platformProficiency.accessibility
+                                          .noProficiency
+                                  }
+                                />
+                              )
+                            )}
                     </div>
                   </div>
                 ))}

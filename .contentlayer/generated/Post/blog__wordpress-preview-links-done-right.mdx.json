@@ -1,0 +1,34 @@
+{
+  "title": "WordPress Preview Links, Done Right (No Plugin Spaghetti)",
+  "publishedAt": "2025-08-08T00:00:00.000Z",
+  "summary": "Secure, editor‑friendly preview links for headless WordPress without turning your stack into a haunted house.",
+  "tags": [
+    "Headless WordPress",
+    "Previews",
+    "Security"
+  ],
+  "draft": false,
+  "featured": false,
+  "body": {
+    "raw": "\nThe preview story doesn’t have to be scary. Tokenize it, timebox it, and keep editors happy.\n\n## Recipe\n1. Add a per‑post `preview_token` meta field\n2. WP: Add a REST endpoint to validate token + slug\n3. Next.js: `/api/preview` reads token → sets cookie → redirects\n\n### Why this works\n- No plugin mega‑config\n- Tokens can be rotated per post\n- Auditable and debuggable\n",
+    "code": "var Component=(()=>{var u=Object.create;var o=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var k=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),x=(n,e)=>{for(var i in e)o(n,i,{get:e[i],enumerable:!0})},d=(n,e,i,s)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let r of m(e))!f.call(n,r)&&r!==i&&o(n,r,{get:()=>e[r],enumerable:!(s=p(e,r))||s.enumerable});return n};var w=(n,e,i)=>(i=n!=null?u(g(n)):{},d(e||!n||!n.__esModule?o(i,\"default\",{value:n,enumerable:!0}):i,n)),y=n=>d(o({},\"__esModule\",{value:!0}),n);var a=k((P,l)=>{l.exports=_jsx_runtime});var _={};x(_,{default:()=>h,frontmatter:()=>v});var t=w(a()),v={title:\"WordPress Preview Links, Done Right (No Plugin Spaghetti)\",publishedAt:\"2025-08-08\",summary:\"Secure, editor\\u2011friendly preview links for headless WordPress without turning your stack into a haunted house.\",tags:[\"Headless WordPress\",\"Previews\",\"Security\"],featured:!1};function c(n){let e={code:\"code\",h2:\"h2\",h3:\"h3\",li:\"li\",ol:\"ol\",p:\"p\",ul:\"ul\",...n.components};return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsx)(e.p,{children:\"The preview story doesn\\u2019t have to be scary. Tokenize it, timebox it, and keep editors happy.\"}),`\n`,(0,t.jsx)(e.h2,{children:\"Recipe\"}),`\n`,(0,t.jsxs)(e.ol,{children:[`\n`,(0,t.jsxs)(e.li,{children:[\"Add a per\\u2011post \",(0,t.jsx)(e.code,{children:\"preview_token\"}),\" meta field\"]}),`\n`,(0,t.jsx)(e.li,{children:\"WP: Add a REST endpoint to validate token + slug\"}),`\n`,(0,t.jsxs)(e.li,{children:[\"Next.js: \",(0,t.jsx)(e.code,{children:\"/api/preview\"}),\" reads token \\u2192 sets cookie \\u2192 redirects\"]}),`\n`]}),`\n`,(0,t.jsx)(e.h3,{children:\"Why this works\"}),`\n`,(0,t.jsxs)(e.ul,{children:[`\n`,(0,t.jsx)(e.li,{children:\"No plugin mega\\u2011config\"}),`\n`,(0,t.jsx)(e.li,{children:\"Tokens can be rotated per post\"}),`\n`,(0,t.jsx)(e.li,{children:\"Auditable and debuggable\"}),`\n`]})]})}function h(n={}){let{wrapper:e}=n.components||{};return e?(0,t.jsx)(e,{...n,children:(0,t.jsx)(c,{...n})}):c(n)}return y(_);})();\n;return Component;"
+  },
+  "_id": "blog/wordpress-preview-links-done-right.mdx",
+  "_raw": {
+    "sourceFilePath": "blog/wordpress-preview-links-done-right.mdx",
+    "sourceFileName": "wordpress-preview-links-done-right.mdx",
+    "sourceFileDir": "blog",
+    "contentType": "mdx",
+    "flattenedPath": "blog/wordpress-preview-links-done-right"
+  },
+  "type": "Post",
+  "readingTime": {
+    "text": "1 min read",
+    "minutes": 0.325,
+    "time": 19500,
+    "words": 65
+  },
+  "slug": "wordpress-preview-links-done-right",
+  "path": "blog/wordpress-preview-links-done-right",
+  "filePath": "blog/wordpress-preview-links-done-right.mdx"
+}

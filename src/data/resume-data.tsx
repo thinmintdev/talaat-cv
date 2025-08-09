@@ -5,7 +5,7 @@ export const RESUME_DATA: ResumeData = {
   initials: "AT",
   location: "Washington, D.C.",
   locationLink: "https://www.google.com/maps/place/Washington,+DC",
-  about: "Senior Full Stack Developer & Cloud Solutions Architect",
+  about: "Full Stack Developer. WordPress Expert. IT Specialist.",
   summary: (
     <>
       <p>
@@ -33,7 +33,7 @@ export const RESUME_DATA: ResumeData = {
   avatarUrl: "https://avatars.githubusercontent.com/u/1017620?v=4",
   personalWebsiteUrl: "https://talaat.dev",
   contact: {
-    email: "alexander@talaat.dev",
+    email: "hello@talaat.dev",
     tel: "240-630-3871",
     social: [
       {

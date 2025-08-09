@@ -1,0 +1,34 @@
+{
+  "title": "AI‑Assisted Dev Platforms That Actually Ship (And the Ones That Don’t)",
+  "publishedAt": "2025-08-08T00:00:00.000Z",
+  "summary": "Reviewing Cursor, Windsurf, v0, 21st.dev, Copilot, and Claude Code—clear wins, painful misses, and honest recommendations.",
+  "tags": [
+    "Reviews",
+    "AI Tools",
+    "Productivity"
+  ],
+  "draft": false,
+  "featured": false,
+  "body": {
+    "raw": "\n## What shipped for me\n- Cursor: refactor assistance on medium repos\n- Claude Code: multi-file diffs, architecture planning\n- Copilot: inline speed boosts in TS/React\n\n## What didn’t\n- Agents that “own” the terminal without tests\n- Auto-generated CRUD without auth/validation\n",
+    "code": "var Component=(()=>{var u=Object.create;var o=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,C=Object.prototype.hasOwnProperty;var x=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),A=(t,e)=>{for(var i in e)o(t,i,{get:e[i],enumerable:!0})},l=(t,e,i,r)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let s of f(e))!C.call(t,s)&&s!==i&&o(t,s,{get:()=>e[s],enumerable:!(r=m(e,s))||r.enumerable});return t};var g=(t,e,i)=>(i=t!=null?u(p(t)):{},l(e||!t||!t.__esModule?o(i,\"default\",{value:t,enumerable:!0}):i,t)),v=t=>l(o({},\"__esModule\",{value:!0}),t);var d=x((D,a)=>{a.exports=_jsx_runtime});var _={};A(_,{default:()=>c,frontmatter:()=>w});var n=g(d()),w={title:\"AI\\u2011Assisted Dev Platforms That Actually Ship (And the Ones That Don\\u2019t)\",publishedAt:\"2025-08-08\",summary:\"Reviewing Cursor, Windsurf, v0, 21st.dev, Copilot, and Claude Code\\u2014clear wins, painful misses, and honest recommendations.\",tags:[\"Reviews\",\"AI Tools\",\"Productivity\"],featured:!1};function h(t){let e={h2:\"h2\",li:\"li\",ul:\"ul\",...t.components};return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.h2,{children:\"What shipped for me\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:\"Cursor: refactor assistance on medium repos\"}),`\n`,(0,n.jsx)(e.li,{children:\"Claude Code: multi-file diffs, architecture planning\"}),`\n`,(0,n.jsx)(e.li,{children:\"Copilot: inline speed boosts in TS/React\"}),`\n`]}),`\n`,(0,n.jsx)(e.h2,{children:\"What didn\\u2019t\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:\"Agents that \\u201Cown\\u201D the terminal without tests\"}),`\n`,(0,n.jsx)(e.li,{children:\"Auto-generated CRUD without auth/validation\"}),`\n`]})]})}function c(t={}){let{wrapper:e}=t.components||{};return e?(0,n.jsx)(e,{...t,children:(0,n.jsx)(h,{...t})}):h(t)}return v(_);})();\n;return Component;"
+  },
+  "_id": "blog/ai-assisted-dev-platforms-which-actually-ship.mdx",
+  "_raw": {
+    "sourceFilePath": "blog/ai-assisted-dev-platforms-which-actually-ship.mdx",
+    "sourceFileName": "ai-assisted-dev-platforms-which-actually-ship.mdx",
+    "sourceFileDir": "blog",
+    "contentType": "mdx",
+    "flattenedPath": "blog/ai-assisted-dev-platforms-which-actually-ship"
+  },
+  "type": "Post",
+  "readingTime": {
+    "text": "1 min read",
+    "minutes": 0.21,
+    "time": 12600,
+    "words": 42
+  },
+  "slug": "ai-assisted-dev-platforms-which-actually-ship",
+  "path": "blog/ai-assisted-dev-platforms-which-actually-ship",
+  "filePath": "blog/ai-assisted-dev-platforms-which-actually-ship.mdx"
+}

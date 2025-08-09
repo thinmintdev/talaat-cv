@@ -149,7 +149,7 @@ export const HOMEPAGE_DATA = {
     subtitle:
       "I'm always open to discussing new opportunities and interesting projects.",
     buttons: {
-      viewCV: "View Full CV",
+      viewCV: "View CV",
       readBlog: "Read Blog",
     },
   },

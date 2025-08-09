@@ -1,0 +1,34 @@
+{
+  "title": "Tailwind Design Tokens in Large Teams",
+  "publishedAt": "2025-08-08T00:00:00.000Z",
+  "summary": "Bring sanity to Tailwind at scale with CSS variables, theming, and a disciplined token layer.",
+  "tags": [
+    "TailwindCSS",
+    "Architecture",
+    "DX"
+  ],
+  "draft": false,
+  "featured": false,
+  "body": {
+    "raw": "\n## Why tokens\n- Consistent spacing, color, and typography\n- Easy theming and brand swaps\n- Guardrails for contributors\n",
+    "code": "var Component=(()=>{var u=Object.create;var a=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var g=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,x=Object.prototype.hasOwnProperty;var f=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),y=(t,n)=>{for(var i in n)a(t,i,{get:n[i],enumerable:!0})},l=(t,n,i,s)=>{if(n&&typeof n==\"object\"||typeof n==\"function\")for(let r of g(n))!x.call(t,r)&&r!==i&&a(t,r,{get:()=>n[r],enumerable:!(s=m(n,r))||s.enumerable});return t};var _=(t,n,i)=>(i=t!=null?u(p(t)):{},l(n||!t||!t.__esModule?a(i,\"default\",{value:t,enumerable:!0}):i,t)),w=t=>l(a({},\"__esModule\",{value:!0}),t);var c=f((b,o)=>{o.exports=_jsx_runtime});var C={};y(C,{default:()=>h,frontmatter:()=>j});var e=_(c()),j={title:\"Tailwind Design Tokens in Large Teams\",publishedAt:\"2025-08-08\",summary:\"Bring sanity to Tailwind at scale with CSS variables, theming, and a disciplined token layer.\",tags:[\"TailwindCSS\",\"Architecture\",\"DX\"],featured:!1};function d(t){let n={h2:\"h2\",li:\"li\",ul:\"ul\",...t.components};return(0,e.jsxs)(e.Fragment,{children:[(0,e.jsx)(n.h2,{children:\"Why tokens\"}),`\n`,(0,e.jsxs)(n.ul,{children:[`\n`,(0,e.jsx)(n.li,{children:\"Consistent spacing, color, and typography\"}),`\n`,(0,e.jsx)(n.li,{children:\"Easy theming and brand swaps\"}),`\n`,(0,e.jsx)(n.li,{children:\"Guardrails for contributors\"}),`\n`]})]})}function h(t={}){let{wrapper:n}=t.components||{};return n?(0,e.jsx)(n,{...t,children:(0,e.jsx)(d,{...t})}):d(t)}return w(C);})();\n;return Component;"
+  },
+  "_id": "blog/tailwind-design-tokens-in-large-teams.mdx",
+  "_raw": {
+    "sourceFilePath": "blog/tailwind-design-tokens-in-large-teams.mdx",
+    "sourceFileName": "tailwind-design-tokens-in-large-teams.mdx",
+    "sourceFileDir": "blog",
+    "contentType": "mdx",
+    "flattenedPath": "blog/tailwind-design-tokens-in-large-teams"
+  },
+  "type": "Post",
+  "readingTime": {
+    "text": "1 min read",
+    "minutes": 0.095,
+    "time": 5700,
+    "words": 19
+  },
+  "slug": "tailwind-design-tokens-in-large-teams",
+  "path": "blog/tailwind-design-tokens-in-large-teams",
+  "filePath": "blog/tailwind-design-tokens-in-large-teams.mdx"
+}
