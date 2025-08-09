@@ -1,6 +1,7 @@
 "use client";
 
 import { CommandIcon } from "lucide-react";
+import { useRouter } from "next/navigation";
 import * as React from "react";
 import {
   CommandDialog,
@@ -19,6 +20,7 @@ interface Props {
 
 export const CommandMenu = ({ links }: Props) => {
   const [open, setOpen] = React.useState(false);
+  const router = useRouter();
   const isMac: boolean =
     typeof window !== "undefined"
       ? window.navigator.userAgent.indexOf("Mac") > -1
@@ -57,6 +59,32 @@ export const CommandMenu = ({ links }: Props) => {
         <CommandInput placeholder="Type a command or search..." />
         <CommandList>
           <CommandEmpty>No results found.</CommandEmpty>
+          <CommandGroup heading="Navigation">
+            <CommandItem
+              onSelect={() => {
+                setOpen(false);
+                router.push("/");
+              }}
+            >
+              <span>Portfolio</span>
+            </CommandItem>
+            <CommandItem
+              onSelect={() => {
+                setOpen(false);
+                router.push("/cv");
+              }}
+            >
+              <span>CV</span>
+            </CommandItem>
+            <CommandItem
+              onSelect={() => {
+                setOpen(false);
+                router.push("/blog");
+              }}
+            >
+              <span>Blog</span>
+            </CommandItem>
+          </CommandGroup>
           <CommandGroup heading="Actions">
             <CommandItem
               onSelect={() => {
