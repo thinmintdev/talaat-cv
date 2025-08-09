@@ -60,7 +60,7 @@ export function BlogShare({ title, url }: BlogShareProps) {
             Share this article
           </h3>
           <p className="text-sm text-gray-600">
-            Found this helpful? Share it with others!
+            Was this helpful? Share it with a friend or your network.
           </p>
         </div>
 

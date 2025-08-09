@@ -30,7 +30,7 @@ export const RESUME_DATA: ResumeData = {
       </p>
     </>
   ),
-  avatarUrl: "https://avatars.githubusercontent.com/u/1017620?v=4",
+  avatarUrl: "/images/profile.jpg",
   personalWebsiteUrl: "https://talaat.dev",
   contact: {
     email: "hello@talaat.dev",

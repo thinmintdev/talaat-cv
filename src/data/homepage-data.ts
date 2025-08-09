@@ -112,9 +112,9 @@ export const HOMEPAGE_DATA = {
     ]
   },
 
-  // Platform Proficiency Section
-  platformProficiency: {
-    title: "Platform Proficiency",
+  // Experience Section
+  experience: {
+    title: "Experience",
     subtitle:
       "Key technologies, platforms, and tools used across major projects and roles.",
     technologies: [

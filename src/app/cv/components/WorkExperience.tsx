@@ -47,12 +47,17 @@ interface WorkPeriodProps {
  * Displays the work period in a consistent format
  */
 function WorkPeriod({ start, end }: WorkPeriodProps) {
+  const formatLabel = (value: string | null | undefined) => {
+    const v = value ?? "Present";
+    return v.replace(/\s+/, "\u00A0"); // prevent vertical wrap
+  };
+
   return (
     <div
-      className="text-sm tabular-nums text-gray-500"
+      className="text-sm tabular-nums text-gray-500 whitespace-nowrap"
       title={`Employment period: ${start} to ${end ?? "Present"}`}
     >
-      {start} - {end ?? "Present"}
+      {formatLabel(start)} – {formatLabel(end)}
     </div>
   );
 }
@@ -91,7 +96,7 @@ function WorkExperienceItem({ work }: WorkExperienceItemProps) {
   const { company, link, badges, title, start, end, description } = work;
 
   return (
-    <Card className="py-1 print:py-0">
+    <Card className="py-1 print:py-0 border border-blue-100 hover:border-blue-200 transition-colors">
       <CardHeader className="print:space-y-1">
         <div className="flex items-center justify-between gap-x-2 text-base">
           <h3 className="inline-flex items-center justify-center gap-x-1 font-semibold leading-none print:text-sm">
@@ -135,7 +140,7 @@ interface WorkExperienceProps {
 export function WorkExperience({ work }: WorkExperienceProps) {
   return (
     <Section>
-      <h2 className="text-xl font-bold" id="work-experience">
+  <h2 className="text-xl font-bold text-blue-700" id="work-experience">
         Work Experience
       </h2>
       <div

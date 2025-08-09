@@ -189,7 +189,7 @@ export function Header() {
       </div>
 
       <Avatar
-        className="size-28"
+        className="size-28 ring-2 ring-blue-200"
         src={RESUME_DATA.avatarUrl}
         alt={`${RESUME_DATA.name}'s profile picture`}
         fallback={RESUME_DATA.initials}
