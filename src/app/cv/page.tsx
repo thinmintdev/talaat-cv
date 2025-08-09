@@ -80,7 +80,7 @@ export default function ResumePage() {
         </div>
 
         <section
-          className="mx-auto w-full max-w-2xl space-y-8 bg-white print:space-y-4"
+          className="cv-bullets mx-auto w-full max-w-3xl space-y-8 bg-white print:space-y-4"
           aria-label="Resume Content"
         >
           <SectionErrorBoundary sectionName="Header">
@@ -96,6 +96,12 @@ export default function ResumePage() {
               </Suspense>
             </SectionErrorBoundary>
 
+            <SectionErrorBoundary sectionName="Skills">
+              <Suspense fallback={<SectionSkeleton lines={2} />}>
+                <Skills skills={RESUME_DATA.skills} />
+              </Suspense>
+            </SectionErrorBoundary>
+
             <SectionErrorBoundary sectionName="Work Experience">
               <Suspense fallback={<SectionSkeleton lines={6} />}>
                 <WorkExperience work={RESUME_DATA.work} />
@@ -105,12 +111,6 @@ export default function ResumePage() {
             <SectionErrorBoundary sectionName="Education">
               <Suspense fallback={<SectionSkeleton lines={3} />}>
                 <Education education={RESUME_DATA.education} />
-              </Suspense>
-            </SectionErrorBoundary>
-
-            <SectionErrorBoundary sectionName="Skills">
-              <Suspense fallback={<SectionSkeleton lines={2} />}>
-                <Skills skills={RESUME_DATA.skills} />
               </Suspense>
             </SectionErrorBoundary>
 

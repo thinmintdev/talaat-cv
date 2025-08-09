@@ -78,3 +78,19 @@
 .print-force-new-page {
   page-break-before: always;
 }
+
+/* CV-specific bullet styling to match homepage */
+@layer components {
+  .cv-bullets ul.list-disc {
+    @apply list-none;
+  }
+
+  .cv-bullets ul.list-disc li {
+    @apply flex items-start gap-2;
+  }
+
+  .cv-bullets ul.list-disc li::before {
+    content: "";
+    @apply inline-block w-2 h-2 mt-2 rounded-sm bg-blue-600 flex-shrink-0;
+  }
+}

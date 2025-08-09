@@ -56,64 +56,87 @@ export const HOMEPAGE_DATA = {
       {
         icon: "code",
         title: "Full-Stack Development",
-        description: "End-to-end web applications built with modern technologies and best practices",
+        description:
+          "End-to-end web applications built with modern technologies and best practices",
         features: [
           "React/Next.js Applications",
-          "Node.js & Python APIs", 
+          "Node.js & Python APIs",
           "Database Architecture",
-          "Cloud Infrastructure"
+          "Cloud Infrastructure",
         ],
-        technologies: ["React", "Next.js", "Node.js", "TypeScript", "AWS", "PostgreSQL"],
+        technologies: [
+          "React",
+          "Next.js",
+          "Node.js",
+          "TypeScript",
+          "AWS",
+          "PostgreSQL",
+        ],
         timeline: "2-8 weeks",
-        startingPrice: "$5,000"
+        startingPrice: "$5,000",
       },
       {
         icon: "wordpress",
-        title: "WordPress Solutions", 
-        description: "Custom WordPress development from themes to headless implementations",
+        title: "WordPress Solutions",
+        description:
+          "Custom WordPress development from themes to headless implementations",
         features: [
           "Custom Theme Development",
           "Plugin Development",
           "WooCommerce Solutions",
-          "Headless WordPress"
+          "Headless WordPress",
         ],
-        technologies: ["WordPress", "PHP", "WooCommerce", "REST API", "GraphQL"],
-        timeline: "1-4 weeks", 
-        startingPrice: "$2,500"
+        technologies: [
+          "WordPress",
+          "PHP",
+          "WooCommerce",
+          "REST API",
+          "GraphQL",
+        ],
+        timeline: "1-4 weeks",
+        startingPrice: "$2,500",
       },
       {
         icon: "analytics",
         title: "Performance Optimization",
-        description: "Speed up your existing applications with proven optimization techniques",
+        description:
+          "Speed up your existing applications with proven optimization techniques",
         features: [
           "Core Web Vitals Improvement",
-          "Database Query Optimization", 
+          "Database Query Optimization",
           "Caching Implementation",
-          "SEO Enhancement"
+          "SEO Enhancement",
         ],
-        technologies: ["Lighthouse", "GTmetrix", "Redis", "CDN", "Image Optimization"],
+        technologies: [
+          "Lighthouse",
+          "GTmetrix",
+          "Redis",
+          "CDN",
+          "Image Optimization",
+        ],
         timeline: "1-2 weeks",
-        startingPrice: "$1,500"
+        startingPrice: "$1,500",
       },
       {
         icon: "support",
         title: "Consulting & Support",
-        description: "Expert guidance and ongoing support for your development projects",
+        description:
+          "Expert guidance and ongoing support for your development projects",
         features: [
           "Technical Architecture Review",
           "Code Auditing & Review",
-          "Team Training & Mentoring", 
-          "Ongoing Maintenance"
+          "Team Training & Mentoring",
+          "Ongoing Maintenance",
         ],
         technologies: ["Code Review", "Documentation", "Training", "Support"],
         timeline: "Ongoing",
-        startingPrice: "$150/hour"
-      }
-    ]
+        startingPrice: "$150/hour",
+      },
+    ],
   },
 
-  // Experience Section
-  experience: {
+  // Platform Proficiency Section
+  platformProficiency: {
     title: "Experience",
     subtitle:
       "Key technologies, platforms, and tools used across major projects and roles.",
@@ -193,24 +216,43 @@ export const HOMEPAGE_DATA = {
     calendlyUrl: "https://calendly.com/thinmint/new-meeting", // Replace with your actual Calendly URL
     consultation: {
       title: "Schedule Free Consultation",
-      description: "30-minute discovery call to discuss your project needs and timeline",
+      description:
+        "30-minute discovery call to discuss your project needs and timeline",
     },
     services: [
       {
         title: "Web Development",
-        description: "Modern web applications with React, Next.js, Node.js, and cloud infrastructure",
-        features: ["React/Next.js Applications", "API Development", "Database Design", "Cloud Deployment"]
+        description:
+          "Modern web applications with React, Next.js, Node.js, and cloud infrastructure",
+        features: [
+          "React/Next.js Applications",
+          "API Development",
+          "Database Design",
+          "Cloud Deployment",
+        ],
       },
       {
         title: "WordPress Solutions",
-        description: "Custom plugin and theme development, as well as headless WordPress environments",
-        features: ["Custom Themes & Plugins", "WooCommerce Development", "Performance Optimization", "Headless CMS"]
+        description:
+          "Custom plugin and theme development, as well as headless WordPress environments",
+        features: [
+          "Custom Themes & Plugins",
+          "WooCommerce Development",
+          "Performance Optimization",
+          "Headless CMS",
+        ],
       },
       {
         title: "Cloud Architecture",
-        description: "Scalable AWS infrastructure, DevOps, and performance optimization",
-        features: ["AWS Infrastructure", "CI/CD Pipelines", "Performance Optimization", "Security Implementation"]
-      }
+        description:
+          "Scalable AWS infrastructure, DevOps, and performance optimization",
+        features: [
+          "AWS Infrastructure",
+          "CI/CD Pipelines",
+          "Performance Optimization",
+          "Security Implementation",
+        ],
+      },
     ],
     contact: {
       email: {
@@ -218,7 +260,7 @@ export const HOMEPAGE_DATA = {
         username: "@thinmintdev", // This will be replaced with actual email from RESUME_DATA
       },
       github: {
-        title: "GitHub", 
+        title: "GitHub",
         username: "@thinmintdev",
       },
     },

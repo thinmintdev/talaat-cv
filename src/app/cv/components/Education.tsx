@@ -15,10 +15,11 @@ interface EducationPeriodProps {
 function EducationPeriod({ start, end }: EducationPeriodProps) {
   return (
     <div
-  className="text-sm tabular-nums text-gray-500 whitespace-nowrap"
+      className="text-sm tabular-nums text-blue-600 font-medium whitespace-nowrap"
       title={`Period: ${start} to ${end}`}
     >
-  {String(start).replace(/\s+/, "\u00A0")} – {String(end).replace(/\s+/, "\u00A0")}
+      {String(start).replace(/\s+/g, "\u00A0")}&nbsp;–&nbsp;
+      {String(end).replace(/\s+/g, "\u00A0")}
     </div>
   );
 }
@@ -34,7 +35,7 @@ function EducationItem({ education }: EducationItemProps) {
   const { school, start, end, degree } = education;
 
   return (
-    <Card>
+    <Card className="rounded-none border-blue-100">
       <CardHeader>
         <div className="flex items-center justify-between gap-x-2 text-base">
           <h3
@@ -69,7 +70,7 @@ interface EducationListProps {
 export function Education({ education }: EducationListProps) {
   return (
     <Section>
-  <h2 className="text-xl font-bold text-blue-700" id="education-section">
+      <h2 className="text-xl font-bold text-blue-700" id="education-section">
         Education
       </h2>
       <div
