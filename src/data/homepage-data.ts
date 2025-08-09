@@ -43,9 +43,101 @@ export const HOMEPAGE_DATA = {
     },
   },
 
-  // Experience Section
-  experience: {
-    title: "Experience",
+  // Experience Section (Hidden for now)
+  // experience: {
+  //   title: "Experience",
+  // },
+
+  // Services Section
+  services: {
+    title: "Services",
+    subtitle: "Comprehensive solutions for your digital needs",
+    offerings: [
+      {
+        icon: "code",
+        title: "Full-Stack Development",
+        description: "End-to-end web applications built with modern technologies and best practices",
+        features: [
+          "React/Next.js Applications",
+          "Node.js & Python APIs", 
+          "Database Architecture",
+          "Cloud Infrastructure"
+        ],
+        technologies: ["React", "Next.js", "Node.js", "TypeScript", "AWS", "PostgreSQL"],
+        timeline: "2-8 weeks",
+        startingPrice: "$5,000"
+      },
+      {
+        icon: "wordpress",
+        title: "WordPress Solutions", 
+        description: "Custom WordPress development from themes to headless implementations",
+        features: [
+          "Custom Theme Development",
+          "Plugin Development",
+          "WooCommerce Solutions",
+          "Headless WordPress"
+        ],
+        technologies: ["WordPress", "PHP", "WooCommerce", "REST API", "GraphQL"],
+        timeline: "1-4 weeks", 
+        startingPrice: "$2,500"
+      },
+      {
+        icon: "cloud",
+        title: "Cloud Architecture",
+        description: "Scalable, secure cloud infrastructure with DevOps automation",
+        features: [
+          "AWS Infrastructure Setup",
+          "CI/CD Pipeline Configuration", 
+          "Performance Optimization",
+          "Security Implementation"
+        ],
+        technologies: ["AWS", "Docker", "Kubernetes", "Terraform", "GitHub Actions"],
+        timeline: "1-3 weeks",
+        startingPrice: "$3,000"
+      },
+      {
+        icon: "mobile",
+        title: "Mobile-First Design",
+        description: "Responsive web applications optimized for all devices and screen sizes",
+        features: [
+          "Responsive Web Design",
+          "Progressive Web Apps",
+          "Mobile Performance",
+          "Touch-Optimized UI"
+        ],
+        technologies: ["Tailwind CSS", "React Native", "PWA", "Web Vitals"],
+        timeline: "2-6 weeks",
+        startingPrice: "$4,000"
+      },
+      {
+        icon: "analytics",
+        title: "Performance Optimization",
+        description: "Speed up your existing applications with proven optimization techniques",
+        features: [
+          "Core Web Vitals Improvement",
+          "Database Query Optimization", 
+          "Caching Implementation",
+          "SEO Enhancement"
+        ],
+        technologies: ["Lighthouse", "GTmetrix", "Redis", "CDN", "Image Optimization"],
+        timeline: "1-2 weeks",
+        startingPrice: "$1,500"
+      },
+      {
+        icon: "support",
+        title: "Consulting & Support",
+        description: "Expert guidance and ongoing support for your development projects",
+        features: [
+          "Technical Architecture Review",
+          "Code Auditing & Review",
+          "Team Training & Mentoring", 
+          "Ongoing Maintenance"
+        ],
+        technologies: ["Code Review", "Documentation", "Training", "Support"],
+        timeline: "Ongoing",
+        startingPrice: "$150/hour"
+      }
+    ]
   },
 
   // Platform Proficiency Section
@@ -121,18 +213,40 @@ export const HOMEPAGE_DATA = {
     },
   },
 
-  // Let's Talk Section
-  letsTalk: {
-    title: "Let's Talk",
+  // Contact & Services Section
+  contact: {
+    title: "Let's Work Together",
     subtitle:
-      "Ready to bring your project to life? I'm actively scheduling work with a typical 1-2 week timeline for new projects.",
+      "Ready to bring your project to life? I specialize in building scalable web applications and cloud solutions.",
+    calendlyUrl: "https://calendly.com/thinmint/new-meeting", // Replace with your actual Calendly URL
+    consultation: {
+      title: "Schedule Free Consultation",
+      description: "30-minute discovery call to discuss your project needs and timeline",
+    },
+    services: [
+      {
+        title: "Web Development",
+        description: "Modern web applications with React, Next.js, Node.js, and cloud infrastructure",
+        features: ["React/Next.js Applications", "API Development", "Database Design", "Cloud Deployment"]
+      },
+      {
+        title: "WordPress Solutions",
+        description: "Custom themes, plugins, and headless WordPress implementations",
+        features: ["Custom Themes & Plugins", "WooCommerce Development", "Performance Optimization", "Headless CMS"]
+      },
+      {
+        title: "Cloud Architecture",
+        description: "Scalable AWS infrastructure, DevOps, and performance optimization",
+        features: ["AWS Infrastructure", "CI/CD Pipelines", "Performance Optimization", "Security Implementation"]
+      }
+    ],
     contact: {
       email: {
         title: "Email",
         username: "@thinmintdev", // This will be replaced with actual email from RESUME_DATA
       },
       github: {
-        title: "GitHub",
+        title: "GitHub", 
         username: "@thinmintdev",
       },
     },
@@ -145,11 +259,8 @@ export const HOMEPAGE_DATA = {
 
   // Footer CTA Section
   footer: {
-    title: "Let's Work Together",
-    subtitle:
-      "I'm always open to discussing new opportunities and interesting projects.",
     buttons: {
-      viewCV: "View CV",
+      viewCV: "View Full CV",
       readBlog: "Read Blog",
     },
   },

@@ -358,113 +358,87 @@ export default function HomePage() {
         </section>
       )}
 
-      {/* Experience Section */}
-      {RESUME_DATA.work.length > 0 && (
+      {/* Experience Section - Hidden */}
+      {/* {RESUME_DATA.work.length > 0 && (
         <section id="experience" className="p-8 sm:p-12 md:p-16 lg:p-24">
-          <div>
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
-              <div className="lg:col-span-4">
-                <h2 className="text-3xl sm:text-4xl md:text-5xl xl:text-7xl font-bold text-gray-900">
-                  {HOMEPAGE_DATA.experience.title}
-                </h2>
-                <div className="w-[75px] h-[5px] mt-2 rounded-full bg-blue-700" />
-              </div>
+          ... Experience section content ...
+        </section>
+      )} */}
 
-              <div className="lg:col-span-8">
-                <div className="space-y-8">
-                  {RESUME_DATA.work.map((job, _index) => (
-                    <div
-                      key={`${job.company}-${job.start}`}
-                      className="group relative"
-                    >
-                      <div className="block relative p-4 sm:p-6 md:p-8 bg-gray-50 rounded-xl sm:rounded-2xl border border-gray-200 transition-all duration-300 hover:bg-white hover:shadow-lg hover:border-gray-300">
-                        <div className="space-y-4">
-                          <div>
-                            <span className="text-sm font-mono text-blue-700">
-                              {job.start} - {job.end || "Present"}
-                            </span>
-                            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mt-1">
-                              {job.title}
-                            </h3>
-                            <p className="text-base sm:text-lg text-gray-600 font-medium">
-                              {job.company}
-                            </p>
+      {/* Services Section */}
+      <section id="services" className="p-8 sm:p-12 md:p-16 lg:p-24 bg-white">
+        <div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
+            <div className="lg:col-span-4">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl xl:text-7xl font-bold text-gray-900">
+                {HOMEPAGE_DATA.services.title}
+              </h2>
+              <div className="w-[75px] h-[5px] mt-2 rounded-full bg-blue-700" />
+              <p className="mt-4 text-gray-600 text-lg">
+                {HOMEPAGE_DATA.services.subtitle}
+              </p>
+            </div>
+
+            <div className="lg:col-span-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {HOMEPAGE_DATA.services.offerings.map((service) => (
+                  <div key={service.title} className="group cursor-pointer">
+                    <div className="p-6 rounded-2xl border border-gray-200 hover:border-blue-300 hover:shadow-lg transition-all duration-300 hover:bg-blue-50/30">
+                      <div className="flex items-start gap-4">
+                        <div className="w-14 h-14 bg-blue-600 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                          <div className="w-7 h-7 text-white">
+                            {service.icon === 'code' && (
+                              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+                            )}
+                            {service.icon === 'wordpress' && (
+                              <svg fill="currentColor" viewBox="0 0 24 24"><path d="M21.469 6.825c.84 1.537 1.318 3.3 1.318 5.175 0 3.979-2.156 7.456-5.363 9.325l3.295-9.527c.615-1.54.82-2.771.82-3.864 0-.405-.026-.78-.07-1.11m-7.981.105c.647-.03 1.232-.105 1.232-.105.582-.075.514-.93-.067-.899 0 0-1.755.135-2.88.135-1.064 0-2.85-.135-2.85-.135-.584-.031-.661.854-.075.899 0 0 .584.075 1.2.105l1.784 4.904-2.51 7.566-4.175-12.47c.652-.03 1.235-.105 1.235-.105.583-.075.516-.93-.065-.899 0 0-1.756.135-2.88.135C4.78 6.06 4.622 6.06 4.444 6.06 6.605 3.344 9.584 1.5 12.999 1.5c2.906 0 5.547 1.08 7.555 2.85-.049-.003-.095-.009-.143-.009-1.06 0-1.81.93-1.81 1.927 0 .9.518 1.66 1.073 2.56.417.72.9 1.64.9 2.97 0 .915-.354 1.994-.821 3.479l-1.075 3.585-3.9-11.61.001.014z"/></svg>
+                            )}
+                            {service.icon === 'cloud' && (
+                              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/></svg>
+                            )}
+                            {service.icon === 'mobile' && (
+                              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+                            )}
+                            {service.icon === 'analytics' && (
+                              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                            )}
+                            {service.icon === 'support' && (
+                              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M12 2.25a9.75 9.75 0 11-9.75 9.75A9.75 9.75 0 0112 2.25z"/></svg>
+                            )}
                           </div>
-
-                          <div className="text-base sm:text-lg text-gray-600 leading-relaxed experience-content">
-                            <style
-                              dangerouslySetInnerHTML={{
-                                __html: `
-                                /* Unordered lists: custom blue square bullets */
-                                .experience-content ul {
-                                  margin-top: 8px !important;
-                                  list-style: none !important;
-                                  padding-left: 0 !important;
-                                  display: flex !important;
-                                  flex-direction: column !important;
-                                  gap: 8px !important;
-                                }
-                                .experience-content ul li {
-                                  display: flex !important;
-                                  align-items: flex-start !important;
-                                  gap: 8px !important;
-                                  padding-left: 0 !important;
-                                }
-                                .experience-content ul li:before {
-                                  content: '' !important;
-                                  display: inline-block !important;
-                                  width: 12px !important;
-                                  height: 12px !important;
-                                  margin-top: 8px !important;
-                                  border-radius: 2px !important;
-                                  background-color: rgb(37 99 235) !important;
-                                  flex-shrink: 0 !important;
-                                }
-
-                                /* Ordered lists: keep native numbers, spacing */
-                                .experience-content ol {
-                                  margin-top: 8px !important;
-                                  list-style: decimal !important;
-                                  padding-left: 1.25rem !important; /* ~20px */
-                                  display: block !important;
-                                }
-                                .experience-content ol li {
-                                  display: list-item !important;
-                                  align-items: initial !important;
-                                  gap: 0 !important;
-                                  padding-left: 0 !important;
-                                }
-                                .experience-content ol li:before {
-                                  content: none !important;
-                                }
-                              `,
-                              }}
-                            />
-                            {job.description}
-                          </div>
-
-                          {job.badges && job.badges.length > 0 && (
-                            <div className="flex flex-wrap gap-1.5 sm:gap-2 pt-2">
-                              {job.badges.map((badge) => (
-                                <span
-                                  key={badge}
-                                  className="px-2.5 sm:px-3 py-1 sm:py-1.5 bg-gray-900 text-white rounded-md sm:rounded-lg text-xs sm:text-sm font-medium"
-                                >
-                                  {badge}
+                        </div>
+                        
+                        <div className="flex-1">
+                          <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+                            {service.title}
+                          </h3>
+                          <p className="text-gray-600 text-sm mb-3 leading-relaxed">
+                            {service.description}
+                          </p>
+                          
+                          <div className="flex items-center justify-between">
+                            <div className="flex flex-wrap gap-1">
+                              {service.technologies.slice(0, 2).map((tech) => (
+                                <span key={tech} className="px-2 py-1 bg-gray-100 group-hover:bg-blue-100 text-gray-600 group-hover:text-blue-700 rounded text-xs font-medium transition-colors">
+                                  {tech}
                                 </span>
                               ))}
                             </div>
-                          )}
+                            <div className="text-right">
+                              <p className="text-sm font-semibold text-blue-600">{service.startingPrice}</p>
+                              <p className="text-xs text-gray-500">{service.timeline}</p>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  ))}
-                </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
-        </section>
-      )}
+        </div>
+      </section>
 
       {/* Experience & Technologies Section */}
       <section id="technologies" className="p-8 sm:p-12 md:p-16 lg:p-24">
@@ -523,118 +497,176 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Let's Talk Section */}
+      {/* Contact & Services Section */}
       <section id="contact" className="p-8 sm:p-12 md:p-16 lg:p-24 bg-gray-50">
-        <div>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
-            <div className="lg:col-span-4">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl xl:text-7xl font-bold text-gray-900">
-                {HOMEPAGE_DATA.letsTalk.title}
-              </h2>
-              <div className="w-[75px] h-[5px] mt-2 rounded-full bg-blue-700" />
-              <p className="mt-4 text-gray-600 text-lg">
-                {HOMEPAGE_DATA.letsTalk.subtitle}
+        <div className="max-w-7xl mx-auto">
+          {/* Header */}
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold text-gray-900 mb-4">
+              {HOMEPAGE_DATA.contact.title}
+            </h2>
+            <div className="w-[75px] h-[5px] mx-auto rounded-full bg-blue-700 mb-6" />
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              {HOMEPAGE_DATA.contact.subtitle}
+            </p>
+          </div>
+
+          {/* Services Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+            {HOMEPAGE_DATA.contact.services.map((service, index) => (
+              <div key={service.title} className="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 hover:shadow-lg transition-shadow duration-300">
+                <div className="text-center mb-6">
+                  <div className="w-16 h-16 mx-auto mb-4 bg-blue-100 rounded-full flex items-center justify-center">
+                    <span className="text-2xl font-bold text-blue-600">
+                      {String(index + 1).padStart(2, '0')}
+                    </span>
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">
+                    {service.title}
+                  </h3>
+                  <p className="text-gray-600">
+                    {service.description}
+                  </p>
+                </div>
+                <ul className="space-y-2">
+                  {service.features.map((feature, featureIndex) => (
+                    <li key={featureIndex} className="flex items-start gap-2">
+                      <span className="inline-block w-2 h-2 mt-2 rounded-full bg-blue-600 flex-shrink-0" />
+                      <span className="text-gray-700">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          {/* Consultation CTA */}
+          <div className="text-center mb-16">
+            <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 max-w-2xl mx-auto">
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                {HOMEPAGE_DATA.contact.consultation.title}
+              </h3>
+              <p className="text-gray-600 mb-6">
+                {HOMEPAGE_DATA.contact.consultation.description}
               </p>
+              <a
+                href={HOMEPAGE_DATA.contact.calendlyUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors duration-300 text-lg"
+              >
+                <svg
+                  className="w-5 h-5 mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                  />
+                </svg>
+                {HOMEPAGE_DATA.contact.consultation.title}
+              </a>
+            </div>
+          </div>
+
+          {/* Contact Information */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {/* Email Contact */}
+            <div className="group">
+              <a
+                href={`mailto:${RESUME_DATA.contact.email}`}
+                className="block p-6 bg-white rounded-xl border border-gray-200 transition-all duration-300 hover:bg-gray-50 hover:shadow-lg hover:border-gray-300 hover:-translate-y-1"
+              >
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 flex items-center justify-center bg-blue-100 rounded-full group-hover:bg-blue-200 transition-colors duration-300">
+                    <Mail className="w-6 h-6 text-blue-600" />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold text-gray-900 mb-1">
+                      {HOMEPAGE_DATA.contact.contact.email.title}
+                    </h4>
+                    <p className="text-gray-600">
+                      {RESUME_DATA.contact.email}
+                    </p>
+                  </div>
+                </div>
+              </a>
             </div>
 
-            <div className="lg:col-span-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {/* Email Contact */}
-                <div className="group relative">
-                  <a
-                    href={`mailto:${RESUME_DATA.contact.email}`}
-                    className="block relative p-4 sm:p-6 md:p-8 bg-white rounded-xl sm:rounded-2xl border border-gray-200 transition-all duration-300 hover:bg-gray-50 hover:shadow-xl hover:border-gray-300 hover:-translate-y-1"
-                  >
-                    <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center bg-blue-100 rounded-full group-hover:bg-blue-200 transition-colors duration-300">
-                        <Mail className="w-6 h-6 sm:w-7 sm:h-7 text-blue-600" />
-                      </div>
-                      <div>
-                        <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-1">
-                          {HOMEPAGE_DATA.letsTalk.contact.email.title}
-                        </h3>
-                        <p className="text-base sm:text-lg text-gray-600 break-all">
-                          {RESUME_DATA.contact.email}
-                        </p>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-
-                {/* GitHub Contact */}
-                <div className="group relative">
-                  <a
-                    href={
-                      RESUME_DATA.contact.social.find(
-                        (social) => social.name === "GitHub"
-                      )?.url
-                    }
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block relative p-4 sm:p-6 md:p-8 bg-white rounded-xl sm:rounded-2xl border border-gray-200 transition-all duration-300 hover:bg-gray-50 hover:shadow-xl hover:border-gray-300 hover:-translate-y-1"
-                  >
-                    <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center bg-gray-100 rounded-full group-hover:bg-gray-200 transition-colors duration-300">
-                        <Github className="w-6 h-6 sm:w-7 sm:h-7 text-gray-700" />
-                      </div>
-                      <div>
-                        <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-1">
-                          {HOMEPAGE_DATA.letsTalk.contact.github.title}
-                        </h3>
-                        <p className="text-base sm:text-lg text-gray-600">
-                          {HOMEPAGE_DATA.letsTalk.contact.github.username}
-                        </p>
-                      </div>
-                    </div>
-                    <div className="absolute top-4 right-4 sm:top-6 sm:right-6 md:top-8 md:right-8 w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 flex items-center justify-center bg-gray-900 rounded-full text-white transition-all duration-300 group-hover:bg-gray-700">
-                      <svg
-                        className="w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        role="img"
-                        aria-label={HOMEPAGE_DATA.accessibility.externalLink}
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M7 17L17 7M17 7H7M17 7V17"
-                        />
-                      </svg>
-                    </div>
-                  </a>
-                </div>
-
-                {/* Timeline Info */}
-                <div className="md:col-span-2 mt-4">
-                  <div className="p-4 sm:p-6 bg-blue-50 border border-blue-200 rounded-xl">
-                    <div className="flex items-start gap-3">
-                      <div className="w-6 h-6 flex items-center justify-center bg-blue-100 rounded-full flex-shrink-0 mt-1">
-                        <svg
-                          className="w-4 h-4 text-blue-600"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                          />
-                        </svg>
-                      </div>
-                      <div>
-                        <h4 className="text-lg font-semibold text-gray-900 mb-2">
-                          {HOMEPAGE_DATA.letsTalk.availability.title}
-                        </h4>
-                        <p className="text-gray-700 leading-relaxed">
-                          {HOMEPAGE_DATA.letsTalk.availability.description}
-                        </p>
-                      </div>
-                    </div>
+            {/* GitHub Contact */}
+            <div className="group">
+              <a
+                href={
+                  RESUME_DATA.contact.social.find(
+                    (social) => social.name === "GitHub"
+                  )?.url
+                }
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block p-6 bg-white rounded-xl border border-gray-200 transition-all duration-300 hover:bg-gray-50 hover:shadow-lg hover:border-gray-300 hover:-translate-y-1"
+              >
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 flex items-center justify-center bg-gray-100 rounded-full group-hover:bg-gray-200 transition-colors duration-300">
+                    <Github className="w-6 h-6 text-gray-700" />
                   </div>
+                  <div>
+                    <h4 className="text-lg font-semibold text-gray-900 mb-1">
+                      {HOMEPAGE_DATA.contact.contact.github.title}
+                    </h4>
+                    <p className="text-gray-600">
+                      {HOMEPAGE_DATA.contact.contact.github.username}
+                    </p>
+                  </div>
+                  <div className="ml-auto">
+                    <svg
+                      className="w-5 h-5 text-gray-400 group-hover:text-gray-600 transition-colors"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          {/* Availability Info */}
+          <div className="mt-12 text-center">
+            <div className="bg-blue-50 border border-blue-200 rounded-xl p-6 max-w-3xl mx-auto">
+              <div className="flex items-start justify-center gap-3">
+                <div className="w-6 h-6 flex items-center justify-center bg-blue-100 rounded-full flex-shrink-0 mt-1">
+                  <svg
+                    className="w-4 h-4 text-blue-600"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                </div>
+                <div className="text-left">
+                  <h4 className="text-lg font-semibold text-gray-900 mb-2">
+                    {HOMEPAGE_DATA.contact.availability.title}
+                  </h4>
+                  <p className="text-gray-700 leading-relaxed">
+                    {HOMEPAGE_DATA.contact.availability.description}
+                  </p>
                 </div>
               </div>
             </div>
@@ -642,14 +674,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Footer CTA */}
-      <div className="text-center py-12 border-t bg-gray-50">
-        <h3 className="text-2xl font-semibold mb-4">
-          {HOMEPAGE_DATA.footer.title}
-        </h3>
-        <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-          {HOMEPAGE_DATA.footer.subtitle}
-        </p>
+      {/* Simple Footer */}
+      <footer className="text-center py-12 border-t bg-white">
         <div className="flex justify-center gap-4">
           <Link
             href="/cv"
@@ -664,7 +690,7 @@ export default function HomePage() {
             {HOMEPAGE_DATA.footer.buttons.readBlog}
           </Link>
         </div>
-      </div>
+      </footer>
     </>
   );
 }
