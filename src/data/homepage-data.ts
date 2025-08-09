@@ -82,34 +82,6 @@ export const HOMEPAGE_DATA = {
         startingPrice: "$2,500"
       },
       {
-        icon: "cloud",
-        title: "Cloud Architecture",
-        description: "Scalable, secure cloud infrastructure with DevOps automation",
-        features: [
-          "AWS Infrastructure Setup",
-          "CI/CD Pipeline Configuration", 
-          "Performance Optimization",
-          "Security Implementation"
-        ],
-        technologies: ["AWS", "Docker", "Kubernetes", "Terraform", "GitHub Actions"],
-        timeline: "1-3 weeks",
-        startingPrice: "$3,000"
-      },
-      {
-        icon: "mobile",
-        title: "Mobile-First Design",
-        description: "Responsive web applications optimized for all devices and screen sizes",
-        features: [
-          "Responsive Web Design",
-          "Progressive Web Apps",
-          "Mobile Performance",
-          "Touch-Optimized UI"
-        ],
-        technologies: ["Tailwind CSS", "React Native", "PWA", "Web Vitals"],
-        timeline: "2-6 weeks",
-        startingPrice: "$4,000"
-      },
-      {
         icon: "analytics",
         title: "Performance Optimization",
         description: "Speed up your existing applications with proven optimization techniques",

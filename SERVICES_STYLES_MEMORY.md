@@ -173,9 +173,50 @@ To switch to a different style:
 3. Update the section ID if needed to avoid conflicts
 4. Test the build with `pnpm build`
 
+## Deprioritized Services (Removed from Main Homepage)
+
+These services were removed from the main homepage but kept here for future reference:
+
+### Cloud Architecture
+```javascript
+{
+  icon: "cloud",
+  title: "Cloud Architecture",
+  description: "Scalable, secure cloud infrastructure with DevOps automation",
+  features: [
+    "AWS Infrastructure Setup",
+    "CI/CD Pipeline Configuration", 
+    "Performance Optimization",
+    "Security Implementation"
+  ],
+  technologies: ["AWS", "Docker", "Kubernetes", "Terraform", "GitHub Actions"],
+  timeline: "1-3 weeks",
+  startingPrice: "$3,000"
+}
+```
+
+### Mobile-First Design
+```javascript
+{
+  icon: "mobile",
+  title: "Mobile-First Design",
+  description: "Responsive web applications optimized for all devices and screen sizes",
+  features: [
+    "Responsive Web Design",
+    "Progressive Web Apps",
+    "Mobile Performance",
+    "Touch-Optimized UI"
+  ],
+  technologies: ["Tailwind CSS", "React Native", "PWA", "Web Vitals"],
+  timeline: "2-6 weeks",
+  startingPrice: "$4,000"
+}
+```
+
 ## Notes
 
 - All styles use the same data from `HOMEPAGE_DATA.services.offerings`
 - Icons are implemented inline for each style
 - Responsive design is included in all variations
 - Hover effects and animations are included
+- Deprioritized services can be easily re-added to the offerings array if needed
