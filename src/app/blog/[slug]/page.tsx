@@ -9,6 +9,7 @@ import { BlogShare } from "@/components/blog-share";
 import { CopyCode, CopyCodeToggle } from "@/components/copy-code";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import styles from "./blog-styles.module.css";
 
 interface PostPageProps {
   params: {
@@ -163,42 +164,6 @@ export default function PostPage({ params }: PostPageProps) {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="max-w-4xl mx-auto">
-        {/* Blog post styles */}
-        <style
-          dangerouslySetInnerHTML={{
-            __html: `
-            /* Unordered lists: custom blue square bullets */
-            .blog-ul {
-              list-style: none !important;
-              padding-left: 0 !important;
-            }
-            .blog-ul li {
-              display: flex !important;
-              align-items: flex-start !important;
-              gap: 8px !important;
-              list-style: none !important;
-            }
-            .blog-ul li:before {
-              content: '' !important;
-              display: inline-block !important;
-              width: 8px !important;
-              height: 8px !important;
-              margin-top: 10px !important;
-              background-color: rgb(37 99 235) !important;
-              flex-shrink: 0 !important;
-            }
-            
-            /* Ordered lists: keep native numbers */
-            .blog-ol li {
-              display: list-item !important;
-            }
-            .blog-ol li:before {
-              content: none !important;
-            }
-          `,
-          }}
-        />
-
         {/* Back to blog */}
         <div className="mb-8 flex items-center justify-between">
           <Button variant="ghost" asChild={true}>
@@ -245,7 +210,9 @@ export default function PostPage({ params }: PostPageProps) {
           </header>
 
           {/* Article content */}
-          <div className="prose prose-lg max-w-none prose-code:text-gray-900 prose-code:bg-gray-100">
+          <div
+            className={`prose prose-lg max-w-none prose-code:text-gray-900 prose-code:bg-gray-100 ${styles.prose}`}
+          >
             <MDXContent components={MDXComponents} />
           </div>
         </article>

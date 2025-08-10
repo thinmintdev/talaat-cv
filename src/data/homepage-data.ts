@@ -121,7 +121,7 @@ export const HOMEPAGE_DATA = {
         icon: "support",
         title: "Consulting & Support",
         description:
-          "Expert guidance and ongoing support for your development projects",
+          "Expert guidance and ongoing technical support for your development projects. We fix hacked sites, optimize performance, and ensure security best practices.",
         features: [
           "Technical Architecture Review",
           "Code Auditing & Review",
@@ -157,7 +157,7 @@ export const HOMEPAGE_DATA = {
         description: "Type safety, maintainability",
       },
       {
-        name: "AWS",
+        name: "Cloud Computing/AWS",
         level: 5,
         description: "Cloud architecture, scaling",
       },
@@ -169,7 +169,7 @@ export const HOMEPAGE_DATA = {
       {
         name: "WordPress",
         level: 5,
-        description: "Themes, plugins, e-commerce",
+        description: "Themes, plugins, fixes,e-commerce",
       },
       {
         name: "SCSS/Tailwind",
@@ -184,7 +184,7 @@ export const HOMEPAGE_DATA = {
       {
         name: "SEO/Perf",
         level: 4,
-        description: "Web Vitals, SEO, optimization",
+        description: "Web Vitals, SEO, Keyword optimization",
       },
       {
         name: "PHP",
@@ -197,9 +197,9 @@ export const HOMEPAGE_DATA = {
         description: "Version control, automation, deploy",
       },
       {
-        name: "Linux/Sysadmin",
+        name: "Linux VPS/Sysadmin",
         level: 4,
-        description: "Server ops, automation, security",
+        description: "Server ops, automation, security, Web Hosting",
       },
     ],
     accessibility: {

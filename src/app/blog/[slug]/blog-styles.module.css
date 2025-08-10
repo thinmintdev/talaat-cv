@@ -1,0 +1,31 @@
+/* Custom blog post styles to work with prose classes */
+.prose ul {
+  list-style: none !important;
+  padding-left: 0 !important;
+}
+
+.prose ul li {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 8px !important;
+  list-style: none !important;
+}
+
+.prose ul li:before {
+  content: "" !important;
+  display: inline-block !important;
+  width: 8px !important;
+  height: 8px !important;
+  margin-top: 10px !important;
+  background-color: rgb(37 99 235) !important;
+  flex-shrink: 0 !important;
+}
+
+/* Ordered lists: keep native numbers */
+.prose ol li {
+  display: list-item !important;
+}
+
+.prose ol li:before {
+  content: none !important;
+}
