@@ -1,7 +1,7 @@
-import { Mail, Github } from "lucide-react";
+import { Github, Mail } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { HeroSection } from "@/components/HeroSection";
+import { PremiumHero } from "@/components/PremiumHero";
 import { TypingTitle } from "@/components/TypingTitle";
 import { HOMEPAGE_DATA } from "@/data/homepage-data";
 import { RESUME_DATA } from "@/data/resume-data";
@@ -16,7 +16,7 @@ export default function HomePage() {
   return (
     <>
       {/* Hero Section */}
-      <HeroSection />
+      <PremiumHero />
 
       {/* About Me Section */}
       <section id="about" className="p-8 sm:p-12 md:p-16 lg:p-24">
@@ -334,6 +334,9 @@ export default function HomePage() {
                   />
                 </h2>
                 <div className="w-[75px] h-[5px] mt-2 rounded-full bg-blue-700" />
+                <p className="mt-4 text-lg text-gray-600">
+                  {HOMEPAGE_DATA.projects.description}
+                </p>
               </div>
 
               <div className="lg:col-span-8">

@@ -57,24 +57,36 @@ export async function generateStaticParams() {
 
 const MDXComponents = {
   h1: ({ children, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
-    <h1 className="text-4xl font-bold tracking-tight mb-6" {...props}>
-      {children}
-    </h1>
+    <div className="mt-8 first:mt-0">
+      <h1 className="text-4xl font-bold tracking-tight mb-2" {...props}>
+        {children}
+      </h1>
+      <div className="w-[75px] h-[5px] mb-6 rounded-full bg-blue-700" />
+    </div>
   ),
   h2: ({ children, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
-    <h2 className="text-3xl font-semibold mt-8 mb-4" {...props}>
-      {children}
-    </h2>
+    <div className="mt-8">
+      <h2 className="text-3xl font-semibold mb-2" {...props}>
+        {children}
+      </h2>
+      <div className="w-[60px] h-[4px] mb-4 rounded-full bg-blue-700" />
+    </div>
   ),
   h3: ({ children, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
-    <h3 className="text-2xl font-semibold mt-6 mb-3" {...props}>
-      {children}
-    </h3>
+    <div className="mt-6">
+      <h3 className="text-2xl font-semibold mb-1" {...props}>
+        {children}
+      </h3>
+      <div className="w-[50px] h-[3px] mb-3 rounded-full bg-blue-700" />
+    </div>
   ),
   h4: ({ children, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
-    <h4 className="text-xl font-semibold mt-4 mb-2" {...props}>
-      {children}
-    </h4>
+    <div className="mt-4">
+      <h4 className="text-xl font-semibold mb-1" {...props}>
+        {children}
+      </h4>
+      <div className="w-[40px] h-[3px] mb-2 rounded-full bg-blue-700" />
+    </div>
   ),
   p: ({ children, ...props }: React.HTMLAttributes<HTMLParagraphElement>) => (
     <p className="mb-4 leading-7" {...props}>
@@ -192,9 +204,10 @@ export default function PostPage({ params }: PostPageProps) {
               </span>
             </div>
 
-            <h1 className="text-4xl font-bold tracking-tight mb-4">
+            <h1 className="text-4xl font-bold tracking-tight mb-2">
               {post.title}
             </h1>
+            <div className="w-[75px] h-[5px] mb-4 rounded-full bg-blue-700" />
 
             <p className="text-xl text-muted-foreground mb-6">{post.summary}</p>
 

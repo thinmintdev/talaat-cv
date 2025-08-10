@@ -41,6 +41,7 @@ export function BlogPageClient({ posts }: BlogPageClientProps) {
             <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl dark:text-gray-100">
               Blog
             </h1>
+            <div className="w-[75px] h-[5px] mt-2 rounded-full bg-blue-700 mx-auto lg:mx-0" />
             <p className="mt-4 text-lg text-gray-600 dark:text-gray-300">
               Thoughts, ideas, and insights about software development,
               technology, and more.

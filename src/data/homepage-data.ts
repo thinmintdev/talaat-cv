@@ -93,6 +93,7 @@ export const HOMEPAGE_DATA = {
   // Projects Section
   projects: {
     title: "Projects",
+    description: "What I'm working on.",
     projectDescriptions: {
       "ContentMind AI": [
         "AI-powered content analysis platform for Fortune 500s",

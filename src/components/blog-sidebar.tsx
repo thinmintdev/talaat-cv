@@ -30,18 +30,24 @@ export function BlogSidebar({ posts, onSearch }: BlogSidebarProps) {
     <aside className="space-y-8">
       {/* Search */}
       <div>
-        <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">
-          Search Posts
-        </h3>
+        <div className="mb-4">
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
+            Search Posts
+          </h3>
+          <div className="w-[50px] h-[3px] mt-1 rounded-full bg-blue-700" />
+        </div>
         <BlogSearch onSearch={onSearch} />
       </div>
 
       {/* Categories */}
       {sortedCategories.length > 0 && (
         <div>
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">
-            Categories
-          </h3>
+          <div className="mb-4">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
+              Categories
+            </h3>
+            <div className="w-[50px] h-[3px] mt-1 rounded-full bg-blue-700" />
+          </div>
           <div className="space-y-2">
             {sortedCategories.map(([category, count]) => (
               <Link
@@ -62,9 +68,12 @@ export function BlogSidebar({ posts, onSearch }: BlogSidebarProps) {
       {/* Recent Posts */}
       {recentPosts.length > 0 && (
         <div>
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">
-            Recent Posts
-          </h3>
+          <div className="mb-4">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
+              Recent Posts
+            </h3>
+            <div className="w-[50px] h-[3px] mt-1 rounded-full bg-blue-700" />
+          </div>
           <div className="space-y-4">
             {recentPosts.map((post) => (
               <article key={post.slug} className="group">
