@@ -17,12 +17,6 @@ export function SiteHeader() {
             Portfolio
           </Link>
           <Link
-            href="/cv"
-            className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-          >
-            CV
-          </Link>
-          <Link
             href="/blog"
             className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
           >

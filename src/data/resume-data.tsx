@@ -186,81 +186,23 @@ export const RESUME_DATA: ResumeData = {
   ],
   projects: [
     {
-      title: "ContentMind AI",
+      title: "Poll.it.com",
       techStack: [
         "React",
         "Node.js",
         "Next.js",
         "TypeScript",
-        "OpenAI API",
         "PostgreSQL",
         "Redis",
-        "AWS",
-        "Docker",
+        "Supabase",
+        "TailwindCSS",
+        "Socket.io",
       ],
       description:
-        "Enterprise-grade content intelligence platform that revolutionized content workflows for Fortune 500 companies. Built scalable microservices architecture processing 2M+ documents monthly with AI-powered content analysis, automated categorization, and intelligent search capabilities. Implemented advanced caching strategies achieving 300ms average response times and 99.95% uptime. Platform reduced content processing time by 75% while increasing accuracy to 94% through custom ML pipeline integration.",
+        "Real time polling platform with live updates and real-time results. Built with a modern tech stack including React, Node.js, and PostgreSQL. Scalable architecture supporting 100,000+ concurrent users. Features include advanced analytics dashboard, image polls, custom branding, user segmentation, and privacy controls.",
       link: {
         label: "View Demo",
-        href: "#",
-      },
-    },
-    {
-      title: "DesignSync Pro",
-      techStack: [
-        "React",
-        "Node.js",
-        "WebRTC",
-        "Socket.io",
-        "MongoDB",
-        "AWS",
-        "Docker",
-        "WebSockets",
-      ],
-      description:
-        "Revolutionary design collaboration platform enabling real-time multi-user editing with conflict resolution algorithms. Engineered WebRTC-based peer-to-peer architecture supporting 50+ simultaneous collaborators per session. Implemented operational transformation algorithms for seamless conflict resolution and built comprehensive version control system with branching capabilities. Platform increased design team productivity by 60% and reduced project completion time by 40% across 200+ design teams.",
-      link: {
-        label: "designsync.pro",
-        href: "#",
-      },
-    },
-    {
-      title: "CryptoFlow Exchange",
-      techStack: [
-        "Node.js",
-        "TypeScript",
-        "React",
-        "PostgreSQL",
-        "Redis",
-        "WebSockets",
-        "Blockchain",
-        "AWS",
-      ],
-      description:
-        "High-frequency institutional cryptocurrency trading platform with advanced order matching engine processing 50,000+ transactions per second. Architected fault-tolerant microservices with real-time market data streaming, sophisticated risk management algorithms, and multi-signature wallet integration. Implemented comprehensive compliance framework meeting SOC2 Type II standards and achieved 99.99% uptime with zero security incidents. Platform facilitated $2.5B+ in trading volume within first year.",
-      link: {
-        label: "View Platform",
-        href: "#",
-      },
-    },
-    {
-      title: "CloudOrchestra",
-      techStack: [
-        "Node.js",
-        "React",
-        "TypeScript",
-        "Terraform",
-        "Kubernetes",
-        "Docker",
-        "AWS",
-        "Azure",
-        "GCP",
-      ],
-      description:
-        "Comprehensive multi-cloud infrastructure automation platform that simplified enterprise cloud management across AWS, Azure, and GCP. Built intelligent cost optimization engine reducing cloud spend by average 35% through automated resource rightsizing and spot instance management. Developed Infrastructure-as-Code generator creating Terraform configurations from visual drag-drop interface. Platform manages 500+ production workloads with automated disaster recovery and 24/7 monitoring, achieving 99.97% service availability.",
-      link: {
-        label: "cloudorchestra.io",
-        href: "#",
+        href: "https://poll.it.com",
       },
     },
   ],

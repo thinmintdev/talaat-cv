@@ -32,7 +32,6 @@ export const SkillBadge: React.FC<SkillBadgeProps> = ({
       <TechIcon 
         iconName={technology.icon} 
         size={20}
-        className="text-gray-700"
       />
       <span className="text-sm font-medium text-gray-900">
         {technology.name}

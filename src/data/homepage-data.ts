@@ -14,7 +14,7 @@ export const HOMEPAGE_DATA = {
 
   // Skills Section - Sliding Animation
   slidingSkills: {
-    title: "Skills & Technologies",
+    title: "Skills",
     description: "Technologies I work with daily",
     rows: [
       {
@@ -82,32 +82,101 @@ export const HOMEPAGE_DATA = {
   projects: {
     title: "Projects",
     description: "What I'm working on.",
-    projectDescriptions: {
-      "ContentMind AI": [
-        "AI-powered content analysis platform for Fortune 500s",
-        "Scalable microservices: 2M+ docs/month, 300ms avg response",
-        "Advanced caching, 99.95% uptime, custom ML pipeline integration",
-        "Reduced processing time by 75%, accuracy to 94%",
-      ],
-      "DesignSync Pro": [
-        "Real-time design collaboration (WebRTC, 50+ users/session)",
-        "Operational transformation for seamless conflict resolution",
-        "Comprehensive version control with branching",
-        "Increased team productivity by 60%, 40% faster delivery",
-      ],
-      "CryptoFlow Exchange": [
-        "High-frequency crypto trading, 50K+ tx/sec",
-        "Fault-tolerant microservices, real-time data streaming",
-        "SOC2 Type II compliance, 99.99% uptime, zero security incidents",
-        "$2.5B+ trading volume in first year",
-      ],
-      CloudOrchestra: [
-        "Multi-cloud automation for AWS, Azure, GCP",
-        "Intelligent cost optimization (avg 35% savings)",
-        "Visual IaC generator (Terraform), 500+ workloads managed",
-        "Automated DR, 99.97% service availability",
-      ],
-    },
+    list: [
+      {
+        title: "Poll.it.com",
+        techStack: [
+          "React",
+          "Node.js",
+          "Next.js",
+          "TypeScript",
+          "PostgreSQL",
+          "Redis",
+          "Supabase",
+          "TailwindCSS",
+          "Socket.io",
+        ],
+        description: [
+          "Fast, easy community polling platform",
+          "Live updates, real-time results & chat",
+          "Advanced analytics dashboard for user insights",
+          "Image polls, custom branding, user segmentation & privacy controls",
+        ],
+        link: {
+          label: "View Demo",
+          href: "https://poll.it.com",
+        },
+      },
+      {
+        title: "DesignSync Pro",
+        techStack: [
+          "React",
+          "WebRTC",
+          "Node.js",
+          "Socket.io",
+          "PostgreSQL",
+          "Redis",
+          "Docker",
+          "AWS",
+        ],
+        description: [
+          "Real-time design collaboration (WebRTC, 50+ users/session)",
+          "Operational transformation for seamless conflict resolution",
+          "Comprehensive version control with branching",
+          "Increased team productivity by 60%, 40% faster delivery",
+        ],
+        link: {
+          label: "View Project",
+          href: "https://designsync.pro",
+        },
+      },
+      {
+        title: "CryptoFlow Exchange",
+        techStack: [
+          "Node.js",
+          "Go",
+          "PostgreSQL",
+          "Redis",
+          "Docker",
+          "Kubernetes",
+          "AWS",
+          "WebSocket",
+        ],
+        description: [
+          "High-frequency crypto trading, 50K+ tx/sec",
+          "Fault-tolerant microservices, real-time data streaming",
+          "SOC2 Type II compliance, 99.99% uptime, zero security incidents",
+          "$2.5B+ trading volume in first year",
+        ],
+        link: {
+          label: "View Exchange",
+          href: "https://cryptoflow.exchange",
+        },
+      },
+      {
+        title: "CloudOrchestra",
+        techStack: [
+          "Terraform",
+          "AWS",
+          "Azure",
+          "GCP",
+          "Python",
+          "Go",
+          "Docker",
+          "Kubernetes",
+        ],
+        description: [
+          "Multi-cloud automation for AWS, Azure, GCP",
+          "Intelligent cost optimization (avg 35% savings)",
+          "Visual IaC generator (Terraform), 500+ workloads managed",
+          "Automated DR, 99.97% service availability",
+        ],
+        link: {
+          label: "View Platform",
+          href: "https://cloudorchestra.io",
+        },
+      },
+    ],
   },
 
   // Experience Section (Hidden for now)
@@ -334,7 +403,7 @@ export const HOMEPAGE_DATA = {
     availability: {
       title: "Current Availability",
       description:
-        "I'm actively scheduling new projects with a typical 1-2 week timeline to get started. Whether you need a complete application build, system architecture, or ongoing development support, let's discuss how I can help bring your vision to life.",
+        "I'm actively scheduling new projects with a typical 1-2 week timeline to get started. Let's discuss how I can help bring your vision to life.",
     },
   },
 

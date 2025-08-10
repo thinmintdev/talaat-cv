@@ -24,7 +24,7 @@ export const TechIcon: React.FC<TechIconProps> = ({
   return (
     <Icon 
       size={size} 
-      className={className}
+      className={`text-blue-600 ${className}`}
       aria-label={`${iconName} icon`}
     />
   );

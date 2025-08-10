@@ -44,20 +44,25 @@
 /* Container for the scrolling row */
 .scroll-container {
   overflow: hidden;
+}
+
+/* Wrapper for the scrolling content only */
+.scroll-wrapper {
   mask-image: linear-gradient(
     90deg,
     transparent 0%,
-    black 10%,
-    black 90%,
+    black 8%,
+    black 92%,
     transparent 100%
   );
   -webkit-mask-image: linear-gradient(
     90deg,
     transparent 0%,
-    black 10%,
-    black 90%,
+    black 8%,
+    black 92%,
     transparent 100%
   );
+  overflow: hidden;
 }
 
 /* Responsive adjustments */

@@ -46,7 +46,7 @@ export default function HomePage() {
       <SlidingSkills data={HOMEPAGE_DATA.slidingSkills} />
 
       {/* Projects Section */}
-      {RESUME_DATA.projects.length > 0 && (
+      {HOMEPAGE_DATA.projects.list.length > 0 && (
         <section id="projects" className="p-8 sm:p-12 md:p-16 lg:p-24">
           <div>
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
@@ -66,7 +66,7 @@ export default function HomePage() {
 
               <div className="lg:col-span-8">
                 <div className="space-y-8">
-                  {RESUME_DATA.projects.map((project, index) => {
+                  {HOMEPAGE_DATA.projects.list.map((project, index) => {
                     const hasLink = project.link?.href;
                     const Component = hasLink ? "a" : "div";
                     const linkProps = hasLink
@@ -120,25 +120,15 @@ export default function HomePage() {
                             <ul
                               className={`text-base sm:text-lg text-gray-600 leading-relaxed space-y-2 ${hasLink ? "pr-12 sm:pr-14 md:pr-16" : ""}`}
                             >
-                              {(() => {
-                                // Split description into concise bullet points for each project
-                                const descMap =
-                                  HOMEPAGE_DATA.projects.projectDescriptions;
-                                const bullets: readonly string[] = descMap[
-                                  project.title as keyof typeof descMap
-                                ] || [project.description as string];
-                                return bullets.map(
-                                  (line: string, i: number) => (
-                                    <li
-                                      key={`${project.title}-bullet-${i}`}
-                                      className="flex items-start gap-2"
-                                    >
-                                      <span className="inline-block w-3 h-3 mt-2 rounded-sm bg-blue-600 flex-shrink-0" />
-                                      <span>{line}</span>
-                                    </li>
-                                  )
-                                );
-                              })()}
+                              {project.description.map((line, i) => (
+                                <li
+                                  key={`${project.title}-bullet-${i}`}
+                                  className="flex items-start gap-2"
+                                >
+                                  <span className="inline-block w-3 h-3 mt-2 rounded-sm bg-blue-600 flex-shrink-0" />
+                                  <span>{line}</span>
+                                </li>
+                              ))}
                             </ul>
 
                             {project.techStack &&

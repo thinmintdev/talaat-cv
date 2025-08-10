@@ -33,24 +33,26 @@ export const InfiniteSkillsRow: React.FC<InfiniteSkillsRowProps> = ({
   
   return (
     <div className={`${styles["scroll-container"]} ${className}`}>
-      {/* Row Label */}
-      <div className="text-sm font-medium text-gray-500 mb-2 uppercase tracking-wide">
+      {/* Row Label - Outside the masked area */}
+      <div className="text-sm font-medium text-gray-500 mb-3 uppercase tracking-wide">
         {row.label}
       </div>
       
-      {/* Scrolling Content */}
-      <div
-        className={`${styles["skill-row"]} ${animationDirection}`}
-        style={{
-          animationDuration: `${row.speed}s`,
-        }}
-      >
-        {duplicatedTechnologies.map((technology, index) => (
-          <SkillBadge
-            key={`${technology.name}-${index}`}
-            technology={technology}
-          />
-        ))}
+      {/* Scrolling Content Wrapper with gradient mask */}
+      <div className={styles["scroll-wrapper"]}>
+        <div
+          className={`${styles["skill-row"]} ${animationDirection}`}
+          style={{
+            animationDuration: `${row.speed}s`,
+          }}
+        >
+          {duplicatedTechnologies.map((technology, index) => (
+            <SkillBadge
+              key={`${technology.name}-${index}`}
+              technology={technology}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
