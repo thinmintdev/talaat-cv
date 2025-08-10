@@ -12,6 +12,84 @@ export const HOMEPAGE_DATA = {
     description: "Content will come from RESUME_DATA.summary",
   },
 
+  // Skills Section
+  skills: {
+    title: "Skills & Technologies",
+    description: "Technologies and tools I work with",
+    categories: [
+      {
+        id: "frontend",
+        name: "Frontend",
+        icon: "🎨",
+        gradient: "from-blue-500 to-cyan-500",
+        skills: [
+          "React",
+          "Next.js",
+          "JavaScript",
+          "HTML5",
+          "CSS3",
+          "TailwindCSS",
+        ],
+      },
+      {
+        id: "backend",
+        name: "Backend",
+        icon: "⚙️",
+        gradient: "from-green-500 to-emerald-500",
+        skills: ["Node.js", "PHP", "Python", "TypeScript", "GraphQL"],
+      },
+      {
+        id: "database",
+        name: "Database",
+        icon: "💾",
+        gradient: "from-purple-500 to-violet-500",
+        skills: ["MySQL", "PostgreSQL", "MongoDB", "MariaDB"],
+      },
+      {
+        id: "cloud",
+        name: "Cloud & Infrastructure",
+        icon: "☁️",
+        gradient: "from-orange-500 to-amber-500",
+        skills: [
+          "AWS",
+          "Docker",
+          "Kubernetes",
+          "Linux",
+          "Cloud Architecture",
+          "DevOps",
+        ],
+      },
+      {
+        id: "cms",
+        name: "Content Management",
+        icon: "📝",
+        gradient: "from-pink-500 to-rose-500",
+        skills: [
+          "WordPress",
+          "WooCommerce",
+          "Plugin Development",
+          "Theme Development",
+          "Custom Solutions",
+          "Drupal",
+        ],
+      },
+      {
+        id: "devtools",
+        name: "Development Tools",
+        icon: "🛠️",
+        gradient: "from-slate-500 to-gray-500",
+        skills: [
+          "Git",
+          "REST APIs",
+          "Microservices",
+          "CI/CD",
+          "Performance Optimization",
+          "SEO",
+        ],
+      },
+    ],
+  },
+
   // Projects Section
   projects: {
     title: "Projects",

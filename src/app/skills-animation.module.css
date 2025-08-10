@@ -1,0 +1,12 @@
+/* Skills section animation classes */
+.categoryReveal {
+  animation: slideInUp 0.8s ease-out forwards;
+}
+
+.skillReveal {
+  animation: skillFloat 0.6s ease-out forwards;
+}
+
+.skillFloating:hover {
+  animation: gentleFloat 2s ease-in-out infinite;
+}

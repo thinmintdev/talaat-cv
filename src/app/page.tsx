@@ -1,8 +1,11 @@
-import { Github, Linkedin, Mail, Twitter } from "lucide-react";
+import { Mail, Github } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { HeroSection } from "@/components/HeroSection";
+import { TypingTitle } from "@/components/TypingTitle";
 import { HOMEPAGE_DATA } from "@/data/homepage-data";
 import { RESUME_DATA } from "@/data/resume-data";
+import skillsStyles from "./skills-animation.module.css";
 
 export const metadata: Metadata = {
   title: `${RESUME_DATA.name} - ${RESUME_DATA.about}`,
@@ -13,201 +16,7 @@ export default function HomePage() {
   return (
     <>
       {/* Hero Section */}
-      <div
-        id="hero"
-        className="relative isolate overflow-hidden bg-white py-24 md:h-screen"
-      >
-        {/* Gradient overlay */}
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-blue-100/40 via-blue-50/20 to-white" />
-
-        {/* Programming symbols pattern */}
-        <svg
-          aria-hidden="true"
-          className="absolute inset-0 -z-10 size-full stroke-gray-200 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
-        >
-          <defs>
-            <pattern
-              x="50%"
-              y={-1}
-              id="grid-pattern"
-              width={200}
-              height={200}
-              patternUnits="userSpaceOnUse"
-            >
-              <path d="M.5 200V.5H200" fill="none" />
-            </pattern>
-            <pattern
-              id="programming-symbols"
-              x="0"
-              y="0"
-              width="400"
-              height="400"
-              patternUnits="userSpaceOnUse"
-            >
-              <text
-                x="50"
-                y="50"
-                fill="#1d4ed8"
-                fontFamily="monospace"
-                fontSize="24"
-                transform="rotate(-15)"
-              >
-                &lt;/&gt;
-              </text>
-              <text
-                x="150"
-                y="100"
-                fill="#1d4ed8"
-                fontFamily="monospace"
-                fontSize="20"
-                transform="rotate(10)"
-              >
-                {}
-              </text>
-              <text
-                x="250"
-                y="80"
-                fill="#1d4ed8"
-                fontFamily="monospace"
-                fontSize="18"
-                transform="rotate(-5)"
-              >
-                =&gt;
-              </text>
-              <text
-                x="100"
-                y="200"
-                fill="#1d4ed8"
-                fontFamily="monospace"
-                fontSize="22"
-                transform="rotate(15)"
-              >
-                []
-              </text>
-              <text
-                x="300"
-                y="180"
-                fill="#1d4ed8"
-                fontFamily="monospace"
-                fontSize="20"
-                transform="rotate(-10)"
-              >
-                &lt;&gt;
-              </text>
-              <text
-                x="200"
-                y="250"
-                fill="#1d4ed8"
-                fontFamily="monospace"
-                fontSize="24"
-                transform="rotate(5)"
-              >
-                ()
-              </text>
-              <text
-                x="50"
-                y="320"
-                fill="#1d4ed8"
-                fontFamily="monospace"
-                fontSize="18"
-                transform="rotate(-8)"
-              >
-                ::
-              </text>
-              <text
-                x="350"
-                y="300"
-                fill="#1d4ed8"
-                fontFamily="monospace"
-                fontSize="22"
-                transform="rotate(12)"
-              >
-                ==
-              </text>
-              <text
-                x="150"
-                y="350"
-                fill="#1d4ed8"
-                fontFamily="monospace"
-                fontSize="20"
-                transform="rotate(-15)"
-              >
-                ++
-              </text>
-              <text
-                x="250"
-                y="370"
-                fill="#1d4ed8"
-                fontFamily="monospace"
-                fontSize="24"
-                transform="rotate(8)"
-              >
-                ;
-              </text>
-            </pattern>
-          </defs>
-          <rect
-            fill="url(#programming-symbols)"
-            width="100%"
-            height="100%"
-            opacity="0.2"
-          />
-          <rect
-            fill="url(#grid-pattern)"
-            width="100%"
-            height="100%"
-            strokeWidth={0}
-          />
-        </svg>
-
-        <div className="h-full mx-auto p-8 sm:p-12 md:p-24 flex items-center">
-          <div>
-            <h2 className="text-pretty text-xl sm:text-2xl md:text-5xl font-bold tracking-tight text-gray-700 ">
-              {HOMEPAGE_DATA.hero.greeting}
-            </h2>
-            <h1 className="mt-6 sm:mt-8 md:mt-10 text-pretty text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold tracking-tight text-gray-800 ">
-              {HOMEPAGE_DATA.hero.namePrefix}{" "}
-              <span className="text-blue-700">{RESUME_DATA.name}</span>
-            </h1>
-            <p className="mt-4 sm:mt-6 md:mt-8 text-pretty text-base sm:text-lg md:text-xl/8 font-medium text-gray-600 ">
-              {RESUME_DATA.about}
-            </p>
-          </div>
-        </div>
-
-        {/* Social Links */}
-        <div className="absolute bottom-0 left-0 right-0 p-8 sm:p-12 md:p-24 flex gap-x-4 sm:gap-x-6 md:gap-x-8 text-gray-700 ">
-          {RESUME_DATA.contact.social.map((social) => {
-            const IconComponent = {
-              github: Github,
-              linkedin: Linkedin,
-              x: Twitter,
-            }[social.icon as "github" | "linkedin" | "x"];
-
-            if (!IconComponent) return null;
-
-            return (
-              <a
-                key={social.name}
-                href={social.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={social.name}
-                className="transition-colors duration-300 hover:text-blue-600"
-              >
-                <IconComponent className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8" />
-              </a>
-            );
-          })}
-          <a
-            href={`mailto:${RESUME_DATA.contact.email}`}
-            aria-label="Email"
-            className="transition-colors duration-300 hover:text-blue-600"
-          >
-            <Mail className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8" />
-          </a>
-        </div>
-      </div>
+      <HeroSection />
 
       {/* About Me Section */}
       <section id="about" className="p-8 sm:p-12 md:p-16 lg:p-24">
@@ -215,27 +24,295 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
             <div className="lg:col-span-4">
               <h2 className="text-3xl sm:text-4xl md:text-5xl xl:text-7xl font-bold text-gray-900">
-                {HOMEPAGE_DATA.about.title}
+                <TypingTitle
+                  text={HOMEPAGE_DATA.about.title}
+                  speed={50}
+                  delay={200}
+                  showCursor={false}
+                />
               </h2>
               <div className="w-[75px] h-[5px] mt-2 rounded-full bg-blue-700" />
             </div>
 
-            <div className="lg:col-span-8 space-y-8">
+            <div className="lg:col-span-8">
               <div className="text-lg sm:text-xl md:text-2xl leading-relaxed text-gray-600">
                 {RESUME_DATA.summary}
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-              <div className="pt-4">
-                <div className="flex flex-wrap gap-3">
-                  {RESUME_DATA.skills.map((skill) => (
-                    <span
-                      key={skill}
-                      className="px-3 sm:px-4 py-1.5 sm:py-2 bg-gray-100 text-gray-800 rounded-full text-sm sm:text-base md:text-lg font-medium hover:bg-gray-200 transition-colors duration-200"
+      {/* Skills Section - Premium Categorized Demo */}
+      <section
+        id="skills"
+        className="p-8 sm:p-12 md:p-16 lg:p-24 bg-gradient-to-br from-gray-50 via-blue-50/30 to-purple-50/20"
+      >
+        <div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
+            <div className="lg:col-span-4">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl xl:text-7xl font-bold text-gray-900">
+                <TypingTitle
+                  text={HOMEPAGE_DATA.skills.title}
+                  speed={45}
+                  delay={300}
+                  showCursor={false}
+                />
+              </h2>
+              <div className="w-[75px] h-[5px] mt-2 rounded-full bg-gradient-to-r from-blue-600 to-purple-600" />
+              <p className="mt-4 text-lg text-gray-600">
+                {HOMEPAGE_DATA.skills.description}
+              </p>
+            </div>
+
+            <div className="lg:col-span-8">
+              {/* Categories in Columns - 3/2/1 responsive layout */}
+              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                {HOMEPAGE_DATA.skills.categories.map(
+                  (category, categoryIndex) => (
+                    <div
+                      key={category.id}
+                      className={`group ${skillsStyles.categoryReveal}`}
+                      style={{
+                        animationDelay: `${categoryIndex * 0.15}s`,
+                      }}
                     >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
+                      {/* Category Header */}
+                      <div className="flex items-center gap-3 mb-4">
+                        <div
+                          className={`w-10 h-10 bg-gradient-to-br ${category.gradient} rounded-lg flex items-center justify-center shadow-md`}
+                        >
+                          {/* Line-style category icons */}
+                          <div className="w-5 h-5 text-white">
+                            {category.id === "frontend" && (
+                              <svg
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                className="w-full h-full"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth="2"
+                                  d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+                                />
+                              </svg>
+                            )}
+                            {category.id === "backend" && (
+                              <svg
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                className="w-full h-full"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth="2"
+                                  d="M5 12h14M5 12l6 6m-6-6l6-6"
+                                />
+                              </svg>
+                            )}
+                            {category.id === "database" && (
+                              <svg
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                className="w-full h-full"
+                              >
+                                <ellipse cx="12" cy="5" rx="9" ry="3" />
+                                <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5" />
+                                <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3" />
+                              </svg>
+                            )}
+                            {category.id === "cloud" && (
+                              <svg
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                className="w-full h-full"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth="2"
+                                  d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"
+                                />
+                              </svg>
+                            )}
+                            {category.id === "cms" && (
+                              <svg
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                className="w-full h-full"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth="2"
+                                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                                />
+                              </svg>
+                            )}
+                            {category.id === "devtools" && (
+                              <svg
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                className="w-full h-full"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth="2"
+                                  d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+                                />
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth="2"
+                                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                                />
+                              </svg>
+                            )}
+                          </div>
+                        </div>
+                        <div>
+                          <h3 className="text-lg font-bold text-gray-900">
+                            {category.name}
+                          </h3>
+                          <div
+                            className={`h-1 w-16 bg-gradient-to-r ${category.gradient} rounded-full mt-1`}
+                          />
+                        </div>
+                      </div>
+
+                      {/* Skills List for Category */}
+                      <div className="space-y-2">
+                        {category.skills.map((skill, skillIndex) => (
+                          <div
+                            key={skill}
+                            className={`group/skill relative ${skillsStyles.skillFloating} ${skillsStyles.skillReveal}`}
+                            style={{
+                              animationDelay: `${categoryIndex * 0.15 + skillIndex * 0.05}s`,
+                            }}
+                          >
+                            <div
+                              className={`relative bg-white/90 backdrop-blur-sm rounded-lg p-3 shadow-sm border border-gray-200/60 hover:shadow-lg transition-all duration-300 hover:scale-[1.02] group-hover/skill:border-transparent ${category.id === "frontend" ? "hover:bg-blue-50 hover:text-blue-900" : category.id === "backend" ? "hover:bg-green-50 hover:text-green-900" : category.id === "database" ? "hover:bg-purple-50 hover:text-purple-900" : category.id === "cloud" ? "hover:bg-orange-50 hover:text-orange-900" : category.id === "cms" ? "hover:bg-pink-50 hover:text-pink-900" : "hover:bg-gray-50 hover:text-gray-900"} cursor-pointer`}
+                            >
+                              <div className="flex items-center gap-2">
+                                {/* Simple line-style icon */}
+                                <div
+                                  className={`w-4 h-4 flex-shrink-0 ${category.id === "frontend" ? "text-blue-500" : category.id === "backend" ? "text-green-500" : category.id === "database" ? "text-purple-500" : category.id === "cloud" ? "text-orange-500" : category.id === "cms" ? "text-pink-500" : "text-gray-500"} group-hover/skill:opacity-80`}
+                                >
+                                  {category.id === "frontend" && (
+                                    <svg
+                                      fill="none"
+                                      stroke="currentColor"
+                                      viewBox="0 0 24 24"
+                                      className="w-full h-full"
+                                    >
+                                      <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth="2"
+                                        d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+                                      />
+                                    </svg>
+                                  )}
+                                  {category.id === "backend" && (
+                                    <svg
+                                      fill="none"
+                                      stroke="currentColor"
+                                      viewBox="0 0 24 24"
+                                      className="w-full h-full"
+                                    >
+                                      <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth="2"
+                                        d="M5 12h14M5 12l6 6m-6-6l6-6"
+                                      />
+                                    </svg>
+                                  )}
+                                  {category.id === "database" && (
+                                    <svg
+                                      fill="none"
+                                      stroke="currentColor"
+                                      viewBox="0 0 24 24"
+                                      className="w-full h-full"
+                                    >
+                                      <ellipse cx="12" cy="5" rx="9" ry="3" />
+                                      <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5" />
+                                      <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3" />
+                                    </svg>
+                                  )}
+                                  {category.id === "cloud" && (
+                                    <svg
+                                      fill="none"
+                                      stroke="currentColor"
+                                      viewBox="0 0 24 24"
+                                      className="w-full h-full"
+                                    >
+                                      <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth="2"
+                                        d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"
+                                      />
+                                    </svg>
+                                  )}
+                                  {category.id === "cms" && (
+                                    <svg
+                                      fill="none"
+                                      stroke="currentColor"
+                                      viewBox="0 0 24 24"
+                                      className="w-full h-full"
+                                    >
+                                      <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth="2"
+                                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                                      />
+                                    </svg>
+                                  )}
+                                  {category.id === "devtools" && (
+                                    <svg
+                                      fill="none"
+                                      stroke="currentColor"
+                                      viewBox="0 0 24 24"
+                                      className="w-full h-full"
+                                    >
+                                      <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth="2"
+                                        d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+                                      />
+                                      <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth="2"
+                                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                                      />
+                                    </svg>
+                                  )}
+                                </div>
+
+                                <span className="text-sm font-medium text-gray-700 group-hover/skill:font-semibold transition-all duration-300">
+                                  {skill}
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )
+                )}
               </div>
             </div>
           </div>
@@ -249,7 +326,12 @@ export default function HomePage() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
               <div className="lg:col-span-4">
                 <h2 className="text-3xl sm:text-4xl md:text-5xl xl:text-7xl font-bold text-gray-900">
-                  {HOMEPAGE_DATA.projects.title}
+                  <TypingTitle
+                    text={HOMEPAGE_DATA.projects.title}
+                    speed={55}
+                    delay={250}
+                    showCursor={false}
+                  />
                 </h2>
                 <div className="w-[75px] h-[5px] mt-2 rounded-full bg-blue-700" />
               </div>
@@ -371,7 +453,12 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
             <div className="lg:col-span-4">
               <h2 className="text-3xl sm:text-4xl md:text-5xl xl:text-7xl font-bold text-gray-900">
-                {HOMEPAGE_DATA.services.title}
+                <TypingTitle
+                  text={HOMEPAGE_DATA.services.title}
+                  speed={60}
+                  delay={200}
+                  showCursor={false}
+                />
               </h2>
               <div className="w-[75px] h-[5px] mt-2 rounded-full bg-blue-700" />
               <p className="mt-4 text-gray-600 text-lg">
@@ -528,7 +615,12 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
             <div className="lg:col-span-4">
               <h2 className="text-3xl sm:text-4xl md:text-5xl xl:text-7xl font-bold text-gray-900">
-                {HOMEPAGE_DATA.platformProficiency.title}
+                <TypingTitle
+                  text={HOMEPAGE_DATA.platformProficiency.title}
+                  speed={40}
+                  delay={300}
+                  showCursor={false}
+                />
               </h2>
               <div className="w-[75px] h-[5px] mt-2 rounded-full bg-blue-700" />
               <p className="mt-4 text-gray-600 text-lg">
@@ -585,7 +677,12 @@ export default function HomePage() {
           {/* Header */}
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold text-gray-900 mb-4">
-              {HOMEPAGE_DATA.contact.title}
+              <TypingTitle
+                text={HOMEPAGE_DATA.contact.title}
+                speed={50}
+                delay={200}
+                showCursor={false}
+              />
             </h2>
             <div className="w-[75px] h-[5px] mx-auto rounded-full bg-blue-700 mb-6" />
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
