@@ -6,13 +6,15 @@ import { useState } from "react";
 interface BlogSearchProps {
   onSearch: (query: string) => void;
   placeholder?: string;
+  initialValue?: string;
 }
 
 export function BlogSearch({
   onSearch,
   placeholder = "Search posts...",
+  initialValue = "",
 }: BlogSearchProps) {
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState(initialValue);
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -23,8 +25,8 @@ export function BlogSearch({
     const value = e.target.value;
     setQuery(value);
 
-    // Optional: Real-time search as user types
-    // onSearch(value);
+    // Real-time search as user types
+    onSearch(value);
   };
 
   return (

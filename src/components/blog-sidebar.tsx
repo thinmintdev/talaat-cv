@@ -6,9 +6,11 @@ import { BlogSearch } from "./blog-search";
 interface BlogSidebarProps {
   posts: typeof allPosts;
   onSearch: (query: string) => void;
+  selectedTag?: string;
+  onTagSelect?: (tag: string) => void;
 }
 
-export function BlogSidebar({ posts, onSearch }: BlogSidebarProps) {
+export function BlogSidebar({ posts, onSearch, selectedTag, onTagSelect }: BlogSidebarProps) {
   // Get unique categories/tags from posts
   const allTags = posts.flatMap((post) => post.tags || []);
   const categoryCount = allTags.reduce(
@@ -36,7 +38,7 @@ export function BlogSidebar({ posts, onSearch }: BlogSidebarProps) {
           </h3>
           <div className="w-[50px] h-[3px] mt-1 rounded-full bg-blue-700" />
         </div>
-        <BlogSearch onSearch={onSearch} />
+        <BlogSearch onSearch={onSearch} initialValue={""} />
       </div>
 
       {/* Categories */}
@@ -49,18 +51,30 @@ export function BlogSidebar({ posts, onSearch }: BlogSidebarProps) {
             <div className="w-[50px] h-[3px] mt-1 rounded-full bg-blue-700" />
           </div>
           <div className="space-y-2">
-            {sortedCategories.map(([category, count]) => (
-              <Link
-                key={category}
-                href={`/blog?tag=${encodeURIComponent(category)}`}
-                className="flex items-center justify-between px-3 py-2 text-sm rounded-lg text-gray-600 hover:text-primary-600 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-primary-400 dark:hover:bg-gray-800 transition-colors"
-              >
-                <span className="capitalize">{category}</span>
-                <span className="text-xs bg-gray-100 text-gray-500 px-2 py-1 rounded-full dark:bg-gray-700 dark:text-gray-400">
-                  {count}
-                </span>
-              </Link>
-            ))}
+            {sortedCategories.map(([category, count]) => {
+              const isActive = selectedTag === category;
+              return (
+                <button
+                  key={category}
+                  type="button"
+                  onClick={() => onTagSelect?.(category)}
+                  className={`w-full flex items-center justify-between px-3 py-2 text-sm rounded-lg transition-colors ${
+                    isActive
+                      ? "bg-blue-600 text-white"
+                      : "text-gray-600 hover:text-primary-600 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-primary-400 dark:hover:bg-gray-800"
+                  }`}
+                >
+                  <span className="capitalize">{category}</span>
+                  <span className={`text-xs px-2 py-1 rounded-full ${
+                    isActive
+                      ? "bg-blue-500 text-blue-100"
+                      : "bg-gray-100 text-gray-500 dark:bg-gray-700 dark:text-gray-400"
+                  }`}>
+                    {count}
+                  </span>
+                </button>
+              );
+            })}
           </div>
         </div>
       )}

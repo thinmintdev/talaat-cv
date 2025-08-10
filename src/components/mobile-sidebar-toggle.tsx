@@ -8,11 +8,15 @@ import { BlogSidebar } from "./blog-sidebar";
 interface MobileSidebarToggleProps {
   posts: typeof allPosts;
   onSearch: (query: string) => void;
+  selectedTag?: string;
+  onTagSelect?: (tag: string) => void;
 }
 
 export function MobileSidebarToggle({
   posts,
   onSearch,
+  selectedTag,
+  onTagSelect,
 }: MobileSidebarToggleProps) {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -69,6 +73,11 @@ export function MobileSidebarToggle({
                 onSearch={(query) => {
                   onSearch(query);
                   setIsOpen(false); // Close sidebar after search
+                }}
+                selectedTag={selectedTag}
+                onTagSelect={(tag) => {
+                  onTagSelect?.(tag);
+                  setIsOpen(false); // Close sidebar after tag selection
                 }}
               />
             </div>
