@@ -1,0 +1,81 @@
+/* Infinite scrolling animations */
+@keyframes scroll-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scroll-right {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Base skill row styling */
+.skill-row {
+  display: flex;
+  gap: 1rem;
+  will-change: transform;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+/* Normal direction (left to right) */
+.scroll-normal {
+  animation-name: scroll-left;
+}
+
+/* Reverse direction (right to left) */
+.scroll-reverse {
+  animation-name: scroll-right;
+}
+
+/* Pause animation on hover */
+.skill-row:hover {
+  animation-play-state: paused;
+}
+
+/* Container for the scrolling row */
+.scroll-container {
+  overflow: hidden;
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .skill-row {
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .skill-row {
+    gap: 0.5rem;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .skill-row {
+    animation: none;
+  }
+}

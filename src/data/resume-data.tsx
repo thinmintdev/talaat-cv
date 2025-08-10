@@ -9,25 +9,13 @@ export const RESUME_DATA: ResumeData = {
   summary: (
     <>
       <p>
-        Senior Full Stack Developer with 15+ years building scalable web
-        applications and cloud-native solutions. Specialized in React ecosystem,
-        Node.js backends, and AWS infrastructure with expertise in modern
-        JavaScript frameworks, microservices architecture, and DevOps practices.
+        I'm a full-stack developer passionate about crafting modern web experiences. I've been working over 15 years to develop my skillset in web development & design. 
+        I specialize in building responsive frontends with React and Next.js, and scalable backends using Node.js. 
+        I integrate databases like PostgreSQL and MongoDB, and work with CMS platforms such as WordPress to deliver dynamic content solutions. 
+        My focus is on clean architecture, performance, and delivering seamless end-to-end solutions.
       </p>
 
-      <p>
-        Extensive WordPress development experience including custom themes,
-        plugins, headless implementations, and enterprise multisite management.
-        Proven track record delivering high-performance applications that drive
-        business growth and enhance user experience.
-      </p>
-
-      <p>
-        Led cross-functional teams and mentored developers in both agency and
-        enterprise environments. Experienced in Agile methodologies, technical
-        project management, and collaborating with stakeholders to deliver
-        complex projects on time and within budget.
-      </p>
+      
     </>
   ),
   avatarUrl: "/headshot-crop.JPG",
