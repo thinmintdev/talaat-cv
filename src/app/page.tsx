@@ -28,7 +28,6 @@ export default function HomePage() {
                   text={HOMEPAGE_DATA.about.title}
                   speed={50}
                   delay={200}
-                  showCursor={false}
                 />
               </h2>
               <div className="w-[75px] h-[5px] mt-2 rounded-full bg-blue-700" />
@@ -56,7 +55,6 @@ export default function HomePage() {
                   text={HOMEPAGE_DATA.skills.title}
                   speed={45}
                   delay={300}
-                  showCursor={false}
                 />
               </h2>
               <div className="w-[75px] h-[5px] mt-2 rounded-full bg-gradient-to-r from-blue-600 to-purple-600" />
@@ -330,7 +328,6 @@ export default function HomePage() {
                     text={HOMEPAGE_DATA.projects.title}
                     speed={55}
                     delay={250}
-                    showCursor={false}
                   />
                 </h2>
                 <div className="w-[75px] h-[5px] mt-2 rounded-full bg-blue-700" />
@@ -460,7 +457,6 @@ export default function HomePage() {
                   text={HOMEPAGE_DATA.services.title}
                   speed={60}
                   delay={200}
-                  showCursor={false}
                 />
               </h2>
               <div className="w-[75px] h-[5px] mt-2 rounded-full bg-blue-700" />
@@ -622,7 +618,6 @@ export default function HomePage() {
                   text={HOMEPAGE_DATA.platformProficiency.title}
                   speed={40}
                   delay={300}
-                  showCursor={false}
                 />
               </h2>
               <div className="w-[75px] h-[5px] mt-2 rounded-full bg-blue-700" />
@@ -684,7 +679,6 @@ export default function HomePage() {
                 text={HOMEPAGE_DATA.contact.title}
                 speed={50}
                 delay={200}
-                showCursor={false}
               />
             </h2>
             <div className="w-[75px] h-[5px] mx-auto rounded-full bg-blue-700 mb-6" />

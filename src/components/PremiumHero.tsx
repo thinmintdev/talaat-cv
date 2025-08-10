@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { TypeAnimation } from "react-type-animation";
 
 const services = [
   "IT CONSULTING",
@@ -13,25 +12,36 @@ const services = [
 
 export const PremiumHero = () => {
   const [showServices, setShowServices] = useState(false);
-  const [showDev, setShowDev] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [displayText, setDisplayText] = useState("");
+  const [showFinalCursor, setShowFinalCursor] = useState(false);
   const defaultLineIndex = services.length - 1; // Last service by default
 
+  const letters = ["t", "a", "\n", "l", "a", "\n", "a", "t"];
+
   useEffect(() => {
-    // Start showing services after the name animation completes
-    const servicesTimer = setTimeout(() => {
+    const typeText = async () => {
+      // Initial delay
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
+      let currentText = "";
+
+      // Type each letter individually
+      for (let i = 0; i < letters.length; i++) {
+        currentText += letters[i];
+        setDisplayText(currentText);
+        await new Promise((resolve) => setTimeout(resolve, 300)); // Constant 300ms between letters
+      }
+
+      // Brief pause before showing final cursor
+      await new Promise((resolve) => setTimeout(resolve, 500));
+
+      // Show final cursor and start services
+      setShowFinalCursor(true);
       setShowServices(true);
-    }, 3500); // Delay to sync with typing animation
-
-    // Show .DEV after the typing animation completes
-    const devTimer = setTimeout(() => {
-      setShowDev(true);
-    }, 4200); // Delay to show .DEV after name completes
-
-    return () => {
-      clearTimeout(servicesTimer);
-      clearTimeout(devTimer);
     };
+
+    typeText();
   }, []);
 
   return (
@@ -41,39 +51,23 @@ export const PremiumHero = () => {
         <div className="flex flex-col space-y-0">
           <div className="overflow-hidden">
             <div className="text-9xl md:text-[10rem] lg:text-[14rem] xl:text-[16rem] font-black text-gray-900 leading-none tracking-tight relative">
-              <TypeAnimation
-                sequence={[
-                  1000, // Initial delay
-                  "ta",
-                  800,
-                  "ta\nla",
-                  800,
-                  "ta\nla\nat",
-                  2000, // Hold final state
-                ]}
-                wrapper="div"
-                speed={30}
+              <div
                 style={{
                   whiteSpace: "pre-line",
                   lineHeight: "0.8",
                 }}
-                cursor={false}
-                repeat={0}
                 className="font-black relative inline-block"
-              />
-              {/* .DEV suffix inline with "at" */}
-              <span
-                className={`text-blue-600 transition-all duration-500 ease-out inline-block ${
-                  showDev ? "opacity-100 scale-100" : "opacity-0 scale-75"
-                }`}
-                style={{
-                  fontSize: "0.35em",
-                  verticalAlign: "baseline",
-                  marginLeft: "0.1em",
-                }}
               >
-                .DEV
-              </span>
+                {displayText}
+                {/* Blue underline cursor */}
+                {!showFinalCursor && displayText && (
+                  <div className="inline-block w-[0.4em] h-[0.05em] bg-blue-600 ml-[0.05em] align-bottom animate-pulse" />
+                )}
+              </div>
+              {/* Final blinking cursor after "at" */}
+              {showFinalCursor && (
+                <div className="inline-block w-[0.4em] h-[0.05em] bg-blue-600 ml-[0.05em] align-bottom animate-pulse" />
+              )}
             </div>
           </div>
         </div>
@@ -97,7 +91,7 @@ export const PremiumHero = () => {
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
-              <div className="text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-gray-800 tracking-wide hover:text-blue-600 transition-colors duration-300 cursor-pointer relative z-10">
+              <div className="text-lg md:text-xl lg:text-3xl xl:text-4xl font-bold text-gray-800 tracking-wide hover:text-blue-600 transition-colors duration-300 cursor-pointer relative z-10">
                 {service}
               </div>
             </div>
@@ -110,7 +104,7 @@ export const PremiumHero = () => {
             }`}
             style={{
               top: `${(hoveredIndex !== null ? hoveredIndex : defaultLineIndex) * 48 + 40}px`,
-              transitionDelay: showServices ? "800ms" : "0ms",
+              transitionDelay: showServices ? "400ms" : "0ms",
             }}
           />
         </div>
