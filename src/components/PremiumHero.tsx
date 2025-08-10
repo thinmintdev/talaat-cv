@@ -3,11 +3,13 @@
 import { useEffect, useState } from "react";
 
 const services = [
-  "IT CONSULTING",
-  "MANAGED SERVICES",
-  "WORDPRESS EXPERT",
+  "WEB DEVELOPMENT",
+  "DESIGN & BRANDING",
+  "WORDPRESS DEVELOPMENT",
   "CLOUD SAAS",
   "MANAGED SERVICES",
+  "AI SOLUTIONS",
+  "HOSTING & SUPPORT",
 ];
 
 export const PremiumHero = () => {

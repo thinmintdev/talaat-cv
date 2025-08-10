@@ -355,41 +355,6 @@ export const HOMEPAGE_DATA = {
       description:
         "30-minute discovery call to discuss your project needs and timeline",
     },
-    services: [
-      {
-        title: "Web Development",
-        description:
-          "Modern web applications with React, Next.js, Node.js, and cloud infrastructure",
-        features: [
-          "React/Next.js Applications",
-          "API Development",
-          "Database Design",
-          "Cloud Deployment",
-        ],
-      },
-      {
-        title: "WordPress Solutions",
-        description:
-          "Custom plugin and theme development, as well as headless WordPress environments",
-        features: [
-          "Custom Themes & Plugins",
-          "WooCommerce Development",
-          "Performance Optimization",
-          "Headless CMS",
-        ],
-      },
-      {
-        title: "Cloud Architecture",
-        description:
-          "Scalable AWS infrastructure, DevOps, and performance optimization",
-        features: [
-          "AWS Infrastructure",
-          "CI/CD Pipelines",
-          "Performance Optimization",
-          "Security Implementation",
-        ],
-      },
-    ],
     contact: {
       email: {
         title: "Email",

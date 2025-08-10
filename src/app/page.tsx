@@ -137,9 +137,7 @@ export default function HomePage() {
                                   {project.techStack.map((tech) => (
                                     <span
                                       key={tech}
-                                      className={`px-2.5 sm:px-3 py-1 sm:py-1.5 bg-gray-900 text-white rounded-md sm:rounded-lg text-xs sm:text-sm font-medium transition-all duration-300 ${
-                                        hasLink ? "group-hover:bg-gray-800" : ""
-                                      }`}
+                                      className="px-2.5 sm:px-3 py-1 sm:py-1.5 bg-[#282836] text-gray-200 rounded-md sm:rounded-lg text-xs sm:text-sm font-medium"
                                     >
                                       {tech}
                                     </span>
@@ -184,41 +182,7 @@ export default function HomePage() {
             </div>
 
             <div className="lg:col-span-8">
-              {/* Contact Services Cards (01-03) */}
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-12">
-                {HOMEPAGE_DATA.contact.services.map((service, index) => (
-                  <div
-                    key={service.title}
-                    className="bg-white rounded-2xl p-6 shadow-sm border border-gray-200 hover:shadow-lg transition-shadow duration-300"
-                  >
-                    <div className="text-center mb-4">
-                      <div className="w-12 h-12 mx-auto mb-3 bg-blue-100 rounded-full flex items-center justify-center">
-                        <span className="text-lg font-bold text-blue-600">
-                          {String(index + 1).padStart(2, "0")}
-                        </span>
-                      </div>
-                      <h3 className="text-lg font-bold text-gray-900 mb-2">
-                        {service.title}
-                      </h3>
-                      <p className="text-gray-600 text-sm">
-                        {service.description}
-                      </p>
-                    </div>
-                    <ul className="space-y-1">
-                      {service.features.map((feature) => (
-                        <li key={feature} className="flex items-start gap-2">
-                          <span className="inline-block w-1.5 h-1.5 mt-2 rounded-full bg-blue-600 flex-shrink-0" />
-                          <span className="text-gray-700 text-sm">
-                            {feature}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
-              </div>
-
-              {/* Existing Services Cards */}
+              {/* Services Cards */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 {HOMEPAGE_DATA.services.offerings.map((service) => (
                   <div key={service.title} className="group cursor-pointer">
@@ -295,12 +259,28 @@ export default function HomePage() {
                             {service.description}
                           </p>
 
-                          <div className="flex items-center justify-between">
+                          {service.features && service.features.length > 0 && (
+                            <ul className="mt-2 mb-4 space-y-2">
+                              {service.features.map((feature, i) => (
+                                <li
+                                  key={`${service.title}-feature-${i}`}
+                                  className="flex items-start gap-2"
+                                >
+                                  <span className="inline-block w-2.5 h-2.5 mt-1.5 rounded-sm bg-blue-600 flex-shrink-0" />
+                                  <span className="text-gray-700 text-sm">
+                                    {feature}
+                                  </span>
+                                </li>
+                              ))}
+                            </ul>
+                          )}
+
+                            <div className="flex items-center justify-between">
                             <div className="flex flex-wrap gap-1">
                               {service.technologies.slice(0, 2).map((tech) => (
                                 <span
                                   key={tech}
-                                  className="px-2 py-1 bg-gray-100 group-hover:bg-blue-100 text-gray-600 group-hover:text-blue-700 rounded text-xs font-medium transition-colors"
+                                  className="px-2 py-1 bg-[#282836] text-gray-200 rounded text-xs font-medium"
                                 >
                                   {tech}
                                 </span>
