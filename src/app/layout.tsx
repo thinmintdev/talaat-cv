@@ -1,6 +1,6 @@
 import { Analytics } from "@vercel/analytics/react";
 import type { Metadata, Viewport } from "next";
-import { IBM_Plex_Mono, Inter } from "next/font/google";
+import { Space_Mono } from "next/font/google";
 import Script from "next/script";
 
 import "./globals.css";
@@ -10,18 +10,12 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { RESUME_DATA } from "@/data/resume-data";
 
-const inter = Inter({
+const spaceMono = Space_Mono({
   subsets: ["latin"],
-  display: "swap",
-  variable: "--font-inter",
-});
-
-const ibmPlexMono = IBM_Plex_Mono({
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700"],
+  weight: ["400", "700"],
   style: ["normal", "italic"],
   display: "swap",
-  variable: "--font-ibm-plex-mono",
+  variable: "--font-space-mono",
 });
 
 export const metadata: Metadata = {
@@ -139,7 +133,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${ibmPlexMono.variable}`}>
+    <html lang="en" className={spaceMono.variable}>
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-L8E62W649E"
         strategy="afterInteractive"
@@ -152,7 +146,7 @@ export default function RootLayout({
           gtag('config', 'G-L8E62W649E');
         `}
       </Script>
-      <body className="font-mono">
+      <body className="font-space-mono">
         <ErrorBoundary>
           <SiteHeader />
           <main>{children}</main>

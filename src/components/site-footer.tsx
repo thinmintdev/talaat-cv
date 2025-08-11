@@ -1,4 +1,5 @@
 import { Github, Linkedin, Mail } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { RESUME_DATA } from "@/data/resume-data";
 
@@ -11,7 +12,7 @@ export function SiteFooter() {
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           {/* Left side - Logo, Name and title */}
           <div className="flex items-center gap-3 text-center md:text-left">
-            <img
+            <Image
               src="/images/at_logo svg.svg"
               alt="Logo"
               width={40}

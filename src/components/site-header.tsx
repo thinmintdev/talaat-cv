@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "./ui/button";
@@ -46,7 +47,7 @@ export function SiteHeader() {
             className="flex items-center hover:opacity-80 transition-opacity"
             aria-label="Home"
           >
-            <img
+            <Image
               src="/images/at_logo svg.svg"
               alt="Logo"
               width={32}
