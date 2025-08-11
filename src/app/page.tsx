@@ -66,7 +66,7 @@ export default function HomePage() {
 
               <div className="lg:col-span-8">
                 <div className="space-y-8">
-                  {HOMEPAGE_DATA.projects.list.map((project, index) => {
+                  {HOMEPAGE_DATA.projects.list.map((project) => {
                     const hasLink = project.link?.href;
                     const Component = hasLink ? "a" : "div";
                     const linkProps = hasLink
@@ -88,7 +88,7 @@ export default function HomePage() {
                           }`}
                         >
                           {hasLink && (
-                            <div className="absolute top-4 right-4 sm:top-6 sm:right-6 md:top-8 md:right-8 w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 flex items-center justify-center bg-gray-900 rounded-full text-white transition-all duration-300 group-hover:bg-gray-700">
+                            <div className="absolute top-4 right-4 sm:top-6 sm:right-6 md:top-8 md:right-8 w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 flex items-center justify-center rounded-full text-gray-900 transition-all duration-300 bg-[#FFE3DD] group-hover:bg-brandSecondary">
                               <svg
                                 className="w-4 h-4 sm:w-4.5 sm:h-4.5 md:w-5 md:h-5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                                 fill="none"
@@ -108,10 +108,12 @@ export default function HomePage() {
                           )}
 
                           <div className="space-y-4">
-                            <div>
-                              <span className="text-sm font-mono text-blue-700">
-                                0{index + 1}
-                              </span>
+                            <div className="flex items-center gap-2 flex-wrap">
+                              {project.category && (
+                                <span className="px-2.5 py-0.5 bg-brandSecondary text-gray-900 rounded-md text-xs font-medium">
+                                  {project.category}
+                                </span>
+                              )}
                               <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mt-1">
                                 {project.title}
                               </h3>
@@ -137,8 +139,10 @@ export default function HomePage() {
                                   {project.techStack.map((tech) => (
                                     <span
                                       key={tech}
-                                      className="px-2.5 sm:px-3 py-1 sm:py-1.5 bg-[#282836] text-gray-200 rounded-md sm:rounded-lg text-xs sm:text-sm font-medium"
+                                      className="flex items-center gap-2 px-3 py-1.5 bg-white border border-gray-200 rounded-lg shadow-sm text-sm text-gray-900"
                                     >
+                                      {/* Optional: simple dot to hint icon alignment */}
+                                      <span className="w-1.5 h-1.5 rounded-full bg-blue-600" />
                                       {tech}
                                     </span>
                                   ))}
@@ -276,18 +280,19 @@ export default function HomePage() {
                           )}
 
                             <div className="flex items-center justify-between">
-                            <div className="flex flex-wrap gap-1">
+                            <div className="flex flex-wrap gap-1.5 sm:gap-2">
                               {service.technologies.slice(0, 2).map((tech) => (
                                 <span
                                   key={tech}
-                                  className="px-2 py-1 bg-[#282836] text-gray-200 rounded text-xs font-medium"
+                                  className="flex items-center gap-2 px-3 py-1.5 bg-white border border-gray-200 rounded-lg shadow-sm text-sm text-gray-900"
                                 >
+                                  <span className="w-1.5 h-1.5 rounded-full bg-blue-600" />
                                   {tech}
                                 </span>
                               ))}
                             </div>
                             <div className="text-right">
-                              <p className="text-sm font-semibold text-blue-600">
+                              <p className="text-sm font-semibold text-brandSecondary">
                                 {service.startingPrice}
                               </p>
                               <p className="text-xs text-gray-500">
