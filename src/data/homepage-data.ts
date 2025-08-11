@@ -1,3 +1,5 @@
+import { SiShadcnui } from "react-icons/si"
+
 export const HOMEPAGE_DATA = {
   // About Me Section
   about: {
@@ -99,6 +101,30 @@ export const HOMEPAGE_DATA = {
         link: {
           label: "View Demo",
           href: "https://poll.it.com",
+        },
+      },
+      {
+        title: "Developer Portfolio",
+        category: "Portfolio & Blog",
+        techStack: [
+          "React",
+          "Node.js",
+          "Next.js",
+          "TypeScript",
+          "Contentlayer",
+          "TailwindCSS",
+          "MDX",
+          "Shadcnui"
+        ],
+        description: [
+          "Fast & Lightweight portfolio and blog",
+          "Contentlayer & MDX support for rich content",
+          "SEO Optimization, Accessibility, and Performance",
+          "Premium feeling animations and transitions",
+        ],
+        link: {
+          label: "View Demo",
+          href: "https://talaat.dev",
         },
       },
       {
@@ -231,24 +257,24 @@ export const HOMEPAGE_DATA = {
         description: "Modern web apps, SSR, performance",
       },
       {
+        name: "Astro",
+        level: 4,
+        description: "Static site generation, partial hydration",
+      },
+      {
+        name: "Graphic Design",
+        level: 4,
+        description: "Visual design, branding, UI/UX",
+      },
+      {
         name: "Node.js",
-        level: 5,
+        level: 4,
         description: "APIs, microservices, backend",
       },
       {
         name: "TypeScript",
-        level: 5,
-        description: "Type safety, maintainability",
-      },
-      {
-        name: "Cloud Computing/AWS",
-        level: 5,
-        description: "Cloud architecture, scaling",
-      },
-      {
-        name: "Docker/K8s",
         level: 4,
-        description: "Containers, orchestration, CI/CD",
+        description: "Type safety, maintainability",
       },
       {
         name: "WordPress",
@@ -264,26 +290,6 @@ export const HOMEPAGE_DATA = {
         name: "Postgres/MySQL/Mongo",
         level: 4,
         description: "DBs, scaling, optimization",
-      },
-      {
-        name: "SEO/Perf",
-        level: 4,
-        description: "Web Vitals, SEO, Keyword optimization",
-      },
-      {
-        name: "PHP",
-        level: 3,
-        description: "Legacy, WordPress, APIs",
-      },
-      {
-        name: "Git, CI, CD",
-        level: 5,
-        description: "Version control, automation, deploy",
-      },
-      {
-        name: "Linux VPS/Sysadmin",
-        level: 4,
-        description: "Server ops, automation, security, Web Hosting",
       },
     ],
     accessibility: {
