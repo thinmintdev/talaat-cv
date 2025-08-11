@@ -12,7 +12,7 @@ export const HOMEPAGE_DATA = {
       "AI SOLUTIONS",
     ],
     nameLetters: ["t", "a", "l", "\n", "a", "a", "t"],
-    devLetters: [".D", "E", "V"],
+    devLetters: [""],
     timing: {
       initialDelay: 1000,
       letterDelay: 300,
@@ -66,9 +66,9 @@ export const HOMEPAGE_DATA = {
   about: {
     title: "About",
     paragraphs: [
-      "I'm a full-stack developer passionate about crafting modern web experiences. I've been working over 15 years to develop my skillset in web development & design.",
+      "I'm a full-stack developer passionate about crafting modern web experiences and applications. With over 15 years of experience, I've honed my skills in web development and design and adapted to the changing landscape and technologies.",
       "I specialize in building responsive frontends with React and Next.js, and scalable backends using Node.js. I integrate databases like PostgreSQL and MongoDB, and work with CMS platforms such as WordPress to deliver dynamic content solutions.",
-      "My focus: clean design aesthetics, intentional technology choices, performance, and delivering exceptional user experiences."
+      "My Focus: Clean code and design aesthetics. Thoughtful technology choices. Delivering exceptional user experiences."
     ],
   },
 

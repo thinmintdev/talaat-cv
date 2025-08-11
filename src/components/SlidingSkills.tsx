@@ -43,7 +43,6 @@ export const SlidingSkills: React.FC<SlidingSkillsProps> = ({
             <h2 className="text-3xl sm:text-4xl md:text-5xl xl:text-7xl font-bold text-gray-900">
               <TypingTitle text={data.title} speed={45} delay={300} />
             </h2>
-            <div className="w-[75px] h-[5px] mt-2 rounded-full bg-blue-600 " />
             <p className="mt-4 text-lg text-gray-600">{data.description}</p>
           </div>
 

@@ -48,7 +48,6 @@ export default function HomePage() {
                   delay={HOMEPAGE_DATA.layout.components.typingTitle.about.delay}
                 />
               </h2>
-              <div className={HOMEPAGE_DATA.layout.typography.underline} />
             </div>
 
             <div className={HOMEPAGE_DATA.layout.sections.contentColumn}>
@@ -78,7 +77,6 @@ export default function HomePage() {
                     delay={HOMEPAGE_DATA.layout.components.typingTitle.projects.delay}
                   />
                 </h2>
-                <div className={HOMEPAGE_DATA.layout.typography.underline} />
                 <p className={HOMEPAGE_DATA.layout.typography.subtitle}>
                   {HOMEPAGE_DATA.projects.description}
                 </p>
@@ -199,7 +197,6 @@ export default function HomePage() {
                   delay={200}
                 />
               </h2>
-              <div className="w-[75px] h-[5px] mt-2 rounded-full bg-blue-700" />
               <p className="mt-4 text-gray-600 text-lg">
                 {HOMEPAGE_DATA.services.subtitle}
               </p>
@@ -345,7 +342,6 @@ export default function HomePage() {
                   delay={300}
                 />
               </h2>
-              <div className="w-[75px] h-[5px] mt-2 rounded-full bg-blue-700" />
               <p className="mt-4 text-gray-600 text-lg">
                 {HOMEPAGE_DATA.platformProficiency.subtitle}
               </p>
@@ -406,8 +402,7 @@ export default function HomePage() {
                 delay={HOMEPAGE_DATA.layout.components.typingTitle.contact.delay}
               />
             </h2>
-            <div className="w-[75px] h-[5px] mx-auto rounded-full bg-blue-700 mb-6" />
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-6">
               {HOMEPAGE_DATA.contact.subtitle}
             </p>
           </div>
