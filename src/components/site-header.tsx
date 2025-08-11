@@ -41,6 +41,19 @@ export function SiteHeader() {
               Print CV
             </Button>
           )}
+          <Link
+            href="/"
+            className="flex items-center hover:opacity-80 transition-opacity"
+            aria-label="Home"
+          >
+            <img
+              src="/images/at_logo svg.svg"
+              alt="Logo"
+              width={32}
+              height={32}
+              className="w-8 h-8"
+            />
+          </Link>
         </div>
       </div>
     </header>

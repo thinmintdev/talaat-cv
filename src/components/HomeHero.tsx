@@ -101,7 +101,7 @@ export const HomeHero = () => {
 
           {/* Interactive blue line that follows hover */}
           <div
-            className={`absolute w-32 h-1 bg-blue-600 transition-all duration-300 ease-out lg:left-8 left-0 ${
+            className={`absolute w-32 h-1 bg-blue-600 transition-all duration-300 ease-out mt-1 lg:left-8 left-0 ${
               showServices ? "opacity-100" : "opacity-0"
             }`}
             style={{

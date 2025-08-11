@@ -4,7 +4,7 @@ export const HOMEPAGE_DATA = {
   // About Me Section
   about: {
     title: "About Me",
-    description: "Content will come from RESUME_DATA.summary",
+    description: "I am a passionate software developer with experience in building web applications.",
   },
 
   // Skills Section - Sliding Animation

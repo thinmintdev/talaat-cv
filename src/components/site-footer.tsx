@@ -9,10 +9,19 @@ export function SiteFooter() {
     <footer className="bg-gray-50 border-t print:hidden">
       <div className="container mx-auto px-4 py-8">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          {/* Left side - Name and title */}
-          <div className="text-center md:text-left">
-            <h3 className="font-semibold text-gray-900">{RESUME_DATA.name}</h3>
-            <p className="text-sm text-gray-600">{RESUME_DATA.about}</p>
+          {/* Left side - Logo, Name and title */}
+          <div className="flex items-center gap-3 text-center md:text-left">
+            <img
+              src="/images/at_logo svg.svg"
+              alt="Logo"
+              width={40}
+              height={40}
+              className="w-10 h-10"
+            />
+            <div>
+              <h3 className="font-semibold text-gray-900">{RESUME_DATA.name}</h3>
+              <p className="text-sm text-gray-600">{RESUME_DATA.about}</p>
+            </div>
           </div>
 
           {/* Center - Navigation */}
