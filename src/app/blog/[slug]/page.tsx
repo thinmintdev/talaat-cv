@@ -94,36 +94,24 @@ export async function generateStaticParams() {
 
 const MDXComponents = {
   h1: ({ children, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
-    <div className="mt-8 first:mt-0">
-      <h1 className="text-4xl font-bold tracking-tight mb-2" {...props}>
-        {children}
-      </h1>
-      <div className="w-[75px] h-[5px] mb-6 rounded-full bg-blue-700" />
-    </div>
+    <h1 className="text-4xl font-bold tracking-tight mb-6 mt-8 first:mt-0" {...props}>
+      {children}
+    </h1>
   ),
   h2: ({ children, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
-    <div className="mt-8">
-      <h2 className="text-3xl font-semibold mb-2" {...props}>
-        {children}
-      </h2>
-      <div className="w-[60px] h-[4px] mb-4 rounded-full bg-blue-700" />
-    </div>
+    <h2 className="text-3xl font-semibold mb-4 mt-8" {...props}>
+      {children}
+    </h2>
   ),
   h3: ({ children, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
-    <div className="mt-6">
-      <h3 className="text-2xl font-semibold mb-1" {...props}>
-        {children}
-      </h3>
-      <div className="w-[50px] h-[3px] mb-3 rounded-full bg-blue-700" />
-    </div>
+    <h3 className="text-2xl font-semibold mb-3 mt-6" {...props}>
+      {children}
+    </h3>
   ),
   h4: ({ children, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
-    <div className="mt-4">
-      <h4 className="text-xl font-semibold mb-1" {...props}>
-        {children}
-      </h4>
-      <div className="w-[40px] h-[3px] mb-2 rounded-full bg-blue-700" />
-    </div>
+    <h4 className="text-xl font-semibold mb-2 mt-4" {...props}>
+      {children}
+    </h4>
   ),
   p: ({ children, ...props }: React.HTMLAttributes<HTMLParagraphElement>) => (
     <p className="mb-4 leading-7" {...props}>
