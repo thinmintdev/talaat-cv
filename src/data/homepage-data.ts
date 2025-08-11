@@ -3,7 +3,7 @@ import { SiShadcnui } from "react-icons/si"
 export const HOMEPAGE_DATA = {
   // About Me Section
   about: {
-    title: "About Me",
+    title: "About",
     description: "I am a passionate software developer with experience in building web applications.",
   },
 

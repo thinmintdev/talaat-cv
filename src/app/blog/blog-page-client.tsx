@@ -1,6 +1,6 @@
 "use client";
 
-import type { allPosts } from ".contentlayer/generated";
+import type { allPosts } from "contentlayer/generated";
 import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";

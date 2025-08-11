@@ -1,4 +1,4 @@
-import type { allPosts } from ".contentlayer/generated";
+import type { allPosts } from "contentlayer/generated";
 import { formatDistanceToNow } from "date-fns";
 import Link from "next/link";
 import { BlogSearch } from "./blog-search";
