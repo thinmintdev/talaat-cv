@@ -2,6 +2,7 @@ import { allPosts } from ".contentlayer/generated";
 import { compareDesc } from "date-fns";
 import type { Metadata } from "next";
 import { BlogPageClient } from "./blog-page-client";
+import { generateBlogStructuredData } from "@/lib/structured-data";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -16,5 +17,18 @@ export default function BlogPage() {
       compareDesc(new Date(a.publishedAt), new Date(b.publishedAt))
     );
 
-  return <BlogPageClient posts={posts} />;
+  const blogStructuredData = generateBlogStructuredData();
+
+  return (
+    <>
+      {/* Blog Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(blogStructuredData),
+        }}
+      />
+      <BlogPageClient posts={posts} />
+    </>
+  );
 }

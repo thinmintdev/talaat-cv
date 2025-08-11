@@ -32,15 +32,56 @@ export const metadata: Metadata = {
   },
   description: RESUME_DATA.about,
   keywords: [
+    // Core professional terms
     "resume",
-    "cv",
+    "cv", 
     "portfolio",
     RESUME_DATA.name,
     "software engineer",
     "full stack developer",
-    "react",
-    "next.js",
-    "typescript",
+    
+    // Technology stack
+    "react developer",
+    "next.js developer", 
+    "typescript developer",
+    "node.js developer",
+    "wordpress developer",
+    "javascript developer",
+    
+    // Location-based keywords
+    "washington dc developer",
+    "dc area software engineer", 
+    "washington developer",
+    "dmv area developer",
+    "remote developer",
+    
+    // Service-based long-tail keywords
+    "custom wordpress development",
+    "react web development",
+    "full stack web development",
+    "wordpress plugin development",
+    "headless cms development", 
+    "e-commerce development",
+    "web application development",
+    "api development",
+    "database design",
+    "responsive web design",
+    
+    // Industry expertise
+    "saas development",
+    "startup developer",
+    "freelance developer",
+    "consultant developer",
+    "technical lead",
+    
+    // Specific skills
+    "postgresql developer",
+    "mongodb developer", 
+    "tailwind css",
+    "graphql developer",
+    "performance optimization",
+    "seo optimization",
+    "web accessibility",
   ],
   authors: [{ name: RESUME_DATA.name }],
   creator: RESUME_DATA.name,

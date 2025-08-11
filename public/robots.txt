@@ -1,13 +1,23 @@
-# Robots.txt for https://cv.jarocki.me
+# Robots.txt for talaat.dev
 
 User-agent: *
 Allow: /
+
+# Disallow admin and system paths
 Disallow: /api/
 Disallow: /_next/
 Disallow: /graphql
 
+# Allow important pages
+Allow: /blog/
+Allow: /cv
+Allow: /sitemap.xml
+
 # Sitemap location
-Sitemap: https://cv.jarocki.me/sitemap.xml
+Sitemap: https://talaat.dev/sitemap.xml
 
 # Crawl-delay for responsible crawling
 Crawl-delay: 1
+
+# Cache directives for better crawling
+Cache-delay: 1

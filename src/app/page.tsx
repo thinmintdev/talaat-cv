@@ -6,6 +6,7 @@ import { SlidingSkills } from "@/components/SlidingSkills";
 import { TypingTitle } from "@/components/TypingTitle";
 import { HOMEPAGE_DATA } from "@/data/homepage-data";
 import { RESUME_DATA } from "@/data/resume-data";
+import { generatePersonStructuredData, generateLocalBusinessStructuredData } from "@/lib/structured-data";
 
 export const metadata: Metadata = {
   title: `${RESUME_DATA.name} - ${RESUME_DATA.about}`,
@@ -13,8 +14,25 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
+  const personStructuredData = generatePersonStructuredData();
+  const businessStructuredData = generateLocalBusinessStructuredData();
+
   return (
     <>
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(personStructuredData),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(businessStructuredData),
+        }}
+      />
+      
       {/* Hero Section */}
       <HomeHero />
 

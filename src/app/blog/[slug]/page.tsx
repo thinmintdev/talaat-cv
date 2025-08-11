@@ -9,6 +9,7 @@ import { BlogShare } from "@/components/blog-share";
 import { CopyCode, CopyCodeToggle } from "@/components/copy-code";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { generateArticleStructuredData } from "@/lib/structured-data";
 import styles from "./blog-styles.module.css";
 
 interface PostPageProps {
@@ -31,20 +32,56 @@ export async function generateMetadata({
     return {};
   }
 
+  const publishedTime = new Date(post.publishedAt);
+  const modifiedTime = new Date(); // Could be from post.updatedAt if available
+  
   return {
-    title: post.title,
+    title: `${post.title} | Alexander Talaat`,
     description: post.summary,
+    keywords: [
+      ...post.tags,
+      "web development",
+      "software engineering",
+      "react",
+      "next.js",
+      "typescript",
+      "tutorial",
+      "blog",
+    ],
+    authors: [{ name: "Alexander Talaat" }],
+    creator: "Alexander Talaat",
+    publisher: "Alexander Talaat",
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large", 
+        "max-snippet": -1,
+      },
+    },
     openGraph: {
       title: post.title,
       description: post.summary,
       type: "article",
-      publishedTime: post.publishedAt,
+      publishedTime: publishedTime.toISOString(),
+      modifiedTime: modifiedTime.toISOString(),
+      authors: ["Alexander Talaat"],
       tags: post.tags,
+      section: "Technology",
+      siteName: "Alexander Talaat - Developer Blog",
+      locale: "en_US",
     },
     twitter: {
       card: "summary_large_image",
       title: post.title,
       description: post.summary,
+      creator: "@your_twitter", // Update with actual Twitter handle
+    },
+    alternates: {
+      canonical: `https://talaat.dev/blog/${post.slug}`,
     },
   };
 }
@@ -172,9 +209,19 @@ export default function PostPage({ params }: PostPageProps) {
   }
 
   const MDXContent = useMDXComponent(post.body.code);
+  const articleStructuredData = generateArticleStructuredData(post);
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <>
+      {/* Article Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(articleStructuredData),
+        }}
+      />
+      
+      <div className="container mx-auto px-4 py-8">
       <div className="max-w-4xl mx-auto">
         {/* Back to blog */}
         <div className="mb-8 flex items-center justify-between">
@@ -252,5 +299,6 @@ export default function PostPage({ params }: PostPageProps) {
         </footer>
       </div>
     </div>
+    </>
   );
 }
