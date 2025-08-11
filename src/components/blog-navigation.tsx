@@ -1,6 +1,6 @@
 "use client";
 
-import type { allPosts } from ".contentlayer/generated";
+import type { allPosts } from "contentlayer/generated";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import Link from "next/link";
 

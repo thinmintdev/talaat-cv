@@ -1,6 +1,6 @@
 "use client";
 
-import type { allPosts } from ".contentlayer/generated";
+import type { allPosts } from "contentlayer/generated";
 import { Filter, X } from "lucide-react";
 import { useState } from "react";
 import { BlogSidebar } from "./blog-sidebar";

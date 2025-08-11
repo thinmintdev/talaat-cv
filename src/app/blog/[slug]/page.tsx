@@ -1,21 +1,19 @@
-import { allPosts } from ".contentlayer/generated";
+import { allPosts } from "contentlayer/generated";
 import { ArrowLeft } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { useMDXComponent } from "next-contentlayer2/hooks";
 import { BlogNavigation } from "@/components/blog-navigation";
 import { BlogShare } from "@/components/blog-share";
-import { CopyCode, CopyCodeToggle } from "@/components/copy-code";
+import { CopyCodeToggle } from "@/components/copy-code";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { generateArticleStructuredData } from "@/lib/structured-data";
 import styles from "./blog-styles.module.css";
+import { MDXContent } from "./mdx-content";
 
 interface PostPageProps {
-  params: {
-    slug: string;
-  };
+  params: Promise<{ slug: string }>;
 }
 
 function getPostFromParams(slug: string) {
@@ -26,7 +24,8 @@ function getPostFromParams(slug: string) {
 export async function generateMetadata({
   params,
 }: PostPageProps): Promise<Metadata> {
-  const post = getPostFromParams(params.slug);
+  const { slug } = await params;
+  const post = getPostFromParams(slug);
 
   if (!post) {
     return {};
@@ -92,123 +91,15 @@ export async function generateStaticParams() {
   }));
 }
 
-const MDXComponents = {
-  h1: ({ children, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
-    <div className="mt-8 first:mt-0">
-      <h1 className="text-4xl font-bold tracking-tight mb-2" {...props}>
-        {children}
-      </h1>
-      <div className="w-[75px] h-[5px] mb-6 rounded-full bg-blue-700" />
-    </div>
-  ),
-  h2: ({ children, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
-    <div className="mt-8">
-      <h2 className="text-3xl font-semibold mb-2" {...props}>
-        {children}
-      </h2>
-      <div className="w-[60px] h-[4px] mb-4 rounded-full bg-blue-700" />
-    </div>
-  ),
-  h3: ({ children, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
-    <div className="mt-6">
-      <h3 className="text-2xl font-semibold mb-1" {...props}>
-        {children}
-      </h3>
-      <div className="w-[50px] h-[3px] mb-3 rounded-full bg-blue-700" />
-    </div>
-  ),
-  h4: ({ children, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
-    <div className="mt-4">
-      <h4 className="text-xl font-semibold mb-1" {...props}>
-        {children}
-      </h4>
-      <div className="w-[40px] h-[3px] mb-2 rounded-full bg-blue-700" />
-    </div>
-  ),
-  p: ({ children, ...props }: React.HTMLAttributes<HTMLParagraphElement>) => (
-    <p className="mb-4 leading-7" {...props}>
-      {children}
-    </p>
-  ),
-  ul: ({ children, ...props }: React.HTMLAttributes<HTMLUListElement>) => (
-    <ul className="mb-4 space-y-2 blog-ul" {...props}>
-      {children}
-    </ul>
-  ),
-  ol: ({ children, ...props }: React.HTMLAttributes<HTMLOListElement>) => (
-    <ol className="mb-4 ml-6 list-decimal space-y-2 blog-ol" {...props}>
-      {children}
-    </ol>
-  ),
-  li: ({ children, ...props }: React.HTMLAttributes<HTMLLIElement>) => {
-    // Check if this li is inside a ul or ol by looking at the parent context
-    // We'll use CSS classes to handle this instead
-    return (
-      <li className="leading-7" {...props}>
-        {children}
-      </li>
-    );
-  },
-  blockquote: ({
-    children,
-    ...props
-  }: React.HTMLAttributes<HTMLQuoteElement>) => (
-    <blockquote
-      className="border-l-4 border-gray-300 pl-4 italic my-4"
-      {...props}
-    >
-      {children}
-    </blockquote>
-  ),
-  code: ({ children, ...props }: React.HTMLAttributes<HTMLElement>) => (
-    <code
-      className="bg-gray-100 text-gray-900 rounded px-1 py-0.5 text-sm font-mono !text-gray-900"
-      {...props}
-    >
-      {children}
-    </code>
-  ),
-  pre: ({ children, ...props }: React.HTMLAttributes<HTMLPreElement>) => (
-    <CopyCode
-      className="bg-gray-900 text-gray-100 rounded-lg p-4 overflow-x-auto mb-4"
-      {...props}
-    >
-      {children}
-    </CopyCode>
-  ),
-  a: ({
-    children,
-    href,
-    ...props
-  }: React.AnchorHTMLAttributes<HTMLAnchorElement>) => (
-    <a
-      href={href}
-      className="text-blue-600 hover:text-blue-800 underline"
-      target={href?.startsWith("http") ? "_blank" : undefined}
-      rel={href?.startsWith("http") ? "noopener noreferrer" : undefined}
-      {...props}
-    >
-      {children}
-    </a>
-  ),
-  strong: ({ children, ...props }: React.HTMLAttributes<HTMLElement>) => (
-    <strong className="font-semibold" {...props}>
-      {children}
-    </strong>
-  ),
-  hr: ({ ...props }: React.HTMLAttributes<HTMLHRElement>) => (
-    <hr className="my-8 border-gray-300" {...props} />
-  ),
-};
-
-export default function PostPage({ params }: PostPageProps) {
-  const post = getPostFromParams(params.slug);
+export default async function PostPage({ params }: PostPageProps) {
+  const { slug } = await params;
+  const post = getPostFromParams(slug);
 
   if (!post) {
     notFound();
   }
 
-  const MDXContent = useMDXComponent(post.body.code);
+  // const MDXContent = useMDXComponent(post.body.code);
   const articleStructuredData = generateArticleStructuredData(post);
 
   return (
@@ -270,11 +161,10 @@ export default function PostPage({ params }: PostPageProps) {
           </header>
 
           {/* Article content */}
-          <div
-            className={`prose prose-lg max-w-none prose-code:text-gray-900 prose-code:bg-gray-100 ${styles.prose}`}
-          >
-            <MDXContent components={MDXComponents} />
-          </div>
+          <MDXContent
+            code={post.body.code}
+            className={`prose prose-lg max-w-none prose-code:bg-gray-100 ${styles.prose}`}
+          />
         </article>
 
         {/* Share Section */}
