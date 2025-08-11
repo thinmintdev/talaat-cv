@@ -5,11 +5,12 @@ import { useEffect, useState } from "react";
 const services = [
   "WEB DEVELOPMENT",
   "DESIGN & BRANDING",
-  "WORDPRESS DEVELOPMENT",
-  "CLOUD SAAS",
+  "CUSTOM WORDPRESS",
+  "CLOUD PLATFORMS",
   "MANAGED SERVICES",
   "AI SOLUTIONS",
-  "HOSTING & SUPPORT",
+  "WEB & DATA HOSTING",
+  "CONTINUED SUPPORT"
 ];
 
 export const HomeHero = () => {
@@ -20,7 +21,7 @@ export const HomeHero = () => {
   const [showDev, setShowDev] = useState(false);
   const defaultLineIndex = services.length - 1; // Last service by default
 
-  const letters = ["t", "a", "\n", "l", "a", "\n", "a", "t"];
+  const letters = ["t", "a", "l", "\n", "a", "a", "t"];
 
   useEffect(() => {
     const typeText = async () => {
@@ -43,7 +44,7 @@ export const HomeHero = () => {
       setShowDev(true);
 
       // Brief pause before showing final cursor
-      await new Promise((resolve) => setTimeout(resolve, 300));
+      await new Promise((resolve) => setTimeout(resolve, 0));
 
       // Show final cursor and start services
       setShowFinalCursor(true);
@@ -59,7 +60,7 @@ export const HomeHero = () => {
         {/* Left Side - Name Animation */}
         <div className="flex flex-col space-y-0">
           <div className="overflow-hidden">
-            <div className="text-9xl md:text-[10rem] lg:text-[14rem] xl:text-[16rem] font-black text-gray-900 leading-none tracking-tight relative">
+            <div className="text-9xl md:text-[10rem] lg:text-[12rem] xl:text-[16rem] font-black text-gray-900 leading-none tracking-tight relative">
               <div
                 style={{
                   whiteSpace: "pre-line",
@@ -70,16 +71,16 @@ export const HomeHero = () => {
                 {displayText}
                 {/* .DEV in blue inline with "at" */}
                 {showDev && (
-                  <span className="text-5xl text-blue-600">.DEV</span>
+                  <span className="text-2xl md:text-[3rem] lg:text-[3rem] xl:text-[4rem] text-blue-600">.DEV</span>
                 )}
                 {/* Blue underline cursor */}
                 {!showFinalCursor && displayText && (
                   <div className="inline-block w-[0.4em] h-[0.05em] bg-blue-600 ml-[0.05em] align-bottom animate-pulse" />
                 )}
               </div>
-              {/* Final blinking cursor after ".DEV" */}
+              {/* Final blinking cursor under ".dev" */}
               {showFinalCursor && (
-                <div className="block w-[0.6em] h-[0.05em] bg-blue-600 ml-[0.05em] mr-[3rem] align-bottom justify-self-end animate-pulse" />
+                <div className="absolute bottom-0 w-[0.4em] h-[0.05em] bg-blue-600 animate-pulse" style={{ left: 'calc(100% - 0.51em)' }} />
               )}
             </div>
           </div>

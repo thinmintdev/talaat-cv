@@ -133,7 +133,7 @@ export default function HomePage() {
                                   {project.category}
                                 </span>
                               )}
-                              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mt-1">
+                              <h3 className="text-xl sm:text-2xl pb-2 font-bold text-gray-900 mt-1">
                                 {project.title}
                               </h3>
                             </div>
@@ -210,9 +210,10 @@ export default function HomePage() {
                 {HOMEPAGE_DATA.services.offerings.map((service) => (
                   <div key={service.title} className="group cursor-pointer">
                     <div className="p-6 rounded-2xl border border-gray-200 hover:border-blue-300 hover:shadow-lg transition-all duration-300 hover:bg-blue-50/30">
-                      <div className="flex items-start gap-4">
-                        <div className="w-14 h-14 bg-blue-600 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                          <div className="w-7 h-7 text-white">
+                      {/* Header with Icon, Title, and Description */}
+                      <div className="flex items-start gap-4 mb-4">
+                        <div className="w-16 h-16 bg-blue-600 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                          <div className="w-8 h-8 text-white">
                             {service.icon === "code" && (
                               <svg
                                 fill="none"
@@ -274,50 +275,52 @@ export default function HomePage() {
                         </div>
 
                         <div className="flex-1">
-                          <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+                          <h3 className="text-xl mt-[-5px] font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
                             {service.title}
                           </h3>
-                          <p className="text-gray-600 text-sm mb-3 leading-relaxed">
+                          <p className="text-gray-600 text-sm leading-relaxed line-clamp-2">
                             {service.description}
                           </p>
+                        </div>
+                      </div>
 
-                          {service.features && service.features.length > 0 && (
-                            <ul className="mt-2 mb-4 space-y-2">
-                              {service.features.map((feature, i) => (
-                                <li
-                                  key={`${service.title}-feature-${i}`}
-                                  className="flex items-start gap-2"
-                                >
-                                  <span className="inline-block w-2.5 h-2.5 mt-1.5 rounded-sm bg-blue-600 flex-shrink-0" />
-                                  <span className="text-gray-700 text-sm">
-                                    {feature}
-                                  </span>
-                                </li>
-                              ))}
-                            </ul>
-                          )}
+                      {/* Features List - Full Width */}
+                      {service.features && service.features.length > 0 && (
+                        <ul className="mb-4 space-y-2">
+                          {service.features.map((feature, i) => (
+                            <li
+                              key={`${service.title}-feature-${i}`}
+                              className="flex items-start gap-2"
+                            >
+                              <span className="inline-block w-2.5 h-2.5 mt-1.5 rounded-sm bg-blue-600 flex-shrink-0" />
+                              <span className="text-gray-700 text-sm">
+                                {feature}
+                              </span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
 
-                          <div className="flex items-center justify-between">
-                            <div className="flex flex-wrap gap-1.5 sm:gap-2">
-                              {service.technologies.slice(0, 2).map((tech) => (
-                                <span
-                                  key={tech}
-                                  className="flex items-center gap-2 px-3 py-1.5 bg-white border border-gray-200 rounded-lg shadow-sm text-sm text-gray-900"
-                                >
-                                  <span className="w-1.5 h-1.5 rounded-full bg-blue-600" />
-                                  {tech}
-                                </span>
-                              ))}
-                            </div>
-                            <div className="text-right">
-                              <p className="text-sm font-semibold text-brandSecondary">
-                                {service.startingPrice}
-                              </p>
-                              <p className="text-xs text-gray-500">
-                                {service.timeline}
-                              </p>
-                            </div>
-                          </div>
+                      {/* Tags and Pricing - Full Width */}
+                      <div className="flex items-center justify-between">
+                        <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                          {service.technologies.slice(0, 3).map((tech) => (
+                            <span
+                              key={tech}
+                              className="flex items-center gap-2 px-3 py-1.5 bg-white border border-gray-200 rounded-lg shadow-sm text-sm text-gray-900"
+                            >
+                              <span className="w-1.5 h-1.5 rounded-full bg-blue-600" />
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+                        <div className="text-right">
+                          <p className="text-sm font-semibold text-brandSecondary">
+                            {service.startingPrice}
+                          </p>
+                          <p className="text-xs text-gray-500">
+                            {service.timeline}
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -332,7 +335,7 @@ export default function HomePage() {
       {/* Experience & Technologies Section */}
       <section id="technologies" className="p-8 sm:p-12 md:p-16 lg:p-24">
         <div>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start">
             <div className="lg:col-span-4">
               <h2 className="text-3xl sm:text-4xl md:text-5xl xl:text-7xl font-bold text-gray-900">
                 <TypingTitle
@@ -351,11 +354,11 @@ export default function HomePage() {
                 {/* Highlighted Technologies with Proficiency Bars */}
                 {HOMEPAGE_DATA.platformProficiency.technologies.map((tech) => (
                   <div key={tech.name} className="mb-4">
-                    <div className="flex items-center gap-4">
-                      <span className="font-mono font-semibold text-gray-800 text-base min-w-[160px] max-w-[160px] truncate">
+                    <div className="mb-1">
+                      <span className="font-mono font-semibold text-gray-800 text-base block">
                         {tech.name}
                       </span>
-                      <span className="text-sm text-gray-500 flex-1 truncate">
+                      <span className="text-sm text-gray-500 block truncate">
                         {tech.description}
                       </span>
                     </div>
@@ -412,7 +415,7 @@ export default function HomePage() {
           <div className="text-center mb-16">
             <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 max-w-2xl mx-auto">
               <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                Get in Touch
+                Let's Chat
               </h3>
               <p className="text-gray-600 mb-6">
                 {HOMEPAGE_DATA.contact.consultation.description}

@@ -9,7 +9,7 @@ export const HOMEPAGE_DATA = {
 
   // Skills Section - Sliding Animation
   slidingSkills: {
-    title: "Skills",
+    title: "Stack",
     description: "Technologies I work with daily",
     rows: [
       {
@@ -167,7 +167,7 @@ export const HOMEPAGE_DATA = {
         icon: "code",
         title: "Full-Stack Development",
         description:
-          "End-to-end web applications built with modern technologies and best practices",
+          "Web applications / experiences built with modern technologies.",
         features: [
           "React/Next.js Applications",
           "Node.js & Python APIs",
@@ -189,7 +189,7 @@ export const HOMEPAGE_DATA = {
         icon: "wordpress",
         title: "WordPress Solutions",
         description:
-          "Custom WordPress development from themes to headless implementations",
+          "Custom WordPress development from themes to headless implementations.",
         features: [
           "Custom Theme Development",
           "Plugin Development",
@@ -210,7 +210,7 @@ export const HOMEPAGE_DATA = {
         icon: "MdDesignServices",
         title: "Graphic Design",
         description:
-          "Professional design services for cohesive brand identity and user experience",
+          "Professional design services for brand identity and user experience.",
         features: [
           "Company Branding & Style Guide",
           "Custom CMS Theme Design",
@@ -219,8 +219,7 @@ export const HOMEPAGE_DATA = {
         ],
         technologies: [
           "Figma",
-          "Adobe Creative Suite",
-          "WordPress",
+          "UI/UX",
           "Brand Guidelines",
           "UI/UX",
         ],
@@ -229,16 +228,16 @@ export const HOMEPAGE_DATA = {
       },
       {
         icon: "support",
-        title: "Consulting & Support",
+        title: "Continued Support",
         description:
-          "Expert guidance and ongoing technical support for your development projects.",
+          "Expert ongoing technical support, maintenance  & updates.",
         features: [
           "Technical Architecture Review",
           "Fix Hacked WordPress / Sites",
           "Cloud Service Administration",
           "Ongoing Updates & Maintenance",
         ],
-        technologies: ["Code Review", "Documentation", "Training", "Support"],
+        technologies: ["Updates", "Support", "Training", "Support"],
         timeline: "Continued",
         startingPrice: "$TBD/hour",
       },
@@ -247,7 +246,7 @@ export const HOMEPAGE_DATA = {
 
   // Platform Proficiency Section
   platformProficiency: {
-    title: "Experience",
+    title: "Skills",
     subtitle:
       "Key technologies, platforms, and tools used across major projects and roles.",
     technologies: [
@@ -302,12 +301,12 @@ export const HOMEPAGE_DATA = {
   contact: {
     title: "Let's Work Together",
     subtitle:
-      "Ready to bring your project to life? I specialize in building scalable web applications and cloud solutions.",
+      "Ready to bring your project online? Let's see how I can help.",
     calendlyUrl: "https://calendly.com/thinmint/new-meeting", // Replace with your actual Calendly URL
     consultation: {
       title: "Schedule Free Consultation",
       description:
-        "30-minute discovery call to discuss your project needs and timeline",
+        "30-minute discovery call to discuss your project needs.",
     },
     contact: {
       email: {
