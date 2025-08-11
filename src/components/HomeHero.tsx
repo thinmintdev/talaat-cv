@@ -3,14 +3,12 @@
 import { useEffect, useState } from "react";
 
 const services = [
-  "WEB DEVELOPMENT",
+  "FULL STACK",
+  "WEB DEVELOPER",
   "DESIGN & BRANDING",
-  "CUSTOM WORDPRESS",
-  "CLOUD PLATFORMS",
-  "MANAGED SERVICES",
+  "WORDPRESS EXPERT",
+  "SAAS DEVELOPMENT",
   "AI SOLUTIONS",
-  "WEB & DATA HOSTING",
-  "CONTINUED SUPPORT"
 ];
 
 export const HomeHero = () => {
@@ -18,10 +16,11 @@ export const HomeHero = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [displayText, setDisplayText] = useState("");
   const [showFinalCursor, setShowFinalCursor] = useState(false);
-  const [showDev, setShowDev] = useState(false);
+  const [devText, setDevText] = useState("");
   const defaultLineIndex = services.length - 1; // Last service by default
 
   const letters = ["t", "a", "l", "\n", "a", "a", "t"];
+  const devLetters = [".D", "E", "V"];
 
   useEffect(() => {
     const typeText = async () => {
@@ -37,14 +36,19 @@ export const HomeHero = () => {
         await new Promise((resolve) => setTimeout(resolve, 300)); // Constant 300ms between letters
       }
 
-      // Brief pause before showing .DEV
-      await new Promise((resolve) => setTimeout(resolve, 500));
+      // Brief pause before typing .DEV
+      await new Promise((resolve) => setTimeout(resolve, 200));
 
-      // Show .DEV
-      setShowDev(true);
+      // Type .DEV letter by letter
+      let currentDevText = "";
+      for (let i = 0; i < devLetters.length; i++) {
+        currentDevText += devLetters[i];
+        setDevText(currentDevText);
+        await new Promise((resolve) => setTimeout(resolve, 300));
+      }
 
       // Brief pause before showing final cursor
-      await new Promise((resolve) => setTimeout(resolve, 0));
+      await new Promise((resolve) => setTimeout(resolve, 200));
 
       // Show final cursor and start services
       setShowFinalCursor(true);
@@ -56,9 +60,9 @@ export const HomeHero = () => {
 
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-8">
-      <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
         {/* Left Side - Name Animation */}
-        <div className="flex flex-col space-y-0">
+        <div className="lg:col-span-7 flex flex-col space-y-0">
           <div className="overflow-hidden">
             <div className="text-9xl md:text-[10rem] lg:text-[12rem] xl:text-[16rem] font-black text-gray-900 leading-none tracking-tight relative">
               <div
@@ -69,25 +73,26 @@ export const HomeHero = () => {
                 className="font-black relative inline-block"
               >
                 {displayText}
-                {/* .DEV in blue inline with "at" */}
-                {showDev && (
-                  <span className="text-2xl md:text-[3rem] lg:text-[3rem] xl:text-[4rem] text-blue-600">.DEV</span>
+                {/* .DEV in blue typing naturally 
+                {devText && (
+                  <span className="text-2xl md:text-[3rem] lg:text-[3rem] xl:text-[4rem] text-blue-600">{devText}</span>
+                )} */}
+
+                {/* Blue underline cursor - shows during typing */}
+                {!showFinalCursor && (displayText || devText) && (
+                  <div className="inline-block w-[0.35em] h-[0.05em] bg-blue-600 ml-[0.05em] align-bottom animate-pulse" />
                 )}
-                {/* Blue underline cursor */}
-                {!showFinalCursor && displayText && (
-                  <div className="inline-block w-[0.4em] h-[0.05em] bg-blue-600 ml-[0.05em] align-bottom animate-pulse" />
+                {/* Final blinking cursor under ".dev" */}
+                {showFinalCursor && (
+                  <div className="inline-block w-[0.35em] h-[0.05em] bg-blue-600 ml-[0.05em] align-bottom animate-pulse" />
                 )}
               </div>
-              {/* Final blinking cursor under ".dev" */}
-              {showFinalCursor && (
-                <div className="absolute bottom-0 w-[0.4em] h-[0.05em] bg-blue-600 animate-pulse" style={{ left: 'calc(100% - 0.51em)' }} />
-              )}
             </div>
           </div>
         </div>
 
         {/* Right Side - Services Dropdown */}
-        <div className="flex flex-col justify-center lg:pl-8 relative">
+        <div className="lg:col-span-5 flex flex-col justify-center lg:pl-12 relative">
           {services.map((service, index) => (
             <div
               key={service}
@@ -98,7 +103,7 @@ export const HomeHero = () => {
               }`}
               style={{
                 transitionDelay: showServices ? `${index * 150}ms` : "0ms",
-                minHeight: "48px",
+                minHeight: "58px",
                 display: "flex",
                 alignItems: "center",
               }}
@@ -113,11 +118,11 @@ export const HomeHero = () => {
 
           {/* Interactive blue line that follows hover */}
           <div
-            className={`absolute w-32 h-1 bg-blue-600 transition-all duration-300 ease-out mt-1 lg:left-8 left-0 ${
+            className={`absolute w-32 h-1 bg-blue-600 transition-all duration-300 ease-out mt-2 lg:left-12 left-0 ${
               showServices ? "opacity-100" : "opacity-0"
             }`}
             style={{
-              top: `${(hoveredIndex !== null ? hoveredIndex : defaultLineIndex) * 48 + 40}px`,
+              top: `${(hoveredIndex !== null ? hoveredIndex : defaultLineIndex) * 58 + 40}px`,
               transitionDelay: showServices ? "400ms" : "0ms",
             }}
           />
