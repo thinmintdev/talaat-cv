@@ -25,27 +25,7 @@ export function SiteFooter() {
             </div>
           </div>
 
-          {/* Center - Navigation */}
-          <nav className="flex gap-6">
-            <Link
-              href="/"
-              className="text-sm text-gray-600 hover:text-gray-900 transition-colors"
-            >
-              Portfolio
-            </Link>
-            <Link
-              href="/cv"
-              className="text-sm text-gray-600 hover:text-gray-900 transition-colors"
-            >
-              CV
-            </Link>
-            <Link
-              href="/blog"
-              className="text-sm text-gray-600 hover:text-gray-900 transition-colors"
-            >
-              Blog
-            </Link>
-          </nav>
+          
 
           {/* Right side - Social links */}
           <div className="flex items-center gap-4">

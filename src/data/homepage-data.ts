@@ -1,10 +1,75 @@
 import { SiShadcnui } from "react-icons/si"
 
 export const HOMEPAGE_DATA = {
+  // Hero Animation Section
+  hero: {
+    services: [
+      "FULL STACK",
+      "WEB DEVELOPER", 
+      "DESIGN & BRANDING",
+      "WORDPRESS EXPERT",
+      "SAAS DEVELOPMENT",
+      "AI SOLUTIONS",
+    ],
+    nameLetters: ["t", "a", "l", "\n", "a", "a", "t"],
+    devLetters: [".D", "E", "V"],
+    timing: {
+      initialDelay: 1000,
+      letterDelay: 300,
+      devPauseDelay: 200,
+      finalCursorDelay: 200,
+      serviceStaggerDelay: 150,
+      lineTransitionDelay: 400,
+    },
+    layout: {
+      gridCols: 12,
+      nameSpan: 7,
+      servicesSpan: 5,
+      gap: 8,
+      servicesPadding: 12,
+      minHeight: 58,
+      lineHeight: "0.8",
+    },
+    styles: {
+      cursorWidth: "0.35em",
+      cursorHeight: "0.05em",
+      lineWidth: 32,
+      lineHeight: 1,
+    },
+  },
+
+  // Layout Configuration
+  layout: {
+    sections: {
+      padding: "p-8 sm:p-12 md:p-16 lg:p-24",
+      containerGrid: "grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start",
+      titleColumn: "lg:col-span-4",
+      contentColumn: "lg:col-span-8",
+    },
+    typography: {
+      sectionTitle: "text-3xl sm:text-4xl md:text-5xl xl:text-7xl font-bold text-gray-900",
+      underline: "w-[75px] h-[5px] mt-2 rounded-full bg-blue-700",
+      subtitle: "mt-4 text-gray-600 text-lg",
+    },
+    components: {
+      typingTitle: {
+        about: { speed: 50, delay: 200 },
+        projects: { speed: 55, delay: 250 },
+        services: { speed: 60, delay: 200 },
+        technologies: { speed: 40, delay: 300 },
+        contact: { speed: 50, delay: 200 },
+      },
+    },
+  },
+
   // About Me Section
   about: {
     title: "About",
-    description: "I am a passionate software developer with experience in building web applications.",
+    paragraphs: [
+      "I'm a full-stack developer passionate about crafting modern web experiences. I've been working over 15 years to develop my skillset in web development & design.",
+      "I specialize in building responsive frontends with React and Next.js, and scalable backends using Node.js. I integrate databases like PostgreSQL and MongoDB, and work with CMS platforms such as WordPress to deliver dynamic content solutions.",
+      "My focus: clean design aesthetics, intentional technology choices, performance, and delivering exceptional user experiences."
+    ],
   },
 
   // Skills Section - Sliding Animation
@@ -297,31 +362,24 @@ export const HOMEPAGE_DATA = {
     },
   },
 
-  // Contact & Services Section
+  // Contact Section
   contact: {
-    title: "Let's Work Together",
-    subtitle:
-      "Ready to bring your project online? Let's see how I can help.",
-    calendlyUrl: "https://calendly.com/thinmint/new-meeting", // Replace with your actual Calendly URL
+    title: "Let's Work Together", 
+    subtitle: "Ready to bring your project online?",
     consultation: {
       title: "Schedule Free Consultation",
-      description:
-        "30-minute discovery call to discuss your project needs.",
-    },
-    contact: {
-      email: {
-        title: "Email",
-        username: "@thinmintdev", // This will be replaced with actual email from RESUME_DATA
-      },
-      github: {
-        title: "GitHub",
-        username: "@thinmintdev",
-      },
+      description: "30-minute discovery call to discuss your project needs.",
+      buttonText: "Let's Chat",
     },
     availability: {
-      title: "Current Availability",
-      description:
-        "I'm actively scheduling new projects with a typical 1-2 week timeline to get started. Let's discuss how I can help bring your vision to life.",
+      title: "Accepting", 
+      description: "I'm scheduling new projects with a typical 1-2 week timeline to get started. Let's discuss yours today.",
+    },
+    configuration: {
+      calendlyUrl: "https://calendly.com/thinmint/new-meeting",
+      sectionBackground: "bg-gray-50",
+      cardBackground: "bg-white",
+      cardStyles: "rounded-2xl p-8 shadow-sm border border-gray-200 max-w-2xl mx-auto",
     },
   },
 

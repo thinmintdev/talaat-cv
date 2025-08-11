@@ -1,6 +1,5 @@
 import { Github, Mail } from "lucide-react";
 import type { Metadata } from "next";
-import Link from "next/link";
 import { HomeHero } from "@/components/HomeHero";
 import { SlidingSkills } from "@/components/SlidingSkills";
 import { TypingTitle } from "@/components/TypingTitle";
@@ -38,23 +37,25 @@ export default function HomePage() {
       <HomeHero />
 
       {/* About Me Section */}
-      <section id="about" className="p-8 sm:p-12 md:p-16 lg:p-24">
+      <section id="about" className={HOMEPAGE_DATA.layout.sections.padding}>
         <div>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
-            <div className="lg:col-span-4">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl xl:text-7xl font-bold text-gray-900">
+          <div className={HOMEPAGE_DATA.layout.sections.containerGrid}>
+            <div className={HOMEPAGE_DATA.layout.sections.titleColumn}>
+              <h2 className={HOMEPAGE_DATA.layout.typography.sectionTitle}>
                 <TypingTitle
                   text={HOMEPAGE_DATA.about.title}
-                  speed={50}
-                  delay={200}
+                  speed={HOMEPAGE_DATA.layout.components.typingTitle.about.speed}
+                  delay={HOMEPAGE_DATA.layout.components.typingTitle.about.delay}
                 />
               </h2>
-              <div className="w-[75px] h-[5px] mt-2 rounded-full bg-blue-700" />
+              <div className={HOMEPAGE_DATA.layout.typography.underline} />
             </div>
 
-            <div className="lg:col-span-8">
-              <div className="text-lg sm:text-xl md:text-2xl leading-relaxed text-gray-600">
-                {RESUME_DATA.summary}
+            <div className={HOMEPAGE_DATA.layout.sections.contentColumn}>
+              <div className="text-lg sm:text-xl md:text-2xl leading-relaxed text-gray-600 space-y-4">
+                {HOMEPAGE_DATA.about.paragraphs.map((paragraph, index) => (
+                  <p key={index}>{paragraph}</p>
+                ))}
               </div>
             </div>
           </div>
@@ -66,24 +67,24 @@ export default function HomePage() {
 
       {/* Projects Section */}
       {HOMEPAGE_DATA.projects.list.length > 0 && (
-        <section id="projects" className="p-8 sm:p-12 md:p-16 lg:p-24">
+        <section id="projects" className={HOMEPAGE_DATA.layout.sections.padding}>
           <div>
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
-              <div className="lg:col-span-4">
-                <h2 className="text-3xl sm:text-4xl md:text-5xl xl:text-7xl font-bold text-gray-900">
+            <div className={HOMEPAGE_DATA.layout.sections.containerGrid}>
+              <div className={HOMEPAGE_DATA.layout.sections.titleColumn}>
+                <h2 className={HOMEPAGE_DATA.layout.typography.sectionTitle}>
                   <TypingTitle
                     text={HOMEPAGE_DATA.projects.title}
-                    speed={55}
-                    delay={250}
+                    speed={HOMEPAGE_DATA.layout.components.typingTitle.projects.speed}
+                    delay={HOMEPAGE_DATA.layout.components.typingTitle.projects.delay}
                   />
                 </h2>
-                <div className="w-[75px] h-[5px] mt-2 rounded-full bg-blue-700" />
-                <p className="mt-4 text-lg text-gray-600">
+                <div className={HOMEPAGE_DATA.layout.typography.underline} />
+                <p className={HOMEPAGE_DATA.layout.typography.subtitle}>
                   {HOMEPAGE_DATA.projects.description}
                 </p>
               </div>
 
-              <div className="lg:col-span-8">
+              <div className={HOMEPAGE_DATA.layout.sections.contentColumn}>
                 <div className="space-y-8">
                   {HOMEPAGE_DATA.projects.list.map((project) => {
                     const hasLink = project.link?.href;
@@ -129,7 +130,7 @@ export default function HomePage() {
                           <div className="space-y-4">
                             <div className="flex items-center gap-2 flex-wrap">
                               {project.category && (
-                                <span className="px-2.5 py-0.5 bg-brandSecondary text-gray-900 rounded-md text-xs font-medium">
+                                <span className="px-2.5 py-0.5 bg-[#d4e6ff] text-gray-900 rounded-md text-xs font-medium">
                                   {project.category}
                                 </span>
                               )}
@@ -394,15 +395,15 @@ export default function HomePage() {
       </section>
 
       {/* Contact & Services Section */}
-      <section id="contact" className="p-8 sm:p-12 md:p-16 lg:p-24 bg-gray-50">
+      <section id="contact" className={`${HOMEPAGE_DATA.layout.sections.padding} ${HOMEPAGE_DATA.contact.configuration.sectionBackground}`}>
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold text-gray-900 mb-4">
               <TypingTitle
                 text={HOMEPAGE_DATA.contact.title}
-                speed={50}
-                delay={200}
+                speed={HOMEPAGE_DATA.layout.components.typingTitle.contact.speed}
+                delay={HOMEPAGE_DATA.layout.components.typingTitle.contact.delay}
               />
             </h2>
             <div className="w-[75px] h-[5px] mx-auto rounded-full bg-blue-700 mb-6" />
@@ -413,9 +414,9 @@ export default function HomePage() {
 
           {/* Get in Touch */}
           <div className="text-center mb-16">
-            <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 max-w-2xl mx-auto">
+            <div className={HOMEPAGE_DATA.contact.configuration.cardStyles}>
               <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                Let's Chat
+                {HOMEPAGE_DATA.contact.consultation.buttonText}
               </h3>
               <p className="text-gray-600 mb-6">
                 {HOMEPAGE_DATA.contact.consultation.description}
@@ -423,7 +424,7 @@ export default function HomePage() {
 
               {/* Primary CTA - Schedule Consultation */}
               <a
-                href={HOMEPAGE_DATA.contact.calendlyUrl}
+                href={HOMEPAGE_DATA.contact.configuration.calendlyUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors duration-300 text-lg mb-4 w-full sm:w-auto"
@@ -443,7 +444,7 @@ export default function HomePage() {
                     d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
                   />
                 </svg>
-                {HOMEPAGE_DATA.contact.consultation.title}
+{HOMEPAGE_DATA.contact.consultation.title}
               </a>
 
               {/* Alternative Contact */}
@@ -515,7 +516,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Simple Footer */}
+      {/* Simple Footer 
       <footer className="text-center py-12 border-t bg-white">
         <div className="flex justify-center gap-4">
           <Link
@@ -531,7 +532,7 @@ export default function HomePage() {
             {HOMEPAGE_DATA.footer.buttons.readBlog}
           </Link>
         </div>
-      </footer>
+      </footer>*/}
     </>
   );
 }

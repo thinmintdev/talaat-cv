@@ -1,15 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-
-const services = [
-  "FULL STACK",
-  "WEB DEVELOPER",
-  "DESIGN & BRANDING",
-  "WORDPRESS EXPERT",
-  "SAAS DEVELOPMENT",
-  "AI SOLUTIONS",
-];
+import { HOMEPAGE_DATA } from "@/data/homepage-data";
 
 export const HomeHero = () => {
   const [showServices, setShowServices] = useState(false);
@@ -17,38 +9,38 @@ export const HomeHero = () => {
   const [displayText, setDisplayText] = useState("");
   const [showFinalCursor, setShowFinalCursor] = useState(false);
   const [devText, setDevText] = useState("");
-  const defaultLineIndex = services.length - 1; // Last service by default
-
-  const letters = ["t", "a", "l", "\n", "a", "a", "t"];
-  const devLetters = [".D", "E", "V"];
+  
+  const { hero } = HOMEPAGE_DATA;
+  const { services, nameLetters, devLetters, timing, layout, styles } = hero;
+  const defaultLineIndex = services.length - 1;
 
   useEffect(() => {
     const typeText = async () => {
       // Initial delay
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      await new Promise((resolve) => setTimeout(resolve, timing.initialDelay));
 
       let currentText = "";
 
       // Type each letter individually
-      for (let i = 0; i < letters.length; i++) {
-        currentText += letters[i];
+      for (let i = 0; i < nameLetters.length; i++) {
+        currentText += nameLetters[i];
         setDisplayText(currentText);
-        await new Promise((resolve) => setTimeout(resolve, 300)); // Constant 300ms between letters
+        await new Promise((resolve) => setTimeout(resolve, timing.letterDelay));
       }
 
       // Brief pause before typing .DEV
-      await new Promise((resolve) => setTimeout(resolve, 200));
+      await new Promise((resolve) => setTimeout(resolve, timing.devPauseDelay));
 
       // Type .DEV letter by letter
       let currentDevText = "";
       for (let i = 0; i < devLetters.length; i++) {
         currentDevText += devLetters[i];
         setDevText(currentDevText);
-        await new Promise((resolve) => setTimeout(resolve, 300));
+        await new Promise((resolve) => setTimeout(resolve, timing.letterDelay));
       }
 
       // Brief pause before showing final cursor
-      await new Promise((resolve) => setTimeout(resolve, 200));
+      await new Promise((resolve) => setTimeout(resolve, timing.finalCursorDelay));
 
       // Show final cursor and start services
       setShowFinalCursor(true);
@@ -56,7 +48,7 @@ export const HomeHero = () => {
     };
 
     typeText();
-  }, []);
+  }, [nameLetters, devLetters, timing]);
 
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-8">
@@ -68,23 +60,29 @@ export const HomeHero = () => {
               <div
                 style={{
                   whiteSpace: "pre-line",
-                  lineHeight: "0.8",
+                  lineHeight: layout.lineHeight,
                 }}
                 className="font-black relative inline-block"
               >
                 {displayText}
-                {/* .DEV in blue typing naturally 
+                {/* .DEV in blue typing naturally */}
                 {devText && (
                   <span className="text-2xl md:text-[3rem] lg:text-[3rem] xl:text-[4rem] text-blue-600">{devText}</span>
-                )} */}
+                )}
 
                 {/* Blue underline cursor - shows during typing */}
                 {!showFinalCursor && (displayText || devText) && (
-                  <div className="inline-block w-[0.35em] h-[0.05em] bg-blue-600 ml-[0.05em] align-bottom animate-pulse" />
+                  <div 
+                    className="inline-block bg-blue-600 ml-[0.05em] align-bottom animate-pulse" 
+                    style={{ width: styles.cursorWidth, height: styles.cursorHeight }}
+                  />
                 )}
-                {/* Final blinking cursor under ".dev" */}
+                {/* Final blinking cursor */}
                 {showFinalCursor && (
-                  <div className="inline-block w-[0.35em] h-[0.05em] bg-blue-600 ml-[0.05em] align-bottom animate-pulse" />
+                  <div 
+                    className="inline-block bg-blue-600 ml-[0.05em] align-bottom animate-pulse"
+                    style={{ width: styles.cursorWidth, height: styles.cursorHeight }}
+                  />
                 )}
               </div>
             </div>
@@ -102,8 +100,8 @@ export const HomeHero = () => {
                   : "-translate-y-4 opacity-0"
               }`}
               style={{
-                transitionDelay: showServices ? `${index * 150}ms` : "0ms",
-                minHeight: "58px",
+                transitionDelay: showServices ? `${index * timing.serviceStaggerDelay}ms` : "0ms",
+                minHeight: `${layout.minHeight}px`,
                 display: "flex",
                 alignItems: "center",
               }}
@@ -118,12 +116,14 @@ export const HomeHero = () => {
 
           {/* Interactive blue line that follows hover */}
           <div
-            className={`absolute w-32 h-1 bg-blue-600 transition-all duration-300 ease-out mt-2 lg:left-12 left-0 ${
+            className={`absolute bg-blue-600 transition-all duration-300 ease-out mt-3 lg:left-12 left-0 ${
               showServices ? "opacity-100" : "opacity-0"
             }`}
             style={{
-              top: `${(hoveredIndex !== null ? hoveredIndex : defaultLineIndex) * 58 + 40}px`,
-              transitionDelay: showServices ? "400ms" : "0ms",
+              width: `${styles.lineWidth}px`,
+              height: `${styles.lineHeight * 4}px`,
+              top: `${(hoveredIndex !== null ? hoveredIndex : defaultLineIndex) * layout.minHeight + 40}px`,
+              transitionDelay: showServices ? `${timing.lineTransitionDelay}ms` : "0ms",
             }}
           />
         </div>
