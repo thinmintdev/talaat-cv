@@ -17,6 +17,7 @@ export const HomeHero = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [displayText, setDisplayText] = useState("");
   const [showFinalCursor, setShowFinalCursor] = useState(false);
+  const [showDev, setShowDev] = useState(false);
   const defaultLineIndex = services.length - 1; // Last service by default
 
   const letters = ["t", "a", "\n", "l", "a", "\n", "a", "t"];
@@ -35,8 +36,14 @@ export const HomeHero = () => {
         await new Promise((resolve) => setTimeout(resolve, 300)); // Constant 300ms between letters
       }
 
-      // Brief pause before showing final cursor
+      // Brief pause before showing .DEV
       await new Promise((resolve) => setTimeout(resolve, 500));
+
+      // Show .DEV
+      setShowDev(true);
+
+      // Brief pause before showing final cursor
+      await new Promise((resolve) => setTimeout(resolve, 300));
 
       // Show final cursor and start services
       setShowFinalCursor(true);
@@ -61,14 +68,18 @@ export const HomeHero = () => {
                 className="font-black relative inline-block"
               >
                 {displayText}
+                {/* .DEV in blue inline with "at" */}
+                {showDev && (
+                  <span className="text-5xl text-blue-600">.DEV</span>
+                )}
                 {/* Blue underline cursor */}
                 {!showFinalCursor && displayText && (
                   <div className="inline-block w-[0.4em] h-[0.05em] bg-blue-600 ml-[0.05em] align-bottom animate-pulse" />
                 )}
               </div>
-              {/* Final blinking cursor after "at" */}
+              {/* Final blinking cursor after ".DEV" */}
               {showFinalCursor && (
-                <div className="inline-block w-[0.4em] h-[0.05em] bg-blue-600 ml-[0.05em] align-bottom animate-pulse" />
+                <div className="block w-[0.6em] h-[0.05em] bg-blue-600 ml-[0.05em] mr-[3rem] align-bottom justify-self-end animate-pulse" />
               )}
             </div>
           </div>
