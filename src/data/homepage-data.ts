@@ -3,13 +3,13 @@ import { SiShadcnui } from "react-icons/si"
 export const HOMEPAGE_DATA = {
   // About Me Section
   about: {
-    title: "About Me",
+    title: "About",
     description: "I am a passionate software developer with experience in building web applications.",
   },
 
   // Skills Section - Sliding Animation
   slidingSkills: {
-    title: "Skills",
+    title: "Stack",
     description: "Technologies I work with daily",
     rows: [
       {
@@ -167,7 +167,7 @@ export const HOMEPAGE_DATA = {
         icon: "code",
         title: "Full-Stack Development",
         description:
-          "End-to-end web applications built with modern technologies and best practices",
+          "Web applications / experiences built with modern technologies.",
         features: [
           "React/Next.js Applications",
           "Node.js & Python APIs",
@@ -189,7 +189,7 @@ export const HOMEPAGE_DATA = {
         icon: "wordpress",
         title: "WordPress Solutions",
         description:
-          "Custom WordPress development from themes to headless implementations",
+          "Custom WordPress development from themes to headless implementations.",
         features: [
           "Custom Theme Development",
           "Plugin Development",
@@ -207,47 +207,46 @@ export const HOMEPAGE_DATA = {
         startingPrice: "$2,500",
       },
       {
-        icon: "analytics",
-        title: "Performance Optimization",
+        icon: "MdDesignServices",
+        title: "Graphic Design",
         description:
-          "Speed up your existing applications with proven optimization techniques",
+          "Professional design services for brand identity and user experience.",
         features: [
-          "Core Web Vitals Improvement",
-          "Database Query Optimization",
-          "Caching Implementation",
-          "SEO Enhancement",
+          "Company Branding & Style Guide",
+          "Custom CMS Theme Design",
+          "Print & Promotional Materials",
+          "UI/UX Design, Admin Interfaces",
         ],
         technologies: [
-          "Lighthouse",
-          "GTmetrix",
-          "Redis",
-          "CDN",
-          "Image Optimization",
+          "Figma",
+          "UI/UX",
+          "Brand Guidelines",
+          "UI/UX",
         ],
-        timeline: "1-2 weeks",
-        startingPrice: "$1,500",
+        timeline: "1-3 weeks",
+        startingPrice: "$2,000",
       },
       {
         icon: "support",
-        title: "Consulting & Support",
+        title: "Continued Support",
         description:
-          "Expert guidance and ongoing technical support for your development projects. We fix hacked sites, optimize performance, and ensure security best practices.",
+          "Expert ongoing technical support, maintenance  & updates.",
         features: [
           "Technical Architecture Review",
-          "Code Auditing & Review",
-          "Team Training & Mentoring",
-          "Ongoing Maintenance",
+          "Fix Hacked WordPress / Sites",
+          "Cloud Service Administration",
+          "Ongoing Updates & Maintenance",
         ],
-        technologies: ["Code Review", "Documentation", "Training", "Support"],
-        timeline: "Ongoing",
-        startingPrice: "$150/hour",
+        technologies: ["Updates", "Support", "Training", "Support"],
+        timeline: "Continued",
+        startingPrice: "$TBD/hour",
       },
     ],
   },
 
   // Platform Proficiency Section
   platformProficiency: {
-    title: "Experience",
+    title: "Skills",
     subtitle:
       "Key technologies, platforms, and tools used across major projects and roles.",
     technologies: [
@@ -302,12 +301,12 @@ export const HOMEPAGE_DATA = {
   contact: {
     title: "Let's Work Together",
     subtitle:
-      "Ready to bring your project to life? I specialize in building scalable web applications and cloud solutions.",
+      "Ready to bring your project online? Let's see how I can help.",
     calendlyUrl: "https://calendly.com/thinmint/new-meeting", // Replace with your actual Calendly URL
     consultation: {
       title: "Schedule Free Consultation",
       description:
-        "30-minute discovery call to discuss your project needs and timeline",
+        "30-minute discovery call to discuss your project needs.",
     },
     contact: {
       email: {

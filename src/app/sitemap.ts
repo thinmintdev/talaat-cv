@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { allPosts } from ".contentlayer/generated";
+import { allPosts } from "contentlayer/generated";
 import { RESUME_DATA } from "@/data/resume-data";
 
 export default function sitemap(): MetadataRoute.Sitemap {

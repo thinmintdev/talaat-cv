@@ -11,11 +11,19 @@ export const RESUME_DATA: ResumeData = {
       <p>
         I'm a full-stack developer passionate about crafting modern web
         experiences. I've been working over 15 years to develop my skillset in
-        web development & design. I specialize in building responsive frontends
-        with React and Next.js, and scalable backends using Node.js. I integrate
-        databases like PostgreSQL and MongoDB, and work with CMS platforms such
-        as WordPress to deliver dynamic content solutions. My focus is on clean
-        architecture, performance, and delivering seamless end-to-end solutions.
+        web development & design.
+      </p>
+
+      <p>
+        I specialize in building responsive frontends with React and Next.js,
+        and scalable backends using Node.js. I integrate databases like
+        PostgreSQL and MongoDB, and work with CMS platforms such as WordPress
+        to deliver dynamic content solutions. 
+        
+      </p>
+      <br />
+      <p>
+        <b>My primary focus is always:</b> clean design aesthetics, intentional technology choices, performance, and delivering exceptional user experiences.
       </p>
     </>
   ),

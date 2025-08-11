@@ -1,5 +1,5 @@
 import { RESUME_DATA } from "@/data/resume-data";
-import type { Post } from ".contentlayer/generated";
+import type { Post } from "contentlayer/generated";
 
 export function generatePersonStructuredData() {
   return {
