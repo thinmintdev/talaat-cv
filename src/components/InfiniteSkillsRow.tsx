@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import type React from "react";
 import { SkillBadge } from "./SkillBadge";
 import styles from "./sliding-skills.module.css";
 
@@ -28,16 +28,19 @@ export const InfiniteSkillsRow: React.FC<InfiniteSkillsRowProps> = ({
 }) => {
   // Duplicate technologies for seamless infinite scroll
   const duplicatedTechnologies = [...row.technologies, ...row.technologies];
-  
-  const animationDirection = row.direction === "normal" ? styles["scroll-normal"] : styles["scroll-reverse"];
-  
+
+  const animationDirection =
+    row.direction === "normal"
+      ? styles["scroll-normal"]
+      : styles["scroll-reverse"];
+
   return (
     <div className={`${styles["scroll-container"]} ${className}`}>
       {/* Row Label - Outside the masked area */}
       <div className="text-sm font-medium text-gray-500 mb-3 uppercase tracking-wide">
         {row.label}
       </div>
-      
+
       {/* Scrolling Content Wrapper with gradient mask */}
       <div className={styles["scroll-wrapper"]}>
         <div

@@ -1,11 +1,4 @@
 export const HOMEPAGE_DATA = {
-  // Hero Section
-  hero: {
-    greeting: "Hello! 👋",
-    namePrefix: "I'm",
-    description: "Your dynamic description will come from RESUME_DATA.about",
-  },
-
   // About Me Section
   about: {
     title: "About Me",
@@ -85,7 +78,7 @@ export const HOMEPAGE_DATA = {
     list: [
       {
         title: "Poll.it.com",
-  category: "Application",
+        category: "Application",
         techStack: [
           "React",
           "Node.js",
@@ -260,7 +253,7 @@ export const HOMEPAGE_DATA = {
       {
         name: "WordPress",
         level: 5,
-        description: "Themes, plugins, fixes,e-commerce",
+        description: "Themes, plugins, fixes, e-commerce",
       },
       {
         name: "SCSS/Tailwind",

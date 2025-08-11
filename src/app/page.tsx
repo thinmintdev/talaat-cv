@@ -1,7 +1,7 @@
 import { Github, Mail } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { PremiumHero } from "@/components/PremiumHero";
+import { HomeHero } from "@/components/HomeHero";
 import { SlidingSkills } from "@/components/SlidingSkills";
 import { TypingTitle } from "@/components/TypingTitle";
 import { HOMEPAGE_DATA } from "@/data/homepage-data";
@@ -16,7 +16,7 @@ export default function HomePage() {
   return (
     <>
       {/* Hero Section */}
-      <PremiumHero />
+      <HomeHero />
 
       {/* About Me Section */}
       <section id="about" className="p-8 sm:p-12 md:p-16 lg:p-24">
@@ -279,7 +279,7 @@ export default function HomePage() {
                             </ul>
                           )}
 
-                            <div className="flex items-center justify-between">
+                          <div className="flex items-center justify-between">
                             <div className="flex flex-wrap gap-1.5 sm:gap-2">
                               {service.technologies.slice(0, 2).map((tech) => (
                                 <span

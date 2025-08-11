@@ -2,11 +2,11 @@
 
 import type { allPosts } from ".contentlayer/generated";
 import Link from "next/link";
-import { useSearchParams, useRouter, usePathname } from "next/navigation";
-import { useMemo, useState, useEffect } from "react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useEffect, useMemo, useState } from "react";
+import { BlogPagination } from "@/components/BlogPagination";
 import { BlogSidebar } from "@/components/blog-sidebar";
 import { MobileSidebarToggle } from "@/components/mobile-sidebar-toggle";
-import { BlogPagination } from "@/components/BlogPagination";
 
 interface BlogPageClientProps {
   posts: typeof allPosts;
@@ -18,11 +18,11 @@ export function BlogPageClient({ posts }: BlogPageClientProps) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  
+
   // Get URL parameters
   const urlSearchQuery = searchParams.get("search") || "";
   const urlTag = searchParams.get("tag") || "";
-  const urlPage = parseInt(searchParams.get("page") || "1");
+  const urlPage = Number.parseInt(searchParams.get("page") || "1");
 
   // Local state
   const [searchQuery, setSearchQuery] = useState(urlSearchQuery);
@@ -39,14 +39,14 @@ export function BlogPageClient({ posts }: BlogPageClientProps) {
   // Update URL when filters change
   const updateURL = (newSearch: string, newTag: string, newPage: number) => {
     const params = new URLSearchParams();
-    
+
     if (newSearch) params.set("search", newSearch);
     if (newTag) params.set("tag", newTag);
     if (newPage > 1) params.set("page", newPage.toString());
-    
+
     const queryString = params.toString();
     const url = queryString ? `${pathname}?${queryString}` : pathname;
-    
+
     router.replace(url, { scroll: false });
   };
 
@@ -69,8 +69,8 @@ export function BlogPageClient({ posts }: BlogPageClientProps) {
     // Apply tag filter
     if (selectedTag) {
       filtered = filtered.filter((post) =>
-        post.tags?.some((tag) =>
-          tag.toLowerCase() === selectedTag.toLowerCase()
+        post.tags?.some(
+          (tag) => tag.toLowerCase() === selectedTag.toLowerCase()
         )
       );
     }
@@ -81,7 +81,7 @@ export function BlogPageClient({ posts }: BlogPageClientProps) {
   // Calculate pagination
   const totalPages = Math.ceil(filteredPosts.length / POSTS_PER_PAGE);
   const validCurrentPage = Math.max(1, Math.min(currentPage, totalPages));
-  
+
   const paginatedPosts = useMemo(() => {
     const startIndex = (validCurrentPage - 1) * POSTS_PER_PAGE;
     const endIndex = startIndex + POSTS_PER_PAGE;
@@ -187,8 +187,10 @@ export function BlogPageClient({ posts }: BlogPageClientProps) {
                   </button>
                 </div>
                 <p className="mt-2 text-sm">
-                  Showing {paginatedPosts.length} of {filteredPosts.length} posts
-                  {totalPages > 1 && ` (page ${validCurrentPage} of ${totalPages})`}
+                  Showing {paginatedPosts.length} of {filteredPosts.length}{" "}
+                  posts
+                  {totalPages > 1 &&
+                    ` (page ${validCurrentPage} of ${totalPages})`}
                 </p>
               </div>
             )}
@@ -329,8 +331,8 @@ export function BlogPageClient({ posts }: BlogPageClientProps) {
           {/* Sidebar - takes 1/4 on desktop, hidden on mobile */}
           <aside className="hidden lg:block lg:col-span-1">
             <div className="sticky top-8">
-              <BlogSidebar 
-                posts={posts} 
+              <BlogSidebar
+                posts={posts}
                 onSearch={handleSearch}
                 selectedTag={selectedTag}
                 onTagSelect={handleTagSelect}
@@ -341,8 +343,8 @@ export function BlogPageClient({ posts }: BlogPageClientProps) {
       </div>
 
       {/* Mobile sidebar toggle */}
-      <MobileSidebarToggle 
-        posts={posts} 
+      <MobileSidebarToggle
+        posts={posts}
         onSearch={handleSearch}
         selectedTag={selectedTag}
         onTagSelect={handleTagSelect}

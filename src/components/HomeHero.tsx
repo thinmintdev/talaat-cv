@@ -12,7 +12,7 @@ const services = [
   "HOSTING & SUPPORT",
 ];
 
-export const PremiumHero = () => {
+export const HomeHero = () => {
   const [showServices, setShowServices] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [displayText, setDisplayText] = useState("");
@@ -78,7 +78,7 @@ export const PremiumHero = () => {
         <div className="flex flex-col justify-center lg:pl-8 relative">
           {services.map((service, index) => (
             <div
-              key={`${service}-${index}`}
+              key={service}
               className={`transform transition-all duration-700 ease-out relative ${
                 showServices
                   ? "translate-y-0 opacity-100"

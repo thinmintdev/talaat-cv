@@ -2,7 +2,6 @@
 
 import { Github, Linkedin, Mail, Twitter } from "lucide-react";
 import { TypeAnimation } from "react-type-animation";
-import { HOMEPAGE_DATA } from "@/data/homepage-data";
 import { RESUME_DATA } from "@/data/resume-data";
 
 export const HeroSection = () => {
@@ -157,11 +156,11 @@ export const HeroSection = () => {
       <div className="h-full mx-auto p-8 sm:p-12 md:p-24 flex items-center">
         <div>
           <h2 className="text-pretty text-xl sm:text-2xl md:text-5xl font-bold tracking-tight text-gray-700 ">
-            {HOMEPAGE_DATA.hero.greeting}
+            Hello! 👋
           </h2>
           <div className="mt-6 sm:mt-8 md:mt-10">
             <h1 className="text-pretty text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold tracking-tight text-gray-800 min-h-[1.2em] relative">
-              {HOMEPAGE_DATA.hero.namePrefix}{" "}
+              I'm{" "}
               <span className="text-blue-700">
                 <TypeAnimation
                   sequence={[

@@ -9,13 +9,14 @@ export const RESUME_DATA: ResumeData = {
   summary: (
     <>
       <p>
-        I'm a full-stack developer passionate about crafting modern web experiences. I've been working over 15 years to develop my skillset in web development & design. 
-        I specialize in building responsive frontends with React and Next.js, and scalable backends using Node.js. 
-        I integrate databases like PostgreSQL and MongoDB, and work with CMS platforms such as WordPress to deliver dynamic content solutions. 
-        My focus is on clean architecture, performance, and delivering seamless end-to-end solutions.
+        I'm a full-stack developer passionate about crafting modern web
+        experiences. I've been working over 15 years to develop my skillset in
+        web development & design. I specialize in building responsive frontends
+        with React and Next.js, and scalable backends using Node.js. I integrate
+        databases like PostgreSQL and MongoDB, and work with CMS platforms such
+        as WordPress to deliver dynamic content solutions. My focus is on clean
+        architecture, performance, and delivering seamless end-to-end solutions.
       </p>
-
-      
     </>
   ),
   avatarUrl: "/headshot-crop.JPG",

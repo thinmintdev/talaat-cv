@@ -1,8 +1,8 @@
 "use client";
 
-import React from "react";
-import { TypingTitle } from "./TypingTitle";
+import type React from "react";
 import { InfiniteSkillsRow } from "./InfiniteSkillsRow";
+import { TypingTitle } from "./TypingTitle";
 
 interface Technology {
   readonly name: string;
@@ -41,27 +41,17 @@ export const SlidingSkills: React.FC<SlidingSkillsProps> = ({
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
           <div className="lg:col-span-4">
             <h2 className="text-3xl sm:text-4xl md:text-5xl xl:text-7xl font-bold text-gray-900">
-              <TypingTitle
-                text={data.title}
-                speed={45}
-                delay={300}
-              />
+              <TypingTitle text={data.title} speed={45} delay={300} />
             </h2>
             <div className="w-[75px] h-[5px] mt-2 rounded-full bg-blue-600 " />
-            <p className="mt-4 text-lg text-gray-600">
-              {data.description}
-            </p>
+            <p className="mt-4 text-lg text-gray-600">{data.description}</p>
           </div>
 
           <div className="lg:col-span-8">
             {/* Sliding Skills Rows */}
             <div className="space-y-8 lg:space-y-12">
               {data.rows.map((row) => (
-                <InfiniteSkillsRow
-                  key={row.id}
-                  row={row}
-                  className="w-full"
-                />
+                <InfiniteSkillsRow key={row.id} row={row} className="w-full" />
               ))}
             </div>
           </div>

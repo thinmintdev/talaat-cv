@@ -10,7 +10,12 @@ interface BlogSidebarProps {
   onTagSelect?: (tag: string) => void;
 }
 
-export function BlogSidebar({ posts, onSearch, selectedTag, onTagSelect }: BlogSidebarProps) {
+export function BlogSidebar({
+  posts,
+  onSearch,
+  selectedTag,
+  onTagSelect,
+}: BlogSidebarProps) {
   // Get unique categories/tags from posts
   const allTags = posts.flatMap((post) => post.tags || []);
   const categoryCount = allTags.reduce(
@@ -65,11 +70,13 @@ export function BlogSidebar({ posts, onSearch, selectedTag, onTagSelect }: BlogS
                   }`}
                 >
                   <span className="capitalize">{category}</span>
-                  <span className={`text-xs px-2 py-1 rounded-full ${
-                    isActive
-                      ? "bg-blue-500 text-blue-100"
-                      : "bg-gray-100 text-gray-500 dark:bg-gray-700 dark:text-gray-400"
-                  }`}>
+                  <span
+                    className={`text-xs px-2 py-1 rounded-full ${
+                      isActive
+                        ? "bg-blue-500 text-blue-100"
+                        : "bg-gray-100 text-gray-500 dark:bg-gray-700 dark:text-gray-400"
+                    }`}
+                  >
                     {count}
                   </span>
                 </button>

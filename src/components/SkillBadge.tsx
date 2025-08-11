@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import type React from "react";
 import { TechIcon } from "./TechIcon";
 
 interface Technology {
@@ -29,10 +29,7 @@ export const SkillBadge: React.FC<SkillBadgeProps> = ({
         ${className}
       `}
     >
-      <TechIcon 
-        iconName={technology.icon} 
-        size={20}
-      />
+      <TechIcon iconName={technology.icon} size={20} />
       <span className="text-sm font-medium text-gray-900">
         {technology.name}
       </span>
