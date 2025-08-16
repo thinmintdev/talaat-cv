@@ -20,12 +20,12 @@ export function SiteFooter() {
               className="w-10 h-10"
             />
             <div>
-              <h3 className="font-semibold text-gray-900">{RESUME_DATA.name}</h3>
+              <h3 className="font-semibold text-gray-900">
+                {RESUME_DATA.name}
+              </h3>
               <p className="text-sm text-gray-600">{RESUME_DATA.about}</p>
             </div>
           </div>
-
-          
 
           {/* Right side - Social links */}
           <div className="flex items-center gap-4">

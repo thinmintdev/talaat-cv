@@ -5,7 +5,10 @@ import { CopyCode } from "@/components/copy-code";
 
 const MDXComponents = {
   h1: ({ children, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
-    <h1 className="text-4xl font-bold tracking-tight mb-6 mt-8 first:mt-0" {...props}>
+    <h1
+      className="text-4xl font-bold tracking-tight mb-6 mt-8 first:mt-0"
+      {...props}
+    >
       {children}
     </h1>
   ),

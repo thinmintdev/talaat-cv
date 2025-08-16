@@ -1,5 +1,5 @@
-import { RESUME_DATA } from "@/data/resume-data";
 import type { Post } from "contentlayer/generated";
+import { RESUME_DATA } from "@/data/resume-data";
 
 export function generatePersonStructuredData() {
   return {
@@ -97,7 +97,7 @@ export function generateArticleStructuredData(post: Post) {
       "@type": "Person",
       name: RESUME_DATA.name,
       url: RESUME_DATA.personalWebsiteUrl,
-      sameAs: RESUME_DATA.contact.social.map(social => social.url),
+      sameAs: RESUME_DATA.contact.social.map((social) => social.url),
     },
     publisher: {
       "@type": "Person",
@@ -127,7 +127,8 @@ export function generateBlogStructuredData() {
     "@context": "https://schema.org",
     "@type": "Blog",
     name: `${RESUME_DATA.name}'s Developer Blog`,
-    description: "Thoughts, ideas, and insights about software development, technology, and more.",
+    description:
+      "Thoughts, ideas, and insights about software development, technology, and more.",
     url: `${RESUME_DATA.personalWebsiteUrl}/blog`,
     author: {
       "@type": "Person",
@@ -135,7 +136,7 @@ export function generateBlogStructuredData() {
       url: RESUME_DATA.personalWebsiteUrl,
     },
     publisher: {
-      "@type": "Person", 
+      "@type": "Person",
       name: RESUME_DATA.name,
       url: RESUME_DATA.personalWebsiteUrl,
     },
@@ -177,7 +178,7 @@ export function generateLocalBusinessStructuredData() {
     paymentAccepted: ["Cash", "Credit Card", "Electronic Payment"],
     currenciesAccepted: "USD",
     hasOfferCatalog: {
-      "@type": "OfferCatalog", 
+      "@type": "OfferCatalog",
       name: "Development Services",
       itemListElement: [
         {
@@ -185,27 +186,30 @@ export function generateLocalBusinessStructuredData() {
           itemOffered: {
             "@type": "Service",
             name: "Full Stack Web Development",
-            description: "Complete web application development using React, Next.js, Node.js"
-          }
-        },
-        {
-          "@type": "Offer", 
-          itemOffered: {
-            "@type": "Service",
-            name: "WordPress Development",
-            description: "Custom WordPress themes, plugins, and e-commerce solutions"
-          }
+            description:
+              "Complete web application development using React, Next.js, Node.js",
+          },
         },
         {
           "@type": "Offer",
           itemOffered: {
-            "@type": "Service", 
+            "@type": "Service",
+            name: "WordPress Development",
+            description:
+              "Custom WordPress themes, plugins, and e-commerce solutions",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
             name: "Performance Optimization",
-            description: "Website speed optimization and technical SEO improvements"
-          }
-        }
-      ]
+            description:
+              "Website speed optimization and technical SEO improvements",
+          },
+        },
+      ],
     },
-    sameAs: RESUME_DATA.contact.social.map(social => social.url),
+    sameAs: RESUME_DATA.contact.social.map((social) => social.url),
   };
 }

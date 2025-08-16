@@ -17,13 +17,14 @@ export const RESUME_DATA: ResumeData = {
       <p>
         I specialize in building responsive frontends with React and Next.js,
         and scalable backends using Node.js. I integrate databases like
-        PostgreSQL and MongoDB, and work with CMS platforms such as WordPress
-        to deliver dynamic content solutions. 
-        
+        PostgreSQL and MongoDB, and work with CMS platforms such as WordPress to
+        deliver dynamic content solutions.
       </p>
       <br />
       <p>
-        <b>My primary focus is always:</b> clean design aesthetics, intentional technology choices, performance, and delivering exceptional user experiences.
+        <b>My primary focus is always:</b> clean design aesthetics, intentional
+        technology choices, performance, and delivering exceptional user
+        experiences.
       </p>
     </>
   ),
@@ -213,6 +214,8 @@ export const RESUME_DATA: ResumeData = {
         label: "View Demo",
         href: "https://poll.it.com",
       },
+      thumbnail:
+        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop&crop=center",
     },
   ],
 } as const;

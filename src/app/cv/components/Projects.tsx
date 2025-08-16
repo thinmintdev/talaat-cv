@@ -84,30 +84,53 @@ interface ProjectCardProps {
   description: string;
   tags: ProjectTags;
   link?: string;
+  thumbnail?: string;
 }
 
 /**
  * Card component displaying project information
  */
-function ProjectCard({ title, description, tags, link }: ProjectCardProps) {
+function ProjectCard({
+  title,
+  description,
+  tags,
+  link,
+  thumbnail,
+}: ProjectCardProps) {
   return (
-    <Card className="flex h-full flex-col overflow-hidden border border-blue-100 rounded-none p-3">
-      <CardHeader>
-        <div className="space-y-1">
-          <CardTitle className="text-base">
-            <ProjectLink title={title} link={link} />
-          </CardTitle>
-          <CardDescription
-            className="text-pretty font-mono text-xs print:text-[10px]"
-            aria-label="Project description"
-          >
-            {description}
-          </CardDescription>
+    <Card className="flex h-full overflow-hidden border border-blue-100 rounded-none p-3">
+      <div className="flex gap-3 h-full">
+        {thumbnail && (
+          <div className="flex-shrink-0 w-20 print:w-16">
+            <div className="aspect-[4/3] overflow-hidden rounded-sm bg-muted">
+              <img
+                src={thumbnail}
+                alt={`${title} thumbnail`}
+                className="h-full w-full object-cover"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        )}
+        <div className="flex flex-col flex-1 min-w-0">
+          <CardHeader className="flex-shrink-0 p-0">
+            <div className="space-y-1">
+              <CardTitle className="text-base">
+                <ProjectLink title={title} link={link} />
+              </CardTitle>
+              <CardDescription
+                className="text-pretty font-mono text-xs print:text-[10px]"
+                aria-label="Project description"
+              >
+                {description}
+              </CardDescription>
+            </div>
+          </CardHeader>
+          <CardContent className="mt-auto flex p-0 pt-2">
+            <ProjectTags tags={tags} />
+          </CardContent>
         </div>
-      </CardHeader>
-      <CardContent className="mt-auto flex">
-        <ProjectTags tags={tags} />
-      </CardContent>
+      </div>
     </Card>
   );
 }
@@ -140,6 +163,7 @@ export function Projects({ projects }: ProjectsProps) {
               description={project.description}
               tags={project.techStack}
               link={project.link?.href}
+              thumbnail={project.thumbnail}
             />
           </article>
         ))}

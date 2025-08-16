@@ -28,49 +28,49 @@ export const metadata: Metadata = {
   keywords: [
     // Core professional terms
     "resume",
-    "cv", 
+    "cv",
     "portfolio",
     RESUME_DATA.name,
     "software engineer",
     "full stack developer",
-    
+
     // Technology stack
     "react developer",
-    "next.js developer", 
+    "next.js developer",
     "typescript developer",
     "node.js developer",
     "wordpress developer",
     "javascript developer",
-    
+
     // Location-based keywords
     "washington dc developer",
-    "dc area software engineer", 
+    "dc area software engineer",
     "washington developer",
     "dmv area developer",
     "remote developer",
-    
+
     // Service-based long-tail keywords
     "custom wordpress development",
     "react web development",
     "full stack web development",
     "wordpress plugin development",
-    "headless cms development", 
+    "headless cms development",
     "e-commerce development",
     "web application development",
     "api development",
     "database design",
     "responsive web design",
-    
+
     // Industry expertise
     "saas development",
     "startup developer",
     "freelance developer",
     "consultant developer",
     "technical lead",
-    
+
     // Specific skills
     "postgresql developer",
-    "mongodb developer", 
+    "mongodb developer",
     "tailwind css",
     "graphql developer",
     "performance optimization",
@@ -108,7 +108,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${RESUME_DATA.name} - ${RESUME_DATA.about}`,
     description: RESUME_DATA.about,
-    creator: RESUME_DATA.contact.social.find(s => s.name === "X")?.url || RESUME_DATA.name,
+    creator:
+      RESUME_DATA.contact.social.find((s) => s.name === "X")?.url ||
+      RESUME_DATA.name,
   },
   alternates: {
     canonical: RESUME_DATA.personalWebsiteUrl,

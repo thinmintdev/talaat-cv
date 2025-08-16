@@ -33,7 +33,7 @@ export async function generateMetadata({
 
   const publishedTime = new Date(post.publishedAt);
   const modifiedTime = new Date(); // Could be from post.updatedAt if available
-  
+
   return {
     title: `${post.title} | Alexander Talaat`,
     description: post.summary,
@@ -57,7 +57,7 @@ export async function generateMetadata({
         index: true,
         follow: true,
         "max-video-preview": -1,
-        "max-image-preview": "large", 
+        "max-image-preview": "large",
         "max-snippet": -1,
       },
     },
@@ -111,84 +111,86 @@ export default async function PostPage({ params }: PostPageProps) {
           __html: JSON.stringify(articleStructuredData),
         }}
       />
-      
+
       <div className="container mx-auto px-4 py-8">
-      <div className="max-w-4xl mx-auto">
-        {/* Back to blog */}
-        <div className="mb-8 flex items-center justify-between">
-          <Button variant="ghost" asChild={true}>
-            <Link href="/blog" className="flex items-center gap-2">
-              <ArrowLeft className="h-4 w-4" />
-              Back to Blog
-            </Link>
-          </Button>
-          <CopyCodeToggle />
-        </div>
-
-        {/* Article header */}
-        <article>
-          <header className="mb-8">
-            <div className="mb-4">
-              <time className="text-sm text-muted-foreground">
-                {new Date(post.publishedAt).toLocaleDateString("en-US", {
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                })}
-              </time>
-              <span className="mx-2 text-muted-foreground">•</span>
-              <span className="text-sm text-muted-foreground">
-                {post.readingTime.text}
-              </span>
-            </div>
-
-            <h1 className="text-4xl font-bold tracking-tight mb-2">
-              {post.title}
-            </h1>
-            <div className="w-[75px] h-[5px] mb-4 rounded-full bg-blue-700" />
-
-            <p className="text-xl text-muted-foreground mb-6">{post.summary}</p>
-
-            {post.tags.length > 0 && (
-              <div className="flex gap-2 flex-wrap">
-                {post.tags.map((tag) => (
-                  <Badge key={tag} variant="secondary">
-                    {tag}
-                  </Badge>
-                ))}
-              </div>
-            )}
-          </header>
-
-          {/* Article content */}
-          <MDXContent
-            code={post.body.code}
-            className={`prose prose-lg max-w-none prose-code:bg-gray-100 ${styles.prose}`}
-          />
-        </article>
-
-        {/* Share Section */}
-        <BlogShare
-          title={post.title}
-          url={`${process.env.NEXT_PUBLIC_SITE_URL || "https://talaat.dev"}/blog/${post.slug}`}
-        />
-
-        {/* Navigation */}
-        <BlogNavigation currentSlug={post.slug} posts={allPosts} />
-
-        {/* Footer */}
-        <footer className="pt-8 border-t">
-          <div className="flex justify-center">
+        <div className="max-w-4xl mx-auto">
+          {/* Back to blog */}
+          <div className="mb-8 flex items-center justify-between">
             <Button variant="ghost" asChild={true}>
               <Link href="/blog" className="flex items-center gap-2">
                 <ArrowLeft className="h-4 w-4" />
                 Back to Blog
               </Link>
             </Button>
+            <CopyCodeToggle />
           </div>
-        </footer>
+
+          {/* Article header */}
+          <article>
+            <header className="mb-8">
+              <div className="mb-4">
+                <time className="text-sm text-muted-foreground">
+                  {new Date(post.publishedAt).toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  })}
+                </time>
+                <span className="mx-2 text-muted-foreground">•</span>
+                <span className="text-sm text-muted-foreground">
+                  {post.readingTime.text}
+                </span>
+              </div>
+
+              <h1 className="text-4xl font-bold tracking-tight mb-2">
+                {post.title}
+              </h1>
+              <div className="w-[75px] h-[5px] mb-4 rounded-full bg-blue-700" />
+
+              <p className="text-xl text-muted-foreground mb-6">
+                {post.summary}
+              </p>
+
+              {post.tags.length > 0 && (
+                <div className="flex gap-2 flex-wrap">
+                  {post.tags.map((tag) => (
+                    <Badge key={tag} variant="secondary">
+                      {tag}
+                    </Badge>
+                  ))}
+                </div>
+              )}
+            </header>
+
+            {/* Article content */}
+            <MDXContent
+              code={post.body.code}
+              className={`prose prose-lg max-w-none prose-code:bg-gray-100 ${styles.prose}`}
+            />
+          </article>
+
+          {/* Share Section */}
+          <BlogShare
+            title={post.title}
+            url={`${process.env.NEXT_PUBLIC_SITE_URL || "https://talaat.dev"}/blog/${post.slug}`}
+          />
+
+          {/* Navigation */}
+          <BlogNavigation currentSlug={post.slug} posts={allPosts} />
+
+          {/* Footer */}
+          <footer className="pt-8 border-t">
+            <div className="flex justify-center">
+              <Button variant="ghost" asChild={true}>
+                <Link href="/blog" className="flex items-center gap-2">
+                  <ArrowLeft className="h-4 w-4" />
+                  Back to Blog
+                </Link>
+              </Button>
+            </div>
+          </footer>
+        </div>
       </div>
-    </div>
     </>
   );
 }

@@ -36,7 +36,7 @@ export function SiteHeader() {
         <div className="flex items-center space-x-6">
           <nav className="flex items-center space-x-6">
             {navigationLinks.map((link) => {
-              const isCurrentPage = 
+              const isCurrentPage =
                 (link.href === "/" && pathname === "/") ||
                 (link.href === "/blog" && pathname?.startsWith("/blog")) ||
                 (link.href === "/#contact" && pathname?.includes("#contact"));

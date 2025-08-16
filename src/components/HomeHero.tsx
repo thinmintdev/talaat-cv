@@ -9,7 +9,7 @@ export const HomeHero = () => {
   const [displayText, setDisplayText] = useState("");
   const [showFinalCursor, setShowFinalCursor] = useState(false);
   const [devText, setDevText] = useState("");
-  
+
   const { hero } = HOMEPAGE_DATA;
   const { services, nameLetters, devLetters, timing, layout, styles } = hero;
   const defaultLineIndex = services.length - 1;
@@ -40,7 +40,9 @@ export const HomeHero = () => {
       }
 
       // Brief pause before showing final cursor
-      await new Promise((resolve) => setTimeout(resolve, timing.finalCursorDelay));
+      await new Promise((resolve) =>
+        setTimeout(resolve, timing.finalCursorDelay)
+      );
 
       // Show final cursor and start services
       setShowFinalCursor(true);
@@ -67,21 +69,29 @@ export const HomeHero = () => {
                 {displayText}
                 {/* .DEV in blue typing naturally */}
                 {devText && (
-                  <span className="text-2xl md:text-[3rem] lg:text-[3rem] xl:text-[4rem] text-blue-600">{devText}</span>
+                  <span className="text-2xl md:text-[3rem] lg:text-[3rem] xl:text-[4rem] text-blue-600">
+                    {devText}
+                  </span>
                 )}
 
                 {/* Blue underline cursor - shows during typing */}
                 {!showFinalCursor && (displayText || devText) && (
-                  <div 
-                    className="inline-block bg-blue-600 ml-[0.05em] align-bottom animate-pulse" 
-                    style={{ width: styles.cursorWidth, height: styles.cursorHeight }}
+                  <div
+                    className="inline-block bg-blue-600 ml-[0.05em] align-bottom animate-pulse"
+                    style={{
+                      width: styles.cursorWidth,
+                      height: styles.cursorHeight,
+                    }}
                   />
                 )}
                 {/* Final blinking cursor */}
                 {showFinalCursor && (
-                  <div 
+                  <div
                     className="inline-block bg-blue-600 ml-[0.05em] align-bottom animate-pulse"
-                    style={{ width: styles.cursorWidth, height: styles.cursorHeight }}
+                    style={{
+                      width: styles.cursorWidth,
+                      height: styles.cursorHeight,
+                    }}
                   />
                 )}
               </div>
@@ -100,7 +110,9 @@ export const HomeHero = () => {
                   : "-translate-y-4 opacity-0"
               }`}
               style={{
-                transitionDelay: showServices ? `${index * timing.serviceStaggerDelay}ms` : "0ms",
+                transitionDelay: showServices
+                  ? `${index * timing.serviceStaggerDelay}ms`
+                  : "0ms",
                 minHeight: `${layout.minHeight}px`,
                 display: "flex",
                 alignItems: "center",
@@ -123,7 +135,9 @@ export const HomeHero = () => {
               width: `${styles.lineWidth}px`,
               height: `${styles.lineHeight * 4}px`,
               top: `${(hoveredIndex !== null ? hoveredIndex : defaultLineIndex) * layout.minHeight + 40}px`,
-              transitionDelay: showServices ? `${timing.lineTransitionDelay}ms` : "0ms",
+              transitionDelay: showServices
+                ? `${timing.lineTransitionDelay}ms`
+                : "0ms",
             }}
           />
         </div>

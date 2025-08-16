@@ -1,11 +1,9 @@
-import { SiShadcnui } from "react-icons/si"
-
 export const HOMEPAGE_DATA = {
   // Hero Animation Section
   hero: {
     services: [
       "FULL STACK",
-      "WEB DEVELOPER", 
+      "WEB DEVELOPER",
       "DESIGN & BRANDING",
       "WORDPRESS EXPERT",
       "SAAS DEVELOPMENT",
@@ -42,12 +40,14 @@ export const HOMEPAGE_DATA = {
   layout: {
     sections: {
       padding: "p-8 sm:p-12 md:p-16 lg:p-24",
-      containerGrid: "grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start",
+      containerGrid:
+        "grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start",
       titleColumn: "lg:col-span-4",
       contentColumn: "lg:col-span-8",
     },
     typography: {
-      sectionTitle: "text-3xl sm:text-4xl md:text-5xl xl:text-7xl font-bold text-gray-900",
+      sectionTitle:
+        "text-3xl sm:text-4xl md:text-5xl xl:text-7xl font-bold text-gray-900",
       underline: "w-[75px] h-[5px] mt-2 rounded-full bg-blue-700",
       subtitle: "mt-4 text-gray-600 text-lg",
     },
@@ -68,7 +68,7 @@ export const HOMEPAGE_DATA = {
     paragraphs: [
       "I'm a full-stack developer passionate about crafting modern web experiences and applications. With over 15 years of experience, I've honed my skills in web development and design and adapted to the changing landscape and technologies.",
       "I specialize in building responsive frontends with React and Next.js, and scalable backends using Node.js. I integrate databases like PostgreSQL and MongoDB, and work with CMS platforms such as WordPress to deliver dynamic content solutions.",
-      "My Focus: Clean code and design aesthetics. Thoughtful technology choices. Delivering exceptional user experiences."
+      "My Focus: Clean code and design aesthetics. Thoughtful technology choices. Delivering exceptional user experiences.",
     ],
   },
 
@@ -120,7 +120,7 @@ export const HOMEPAGE_DATA = {
         speed: 40,
         technologies: [
           { name: "Docker", icon: "SiDocker" },
-          { name: "AWS", icon: "SiAmazonaws" },
+          { name: "AWS", icon: "SiAmazon" },
           { name: "Git", icon: "SiGit" },
           { name: "Linux", icon: "SiLinux" },
           { name: "Vercel", icon: "SiVercel" },
@@ -167,6 +167,8 @@ export const HOMEPAGE_DATA = {
           label: "View Demo",
           href: "https://poll.it.com",
         },
+        thumbnail:
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop&crop=center",
       },
       {
         title: "Developer Portfolio",
@@ -179,7 +181,7 @@ export const HOMEPAGE_DATA = {
           "Contentlayer",
           "TailwindCSS",
           "MDX",
-          "Shadcnui"
+          "Shadcnui",
         ],
         description: [
           "Fast & Lightweight portfolio and blog",
@@ -191,6 +193,8 @@ export const HOMEPAGE_DATA = {
           label: "View Demo",
           href: "https://talaat.dev",
         },
+        thumbnail:
+          "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=300&fit=crop&crop=center",
       },
       {
         title: "GitCV",
@@ -214,6 +218,8 @@ export const HOMEPAGE_DATA = {
           label: "Coming Soon",
           href: "",
         },
+        thumbnail:
+          "https://images.unsplash.com/photo-1556075798-4825dfaaf498?w=400&h=300&fit=crop&crop=center",
       },
     ],
   },
@@ -282,12 +288,7 @@ export const HOMEPAGE_DATA = {
           "Print & Promotional Materials",
           "UI/UX Design, Admin Interfaces",
         ],
-        technologies: [
-          "Figma",
-          "UI/UX",
-          "Brand Guidelines",
-          "UI/UX",
-        ],
+        technologies: ["Figma", "UI/UX", "Brand Guidelines", "UI/UX"],
         timeline: "1-3 weeks",
         startingPrice: "$2,000",
       },
@@ -316,44 +317,24 @@ export const HOMEPAGE_DATA = {
       "Key technologies, platforms, and tools used across major projects and roles.",
     technologies: [
       {
-        name: "React/Next.js",
-        level: 5,
-        description: "Modern web apps, SSR, performance",
-      },
-      {
-        name: "Astro",
+        name: "Frontend Development",
         level: 4,
-        description: "Static site generation, partial hydration",
-      },
-      {
-        name: "Graphic Design",
-        level: 4,
-        description: "Visual design, branding, UI/UX",
-      },
-      {
-        name: "Node.js",
-        level: 4,
-        description: "APIs, microservices, backend",
-      },
-      {
-        name: "TypeScript",
-        level: 4,
-        description: "Type safety, maintainability",
-      },
-      {
-        name: "WordPress",
-        level: 5,
-        description: "Themes, plugins, fixes, e-commerce",
+        description: "React, NextJS, TypeScript",
       },
       {
         name: "SCSS/Tailwind",
         level: 4,
-        description: "Modern CSS, utility-first, scalable UI",
+        description: "Responsive, utility-first, scalable UI",
       },
       {
-        name: "Postgres/MySQL/Mongo",
-        level: 4,
-        description: "DBs, scaling, optimization",
+        name: "Backend Development",
+        level: 3.5,
+        description: "Node.js, Express, MongoDB, PHP",
+      },
+      {
+        name: "WordPress",
+        level: 4.5,
+        description: "Themes, plugins, fixes, e-commerce",
       },
     ],
     accessibility: {
@@ -364,7 +345,7 @@ export const HOMEPAGE_DATA = {
 
   // Contact Section
   contact: {
-    title: "Let's Work Together", 
+    title: "Let's Work Together",
     subtitle: "Ready to bring your project online?",
     consultation: {
       title: "Schedule Free Consultation",
@@ -372,14 +353,16 @@ export const HOMEPAGE_DATA = {
       buttonText: "Let's Chat",
     },
     availability: {
-      title: "Accepting", 
-      description: "I'm scheduling new projects with a typical 1-2 week timeline to get started. Let's discuss yours today.",
+      title: "Accepting",
+      description:
+        "I'm scheduling new projects with a typical 1-2 week timeline to get started. Let's discuss yours today.",
     },
     configuration: {
       calendlyUrl: "https://calendly.com/thinmint/new-meeting",
       sectionBackground: "bg-gray-50",
       cardBackground: "bg-white",
-      cardStyles: "rounded-2xl p-8 shadow-sm border border-gray-200 max-w-2xl mx-auto",
+      cardStyles:
+        "rounded-2xl p-8 shadow-sm border border-gray-200 max-w-2xl mx-auto",
     },
   },
 

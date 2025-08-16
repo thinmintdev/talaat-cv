@@ -53,6 +53,7 @@ export interface ResumeData {
       label: string;
       href: string;
     };
+    thumbnail?: string;
   }>;
 }
 
@@ -95,6 +96,7 @@ export interface GraphQLProject {
   techStack: string[];
   description: string;
   link?: GraphQLLink;
+  thumbnail?: string;
 }
 
 export interface GraphQLTechnicalExperience {
@@ -164,6 +166,7 @@ export function resumeDataToGraphQL(data: ResumeData): GraphQLMe {
       techStack: project.techStack,
       description: project.description,
       link: project.link,
+      thumbnail: project.thumbnail,
     })),
   };
 }

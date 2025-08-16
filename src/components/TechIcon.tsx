@@ -16,7 +16,12 @@ export const TechIcon: React.FC<TechIconProps> = ({
   className = "",
 }) => {
   // Get the icon component from react-icons/si
-  const IconComponent = (SiIcons as Record<string, React.ComponentType<{ size?: number; className?: string }>>)[iconName];
+  const IconComponent = (
+    SiIcons as Record<
+      string,
+      React.ComponentType<{ size?: number; className?: string }>
+    >
+  )[iconName];
 
   // Fallback to question mark if icon not found
   const Icon = IconComponent || FaQuestion;

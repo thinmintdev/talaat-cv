@@ -1,8 +1,8 @@
 import { allPosts } from "contentlayer/generated";
 import { compareDesc } from "date-fns";
 import type { Metadata } from "next";
-import { BlogPageClient } from "./blog-page-client";
 import { generateBlogStructuredData } from "@/lib/structured-data";
+import { BlogPageClient } from "./blog-page-client";
 
 export const metadata: Metadata = {
   title: "Blog",
