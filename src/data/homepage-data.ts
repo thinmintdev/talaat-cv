@@ -1,5 +1,31 @@
 export const HOMEPAGE_DATA = {
-  // Hero Animation Section
+  // Layout Configuration - Shared across all sections
+  layout: {
+    sections: {
+      padding: "p-8 sm:p-12 md:p-16 lg:p-24",
+      containerGrid:
+        "grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start",
+      titleColumn: "lg:col-span-4",
+      contentColumn: "lg:col-span-8",
+    },
+    typography: {
+      sectionTitle:
+        "text-3xl sm:text-4xl md:text-5xl xl:text-7xl font-bold text-gray-900",
+      underline: "w-[75px] h-[5px] mt-2 rounded-full bg-blue-700",
+      subtitle: "mt-4 text-gray-600 text-lg",
+    },
+    components: {
+      typingTitle: {
+        about: { speed: 50, delay: 200 },
+        projects: { speed: 55, delay: 250 },
+        services: { speed: 60, delay: 200 },
+        technologies: { speed: 40, delay: 300 },
+        contact: { speed: 50, delay: 200 },
+      },
+    },
+  },
+
+  // 1. Hero Animation Section
   hero: {
     services: [
       "FULL STACK",
@@ -36,33 +62,7 @@ export const HOMEPAGE_DATA = {
     },
   },
 
-  // Layout Configuration
-  layout: {
-    sections: {
-      padding: "p-8 sm:p-12 md:p-16 lg:p-24",
-      containerGrid:
-        "grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start",
-      titleColumn: "lg:col-span-4",
-      contentColumn: "lg:col-span-8",
-    },
-    typography: {
-      sectionTitle:
-        "text-3xl sm:text-4xl md:text-5xl xl:text-7xl font-bold text-gray-900",
-      underline: "w-[75px] h-[5px] mt-2 rounded-full bg-blue-700",
-      subtitle: "mt-4 text-gray-600 text-lg",
-    },
-    components: {
-      typingTitle: {
-        about: { speed: 50, delay: 200 },
-        projects: { speed: 55, delay: 250 },
-        services: { speed: 60, delay: 200 },
-        technologies: { speed: 40, delay: 300 },
-        contact: { speed: 50, delay: 200 },
-      },
-    },
-  },
-
-  // About Me Section
+  // 2. About Me Section
   about: {
     title: "About",
     paragraphs: [
@@ -72,7 +72,7 @@ export const HOMEPAGE_DATA = {
     ],
   },
 
-  // Skills Section - Sliding Animation
+  // 3. Skills Section - Sliding Animation and Platform Proficiency
   slidingSkills: {
     title: "Stack",
     description: "Technologies I work with daily",
@@ -138,7 +138,39 @@ export const HOMEPAGE_DATA = {
     ],
   },
 
-  // Projects Section
+  platformProficiency: {
+    title: "Skills",
+    subtitle:
+      "Key technologies, platforms, and tools used across major projects and roles.",
+    technologies: [
+      {
+        name: "Frontend Development",
+        level: 4,
+        description: "React, NextJS, TypeScript",
+      },
+      {
+        name: "SCSS/Tailwind",
+        level: 4,
+        description: "Responsive, utility-first, scalable UI",
+      },
+      {
+        name: "Backend Development",
+        level: 3.5,
+        description: "Node.js, Express, MongoDB, PHP",
+      },
+      {
+        name: "WordPress",
+        level: 4.5,
+        description: "Themes, plugins, fixes, e-commerce",
+      },
+    ],
+    accessibility: {
+      proficiencySquare: "Proficiency square",
+      noProficiency: "No proficiency",
+    },
+  },
+
+  // 4. Projects Section
   projects: {
     title: "Projects",
     description: "What I'm working on.",
@@ -224,12 +256,7 @@ export const HOMEPAGE_DATA = {
     ],
   },
 
-  // Experience Section (Hidden for now)
-  // experience: {
-  //   title: "Experience",
-  // },
-
-  // Services Section
+  // 5. Services Section
   services: {
     title: "Services",
     subtitle: "Comprehensive solutions for your digital needs",
@@ -310,40 +337,7 @@ export const HOMEPAGE_DATA = {
     ],
   },
 
-  // Platform Proficiency Section
-  platformProficiency: {
-    title: "Skills",
-    subtitle:
-      "Key technologies, platforms, and tools used across major projects and roles.",
-    technologies: [
-      {
-        name: "Frontend Development",
-        level: 4,
-        description: "React, NextJS, TypeScript",
-      },
-      {
-        name: "SCSS/Tailwind",
-        level: 4,
-        description: "Responsive, utility-first, scalable UI",
-      },
-      {
-        name: "Backend Development",
-        level: 3.5,
-        description: "Node.js, Express, MongoDB, PHP",
-      },
-      {
-        name: "WordPress",
-        level: 4.5,
-        description: "Themes, plugins, fixes, e-commerce",
-      },
-    ],
-    accessibility: {
-      proficiencySquare: "Proficiency square",
-      noProficiency: "No proficiency",
-    },
-  },
-
-  // Contact Section
+  // 6. Contact Section
   contact: {
     title: "Let's Work Together",
     subtitle: "Ready to bring your project online?",
