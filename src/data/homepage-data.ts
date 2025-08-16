@@ -347,9 +347,9 @@ export const HOMEPAGE_DATA = {
       buttonText: "Let's Chat",
     },
     availability: {
-      title: "Accepting",
+      title: "Accepting Projects",
       description:
-        "I'm scheduling new projects with a typical 1-2 week timeline to get started. Let's discuss yours today.",
+        "Any Size, Complexity or Budget Considered.  For best results please be descriptive, Include examples if posible and outline important features.  I'll reply within 24 hours.",
     },
     configuration: {
       calendlyUrl: "https://calendly.com/thinmint/new-meeting",

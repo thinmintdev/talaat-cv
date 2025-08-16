@@ -22,6 +22,39 @@ export function ContactSection() {
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-6">
             {HOMEPAGE_DATA.contact.subtitle}
           </p>
+                  {/* Availability Info */}
+        <div className="mt-12 text-center">
+          <div className="bg-blue-50 border border-blue-200 rounded-xl p-6 max-w-3xl mx-auto">
+            <div className="flex items-start justify-center gap-3">
+              <div className="w-6 h-6 flex items-center justify-center bg-blue-100 rounded-full flex-shrink-0 mt-1">
+                <svg
+                  className="w-4 h-4 text-blue-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  role="img"
+                  aria-label="Availability information"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+              </div>
+              <div className="text-left">
+                <h4 className="text-lg font-semibold text-gray-900 mb-2">
+                  {HOMEPAGE_DATA.contact.availability.title}
+                </h4>
+                <p className="text-gray-700 leading-relaxed">
+                  {HOMEPAGE_DATA.contact.availability.description}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
         </div>
 
         {/* Get in Touch */}
@@ -93,39 +126,7 @@ export function ContactSection() {
           </div>
         </div>
 
-        {/* Availability Info */}
-        <div className="mt-12 text-center">
-          <div className="bg-blue-50 border border-blue-200 rounded-xl p-6 max-w-3xl mx-auto">
-            <div className="flex items-start justify-center gap-3">
-              <div className="w-6 h-6 flex items-center justify-center bg-blue-100 rounded-full flex-shrink-0 mt-1">
-                <svg
-                  className="w-4 h-4 text-blue-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  role="img"
-                  aria-label="Availability information"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-              </div>
-              <div className="text-left">
-                <h4 className="text-lg font-semibold text-gray-900 mb-2">
-                  {HOMEPAGE_DATA.contact.availability.title}
-                </h4>
-                <p className="text-gray-700 leading-relaxed">
-                  {HOMEPAGE_DATA.contact.availability.description}
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+
     </section>
   );
 }
