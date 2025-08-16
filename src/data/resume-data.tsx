@@ -5,7 +5,7 @@ export const RESUME_DATA: ResumeData = {
   initials: "AT",
   location: "Washington, D.C.",
   locationLink: "https://www.google.com/maps/place/Washington,+DC",
-  about: "Full Stack Developer. WordPress Expert. IT Specialist.",
+  about: "Full Stack Web Developer. WordPress Expert.",
   summary: (
     <>
       <p>

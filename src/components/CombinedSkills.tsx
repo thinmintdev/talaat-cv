@@ -142,7 +142,7 @@ function SlidingTechRow({ row }: { row: SkillRow }) {
   );
 }
 
-function ProficiencyBar({ tech }: { tech: ProficiencyTech; accessibility: any }) {
+function ProficiencyBar({ tech }: { tech: ProficiencyTech }) {
   return (
     <div className="mb-6">
       <div className="mb-2">
@@ -228,7 +228,6 @@ export function CombinedSkills({ slidingSkills, platformProficiency }: CombinedS
                       <ProficiencyBar 
                         key={tech.name} 
                         tech={tech} 
-                        accessibility={platformProficiency.accessibility}
                       />
                     ))}
                   </div>
