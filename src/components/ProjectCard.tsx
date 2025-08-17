@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 interface ProjectLink {
   href: string;
@@ -66,11 +67,14 @@ export function ProjectCard({
           {thumbnail && (
             <div className="flex-shrink-0">
               <div className="w-20 sm:w-24 md:w-32 aspect-[4/3] overflow-hidden rounded-lg bg-gray-200">
-                <img
+                <Image
                   src={thumbnail}
                   alt={`${title} thumbnail`}
+                  width={400}
+                  height={300}
                   className="h-full w-full object-cover"
                   loading="lazy"
+                  sizes="(max-width: 640px) 80px, (max-width: 768px) 96px, 128px"
                 />
               </div>
             </div>

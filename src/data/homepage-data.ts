@@ -190,20 +190,19 @@ export const HOMEPAGE_DATA = {
           "Socket.io",
         ],
         description: [
-          "Fast, easy community polling platform",
+          "FREE:Fast, easy community polling platform",
           "Live updates, real-time results & chat",
           "Advanced analytics dashboard for user insights",
           "Image polls, custom branding, user segmentation & privacy controls",
         ],
         link: {
-          label: "View Demo",
+          label: "Tryy FREE Today!",
           href: "https://poll.it.com",
         },
-        thumbnail:
-          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop&crop=center",
+        thumbnail: "/images/projects/poll-it/poll_logo.svg",
       },
       {
-        title: "Developer Portfolio",
+        title: "thinmint - web  agency",
         category: "Portfolio & Blog",
         techStack: [
           "React",
@@ -216,21 +215,20 @@ export const HOMEPAGE_DATA = {
           "Shadcnui",
         ],
         description: [
-          "Fast & Lightweight portfolio and blog",
+          "Fast & Lightweight landing & blog",
           "Contentlayer & MDX support for rich content",
           "SEO Optimization, Accessibility, and Performance",
           "Premium feeling animations and transitions",
         ],
         link: {
           label: "View Demo",
-          href: "https://talaat.dev",
+          href: "https://thinmint.dev",
         },
-        thumbnail:
-          "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=300&fit=crop&crop=center",
+        thumbnail: "/images/projects/portfolio/brave_PpoNs0EZdI.png",
       },
       {
         title: "GitCV",
-        category: "AI SaaS",
+        category: "AI SaaS, In Development",
         techStack: [
           "Next.js",
           "TypeScript",
@@ -250,8 +248,7 @@ export const HOMEPAGE_DATA = {
           label: "Coming Soon",
           href: "",
         },
-        thumbnail:
-          "https://images.unsplash.com/photo-1556075798-4825dfaaf498?w=400&h=300&fit=crop&crop=center",
+        thumbnail: "/images/projects/gitcv/00001.png",
       },
     ],
   },
