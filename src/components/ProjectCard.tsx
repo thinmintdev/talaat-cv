@@ -13,6 +13,7 @@ interface ProjectCardProps {
   techStack?: readonly string[];
   link?: ProjectLink;
   thumbnail?: string;
+  secondImage?: string;
 }
 
 export function ProjectCard({
@@ -22,6 +23,7 @@ export function ProjectCard({
   techStack,
   link,
   thumbnail,
+  secondImage,
 }: ProjectCardProps) {
   const hasLink = link?.href;
   const Component = hasLink ? "a" : "div";
@@ -64,18 +66,35 @@ export function ProjectCard({
         )}
 
         <div className="flex gap-4 sm:gap-6">
-          {thumbnail && (
+          {(thumbnail || secondImage) && (
             <div className="flex-shrink-0">
-              <div className="w-20 sm:w-24 md:w-32 aspect-[4/3] overflow-hidden rounded-lg bg-gray-200">
-                <Image
-                  src={thumbnail}
-                  alt={`${title} thumbnail`}
-                  width={400}
-                  height={300}
-                  className="h-full w-full object-cover"
-                  loading="lazy"
-                  sizes="(max-width: 640px) 80px, (max-width: 768px) 96px, 128px"
-                />
+              <div className="flex flex-col gap-3">
+                {thumbnail && (
+                  <div className="w-32 sm:w-36 md:w-[150px] aspect-[4/3] overflow-hidden rounded-lg bg-gray-200">
+                    <Image
+                      src={thumbnail}
+                      alt={`${title} thumbnail`}
+                      width={400}
+                      height={300}
+                      className="h-full w-full object-cover"
+                      loading="lazy"
+                      sizes="(max-width: 640px) 128px, (max-width: 768px) 144px, 150px"
+                    />
+                  </div>
+                )}
+                {secondImage && (
+                  <div className="w-32 sm:w-36 md:w-[150px] aspect-[4/3] overflow-hidden rounded-lg bg-gray-200">
+                    <Image
+                      src={secondImage}
+                      alt={`${title} second image`}
+                      width={400}
+                      height={300}
+                      className="h-full w-full object-cover"
+                      loading="lazy"
+                      sizes="(max-width: 640px) 128px, (max-width: 768px) 144px, 150px"
+                    />
+                  </div>
+                )}
               </div>
             </div>
           )}

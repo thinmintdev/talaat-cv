@@ -31,6 +31,7 @@ export function ProjectsSection() {
                   techStack={project.techStack}
                   link={project.link}
                   thumbnail={project.thumbnail}
+                  secondImage={project.secondImage}
                 />
               ))}
             </div>

@@ -202,10 +202,6 @@ export function CombinedSkills({ slidingSkills, platformProficiency }: CombinedS
                   <h3 className="text-xl font-bold text-gray-800 mb-1">
                     {slidingSkills.title}
                   </h3>
-                  
-                  <p className="text-gray-600 text-sm mt-4 mb-2">
-                    {slidingSkills.description}
-                  </p>
                   <div className="w-[75px] h-[5px] mt-2 mb-5 rounded-full bg-blue-700" />
                   <div className="space-y-2">
                     {slidingSkills.rows.map((row) => (
@@ -219,9 +215,6 @@ export function CombinedSkills({ slidingSkills, platformProficiency }: CombinedS
                   <h3 className="text-xl font-bold text-gray-800 mb-1">
                     Proficiency
                   </h3>
-                  <p className="text-gray-600 text-sm mt-4 mb-2">
-                    Key technologies and expertise levels
-                  </p>
                   <div className="w-[75px] h-[5px] mt-2 mb-5 rounded-full bg-blue-700" />
                   <div>
                     {platformProficiency.technologies.map((tech) => (

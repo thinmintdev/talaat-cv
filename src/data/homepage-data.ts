@@ -200,6 +200,7 @@ export const HOMEPAGE_DATA = {
           href: "https://poll.it.com",
         },
         thumbnail: "/images/projects/poll-it/poll_logo.svg",
+        secondImage: undefined,
       },
       {
         title: "thinmint - web  agency",
@@ -225,6 +226,7 @@ export const HOMEPAGE_DATA = {
           href: "https://thinmint.dev",
         },
         thumbnail: "/images/projects/portfolio/brave_PpoNs0EZdI.png",
+        secondImage: "/images/projects/portfolio/thinmint.svg",
       },
       {
         title: "GitCV",
@@ -249,6 +251,7 @@ export const HOMEPAGE_DATA = {
           href: "",
         },
         thumbnail: "/images/projects/gitcv/00001.png",
+        secondImage: undefined,
       },
     ],
   },
@@ -278,7 +281,7 @@ export const HOMEPAGE_DATA = {
           "PostgreSQL",
         ],
         timeline: "2-8 weeks",
-        startingPrice: "$5,000",
+        startingPrice: "Pricing On Request",
       },
       {
         icon: "wordpress",
@@ -299,7 +302,7 @@ export const HOMEPAGE_DATA = {
           "GraphQL",
         ],
         timeline: "1-4 weeks",
-        startingPrice: "$2,500",
+        startingPrice: "Pricing On Request",
       },
       {
         icon: "MdDesignServices",
@@ -314,7 +317,7 @@ export const HOMEPAGE_DATA = {
         ],
         technologies: ["Figma", "UI/UX", "Brand Guidelines", "UI/UX"],
         timeline: "1-3 weeks",
-        startingPrice: "$2,000",
+        startingPrice: "Pricing On Request",
       },
       {
         icon: "support",
@@ -329,7 +332,7 @@ export const HOMEPAGE_DATA = {
         ],
         technologies: ["Updates", "Support", "Training", "Support"],
         timeline: "Continued",
-        startingPrice: "$TBD/hour",
+        startingPrice: "Pricing On Request",
       },
     ],
   },
