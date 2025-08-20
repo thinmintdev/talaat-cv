@@ -39,13 +39,19 @@ export const HomeHero = () => {
         await new Promise((resolve) => setTimeout(resolve, timing.letterDelay));
       }
 
-      // Brief pause before showing final cursor
+      // Brief pause after .dev typing completes
       await new Promise((resolve) =>
         setTimeout(resolve, timing.finalCursorDelay)
       );
 
-      // Show final cursor and start services
+      // Show final cursor and start services animation
       setShowFinalCursor(true);
+      
+      // Additional delay before services start loading
+      await new Promise((resolve) =>
+        setTimeout(resolve, 300)
+      );
+      
       setShowServices(true);
     };
 
@@ -66,26 +72,12 @@ export const HomeHero = () => {
                 }}
                 className="font-black relative inline-block"
               >
-                {displayText}
-                {/* .DEV in blue typing naturally */}
-                {devText && (
-                  <span className="text-2xl md:text-[3rem] lg:text-[3rem] xl:text-[4rem] text-blue-600">
-                    {devText}
-                  </span>
-                )}
+                <span>
+                  {displayText}
+                </span>
 
-                {/* Blue underline cursor - shows during typing */}
-                {!showFinalCursor && (displayText || devText) && (
-                  <div
-                    className="inline-block bg-blue-600 ml-[0.05em] align-bottom animate-pulse"
-                    style={{
-                      width: styles.cursorWidth,
-                      height: styles.cursorHeight,
-                    }}
-                  />
-                )}
-                {/* Final blinking cursor */}
-                {showFinalCursor && (
+                {/* Blue underline cursor - shows during main name typing */}
+                {!showFinalCursor && displayText && !devText && (
                   <div
                     className="inline-block bg-blue-600 ml-[0.05em] align-bottom animate-pulse"
                     style={{
@@ -96,6 +88,25 @@ export const HomeHero = () => {
                 )}
               </div>
             </div>
+          </div>
+          
+          {/* .DEV text on its own line below the main name */}
+          <div className="mt-2 lg:mt-4">
+            {devText && (
+              <span className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-blue-600 relative">
+                {devText}
+                {/* Blue cursor - shows while typing or at rest after DEV */}
+                {devText && (devText.length < devLetters.length || showFinalCursor) && (
+                  <div
+                    className="inline-block bg-blue-600 ml-[0.05em] align-bottom animate-pulse"
+                    style={{
+                      width: "0.35em",
+                      height: "0.05em",
+                    }}
+                  />
+                )}
+              </span>
+            )}
           </div>
         </div>
 
