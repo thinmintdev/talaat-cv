@@ -1,15 +1,42 @@
 "use client";
 
-import React from "react";
-import { TypingTitle } from "@/components/TypingTitle";
-
+import type React from "react";
 // Import all tech icons
-import { 
-  SiReact, SiNextdotjs, SiTypescript, SiJavascript, SiHtml5, SiCss3, SiTailwindcss, SiSass, SiVuedotjs, SiAstro, 
-  SiNodedotjs, SiExpress, SiPostgresql, SiMongodb, SiSupabase, SiPrisma, SiGit, SiDocker, SiVercel, SiNetlify, 
-  SiGithub, SiFigma, SiLinux, SiWordpress, SiPython, SiPhp, SiGraphql, SiPostman, SiFastapi, SiLaravel, 
-  SiFirebase, SiAmazon
+import {
+  SiAmazon,
+  SiAstro,
+  SiCss3,
+  SiDocker,
+  SiExpress,
+  SiFastapi,
+  SiFigma,
+  SiFirebase,
+  SiGit,
+  SiGithub,
+  SiGraphql,
+  SiHtml5,
+  SiJavascript,
+  SiLaravel,
+  SiLinux,
+  SiMongodb,
+  SiNetlify,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiPhp,
+  SiPostgresql,
+  SiPostman,
+  SiPrisma,
+  SiPython,
+  SiReact,
+  SiSass,
+  SiSupabase,
+  SiTailwindcss,
+  SiTypescript,
+  SiVercel,
+  SiVuedotjs,
+  SiWordpress,
 } from "react-icons/si";
+import { TypingTitle } from "@/components/TypingTitle";
 
 interface Technology {
   name: string;
@@ -107,7 +134,8 @@ function SlidingTechRow({ row }: { row: SkillRow }) {
             className="flex gap-6 whitespace-nowrap"
             style={{
               animation: `scroll-${row.id} ${row.speed}s linear infinite`,
-              animationDirection: row.direction === "reverse" ? "reverse" : "normal",
+              animationDirection:
+                row.direction === "reverse" ? "reverse" : "normal",
               animationPlayState: "running",
               willChange: "transform",
             }}
@@ -130,10 +158,10 @@ function SlidingTechRow({ row }: { row: SkillRow }) {
               );
             })}
           </div>
-          
+
           {/* Left fade overlay */}
           <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-gray-50 to-transparent pointer-events-none z-10" />
-          
+
           {/* Right fade overlay */}
           <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-gray-50 to-transparent pointer-events-none z-10" />
         </div>
@@ -174,62 +202,60 @@ function ProficiencyBar({ tech }: { tech: ProficiencyTech }) {
   );
 }
 
-export function CombinedSkills({ slidingSkills, platformProficiency }: CombinedSkillsProps) {
+export function CombinedSkills({
+  slidingSkills,
+  platformProficiency,
+}: CombinedSkillsProps) {
   return (
     <section className="p-8 sm:p-12 md:p-16 lg:p-24">
-        <div>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
-            {/* Section Header */}
-            <div className="lg:col-span-4">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl xl:text-7xl font-bold text-gray-900">
-                <TypingTitle
-                  text={platformProficiency.title}
-                  speed={40}
-                  delay={300}
-                />
-              </h2>
-              <p className="mt-4 text-gray-600 text-lg">
-                {platformProficiency.subtitle}
-              </p>
-            </div>
+      <div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
+          {/* Section Header */}
+          <div className="lg:col-span-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl xl:text-7xl font-bold text-gray-900">
+              <TypingTitle
+                text={platformProficiency.title}
+                speed={40}
+                delay={300}
+              />
+            </h2>
+            <p className="mt-4 text-gray-600 text-lg">
+              {platformProficiency.subtitle}
+            </p>
+          </div>
 
-            {/* Combined Skills Content */}
-            <div className="lg:col-span-8">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-                
-                {/* Left Side: Sliding Technologies */}
-                <div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-1">
-                    {slidingSkills.title}
-                  </h3>
-                  <div className="w-[75px] h-[5px] mt-2 mb-5 rounded-full bg-blue-700" />
-                  <div className="space-y-2">
-                    {slidingSkills.rows.map((row) => (
-                      <SlidingTechRow key={row.id} row={row} />
-                    ))}
-                  </div>
+          {/* Combined Skills Content */}
+          <div className="lg:col-span-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+              {/* Left Side: Sliding Technologies */}
+              <div>
+                <h3 className="text-xl font-bold text-gray-800 mb-1">
+                  {slidingSkills.title}
+                </h3>
+                <div className="w-[75px] h-[5px] mt-2 mb-5 rounded-full bg-blue-700" />
+                <div className="space-y-2">
+                  {slidingSkills.rows.map((row) => (
+                    <SlidingTechRow key={row.id} row={row} />
+                  ))}
                 </div>
+              </div>
 
-                {/* Right Side: Platform Proficiency */}
+              {/* Right Side: Platform Proficiency */}
+              <div>
+                <h3 className="text-xl font-bold text-gray-800 mb-1">
+                  Proficiency
+                </h3>
+                <div className="w-[75px] h-[5px] mt-2 mb-5 rounded-full bg-blue-700" />
                 <div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-1">
-                    Proficiency
-                  </h3>
-                  <div className="w-[75px] h-[5px] mt-2 mb-5 rounded-full bg-blue-700" />
-                  <div>
-                    {platformProficiency.technologies.map((tech) => (
-                      <ProficiencyBar 
-                        key={tech.name} 
-                        tech={tech} 
-                      />
-                    ))}
-                  </div>
+                  {platformProficiency.technologies.map((tech) => (
+                    <ProficiencyBar key={tech.name} tech={tech} />
+                  ))}
                 </div>
-
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
   );
 }

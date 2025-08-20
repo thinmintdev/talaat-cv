@@ -27,7 +27,7 @@ export default function HomePage() {
       <AboutSection />
 
       {/* Skills Section - Combined */}
-      <CombinedSkills 
+      <CombinedSkills
         slidingSkills={HOMEPAGE_DATA.slidingSkills}
         platformProficiency={HOMEPAGE_DATA.platformProficiency}
       />

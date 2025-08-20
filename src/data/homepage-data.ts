@@ -141,8 +141,7 @@ export const HOMEPAGE_DATA = {
 
   platformProficiency: {
     title: "Skills",
-    subtitle:
-      "What I'm working With",
+    subtitle: "What I'm working With",
     technologies: [
       {
         name: "Frontend Development",
@@ -252,7 +251,7 @@ export const HOMEPAGE_DATA = {
           href: "",
         },
         thumbnail: "/images/projects/gitcv/00001.png",
-        secondImage: undefined,
+        secondImage: "/images/projects/gitcv/gcv2.png",
       },
     ],
   },

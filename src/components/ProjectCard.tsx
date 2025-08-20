@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+
 import Image from "next/image";
 
 interface ProjectLink {
@@ -26,27 +27,18 @@ export function ProjectCard({
   secondImage,
 }: ProjectCardProps) {
   const hasLink = link?.href;
-  const Component = hasLink ? "a" : "div";
-  const linkProps = hasLink
-    ? {
-        href: link.href,
-        target: "_blank",
-        rel: "noopener noreferrer",
-      }
-    : {};
 
   return (
     <div className="group relative">
-      <Component
-        {...linkProps}
-        className={`block relative p-4 sm:p-6 md:p-8 bg-gray-50 rounded-xl sm:rounded-2xl border border-gray-200 transition-all duration-300 ${
-          hasLink
-            ? "hover:bg-white hover:shadow-xl hover:border-gray-300 hover:-translate-y-1"
-            : ""
-        }`}
-      >
+      <div className="block relative p-4 sm:p-6 md:p-8 bg-gray-50 rounded-xl sm:rounded-2xl border border-gray-200 transition-all duration-300 hover:bg-white hover:shadow-xl hover:border-gray-300 hover:-translate-y-1">
         {hasLink && (
-          <div className="absolute top-4 right-4 sm:top-6 sm:right-6 md:top-8 md:right-8 w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 flex items-center justify-center rounded-full text-gray-900 transition-all duration-300 bg-[#FFE3DD] group-hover:bg-brandSecondary">
+          <a
+            href={link.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="absolute top-4 right-4 sm:top-6 sm:right-6 md:top-8 md:right-8 w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 flex items-center justify-center rounded-full text-gray-900 transition-all duration-300 bg-[#FFE3DD] group-hover:bg-brandSecondary hover:scale-110 z-10"
+            aria-label={`Visit ${title} project`}
+          >
             <svg
               className="w-4 h-4 sm:w-4.5 sm:h-4.5 md:w-5 md:h-5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
               fill="none"
@@ -62,7 +54,7 @@ export function ProjectCard({
                 d="M7 17L17 7M17 7H7M17 7V17"
               />
             </svg>
-          </div>
+          </a>
         )}
 
         <div className="flex gap-4 sm:gap-6">
@@ -140,7 +132,7 @@ export function ProjectCard({
             )}
           </div>
         </div>
-      </Component>
+      </div>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import { ProjectCard } from "@/components/ProjectCard";
+import { ExpandableProjectCard } from "@/components/ExpandableProjectCard";
 import { TypingTitle } from "@/components/TypingTitle";
 import { HOMEPAGE_DATA } from "@/data/homepage-data";
 
@@ -11,8 +11,12 @@ export function ProjectsSection() {
             <h2 className={HOMEPAGE_DATA.layout.typography.sectionTitle}>
               <TypingTitle
                 text={HOMEPAGE_DATA.projects.title}
-                speed={HOMEPAGE_DATA.layout.components.typingTitle.projects.speed}
-                delay={HOMEPAGE_DATA.layout.components.typingTitle.projects.delay}
+                speed={
+                  HOMEPAGE_DATA.layout.components.typingTitle.projects.speed
+                }
+                delay={
+                  HOMEPAGE_DATA.layout.components.typingTitle.projects.delay
+                }
               />
             </h2>
             <p className={HOMEPAGE_DATA.layout.typography.subtitle}>
@@ -23,7 +27,7 @@ export function ProjectsSection() {
           <div className={HOMEPAGE_DATA.layout.sections.contentColumn}>
             <div className="space-y-8">
               {HOMEPAGE_DATA.projects.list.map((project) => (
-                <ProjectCard
+                <ExpandableProjectCard
                   key={project.title}
                   title={project.title}
                   category={project.category}

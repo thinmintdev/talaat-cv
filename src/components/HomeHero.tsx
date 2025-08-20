@@ -46,12 +46,10 @@ export const HomeHero = () => {
 
       // Show final cursor and start services animation
       setShowFinalCursor(true);
-      
+
       // Additional delay before services start loading
-      await new Promise((resolve) =>
-        setTimeout(resolve, 300)
-      );
-      
+      await new Promise((resolve) => setTimeout(resolve, 300));
+
       setShowServices(true);
     };
 
@@ -72,9 +70,7 @@ export const HomeHero = () => {
                 }}
                 className="font-black relative inline-block"
               >
-                <span>
-                  {displayText}
-                </span>
+                <span>{displayText}</span>
 
                 {/* Blue underline cursor - shows during main name typing */}
                 {!showFinalCursor && displayText && !devText && (
@@ -89,22 +85,23 @@ export const HomeHero = () => {
               </div>
             </div>
           </div>
-          
+
           {/* .DEV text on its own line below the main name */}
           <div className="mt-2 lg:mt-4">
             {devText && (
               <span className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-blue-600 relative">
                 {devText}
                 {/* Blue cursor - shows while typing or at rest after DEV */}
-                {devText && (devText.length < devLetters.length || showFinalCursor) && (
-                  <div
-                    className="inline-block bg-blue-600 ml-[0.05em] align-bottom animate-pulse"
-                    style={{
-                      width: "0.35em",
-                      height: "0.05em",
-                    }}
-                  />
-                )}
+                {devText &&
+                  (devText.length < devLetters.length || showFinalCursor) && (
+                    <div
+                      className="inline-block bg-blue-600 ml-[0.05em] align-bottom animate-pulse"
+                      style={{
+                        width: "0.35em",
+                        height: "0.05em",
+                      }}
+                    />
+                  )}
               </span>
             )}
           </div>
