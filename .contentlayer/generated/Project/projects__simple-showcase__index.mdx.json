@@ -1,0 +1,78 @@
+{
+  "title": "Simple Project Showcase",
+  "subtitle": "A minimal example demonstrating the project system",
+  "description": [
+    "A simple demonstration project showing how easy it is to create project pages with our new MDX system",
+    "Features automatic image gallery detection and responsive design"
+  ],
+  "techStack": [
+    "HTML",
+    "CSS",
+    "JavaScript"
+  ],
+  "category": "Web Project",
+  "links": [
+    {
+      "type": "demo",
+      "label": "View Demo",
+      "href": "https://example.com",
+      "primary": true
+    },
+    {
+      "type": "github",
+      "label": "GitHub",
+      "href": "https://github.com/example/simple"
+    }
+  ],
+  "featured": false,
+  "showDetailPage": true,
+  "cardOnly": false,
+  "publishedAt": "2024-01-10T00:00:00.000Z",
+  "tags": [
+    "simple",
+    "demo",
+    "showcase"
+  ],
+  "body": {
+    "raw": "\n# Simple Project Showcase\n\nThis is a minimal example demonstrating how projects work in our enhanced system.\n\n## Features\n\n- Automatic gallery detection\n- MDX content support\n- Responsive design\n- Multiple link types\n\n## Gallery\n\nAll images in the `/gallery` folder are automatically detected and displayed.",
+    "code": "var Component=(()=>{var d=Object.create;var r=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,y=Object.prototype.hasOwnProperty;var x=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),j=(t,e)=>{for(var i in e)r(t,i,{get:e[i],enumerable:!0})},s=(t,e,i,o)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let l of u(e))!y.call(t,l)&&l!==i&&r(t,l,{get:()=>e[l],enumerable:!(o=p(e,l))||o.enumerable});return t};var w=(t,e,i)=>(i=t!=null?d(g(t)):{},s(e||!t||!t.__esModule?r(i,\"default\",{value:t,enumerable:!0}):i,t)),f=t=>s(r({},\"__esModule\",{value:!0}),t);var c=x((_,a)=>{a.exports=_jsx_runtime});var S={};j(S,{default:()=>m,frontmatter:()=>b});var n=w(c()),b={title:\"Simple Project Showcase\",subtitle:\"A minimal example demonstrating the project system\",description:[\"A simple demonstration project showing how easy it is to create project pages with our new MDX system\",\"Features automatic image gallery detection and responsive design\"],techStack:[\"HTML\",\"CSS\",\"JavaScript\"],category:\"Web Project\",links:[{type:\"demo\",label:\"View Demo\",href:\"https://example.com\",primary:!0},{type:\"github\",label:\"GitHub\",href:\"https://github.com/example/simple\"}],featured:!1,showDetailPage:!0,publishedAt:\"2024-01-10\",tags:[\"simple\",\"demo\",\"showcase\"]};function h(t){let e={code:\"code\",h1:\"h1\",h2:\"h2\",li:\"li\",p:\"p\",ul:\"ul\",...t.components};return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.h1,{children:\"Simple Project Showcase\"}),`\n`,(0,n.jsx)(e.p,{children:\"This is a minimal example demonstrating how projects work in our enhanced system.\"}),`\n`,(0,n.jsx)(e.h2,{children:\"Features\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:\"Automatic gallery detection\"}),`\n`,(0,n.jsx)(e.li,{children:\"MDX content support\"}),`\n`,(0,n.jsx)(e.li,{children:\"Responsive design\"}),`\n`,(0,n.jsx)(e.li,{children:\"Multiple link types\"}),`\n`]}),`\n`,(0,n.jsx)(e.h2,{children:\"Gallery\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"All images in the \",(0,n.jsx)(e.code,{children:\"/gallery\"}),\" folder are automatically detected and displayed.\"]})]})}function m(t={}){let{wrapper:e}=t.components||{};return e?(0,n.jsx)(e,{...t,children:(0,n.jsx)(h,{...t})}):h(t)}return f(S);})();\n;return Component;"
+  },
+  "_id": "projects/simple-showcase/index.mdx",
+  "_raw": {
+    "sourceFilePath": "projects/simple-showcase/index.mdx",
+    "sourceFileName": "index.mdx",
+    "sourceFileDir": "projects/simple-showcase",
+    "contentType": "mdx",
+    "flattenedPath": "projects/simple-showcase"
+  },
+  "type": "Project",
+  "readingTime": {
+    "text": "1 min read",
+    "minutes": 0.235,
+    "time": 14100,
+    "words": 47
+  },
+  "slug": "simple-showcase",
+  "path": "projects/simple-showcase",
+  "filePath": "projects/simple-showcase/index.mdx",
+  "projectSlug": "simple-showcase",
+  "galleryImages": [],
+  "primaryLink": {
+    "href": "https://example.com",
+    "label": "View Demo",
+    "type": "demo"
+  },
+  "legacyFormat": {
+    "title": "Simple Project Showcase",
+    "category": "Web Project",
+    "description": [
+      "A simple demonstration project showing how easy it is to create project pages with our new MDX system",
+      "Features automatic image gallery detection and responsive design"
+    ],
+    "techStack": [
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ]
+  }
+}
