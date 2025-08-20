@@ -14,6 +14,9 @@ export function AboutSection() {
                 delay={HOMEPAGE_DATA.layout.components.typingTitle.about.delay}
               />
             </h2>
+            <p className={HOMEPAGE_DATA.layout.typography.subtitle}>
+              {HOMEPAGE_DATA.about.description}
+            </p>
           </div>
 
           <div className={HOMEPAGE_DATA.layout.sections.contentColumn}>

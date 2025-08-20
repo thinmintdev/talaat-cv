@@ -65,6 +65,7 @@ export const HOMEPAGE_DATA = {
   // 2. About Me Section
   about: {
     title: "About",
+    description: "Who I am and what I do",
     paragraphs: [
       "I'm a full-stack developer passionate about crafting modern web experiences and applications. With over 15 years of experience, I've honed my skills in web development and design and adapted to the changing landscape and technologies.",
       "I specialize in building responsive frontends with React and Next.js, and scalable backends using Node.js. I integrate databases like PostgreSQL and MongoDB, and work with CMS platforms such as WordPress to deliver dynamic content solutions.",
@@ -141,7 +142,7 @@ export const HOMEPAGE_DATA = {
   platformProficiency: {
     title: "Skills",
     subtitle:
-      "Key technologies, platforms, and tools used across major projects and roles.",
+      "What I'm working With",
     technologies: [
       {
         name: "Frontend Development",
@@ -173,7 +174,7 @@ export const HOMEPAGE_DATA = {
   // 4. Projects Section
   projects: {
     title: "Projects",
-    description: "What I'm working on.",
+    description: "What I'm working on",
     list: [
       {
         title: "Poll.it.com",
@@ -259,7 +260,7 @@ export const HOMEPAGE_DATA = {
   // 5. Services Section
   services: {
     title: "Services",
-    subtitle: "Comprehensive solutions for your digital needs",
+    subtitle: "What can I do for you?",
     offerings: [
       {
         icon: "code",
