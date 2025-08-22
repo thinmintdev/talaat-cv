@@ -60,13 +60,13 @@ export const TypingTitle = ({
       {isVisible ? (
         <div className="relative inline-block">
           <span className={className}>{displayText}</span>
-          {/* Blue vertical cursor while typing */}
+          {/* Blue horizontal cursor while typing */}
           {displayText && displayText.length < text.length && (
-            <div className="inline-block w-[0.15em] h-[1em] bg-blue-700 ml-[0.05em] align-bottom animate-pulse" />
+            <div className="inline-block w-[0.35em] h-[0.05em] bg-blue-700 ml-[0.05em] align-bottom animate-pulse" />
           )}
-          {/* Final blinking vertical cursor */}
+          {/* Final blinking horizontal cursor */}
           {showFinalCursor && (
-            <div className="inline-block w-[0.15em] h-[1em] bg-blue-700 ml-[0.05em] align-bottom animate-pulse" />
+            <div className="inline-block w-[0.35em] h-[0.05em] bg-blue-700 ml-[0.05em] align-bottom animate-pulse" />
           )}
         </div>
       ) : (

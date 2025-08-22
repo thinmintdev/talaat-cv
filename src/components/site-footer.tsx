@@ -74,7 +74,8 @@ export function SiteFooter() {
         {/* Copyright */}
         <div className="mt-6 pt-6 border-t text-center">
           <p className="text-xs text-gray-500">
-            © {currentYear} {RESUME_DATA.name} - thinmint.dev. All rights reserved.
+            © {currentYear} {RESUME_DATA.name} - thinmint.dev. All rights
+            reserved.
           </p>
         </div>
       </div>

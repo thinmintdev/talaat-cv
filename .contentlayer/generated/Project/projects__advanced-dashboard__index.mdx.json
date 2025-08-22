@@ -91,53 +91,7 @@
   "path": "projects/advanced-dashboard",
   "filePath": "projects/advanced-dashboard/index.mdx",
   "projectSlug": "advanced-dashboard",
-  "galleryImages": [
-    {
-      "src": "/content/projects/advanced-dashboard/gallery/01-dashboard-overview.png",
-      "alt": "01 dashboard overview",
-      "filename": "01-dashboard-overview.png",
-      "type": "image",
-      "order": 0,
-      "isHero": true,
-      "category": "interface"
-    },
-    {
-      "src": "/content/projects/advanced-dashboard/gallery/02-ui-components.png",
-      "alt": "02 ui components",
-      "filename": "02-ui-components.png",
-      "type": "image",
-      "order": 1,
-      "isHero": false,
-      "category": "interface"
-    },
-    {
-      "src": "/content/projects/advanced-dashboard/gallery/03-mobile-responsive.png",
-      "alt": "03 mobile responsive",
-      "filename": "03-mobile-responsive.png",
-      "type": "image",
-      "order": 2,
-      "isHero": false,
-      "category": "mobile"
-    },
-    {
-      "src": "/content/projects/advanced-dashboard/gallery/04-architecture-diagram.png",
-      "alt": "04 architecture diagram",
-      "filename": "04-architecture-diagram.png",
-      "type": "image",
-      "order": 3,
-      "isHero": false,
-      "category": "technical"
-    },
-    {
-      "src": "/content/projects/advanced-dashboard/gallery/05-demo-video.mp4",
-      "alt": "05 demo video",
-      "filename": "05-demo-video.mp4",
-      "type": "video",
-      "order": 4,
-      "isHero": false,
-      "category": "demo"
-    }
-  ],
+  "galleryImages": [],
   "primaryLink": {
     "href": "https://dashboard-demo.example.com",
     "label": "Live Demo",

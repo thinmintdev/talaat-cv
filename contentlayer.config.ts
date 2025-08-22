@@ -59,22 +59,17 @@ export const Project = defineDocumentType(() => ({
     techStack: { type: 'list', of: { type: 'string' }, required: true },
     category: { type: 'string', required: false },
     
-    // Simplified link configuration (JSON field)
+    // Simplified link configuration
     links: { type: 'json', default: [] },
     
     // Display Options
     featured: { type: 'boolean', default: false },
     showDetailPage: { type: 'boolean', default: true },
-    cardOnly: { type: 'boolean', default: false },
     
     // Metadata
     publishedAt: { type: 'date', required: true },
     updatedAt: { type: 'date', required: false },
-    tags: { type: 'list', of: { type: 'string' }, default: [] },
-    
-    // Legacy Support
-    thumbnail: { type: 'string', required: false },
-    secondImage: { type: 'string', required: false }
+    tags: { type: 'list', of: { type: 'string' }, default: [] }
   },
   
   computedFields: {
@@ -86,22 +81,27 @@ export const Project = defineDocumentType(() => ({
       resolve: (doc: any) => doc._raw.sourceFileDir.split('/').pop()
     },
     
-    // Auto-detect Gallery Images
+    // Auto-detect Images in Project Folder
     galleryImages: {
       type: 'json' as const,
       resolve: (doc: any) => {
         try {
-          const projectDir = doc._raw.sourceFileDir;
-          const galleryPath = path.join(process.cwd(), 'content', projectDir, 'gallery');
+          const projectSlug = doc._raw.sourceFileDir.split('/').pop();
+          const projectPath = path.join(process.cwd(), 'content', doc._raw.sourceFileDir);
           
-          if (!fs.existsSync(galleryPath)) return [];
+          if (!fs.existsSync(projectPath)) {
+            return [];
+          }
           
-          return fs.readdirSync(galleryPath)
-            .filter((file: string) => /\.(jpg|jpeg|png|svg|webp|gif|mp4|webm)$/i.test(file))
-            .sort()
+          return fs.readdirSync(projectPath)
+            .filter((file: string) => {
+              // Only include image/video files, exclude index.mdx
+              return /\.(jpg|jpeg|png|svg|webp|gif|mp4|webm)$/i.test(file) && file !== 'index.mdx';
+            })
+            .sort() // Natural alphabetical sorting
             .map((file: string, index: number) => ({
-              src: `/content/${projectDir}/gallery/${file}`,
-              alt: file.replace(/\.[^/.]+$/, "").replace(/[-_]/g, " "),
+              src: `/projects/${projectSlug}/${file}`,
+              alt: file.replace(/\.[^/.]+$/, "").replace(/[-_]/g, " ").replace(/^\d+-?/, ""),
               filename: file,
               type: /\.(mp4|webm)$/i.test(file) ? 'video' : 'image',
               order: index,
@@ -109,7 +109,7 @@ export const Project = defineDocumentType(() => ({
               category: extractCategoryFromFilename(file)
             }));
         } catch (error) {
-          console.warn('Error reading gallery images:', error);
+          console.warn('Error reading project images:', error);
           return [];
         }
       }
@@ -130,18 +130,53 @@ export const Project = defineDocumentType(() => ({
       }
     },
     
-    // Backward Compatibility
-    legacyFormat: {
-      type: 'json' as const,
-      resolve: (doc: any) => ({
-        title: doc.title,
-        category: doc.category,
-        description: doc.description,
-        techStack: doc.techStack,
-        link: doc.primaryLink,
-        thumbnail: doc.galleryImages?.[0]?.src || doc.thumbnail,
-        secondImage: doc.galleryImages?.[1]?.src || doc.secondImage
-      })
+    // Auto-Generated Thumbnails
+    thumbnail: {
+      type: 'string' as const,
+      resolve: (doc: any) => {
+        try {
+          const projectSlug = doc._raw.sourceFileDir.split('/').pop();
+          const projectPath = path.join(process.cwd(), 'content', doc._raw.sourceFileDir);
+          
+          if (!fs.existsSync(projectPath)) {
+            return null;
+          }
+          
+          const files = fs.readdirSync(projectPath)
+            .filter((file: string) => {
+              return /\.(jpg|jpeg|png|svg|webp|gif|mp4|webm)$/i.test(file) && file !== 'index.mdx';
+            })
+            .sort();
+            
+          return files.length > 0 ? `/projects/${projectSlug}/${files[0]}` : null;
+        } catch (error) {
+          return null;
+        }
+      }
+    },
+    
+    secondImage: {
+      type: 'string' as const,
+      resolve: (doc: any) => {
+        try {
+          const projectSlug = doc._raw.sourceFileDir.split('/').pop();
+          const projectPath = path.join(process.cwd(), 'content', doc._raw.sourceFileDir);
+          
+          if (!fs.existsSync(projectPath)) {
+            return null;
+          }
+          
+          const files = fs.readdirSync(projectPath)
+            .filter((file: string) => {
+              return /\.(jpg|jpeg|png|svg|webp|gif|mp4|webm)$/i.test(file) && file !== 'index.mdx';
+            })
+            .sort();
+            
+          return files.length > 1 ? `/projects/${projectSlug}/${files[1]}` : null;
+        } catch (error) {
+          return null;
+        }
+      }
     }
   }
 }))

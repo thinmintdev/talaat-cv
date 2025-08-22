@@ -40,12 +40,9 @@ export type Project = {
   links: any
   featured: boolean
   showDetailPage: boolean
-  cardOnly: boolean
   publishedAt: IsoDateTimeString
   updatedAt?: IsoDateTimeString | undefined
   tags: string[]
-  thumbnail?: string | undefined
-  secondImage?: string | undefined
   /** MDX file body */
   body: MDX
   readingTime: json
@@ -55,7 +52,8 @@ export type Project = {
   projectSlug: string
   galleryImages: json
   primaryLink: json
-  legacyFormat: json
+  thumbnail: string
+  secondImage: string
 }  
 
 /** Nested types */

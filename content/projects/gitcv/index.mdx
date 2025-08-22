@@ -1,0 +1,201 @@
+---
+title: "GitCV"
+subtitle: "GitHub-Based CV Generator"
+description: 
+  - "Automatically generate and maintain professional CVs from GitHub activity"
+  - "Eliminates the need to constantly update portfolios manually"
+  - "Free blog and portfolio features with automatic maintenance"
+techStack: 
+  - "Next.js"
+  - "TypeScript"
+  - "GitHub API"
+  - "Tailwind CSS"
+  - "PDF Generation"
+category: "Developer Tools"
+links:
+  - { type: "signup", label: "Sign up for early access", href: "https://gitcv.dev/early-access", primary: true }
+  - { type: "github", label: "GitHub", href: "https://github.com/talaat/gitcv" }
+featured: true
+showDetailPage: true
+publishedAt: "2024-02-15"
+tags: 
+  - "nextjs"
+  - "github-api"
+  - "cv-generator"
+  - "automation"
+  - "developer-tools"
+---
+
+# GitCV: Automated Developer Portfolio Generation
+
+**GitCV** is a GitHub-based CV generator that automatically maintains developer portfolios, eliminating the need to constantly update your own stuff. Built with Next.js, it provides free blog and portfolio features while keeping everything synchronized with your development work.
+
+## The Problem: Manual Portfolio Maintenance
+
+Developers face constant pressure to keep their portfolios current:
+- **Time-consuming updates**: Hours spent manually adding projects
+- **Outdated information**: CVs quickly become stale
+- **Multiple platforms**: Maintaining consistency across different sites
+- **Missing opportunities**: Forgetting to showcase recent work
+
+## The Solution: Automatic Maintenance & Updates
+
+GitCV solves this by connecting directly to your GitHub account and automatically generating beautiful, professional portfolios that stay up-to-date without any manual intervention.
+
+### **🔄 Eliminates Manual Updates**
+- **Zero Maintenance**: Your portfolio updates automatically as you code
+- **Real-time Sync**: New repositories appear in your portfolio instantly
+- **Smart Curation**: Automatically highlights your best work
+- **Set and Forget**: Configure once, benefit forever
+
+### **🆓 Free Blog & Portfolio Features**
+- **Integrated Blogging**: Write technical posts with automatic integration
+- **Project Showcases**: Detailed project pages with automatic content
+- **Custom Domain**: Use your own domain for professional presence
+- **SEO Optimized**: Built-in search engine optimization
+
+## 🎨 **Professional Output & Features**
+
+### **Beautiful Portfolio Generation**
+GitCV automatically creates professional portfolios with:
+- **Multiple Templates**: Choose from clean, modern designs optimized for developers
+- **Responsive Design**: Perfect display on desktop, tablet, and mobile devices
+- **Professional Layouts**: ATS-friendly formats for job applications
+- **Custom Domains**: Use your own domain for credibility
+- **SEO Optimization**: Built-in search engine optimization for discoverability
+
+### **Automatic Content Management**
+- **Project Showcases**: Detailed project pages generated from repository data
+- **Skill Detection**: Automatically identifies technologies from your codebase
+- **Blog Integration**: Write technical posts that integrate with your portfolio
+- **Timeline Creation**: Builds chronological career progression
+- **Contact Integration**: Professional contact forms and social links
+
+## 🔧 **Next.js Technical Implementation**
+
+GitCV is built with Next.js for optimal performance and developer experience:
+
+### **GitHub API Integration**
+```typescript
+// Automatic portfolio synchronization
+const syncPortfolio = async (username: string) => {
+  const [repos, profile, contributions] = await Promise.all([
+    github.repos.listForUser({ username }),
+    github.users.getByUsername({ username }),
+    github.activity.listContributions({ username })
+  ]);
+  
+  return {
+    projects: await analyzeProjects(repos.data),
+    skills: extractSkills(repos.data),
+    activity: processContributions(contributions.data),
+    bio: enhanceProfile(profile.data)
+  };
+};
+```
+
+### **Smart Project Analysis**
+```typescript
+// Automatic project content generation
+const generateProjectContent = (repository: Repository) => {
+  const analysis = {
+    purpose: inferProjectPurpose(repository),
+    technologies: detectTechStack(repository),
+    complexity: calculateComplexity(repository),
+    impact: measureImpact(repository),
+    description: generateDescription(repository)
+  };
+  
+  return createPortfolioEntry(analysis);
+};
+```
+
+### **Export & Integration Capabilities**
+- **PDF Generation**: High-quality CVs optimized for printing and ATS systems
+- **Web Portfolio**: Beautiful online presence automatically maintained
+- **Blog Platform**: Integrated technical blogging with automatic portfolio sync
+- **Custom Domains**: Professional domain support for personal branding
+- **API Access**: Structured data for integration with other tools
+
+## 🎯 **Key Benefits & Use Cases**
+
+### **For Active Developers**
+- **Focus on Code**: Spend time coding, not updating portfolios
+- **Always Current**: Portfolio reflects your latest work automatically
+- **Professional Presence**: Enterprise-quality presentation of your work
+- **Career Growth**: Never miss showcasing important projects
+
+### **For Job Seekers**
+- **ATS Friendly**: Optimized for applicant tracking systems
+- **Multiple Formats**: PDF, web, and mobile-optimized versions
+- **Real-time Updates**: Show current activity and recent projects
+- **Skill Verification**: GitHub-backed claims about your abilities
+
+### **For Freelancers & Consultants**
+- **Client Ready**: Professional portfolios generated instantly
+- **Project Documentation**: Automatic case studies from your repositories
+- **Credibility**: Live connection to your actual work
+- **No Maintenance**: Portfolio stays fresh without time investment
+
+## 🚀 **The GitCV Advantage**
+
+### **Automatic Maintenance Philosophy**
+GitCV is built around the core principle that developers shouldn't waste time on portfolio maintenance. Every feature is designed to reduce manual work while improving the quality and accuracy of your professional presentation.
+
+### **Free Professional Tools**
+- **No Hidden Costs**: Core features remain free forever
+- **Blog Integration**: Write technical content that integrates with your portfolio
+- **Custom Domains**: Use your own domain for professional credibility
+- **Export Options**: Download PDFs, share links, embed components
+
+## 🔒 **Built for Developers, by Developers**
+
+### **Understanding Developer Workflow**
+GitCV integrates seamlessly into existing development practices without requiring any changes to how you work. Just connect your GitHub account and let the platform handle the rest.
+
+### **Privacy & Data Protection**
+- **Public Data Only**: Uses only publicly available GitHub information
+- **User Control**: Complete control over what information appears in portfolios
+- **Secure Processing**: All data handling follows security best practices
+- **Transparent Operations**: Clear explanation of data usage and processing
+
+## 🚀 **Getting Started with Early Access**
+
+### **Join the Early Access Program**
+Be among the first to experience automatic portfolio maintenance:
+
+1. **Sign Up**: Reserve your username and get early access
+2. **Connect GitHub**: One-click authorization for repository access
+3. **Choose Style**: Select from professional templates
+4. **Go Live**: Your portfolio is ready and automatically maintained
+
+### **What's Included in Early Access**
+- **Core Platform**: Full GitCV portfolio generation and maintenance
+- **Free Blog**: Integrated technical blogging platform
+- **Custom Domain**: Use your own domain for professional branding
+- **PDF Export**: High-quality CV generation
+- **Priority Support**: Direct access to the development team
+
+## 💻 **Technology Stack**
+
+Built with modern web technologies for optimal performance:
+
+- **Frontend**: Next.js 14 with App Router for optimal performance
+- **Styling**: Tailwind CSS for responsive, professional designs
+- **API Integration**: GitHub REST and GraphQL APIs for comprehensive data
+- **Authentication**: Secure OAuth integration with GitHub
+- **PDF Generation**: High-quality document rendering
+- **Real-time Updates**: Automatic synchronization with your development work
+
+## 🔮 **Coming Soon**
+
+### **Enhanced Features**
+- **Team Portfolios**: Showcase collaborative projects and team dynamics
+- **LinkedIn Integration**: Sync with professional networks automatically
+- **AI Descriptions**: Enhanced project descriptions using AI analysis
+- **Analytics Dashboard**: Track portfolio views and engagement
+- **Custom Themes**: Create and share portfolio themes
+
+---
+
+*GitCV represents the future of developer portfolio management - where your GitHub activity automatically creates and maintains a professional presence, freeing you to focus on what you do best: writing great code.*
