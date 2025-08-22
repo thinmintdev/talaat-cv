@@ -11,7 +11,7 @@ This is a **Full-Stack Personal Website** featuring CV, Portfolio, and Blog func
 ### Development
 ```bash
 pnpm dev          # Start development server on http://localhost:3000
-pnpm build        # Create production build
+pnpm build        # Create production build (includes image copying)
 pnpm start        # Start production server
 pnpm lint         # Run Biome linting checks
 pnpm lint:fix     # Run Biome linting with auto-fix
@@ -20,6 +20,12 @@ pnpm format:fix   # Format code with Biome
 pnpm check        # Run both linting and formatting checks
 pnpm check:fix    # Run both linting and formatting with auto-fix
 ```
+
+### Project Images
+Project images are automatically handled during the build process:
+- **Development**: Images in `content/projects/` are auto-detected by Contentlayer
+- **Production**: `prebuild` script copies images from `content/projects/` to `public/projects/`
+- **Deployment**: Images are properly served from the public directory
 
 ### Docker Deployment
 ```bash
