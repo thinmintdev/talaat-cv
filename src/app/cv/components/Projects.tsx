@@ -104,13 +104,21 @@ function ProjectCard({
         {thumbnail && (
           <div className="flex-shrink-0 w-20 print:w-16">
             <div className="aspect-[4/3] overflow-hidden rounded-sm bg-muted relative">
-              <Image
-                src={thumbnail}
-                alt={`${title} thumbnail`}
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 64px, 80px"
-              />
+              {thumbnail.endsWith('.svg') ? (
+                <img
+                  src={thumbnail}
+                  alt={`${title} thumbnail`}
+                  className="w-full h-full object-cover"
+                />
+              ) : (
+                <Image
+                  src={thumbnail}
+                  alt={`${title} thumbnail`}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 64px, 80px"
+                />
+              )}
             </div>
           </div>
         )}

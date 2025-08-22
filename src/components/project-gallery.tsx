@@ -119,13 +119,21 @@ export function ProjectGallery({
                     </div>
                   ) : (
                     <div className="relative aspect-[4/3]">
-                      <Image
-                        src={image.src}
-                        alt={image.alt}
-                        fill={true}
-                        className="object-cover transition-transform duration-300 group-hover:scale-105"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      />
+                      {image.filename.endsWith('.svg') ? (
+                        <img
+                          src={image.src}
+                          alt={image.alt}
+                          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                        />
+                      ) : (
+                        <Image
+                          src={image.src}
+                          alt={image.alt}
+                          fill={true}
+                          className="object-cover transition-transform duration-300 group-hover:scale-105"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        />
+                      )}
                       <div className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity">
                         <ZoomIn className="w-8 h-8 text-white" />
                       </div>
@@ -211,6 +219,12 @@ export function ProjectGallery({
                 autoPlay={true}
                 className="max-w-full max-h-full rounded-lg shadow-2xl"
               />
+            ) : images[selectedIndex].filename.endsWith('.svg') ? (
+              <img
+                src={images[selectedIndex].src}
+                alt={images[selectedIndex].alt}
+                className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+              />
             ) : (
               <Image
                 src={images[selectedIndex].src}
@@ -255,6 +269,12 @@ export function ProjectGallery({
                       src={image.src}
                       className="w-full h-full object-cover"
                       muted={true}
+                    />
+                  ) : image.filename.endsWith('.svg') ? (
+                    <img
+                      src={image.src}
+                      alt={image.alt}
+                      className="w-full h-full object-cover"
                     />
                   ) : (
                     <Image
