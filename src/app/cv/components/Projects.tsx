@@ -103,12 +103,12 @@ function ProjectCard({
       <div className="flex gap-3 h-full">
         {thumbnail && (
           <div className="flex-shrink-0 w-20 print:w-16">
-            <div className="aspect-[4/3] overflow-hidden rounded-sm bg-muted relative">
+            <div className="aspect-[4/3] overflow-hidden rounded-sm bg-muted relative p-2">
               {thumbnail.endsWith('.svg') ? (
                 <img
                   src={thumbnail}
                   alt={`${title} thumbnail`}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                 />
               ) : (
                 <Image

@@ -118,12 +118,12 @@ export function ProjectGallery({
                       </div>
                     </div>
                   ) : (
-                    <div className="relative aspect-[4/3]">
+                    <div className="relative aspect-[4/3] p-3">
                       {image.filename.endsWith('.svg') ? (
                         <img
                           src={image.src}
                           alt={image.alt}
-                          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                          className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
                         />
                       ) : (
                         <Image

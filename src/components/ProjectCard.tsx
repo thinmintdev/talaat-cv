@@ -62,29 +62,45 @@ export function ProjectCard({
             <div className="flex-shrink-0">
               <div className="flex flex-col gap-3">
                 {thumbnail && (
-                  <div className="w-32 sm:w-36 md:w-[150px] aspect-[4/3] overflow-hidden rounded-lg bg-gray-200">
-                    <Image
-                      src={thumbnail}
-                      alt={`${title} thumbnail`}
-                      width={400}
-                      height={300}
-                      className="h-full w-full object-cover"
-                      loading="lazy"
-                      sizes="(max-width: 640px) 128px, (max-width: 768px) 144px, 150px"
-                    />
+                  <div className="w-32 sm:w-36 md:w-[150px] aspect-[4/3] overflow-hidden rounded-lg bg-gray-200 p-3">
+                    {thumbnail.endsWith('.svg') ? (
+                      <img
+                        src={thumbnail}
+                        alt={`${title} thumbnail`}
+                        className="h-full w-full object-contain"
+                      />
+                    ) : (
+                      <Image
+                        src={thumbnail}
+                        alt={`${title} thumbnail`}
+                        width={400}
+                        height={300}
+                        className="h-full w-full object-cover"
+                        loading="lazy"
+                        sizes="(max-width: 640px) 128px, (max-width: 768px) 144px, 150px"
+                      />
+                    )}
                   </div>
                 )}
                 {secondImage && (
-                  <div className="w-32 sm:w-36 md:w-[150px] aspect-[4/3] overflow-hidden rounded-lg bg-gray-200">
-                    <Image
-                      src={secondImage}
-                      alt={`${title} second image`}
-                      width={400}
-                      height={300}
-                      className="h-full w-full object-cover"
-                      loading="lazy"
-                      sizes="(max-width: 640px) 128px, (max-width: 768px) 144px, 150px"
-                    />
+                  <div className="w-32 sm:w-36 md:w-[150px] aspect-[4/3] overflow-hidden rounded-lg bg-gray-200 p-3">
+                    {secondImage.endsWith('.svg') ? (
+                      <img
+                        src={secondImage}
+                        alt={`${title} second image`}
+                        className="h-full w-full object-contain"
+                      />
+                    ) : (
+                      <Image
+                        src={secondImage}
+                        alt={`${title} second image`}
+                        width={400}
+                        height={300}
+                        className="h-full w-full object-cover"
+                        loading="lazy"
+                        sizes="(max-width: 640px) 128px, (max-width: 768px) 144px, 150px"
+                      />
+                    )}
                   </div>
                 )}
               </div>
