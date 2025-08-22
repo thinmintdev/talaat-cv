@@ -1,8 +1,12 @@
 import { ExpandableProjectCard } from "@/components/ExpandableProjectCard";
 import { TypingTitle } from "@/components/TypingTitle";
 import { HOMEPAGE_DATA } from "@/data/homepage-data";
+import { getAllProjects } from "@/lib/projects";
 
 export function ProjectsSection() {
+  // Get projects from new data layer (combines MDX + legacy)
+  const projects = getAllProjects();
+
   return (
     <section id="projects" className={HOMEPAGE_DATA.layout.sections.padding}>
       <div>
@@ -26,14 +30,14 @@ export function ProjectsSection() {
 
           <div className={HOMEPAGE_DATA.layout.sections.contentColumn}>
             <div className="space-y-8">
-              {HOMEPAGE_DATA.projects.list.map((project) => (
+              {projects.map((project) => (
                 <ExpandableProjectCard
-                  key={project.title}
+                  key={project.slug}
                   title={project.title}
                   category={project.category}
                   description={project.description}
                   techStack={project.techStack}
-                  link={project.link}
+                  link={project.primaryLink}
                   thumbnail={project.thumbnail}
                   secondImage={project.secondImage}
                 />

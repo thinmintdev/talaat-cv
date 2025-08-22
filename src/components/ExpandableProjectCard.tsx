@@ -14,7 +14,7 @@ interface ExpandableProjectCardProps {
   category?: string;
   description: readonly string[];
   techStack?: readonly string[];
-  link?: ProjectLink;
+  link?: ProjectLink | null;
   thumbnail?: string;
   secondImage?: string;
 }
@@ -212,33 +212,33 @@ export function ExpandableProjectCard({
           {/* Backdrop */}
           <div className="absolute inset-0 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200" />
 
-          {/* Modal Content */}
+          {/* Modal Content - Made Larger */}
           <div
-            className="relative bg-white rounded-2xl shadow-2xl w-full max-w-6xl max-h-[90vh] overflow-hidden animate-in zoom-in-95 slide-in-from-bottom-4 duration-300"
+            className="relative bg-white rounded-2xl shadow-2xl w-full max-w-7xl max-h-[95vh] overflow-hidden animate-in zoom-in-95 slide-in-from-bottom-4 duration-300"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}
             <button
               type="button"
               onClick={() => setIsExpanded(false)}
-              className="absolute top-4 right-4 z-20 w-10 h-10 flex items-center justify-center rounded-full bg-white/90 hover:bg-white shadow-lg transition-all duration-200 hover:scale-110"
+              className="absolute top-6 right-6 z-20 w-12 h-12 flex items-center justify-center rounded-full bg-white/90 hover:bg-white shadow-lg transition-all duration-200 hover:scale-110"
               aria-label="Close modal"
             >
-              <X className="w-5 h-5 text-gray-600" />
+              <X className="w-6 h-6 text-gray-600" />
             </button>
 
             <div className="flex flex-col lg:flex-row h-full">
-              {/* Image Gallery */}
+              {/* Image Gallery - Larger */}
               {images.length > 0 && (
-                <div className="lg:w-1/2 relative bg-gray-50 flex items-center justify-center min-h-[300px] lg:min-h-[500px]">
-                  <div className="relative w-full h-full flex items-center justify-center p-4">
+                <div className="lg:w-3/5 relative bg-gray-50 flex items-center justify-center min-h-[400px] lg:min-h-[600px]">
+                  <div className="relative w-full h-full flex items-center justify-center p-6">
                     <Image
                       src={images[currentImageIndex]}
                       alt={`${title} - Image ${currentImageIndex + 1}`}
-                      width={800}
-                      height={600}
+                      width={1200}
+                      height={800}
                       className="max-w-full max-h-full object-contain rounded-lg shadow-lg transition-all duration-300"
-                      quality={90}
+                      quality={95}
                     />
 
                     {/* Image Navigation */}
@@ -247,31 +247,31 @@ export function ExpandableProjectCard({
                         <button
                           type="button"
                           onClick={() => handleImageNavigation("prev")}
-                          className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full bg-white/90 hover:bg-white shadow-lg transition-all duration-200 hover:scale-110"
+                          className="absolute left-6 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center rounded-full bg-white/90 hover:bg-white shadow-lg transition-all duration-200 hover:scale-110"
                           aria-label="Previous image"
                         >
-                          <ChevronLeft className="w-5 h-5 text-gray-600" />
+                          <ChevronLeft className="w-6 h-6 text-gray-600" />
                         </button>
 
                         <button
                           type="button"
                           onClick={() => handleImageNavigation("next")}
-                          className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full bg-white/90 hover:bg-white shadow-lg transition-all duration-200 hover:scale-110"
+                          className="absolute right-6 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center rounded-full bg-white/90 hover:bg-white shadow-lg transition-all duration-200 hover:scale-110"
                           aria-label="Next image"
                         >
-                          <ChevronRight className="w-5 h-5 text-gray-600" />
+                          <ChevronRight className="w-6 h-6 text-gray-600" />
                         </button>
 
                         {/* Image Dots Indicator */}
-                        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+                        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3">
                           {images.map((_, index) => (
                             <button
                               key={`image-dot-${index}`}
                               type="button"
                               onClick={() => setCurrentImageIndex(index)}
-                              className={`w-2 h-2 rounded-full transition-all duration-200 ${
+                              className={`w-3 h-3 rounded-full transition-all duration-200 ${
                                 index === currentImageIndex
-                                  ? "bg-white scale-125"
+                                  ? "bg-white scale-125 shadow-lg"
                                   : "bg-white/60 hover:bg-white/80"
                               }`}
                               aria-label={`Go to image ${index + 1}`}
@@ -284,80 +284,77 @@ export function ExpandableProjectCard({
                 </div>
               )}
 
-              {/* Content */}
+              {/* Content - Reorganized Layout */}
               <div
-                className={`${images.length > 0 ? "lg:w-1/2" : "w-full"} p-6 lg:p-8 overflow-y-auto`}
+                className={`${images.length > 0 ? "lg:w-2/5" : "w-full"} relative flex flex-col`}
               >
-                <div className="space-y-6">
-                  {/* Header */}
-                  <div>
-                    <div className="flex items-center gap-3 mb-3">
+                <div className="flex-1 p-6 lg:p-8 overflow-y-auto">
+                  <div className="space-y-6">
+                    {/* Category & Title */}
+                    <div>
                       {category && (
-                        <span className="px-3 py-1 bg-[#d4e6ff] text-gray-900 rounded-lg text-sm font-medium">
+                        <span className="inline-block px-4 py-2 bg-[#d4e6ff] text-gray-900 rounded-lg text-sm font-medium mb-4">
                           {category}
                         </span>
                       )}
+                      <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 leading-tight">
+                        {title}
+                      </h2>
                     </div>
-                    <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-                      {title}
-                    </h2>
-                  </div>
 
-                  {/* Description */}
-                  <div className="space-y-4">
-                    <h3 className="text-lg font-semibold text-gray-900">
-                      Project Details
-                    </h3>
-                    <ul className="space-y-3">
-                      {description.map((line, i) => (
-                        <li
-                          key={`${title}-detail-${i}`}
-                          className="flex items-start gap-3"
-                        >
-                          <span className="inline-block w-2 h-2 mt-2.5 rounded-full bg-blue-600 flex-shrink-0" />
-                          <span className="text-gray-700 leading-relaxed">
-                            {line}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {/* Tech Stack */}
-                  {techStack && techStack.length > 0 && (
+                    {/* Description */}
                     <div className="space-y-4">
-                      <h3 className="text-lg font-semibold text-gray-900">
-                        Technologies Used
-                      </h3>
-                      <div className="flex flex-wrap gap-2">
-                        {techStack.map((tech) => (
-                          <span
-                            key={tech}
-                            className="flex items-center gap-2 px-4 py-2 bg-gray-50 border border-gray-200 rounded-lg shadow-sm text-sm text-gray-900 hover:bg-gray-100 transition-colors duration-200"
+                      <ul className="space-y-4">
+                        {description.map((line, i) => (
+                          <li
+                            key={`${title}-detail-${i}`}
+                            className="flex items-start gap-3"
                           >
-                            <span className="w-1.5 h-1.5 rounded-full bg-blue-600" />
-                            {tech}
-                          </span>
+                            <span className="inline-block w-2.5 h-2.5 mt-2.5 rounded-full bg-blue-600 flex-shrink-0" />
+                            <span className="text-gray-700 leading-relaxed text-lg">
+                              {line}
+                            </span>
+                          </li>
                         ))}
-                      </div>
+                      </ul>
                     </div>
-                  )}
 
-                  {/* External Link */}
-                  {hasLink && (
-                    <div>
-                      <a
-                        href={link.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all duration-200 hover:scale-105 focus:ring-4 focus:ring-blue-200"
-                      >
-                        <ExternalLink className="w-4 h-4" />
-                        {link.label || "View Project"}
-                      </a>
-                    </div>
-                  )}
+                    {/* Technologies/Tools Tags */}
+                    {techStack && techStack.length > 0 && (
+                      <div className="space-y-4">
+                        <h3 className="text-xl font-semibold text-gray-900 border-b border-gray-200 pb-2">
+                          Tools & Technologies
+                        </h3>
+                        <div className="flex flex-wrap gap-3">
+                          {techStack.map((tech) => (
+                            <span
+                              key={tech}
+                              className="flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-gray-50 to-gray-100 border border-gray-200 rounded-lg shadow-sm text-sm font-medium text-gray-900 hover:from-gray-100 hover:to-gray-200 transition-all duration-200"
+                            >
+                              <span className="w-2 h-2 rounded-full bg-blue-600" />
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
                 </div>
+
+                {/* Demo Button - Bottom Right */}
+                {hasLink && (
+                  <div className="p-6 lg:p-8 pt-0 flex justify-end">
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-3 px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold text-lg rounded-xl transition-all duration-200 hover:scale-105 hover:shadow-lg focus:ring-4 focus:ring-blue-200 focus:outline-none"
+                    >
+                      <ExternalLink className="w-5 h-5" />
+                      {link.label || "View Demo"}
+                    </a>
+                  </div>
+                )}
               </div>
             </div>
           </div>

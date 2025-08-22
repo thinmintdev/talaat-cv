@@ -76,8 +76,13 @@ To add new sections to the CV or update personal information, modify the `RESUME
 #### Blog Posts  
 Create new MDX files in the `content/blog/` directory. Each post requires frontmatter with title, publishedAt, summary, tags, and optional featured flag.
 
-#### Portfolio Projects
-Portfolio projects are managed through the `RESUME_DATA.projects` array in `src/data/resume-data.tsx`. The portfolio page automatically displays all projects with proper categorization.
+#### Portfolio Projects - **SIMPLIFIED WORKFLOW**
+1. **Create project folder**: `content/projects/project-name/`
+2. **Add images directly**: Place all images in the project folder (auto-detected)
+3. **Create `index.mdx`** with frontmatter (no manual thumbnail/image paths needed)
+4. **First image becomes thumbnail automatically**
+
+See `content/projects/README.md` for detailed instructions and examples.
 
 ### Features
 

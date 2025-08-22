@@ -4,6 +4,7 @@ import type React from "react";
 // Import all tech icons
 import {
   SiAmazon,
+  SiApache,
   SiAstro,
   SiCss3,
   SiDocker,
@@ -19,8 +20,10 @@ import {
   SiLaravel,
   SiLinux,
   SiMongodb,
+  SiMysql,
   SiNetlify,
   SiNextdotjs,
+  SiNginx,
   SiNodedotjs,
   SiPhp,
   SiPostgresql,
@@ -28,16 +31,18 @@ import {
   SiPrisma,
   SiPython,
   SiReact,
+  SiRedis,
   SiSass,
   SiSupabase,
   SiTailwindcss,
   SiTypescript,
+  SiUbuntu,
   SiVercel,
   SiVuedotjs,
   SiWordpress,
 } from "react-icons/si";
 import { TypingTitle } from "@/components/TypingTitle";
-
+import { HOMEPAGE_DATA } from "@/data/homepage-data";
 interface Technology {
   name: string;
   icon: string;
@@ -89,16 +94,21 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   SiNodedotjs,
   SiExpress,
   SiPostgresql,
+  SiMysql,
   SiMongodb,
+  SiRedis,
   SiSupabase,
   SiPrisma,
   SiGit,
+  SiGithub,
   SiDocker,
   SiVercel,
   SiNetlify,
-  SiGithub,
   SiFigma,
   SiLinux,
+  SiUbuntu,
+  SiNginx,
+  SiApache,
   SiWordpress,
   SiPython,
   SiPhp,
@@ -232,7 +242,6 @@ export function CombinedSkills({
                 <h3 className="text-xl font-bold text-gray-800 mb-1">
                   {slidingSkills.title}
                 </h3>
-                <div className="w-[75px] h-[5px] mt-2 mb-5 rounded-full bg-blue-700" />
                 <div className="space-y-2">
                   {slidingSkills.rows.map((row) => (
                     <SlidingTechRow key={row.id} row={row} />
@@ -242,10 +251,6 @@ export function CombinedSkills({
 
               {/* Right Side: Platform Proficiency */}
               <div>
-                <h3 className="text-xl font-bold text-gray-800 mb-1">
-                  Proficiency
-                </h3>
-                <div className="w-[75px] h-[5px] mt-2 mb-5 rounded-full bg-blue-700" />
                 <div>
                   {platformProficiency.technologies.map((tech) => (
                     <ProficiencyBar key={tech.name} tech={tech} />
