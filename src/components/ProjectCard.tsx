@@ -57,10 +57,10 @@ export function ProjectCard({
           </a>
         )}
 
-        <div className="flex gap-4 sm:gap-6">
+        <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
           {(thumbnail || secondImage) && (
-            <div className="flex-shrink-0">
-              <div className="flex flex-col gap-3">
+            <div className="flex-shrink-0 order-first sm:order-none">
+              <div className="flex flex-row sm:flex-col gap-3 justify-center sm:justify-start">
                 {thumbnail && (
                   <div className="w-32 sm:w-36 md:w-[150px] aspect-[4/3] overflow-hidden rounded-lg bg-gray-200 p-3">
                     {thumbnail.endsWith('.svg') ? (
@@ -107,7 +107,7 @@ export function ProjectCard({
             </div>
           )}
 
-          <div className="flex-1 space-y-4">
+          <div className="flex-1 space-y-4 order-last sm:order-none">
             <div className="flex items-center gap-2 flex-wrap">
               {category && (
                 <span className="px-2.5 py-0.5 bg-[#d4e6ff] text-gray-900 rounded-md text-xs font-medium">

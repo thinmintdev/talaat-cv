@@ -115,41 +115,57 @@ export function ExpandableProjectCard({
             </a>
           )}
 
-          <div className="flex gap-4 sm:gap-6">
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
             {(thumbnail || secondImage) && (
-              <div className="flex-shrink-0">
-                <div className="flex flex-col gap-3">
+              <div className="w-full sm:flex-shrink-0 sm:w-auto order-first sm:order-none">
+                <div className="flex flex-row sm:flex-col gap-3 justify-center sm:justify-start">
                   {thumbnail && (
-                    <div className="w-32 sm:w-36 md:w-[150px] aspect-[4/3] overflow-hidden rounded-lg bg-gray-200">
-                      <Image
-                        src={thumbnail}
-                        alt={`${title} thumbnail`}
-                        width={400}
-                        height={300}
-                        className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                        loading="lazy"
-                        sizes="(max-width: 640px) 128px, (max-width: 768px) 144px, 150px"
-                      />
+                    <div className="w-full sm:w-32 sm:w-36 md:w-[150px] aspect-[4/3] overflow-hidden rounded-lg bg-gray-200 p-3">
+                      {thumbnail.endsWith('.svg') ? (
+                        <img
+                          src={thumbnail}
+                          alt={`${title} thumbnail`}
+                          className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-105"
+                        />
+                      ) : (
+                        <Image
+                          src={thumbnail}
+                          alt={`${title} thumbnail`}
+                          width={400}
+                          height={300}
+                          className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                          loading="lazy"
+                          sizes="(max-width: 640px) 100vw, (max-width: 768px) 144px, 150px"
+                        />
+                      )}
                     </div>
                   )}
-                  {secondImage && (
-                    <div className="w-32 sm:w-36 md:w-[150px] aspect-[4/3] overflow-hidden rounded-lg bg-gray-200">
-                      <Image
-                        src={secondImage}
-                        alt={`${title} second image`}
-                        width={400}
-                        height={300}
-                        className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                        loading="lazy"
-                        sizes="(max-width: 640px) 128px, (max-width: 768px) 144px, 150px"
-                      />
+                  {secondImage && !thumbnail && (
+                    <div className="w-full sm:w-32 sm:w-36 md:w-[150px] aspect-[4/3] overflow-hidden rounded-lg bg-gray-200 p-3">
+                      {secondImage.endsWith('.svg') ? (
+                        <img
+                          src={secondImage}
+                          alt={`${title} second image`}
+                          className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-105"
+                        />
+                      ) : (
+                        <Image
+                          src={secondImage}
+                          alt={`${title} second image`}
+                          width={400}
+                          height={300}
+                          className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                          loading="lazy"
+                          sizes="(max-width: 640px) 100vw, (max-width: 768px) 144px, 150px"
+                        />
+                      )}
                     </div>
                   )}
                 </div>
               </div>
             )}
 
-            <div className="flex-1 space-y-4">
+            <div className="flex-1 space-y-4 order-last sm:order-none">
               <div className="flex items-center gap-2 flex-wrap">
                 {category && (
                   <span className="px-2.5 py-0.5 bg-[#d4e6ff] text-gray-900 rounded-md text-xs font-medium">
@@ -232,14 +248,22 @@ export function ExpandableProjectCard({
               {images.length > 0 && (
                 <div className="lg:w-3/5 relative bg-gray-50 flex items-center justify-center min-h-[400px] lg:min-h-[600px]">
                   <div className="relative w-full h-full flex items-center justify-center p-6">
-                    <Image
-                      src={images[currentImageIndex]}
-                      alt={`${title} - Image ${currentImageIndex + 1}`}
-                      width={1200}
-                      height={800}
-                      className="max-w-full max-h-full object-contain rounded-lg shadow-lg transition-all duration-300"
-                      quality={95}
-                    />
+                    {images[currentImageIndex].endsWith('.svg') ? (
+                      <img
+                        src={images[currentImageIndex]}
+                        alt={`${title} - Image ${currentImageIndex + 1}`}
+                        className="max-w-full max-h-full object-contain rounded-lg shadow-lg transition-all duration-300"
+                      />
+                    ) : (
+                      <Image
+                        src={images[currentImageIndex]}
+                        alt={`${title} - Image ${currentImageIndex + 1}`}
+                        width={1200}
+                        height={800}
+                        className="max-w-full max-h-full object-contain rounded-lg shadow-lg transition-all duration-300"
+                        quality={95}
+                      />
+                    )}
 
                     {/* Image Navigation */}
                     {hasMultipleImages && (
