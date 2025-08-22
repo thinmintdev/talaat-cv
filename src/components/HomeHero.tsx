@@ -22,8 +22,8 @@ export const HomeHero = () => {
       let currentText = "";
 
       // Type each letter individually
-      for (let i = 0; i < nameLetters.length; i++) {
-        currentText += nameLetters[i];
+      for (const letter of nameLetters) {
+        currentText += letter;
         setDisplayText(currentText);
         await new Promise((resolve) => setTimeout(resolve, timing.letterDelay));
       }
@@ -33,12 +33,11 @@ export const HomeHero = () => {
 
       // Type .DEV letter by letter
       let currentDevText = "";
-      for (let i = 0; i < devLetters.length; i++) {
-        currentDevText += devLetters[i];
+      for (const letter of devLetters) {
+        currentDevText += letter;
         setDevText(currentDevText);
         await new Promise((resolve) => setTimeout(resolve, timing.letterDelay));
       }
-      3;
       // Brief pause after .dev typing completes
       await new Promise((resolve) =>
         setTimeout(resolve, timing.finalCursorDelay)
