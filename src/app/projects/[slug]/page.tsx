@@ -201,7 +201,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           {project.gallery.length > 0 && (
             <div className="mb-10">
               <h2 className="text-2xl font-semibold mb-6">Project Gallery</h2>
-              <ProjectGallery images={project.gallery} />
+              <ProjectGallery images={project.gallery} title={project.title} />
             </div>
           )}
 
