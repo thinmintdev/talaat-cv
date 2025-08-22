@@ -40,6 +40,7 @@ export type Project = {
   links: any
   featured: boolean
   showDetailPage: boolean
+  draft: boolean
   publishedAt: IsoDateTimeString
   updatedAt?: IsoDateTimeString | undefined
   tags: string[]

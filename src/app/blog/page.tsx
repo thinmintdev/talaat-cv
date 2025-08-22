@@ -22,12 +22,7 @@ export default function BlogPage() {
   return (
     <>
       {/* Blog Structured Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(blogStructuredData),
-        }}
-      />
+  <script type="application/ld+json">{JSON.stringify(blogStructuredData)}</script>
       <BlogPageClient posts={posts} />
     </>
   );

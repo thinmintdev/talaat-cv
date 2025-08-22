@@ -38,7 +38,7 @@ export const HomeHero = () => {
         setDevText(currentDevText);
         await new Promise((resolve) => setTimeout(resolve, timing.letterDelay));
       }
-3
+      3;
       // Brief pause after .dev typing completes
       await new Promise((resolve) =>
         setTimeout(resolve, timing.finalCursorDelay)
@@ -46,12 +46,10 @@ export const HomeHero = () => {
 
       // Show final cursor and start services animation
       setShowFinalCursor(true);
-      
+
       // Additional delay before services start loading
-      await new Promise((resolve) =>
-        setTimeout(resolve, 300)
-      );
-      
+      await new Promise((resolve) => setTimeout(resolve, 300));
+
       setShowServices(true);
     };
 

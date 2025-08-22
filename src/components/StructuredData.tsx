@@ -9,18 +9,8 @@ export function StructuredData() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(personStructuredData),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(businessStructuredData),
-        }}
-      />
+  <script type="application/ld+json">{JSON.stringify(personStructuredData)}</script>
+  <script type="application/ld+json">{JSON.stringify(businessStructuredData)}</script>
     </>
   );
 }

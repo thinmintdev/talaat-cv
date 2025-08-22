@@ -43,6 +43,7 @@ import {
 } from "react-icons/si";
 import { TypingTitle } from "@/components/TypingTitle";
 import { HOMEPAGE_DATA } from "@/data/homepage-data";
+
 interface Technology {
   name: string;
   icon: string;

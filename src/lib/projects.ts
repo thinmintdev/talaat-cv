@@ -48,8 +48,10 @@ export interface EnhancedProject {
 
 // Main function to get all projects
 export function getAllProjects(): EnhancedProject[] {
-  // Get MDX projects
-  const mdxProjects = allProjects.map(transformMDXProject);
+  // Get MDX projects (filter out drafts)
+  const mdxProjects = allProjects
+    .filter((project) => !project.draft)
+    .map(transformMDXProject);
 
   // Get legacy projects that don't have MDX equivalents
   const legacyProjects = RESUME_DATA.projects
@@ -73,7 +75,9 @@ export function getAllProjects(): EnhancedProject[] {
 
 // Get single project by slug
 export function getProjectBySlug(slug: string): EnhancedProject | null {
-  const mdxProject = allProjects.find((p) => p.projectSlug === slug);
+  const mdxProject = allProjects
+    .filter((p) => !p.draft)
+    .find((p) => p.projectSlug === slug);
 
   if (mdxProject) {
     return transformMDXProject(mdxProject);
@@ -89,7 +93,9 @@ export function getProjectBySlug(slug: string): EnhancedProject | null {
 
 // Check if project has detail page
 export function hasDetailPage(slug: string): boolean {
-  const mdxProject = allProjects.find((p) => p.projectSlug === slug);
+  const mdxProject = allProjects
+    .filter((p) => !p.draft)
+    .find((p) => p.projectSlug === slug);
   return mdxProject ? mdxProject.showDetailPage : false;
 }
 

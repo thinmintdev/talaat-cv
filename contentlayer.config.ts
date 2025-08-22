@@ -65,6 +65,7 @@ export const Project = defineDocumentType(() => ({
     // Display Options
     featured: { type: 'boolean', default: false },
     showDetailPage: { type: 'boolean', default: true },
+    draft: { type: 'boolean', default: false },
     
     // Metadata
     publishedAt: { type: 'date', required: true },
@@ -122,8 +123,9 @@ export const Project = defineDocumentType(() => ({
         const primaryLink = doc.links?.find((link: any) => link.primary) || doc.links?.[0];
         if (!primaryLink) return null;
         
+        const projectSlug = doc._raw.sourceFileDir.split('/').pop();
         return {
-          href: primaryLink.type === 'internal' ? `/projects/${doc.projectSlug}` : primaryLink.href,
+          href: primaryLink.type === 'internal' ? `/projects/${projectSlug}` : primaryLink.href,
           label: primaryLink.label,
           type: primaryLink.type
         };
