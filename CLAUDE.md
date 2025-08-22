@@ -9,9 +9,10 @@ This is a **Full-Stack Personal Website** featuring CV, Portfolio, and Blog func
 ## Commands
 
 ### Development
+
 ```bash
 pnpm dev          # Start development server on http://localhost:3000
-pnpm build        # Create production build
+pnpm build        # Create production build (includes image copying)
 pnpm start        # Start production server
 pnpm lint         # Run Biome linting checks
 pnpm lint:fix     # Run Biome linting with auto-fix
@@ -21,7 +22,15 @@ pnpm check        # Run both linting and formatting checks
 pnpm check:fix    # Run both linting and formatting with auto-fix
 ```
 
+### Project Images
+
+Project images are automatically handled during the build process:
+- **Development**: Images in `content/projects/` are auto-detected by Contentlayer
+- **Production**: `prebuild` script copies images from `content/projects/` to `public/projects/`
+- **Deployment**: Images are properly served from the public directory
+
 ### Docker Deployment
+
 ```bash
 docker compose build     # Build the container
 docker compose up -d     # Run the container
@@ -33,6 +42,7 @@ docker compose down      # Stop the container
 ## Architecture
 
 ### Project Structure
+
 - **`/src/app/`** - Next.js App Router pages and layouts
   - **`/blog/`** - Blog functionality with MDX content
   - **`/portfolio/`** - Portfolio showcase page
@@ -45,6 +55,7 @@ docker compose down      # Stop the container
 - **`/.contentlayer/`** - Generated blog content (auto-generated)
 
 ### Key Technologies
+
 - **Framework**: Next.js 14 with App Router
 - **Language**: TypeScript with decorators enabled
 - **Styling**: Tailwind CSS with custom theme extensions
@@ -56,6 +67,7 @@ docker compose down      # Stop the container
 - **Print Optimization**: Custom print styles for CV functionality
 
 ### Important Files
+
 - **`src/data/resume-data.tsx`** - Main configuration file containing all personal data (CV, portfolio projects, contact info)
 - **`src/app/page.tsx`** - Main CV/resume page
 - **`src/app/portfolio/page.tsx`** - Portfolio showcase page
@@ -71,12 +83,14 @@ docker compose down      # Stop the container
 ### Adding New Content
 
 #### CV/Resume Data
+
 To add new sections to the CV or update personal information, modify the `RESUME_DATA` object in `src/data/resume-data.tsx`. This single configuration file controls all personal data across the site.
 
 #### Blog Posts  
 Create new MDX files in the `content/blog/` directory. Each post requires frontmatter with title, publishedAt, summary, tags, and optional featured flag.
 
 #### Portfolio Projects - **SIMPLIFIED WORKFLOW**
+
 1. **Create project folder**: `content/projects/project-name/`
 2. **Add images directly**: Place all images in the project folder (auto-detected)
 3. **Create `index.mdx`** with frontmatter (no manual thumbnail/image paths needed)
@@ -87,36 +101,43 @@ See `content/projects/README.md` for detailed instructions and examples.
 ### Features
 
 #### Multi-Section Navigation
+
 - **CV** (`/`) - Professional resume/CV display
 - **Portfolio** (`/portfolio`) - Project showcase with tech stack details  
 - **Blog** (`/blog`) - Technical blog with MDX support
 - **Command Palette** (Cmd+K) - Quick navigation between sections
 
 #### GraphQL API
+
 The app exposes a GraphQL endpoint at `/graphql` that serves all personal data in a structured format. This enables integration with other applications and provides a clean API for the data.
 
 #### Print Optimization
+
 The CV page includes specialized print styles to ensure professional appearance when printed. Print functionality is accessible via the header button or command palette.
 
 ### Content Management
 
 #### Blog Configuration
+
 - Uses Contentlayer2 for processing MDX files
 - Automatic slug generation and reading time calculation
 - Support for tags, featured posts, and draft status
 - Generated TypeScript types for type-safe content access
 
 #### Performance Features
+
 - Static generation for all pages where possible
 - Optimized images and assets
 - Code splitting and lazy loading
 - Minimal bundle size with tree shaking
 
 ### Code Quality
+
 - **Biome.js** for linting and formatting (not ESLint/Prettier)
 - **TypeScript** with strict type checking
 - **Error boundaries** for graceful error handling
 - **Consistent coding standards** enforced through tooling
 
 ### Deployment
+
 The app is optimized for Vercel deployment but supports any platform that handles Next.js applications. Docker support is included for containerized deployments.

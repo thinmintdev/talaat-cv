@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import {
   Card,
@@ -103,9 +104,11 @@ function ProjectCard({
         {thumbnail && (
           <div className="flex-shrink-0 w-20 print:w-16">
             <div className="aspect-[4/3] overflow-hidden rounded-sm bg-muted">
-              <img
+              <Image
                 src={thumbnail}
                 alt={`${title} thumbnail`}
+                width={160}
+                height={120}
                 className="h-full w-full object-cover"
                 loading="lazy"
               />

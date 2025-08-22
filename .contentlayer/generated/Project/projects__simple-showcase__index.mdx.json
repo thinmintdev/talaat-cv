@@ -26,7 +26,6 @@
   ],
   "featured": false,
   "showDetailPage": true,
-  "cardOnly": false,
   "publishedAt": "2024-01-10T00:00:00.000Z",
   "tags": [
     "simple",
@@ -62,17 +61,6 @@
     "label": "View Demo",
     "type": "demo"
   },
-  "legacyFormat": {
-    "title": "Simple Project Showcase",
-    "category": "Web Project",
-    "description": [
-      "A simple demonstration project showing how easy it is to create project pages with our new MDX system",
-      "Features automatic image gallery detection and responsive design"
-    ],
-    "techStack": [
-      "HTML",
-      "CSS",
-      "JavaScript"
-    ]
-  }
+  "thumbnail": null,
+  "secondImage": null
 }

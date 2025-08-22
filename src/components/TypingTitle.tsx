@@ -16,7 +16,7 @@ export const TypingTitle = ({
   className = "",
   speed = 150,
   delay = 500,
-  showCursor = false,
+  showCursor: _showCursor = false,
 }: TypingTitleProps) => {
   const { elementRef, isVisible } = useTypingAnimation({
     threshold: 0.3,
@@ -39,8 +39,8 @@ export const TypingTitle = ({
       let currentText = "";
 
       // Type each letter individually
-      for (let i = 0; i < text.length; i++) {
-        currentText += text[i];
+      for (const char of text) {
+        currentText += char;
         setDisplayText(currentText);
         await new Promise((resolve) => setTimeout(resolve, speed));
       }
