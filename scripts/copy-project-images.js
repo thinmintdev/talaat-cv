@@ -13,7 +13,11 @@ const PUBLIC_PROJECTS_DIR = path.join(process.cwd(), 'public', 'projects');
 function copyProjectImages() {
   console.log('🖼️  Copying project images for deployment...');
 
-  // Ensure public/projects directory exists
+  // Ensure public directory and public/projects directory exist
+  const PUBLIC_DIR = path.join(process.cwd(), 'public');
+  if (!fs.existsSync(PUBLIC_DIR)) {
+    fs.mkdirSync(PUBLIC_DIR, { recursive: true });
+  }
   if (!fs.existsSync(PUBLIC_PROJECTS_DIR)) {
     fs.mkdirSync(PUBLIC_PROJECTS_DIR, { recursive: true });
   }
