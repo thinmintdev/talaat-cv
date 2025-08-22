@@ -1,0 +1,79 @@
+{
+  "title": "thinmint.dev",
+  "subtitle": "A web agency who still get's 'it'.",
+  "description": [
+    "15 Years of web development  & design experience",
+    "Expertise in creating stunning, user-friendly websites",
+    "Passion for blending timeless design with modern technologies",
+    "Commitment to delivering high-quality digital experiences"
+  ],
+  "techStack": [
+    "HTML",
+    "CSS",
+    "JavaScript"
+  ],
+  "category": "Web Project",
+  "links": [
+    {
+      "type": "portfolio",
+      "label": "View Site",
+      "href": "https://thinmint.dev",
+      "primary": true
+    },
+    {
+      "type": "github",
+      "label": "GitHub",
+      "href": "https://github.com/thinmintdev"
+    }
+  ],
+  "featured": false,
+  "showDetailPage": true,
+  "draft": false,
+  "publishedAt": "2025-07-10T00:00:00.000Z",
+  "tags": [
+    "simple",
+    "clean",
+    "showcase"
+  ],
+  "body": {
+    "raw": "\n# thinmint.dev\n\nThis is a web agency who still get's \"it\". Timeless design and modern technologies combine flawlessly.\n\n## Highlights\n\n- 15 Years of web development & design experience\n- Expertise in creating stunning, user-friendly websites\n- Passion for blending timeless design with modern technologies\n- Commitment to delivering high-quality digital experiences\n\n## Skills\n\n- Web Development\n- UI/UX Design\n- Responsive Design\n- Performance Optimization\n",
+    "code": "var Component=(()=>{var g=Object.create;var s=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var u=Object.getPrototypeOf,b=Object.prototype.hasOwnProperty;var f=(i,e)=>()=>(e||i((e={exports:{}}).exports,e),e.exports),w=(i,e)=>{for(var t in e)s(i,t,{get:e[t],enumerable:!0})},o=(i,e,t,r)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let l of p(e))!b.call(i,l)&&l!==t&&s(i,l,{get:()=>e[l],enumerable:!(r=m(e,l))||r.enumerable});return i};var x=(i,e,t)=>(t=i!=null?g(u(i)):{},o(e||!i||!i.__esModule?s(t,\"default\",{value:i,enumerable:!0}):t,i)),y=i=>o(s({},\"__esModule\",{value:!0}),i);var c=f((D,h)=>{h.exports=_jsx_runtime});var _={};w(_,{default:()=>a,frontmatter:()=>v});var n=x(c()),v={title:\"thinmint.dev\",subtitle:\"A web agency who still get's 'it'.\",description:[\"15 Years of web development  & design experience\",\"Expertise in creating stunning, user-friendly websites\",\"Passion for blending timeless design with modern technologies\",\"Commitment to delivering high-quality digital experiences\"],techStack:[\"HTML\",\"CSS\",\"JavaScript\"],category:\"Web Project\",links:[{type:\"portfolio\",label:\"View Site\",href:\"https://thinmint.dev\",primary:!0},{type:\"github\",label:\"GitHub\",href:\"https://github.com/thinmintdev\"}],featured:!1,showDetailPage:!0,publishedAt:\"2025-07-10\",tags:[\"simple\",\"clean\",\"showcase\"]};function d(i){let e={h1:\"h1\",h2:\"h2\",li:\"li\",p:\"p\",ul:\"ul\",...i.components};return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.h1,{children:\"thinmint.dev\"}),`\n`,(0,n.jsx)(e.p,{children:`This is a web agency who still get's \"it\". Timeless design and modern technologies combine flawlessly.`}),`\n`,(0,n.jsx)(e.h2,{children:\"Highlights\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:\"15 Years of web development & design experience\"}),`\n`,(0,n.jsx)(e.li,{children:\"Expertise in creating stunning, user-friendly websites\"}),`\n`,(0,n.jsx)(e.li,{children:\"Passion for blending timeless design with modern technologies\"}),`\n`,(0,n.jsx)(e.li,{children:\"Commitment to delivering high-quality digital experiences\"}),`\n`]}),`\n`,(0,n.jsx)(e.h2,{children:\"Skills\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:\"Web Development\"}),`\n`,(0,n.jsx)(e.li,{children:\"UI/UX Design\"}),`\n`,(0,n.jsx)(e.li,{children:\"Responsive Design\"}),`\n`,(0,n.jsx)(e.li,{children:\"Performance Optimization\"}),`\n`]})]})}function a(i={}){let{wrapper:e}=i.components||{};return e?(0,n.jsx)(e,{...i,children:(0,n.jsx)(d,{...i})}):d(i)}return y(_);})();\n;return Component;"
+  },
+  "_id": "projects/thinmint/index.mdx",
+  "_raw": {
+    "sourceFilePath": "projects/thinmint/index.mdx",
+    "sourceFileName": "index.mdx",
+    "sourceFileDir": "projects/thinmint",
+    "contentType": "mdx",
+    "flattenedPath": "projects/thinmint"
+  },
+  "type": "Project",
+  "readingTime": {
+    "text": "1 min read",
+    "minutes": 0.33,
+    "time": 19800,
+    "words": 66
+  },
+  "slug": "thinmint",
+  "path": "projects/thinmint",
+  "filePath": "projects/thinmint/index.mdx",
+  "projectSlug": "thinmint",
+  "galleryImages": [
+    {
+      "src": "/projects/thinmint/thinmint.png",
+      "alt": "thinmint",
+      "filename": "thinmint.png",
+      "type": "image",
+      "order": 0,
+      "isHero": true,
+      "category": "general"
+    }
+  ],
+  "primaryLink": {
+    "href": "https://thinmint.dev",
+    "label": "View Site",
+    "type": "portfolio"
+  },
+  "thumbnail": "/projects/thinmint/thinmint.png",
+  "secondImage": null
+}

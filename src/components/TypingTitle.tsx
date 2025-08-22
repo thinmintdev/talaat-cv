@@ -16,7 +16,7 @@ export const TypingTitle = ({
   className = "",
   speed = 150,
   delay = 500,
-  showCursor = false,
+  showCursor: _showCursor = false,
 }: TypingTitleProps) => {
   const { elementRef, isVisible } = useTypingAnimation({
     threshold: 0.3,
@@ -39,8 +39,8 @@ export const TypingTitle = ({
       let currentText = "";
 
       // Type each letter individually
-      for (let i = 0; i < text.length; i++) {
-        currentText += text[i];
+      for (const char of text) {
+        currentText += char;
         setDisplayText(currentText);
         await new Promise((resolve) => setTimeout(resolve, speed));
       }
@@ -60,13 +60,13 @@ export const TypingTitle = ({
       {isVisible ? (
         <div className="relative inline-block">
           <span className={className}>{displayText}</span>
-          {/* Blue vertical cursor while typing */}
+          {/* Blue horizontal cursor while typing */}
           {displayText && displayText.length < text.length && (
-            <div className="inline-block w-[0.15em] h-[1em] bg-blue-700 ml-[0.05em] align-bottom animate-pulse" />
+            <div className="inline-block w-[0.35em] h-[0.05em] bg-blue-700 ml-[0.05em] align-bottom animate-pulse" />
           )}
-          {/* Final blinking vertical cursor */}
+          {/* Final blinking horizontal cursor */}
           {showFinalCursor && (
-            <div className="inline-block w-[0.15em] h-[1em] bg-blue-700 ml-[0.05em] align-bottom animate-pulse" />
+            <div className="inline-block w-[0.35em] h-[0.05em] bg-blue-700 ml-[0.05em] align-bottom animate-pulse" />
           )}
         </div>
       ) : (

@@ -178,10 +178,10 @@ export default async function PostPage({ params }: PostPageProps) {
           {/* Navigation */}
           <BlogNavigation currentSlug={post.slug} posts={allPosts} />
 
-          {/* Footer */}
-          <footer className="pt-8 border-t">
-            <div className="flex justify-center">
-              <Button variant="ghost" asChild={true}>
+          {/*          <BlogNavigation
+            currentSlug={post.slug}
+            posts={allPosts.filter((post) => !post.draft)}
+tton variant="ghost" asChild={true}>
                 <Link href="/blog" className="flex items-center gap-2">
                   <ArrowLeft className="h-4 w-4" />
                   Back to Blog

@@ -1,0 +1,84 @@
+{
+  "title": "Poll-It",
+  "subtitle": "Interactive Polling Platform",
+  "description": [
+    "Create and share interactive polls with real-time results",
+    "Modern, responsive interface with beautiful visualizations",
+    "Built with cutting-edge web technologies for optimal performance"
+  ],
+  "techStack": [
+    "React",
+    "Node.js",
+    "WebSocket",
+    "Chart.js",
+    "MongoDB",
+    "Express"
+  ],
+  "category": "Web Application",
+  "links": [
+    {
+      "type": "demo",
+      "label": "View Live Demo",
+      "href": "https://poll-it-demo.vercel.app",
+      "primary": true
+    },
+    {
+      "type": "github",
+      "label": "View Source",
+      "href": "https://github.com/talaat/poll-it"
+    }
+  ],
+  "featured": true,
+  "showDetailPage": true,
+  "draft": false,
+  "publishedAt": "2024-11-10T00:00:00.000Z",
+  "updatedAt": "2024-11-15T00:00:00.000Z",
+  "tags": [
+    "polling",
+    "real-time",
+    "interactive",
+    "web-app",
+    "data-visualization"
+  ],
+  "body": {
+    "raw": "\n# Poll-It - Interactive Polling Made Simple\n\nA modern, responsive polling platform that makes it easy to create, share, and analyze polls with beautiful real-time visualizations.\n\n## Key Features\n\n- **Real-Time Results**: See poll results update in real-time as votes come in\n- **Beautiful Visualizations**: Interactive charts and graphs powered by Chart.js\n- **Responsive Design**: Works perfectly on desktop, tablet, and mobile devices\n- **Easy Sharing**: Share polls with simple, clean URLs\n- **Analytics Dashboard**: Detailed analytics and insights for poll creators\n\n## Technical Highlights\n\nBuilt with a modern tech stack featuring React for the frontend, Node.js with Express for the backend, and WebSocket connections for real-time updates. MongoDB provides flexible data storage for polls and responses.\n\n## Use Cases\n\n- **Market Research**: Gather customer feedback and preferences\n- **Event Planning**: Let participants vote on dates, venues, or activities\n- **Team Decisions**: Make group decisions through democratic voting\n- **Educational**: Create interactive quizzes and surveys for students\n- **Community Engagement**: Engage audiences with interactive content\n\nThe platform prioritizes user experience with intuitive interfaces and instant feedback, making it perfect for both casual and professional polling needs.",
+    "code": "var Component=(()=>{var p=Object.create;var a=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var g=Object.getOwnPropertyNames;var m=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var v=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),b=(n,e)=>{for(var i in e)a(n,i,{get:e[i],enumerable:!0})},s=(n,e,i,l)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let r of g(e))!f.call(n,r)&&r!==i&&a(n,r,{get:()=>e[r],enumerable:!(l=u(e,r))||l.enumerable});return n};var w=(n,e,i)=>(i=n!=null?p(m(n)):{},s(e||!n||!n.__esModule?a(i,\"default\",{value:n,enumerable:!0}):i,n)),y=n=>s(a({},\"__esModule\",{value:!0}),n);var c=v((j,o)=>{o.exports=_jsx_runtime});var x={};b(x,{default:()=>d,frontmatter:()=>k});var t=w(c()),k={title:\"Poll-It\",subtitle:\"Interactive Polling Platform\",description:[\"Create and share interactive polls with real-time results\",\"Modern, responsive interface with beautiful visualizations\",\"Built with cutting-edge web technologies for optimal performance\"],techStack:[\"React\",\"Node.js\",\"WebSocket\",\"Chart.js\",\"MongoDB\",\"Express\"],category:\"Web Application\",links:[{type:\"demo\",label:\"View Live Demo\",href:\"https://poll-it-demo.vercel.app\",primary:!0},{type:\"github\",label:\"View Source\",href:\"https://github.com/talaat/poll-it\"}],featured:!0,showDetailPage:!0,publishedAt:\"2024-11-10\",updatedAt:\"2024-11-15\",tags:[\"polling\",\"real-time\",\"interactive\",\"web-app\",\"data-visualization\"]};function h(n){let e={h1:\"h1\",h2:\"h2\",li:\"li\",p:\"p\",strong:\"strong\",ul:\"ul\",...n.components};return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsx)(e.h1,{children:\"Poll-It - Interactive Polling Made Simple\"}),`\n`,(0,t.jsx)(e.p,{children:\"A modern, responsive polling platform that makes it easy to create, share, and analyze polls with beautiful real-time visualizations.\"}),`\n`,(0,t.jsx)(e.h2,{children:\"Key Features\"}),`\n`,(0,t.jsxs)(e.ul,{children:[`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.strong,{children:\"Real-Time Results\"}),\": See poll results update in real-time as votes come in\"]}),`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.strong,{children:\"Beautiful Visualizations\"}),\": Interactive charts and graphs powered by Chart.js\"]}),`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.strong,{children:\"Responsive Design\"}),\": Works perfectly on desktop, tablet, and mobile devices\"]}),`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.strong,{children:\"Easy Sharing\"}),\": Share polls with simple, clean URLs\"]}),`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.strong,{children:\"Analytics Dashboard\"}),\": Detailed analytics and insights for poll creators\"]}),`\n`]}),`\n`,(0,t.jsx)(e.h2,{children:\"Technical Highlights\"}),`\n`,(0,t.jsx)(e.p,{children:\"Built with a modern tech stack featuring React for the frontend, Node.js with Express for the backend, and WebSocket connections for real-time updates. MongoDB provides flexible data storage for polls and responses.\"}),`\n`,(0,t.jsx)(e.h2,{children:\"Use Cases\"}),`\n`,(0,t.jsxs)(e.ul,{children:[`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.strong,{children:\"Market Research\"}),\": Gather customer feedback and preferences\"]}),`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.strong,{children:\"Event Planning\"}),\": Let participants vote on dates, venues, or activities\"]}),`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.strong,{children:\"Team Decisions\"}),\": Make group decisions through democratic voting\"]}),`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.strong,{children:\"Educational\"}),\": Create interactive quizzes and surveys for students\"]}),`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.strong,{children:\"Community Engagement\"}),\": Engage audiences with interactive content\"]}),`\n`]}),`\n`,(0,t.jsx)(e.p,{children:\"The platform prioritizes user experience with intuitive interfaces and instant feedback, making it perfect for both casual and professional polling needs.\"})]})}function d(n={}){let{wrapper:e}=n.components||{};return e?(0,t.jsx)(e,{...n,children:(0,t.jsx)(h,{...n})}):h(n)}return y(x);})();\n;return Component;"
+  },
+  "_id": "projects/poll-it/index.mdx",
+  "_raw": {
+    "sourceFilePath": "projects/poll-it/index.mdx",
+    "sourceFileName": "index.mdx",
+    "sourceFileDir": "projects/poll-it",
+    "contentType": "mdx",
+    "flattenedPath": "projects/poll-it"
+  },
+  "type": "Project",
+  "readingTime": {
+    "text": "1 min read",
+    "minutes": 0.93,
+    "time": 55800,
+    "words": 186
+  },
+  "slug": "poll-it",
+  "path": "projects/poll-it",
+  "filePath": "projects/poll-it/index.mdx",
+  "projectSlug": "poll-it",
+  "galleryImages": [
+    {
+      "src": "/projects/poll-it/01-logo.svg",
+      "alt": " logo",
+      "filename": "01-logo.svg",
+      "type": "image",
+      "order": 0,
+      "isHero": true,
+      "category": "general"
+    }
+  ],
+  "primaryLink": {
+    "href": "https://poll-it-demo.vercel.app",
+    "label": "View Live Demo",
+    "type": "demo"
+  },
+  "thumbnail": "/projects/poll-it/01-logo.svg",
+  "secondImage": null
+}

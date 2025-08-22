@@ -1,0 +1,348 @@
+[
+  {
+    "title": "GitCV",
+    "subtitle": "GitHub-Based CV Generator",
+    "description": [
+      "Automatically generate and maintain professional CVs from GitHub activity",
+      "Eliminates the need to constantly update portfolios manually",
+      "Free blog and portfolio features with automatic maintenance"
+    ],
+    "techStack": [
+      "Next.js",
+      "TypeScript",
+      "GitHub API",
+      "Tailwind CSS",
+      "PDF Generation"
+    ],
+    "category": "Developer Tools",
+    "links": [
+      {
+        "type": "signup",
+        "label": "Sign up for early access",
+        "href": "https://gitcv.dev/early-access",
+        "primary": true
+      },
+      {
+        "type": "github",
+        "label": "GitHub",
+        "href": "https://github.com/talaat/gitcv"
+      }
+    ],
+    "featured": true,
+    "showDetailPage": true,
+    "draft": false,
+    "publishedAt": "2024-12-15T00:00:00.000Z",
+    "updatedAt": "2024-12-20T00:00:00.000Z",
+    "tags": [
+      "automation",
+      "portfolio",
+      "github",
+      "cv",
+      "developer-tools"
+    ],
+    "body": {
+      "raw": "\n# GitCV - Automated Developer Portfolios\n\nGitCV automatically generates and maintains professional CVs and portfolios from your GitHub activity. Never manually update your portfolio again.\n\n## Key Features\n\n- **Automatic CV Generation**: Creates professional CVs from your GitHub contributions\n- **Portfolio Maintenance**: Keeps your portfolio updated with your latest work\n- **Blog Integration**: Includes blog functionality for thought leadership\n- **PDF Export**: Generate PDF versions of your CV for applications\n- **Custom Domains**: Use your own domain for professional presentation\n\n## How It Works\n\nGitCV analyzes your GitHub activity, repositories, and contributions to automatically generate a comprehensive professional portfolio. The system updates in real-time as you push new code and create new repositories.\n\n## Perfect For\n\n- Developers seeking new opportunities\n- Freelancers building client trust\n- Open source contributors showcasing impact\n- Technical professionals maintaining online presence\n\nSign up for early access to be among the first to automate your professional portfolio.",
+      "code": "var Component=(()=>{var h=Object.create;var r=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var m=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var y=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),b=(n,e)=>{for(var o in e)r(n,o,{get:e[o],enumerable:!0})},l=(n,e,o,a)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let i of f(e))!g.call(n,i)&&i!==o&&r(n,i,{get:()=>e[i],enumerable:!(a=d(e,i))||a.enumerable});return n};var C=(n,e,o)=>(o=n!=null?h(m(n)):{},l(e||!n||!n.__esModule?r(o,\"default\",{value:n,enumerable:!0}):o,n)),G=n=>l(r({},\"__esModule\",{value:!0}),n);var c=y((D,s)=>{s.exports=_jsx_runtime});var w={};b(w,{default:()=>p,frontmatter:()=>v});var t=C(c()),v={title:\"GitCV\",subtitle:\"GitHub-Based CV Generator\",description:[\"Automatically generate and maintain professional CVs from GitHub activity\",\"Eliminates the need to constantly update portfolios manually\",\"Free blog and portfolio features with automatic maintenance\"],techStack:[\"Next.js\",\"TypeScript\",\"GitHub API\",\"Tailwind CSS\",\"PDF Generation\"],category:\"Developer Tools\",links:[{type:\"signup\",label:\"Sign up for early access\",href:\"https://gitcv.dev/early-access\",primary:!0},{type:\"github\",label:\"GitHub\",href:\"https://github.com/talaat/gitcv\"}],featured:!0,showDetailPage:!0,publishedAt:\"2024-12-15\",updatedAt:\"2024-12-20\",tags:[\"automation\",\"portfolio\",\"github\",\"cv\",\"developer-tools\"]};function u(n){let e={h1:\"h1\",h2:\"h2\",li:\"li\",p:\"p\",strong:\"strong\",ul:\"ul\",...n.components};return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsx)(e.h1,{children:\"GitCV - Automated Developer Portfolios\"}),`\n`,(0,t.jsx)(e.p,{children:\"GitCV automatically generates and maintains professional CVs and portfolios from your GitHub activity. Never manually update your portfolio again.\"}),`\n`,(0,t.jsx)(e.h2,{children:\"Key Features\"}),`\n`,(0,t.jsxs)(e.ul,{children:[`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.strong,{children:\"Automatic CV Generation\"}),\": Creates professional CVs from your GitHub contributions\"]}),`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.strong,{children:\"Portfolio Maintenance\"}),\": Keeps your portfolio updated with your latest work\"]}),`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.strong,{children:\"Blog Integration\"}),\": Includes blog functionality for thought leadership\"]}),`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.strong,{children:\"PDF Export\"}),\": Generate PDF versions of your CV for applications\"]}),`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.strong,{children:\"Custom Domains\"}),\": Use your own domain for professional presentation\"]}),`\n`]}),`\n`,(0,t.jsx)(e.h2,{children:\"How It Works\"}),`\n`,(0,t.jsx)(e.p,{children:\"GitCV analyzes your GitHub activity, repositories, and contributions to automatically generate a comprehensive professional portfolio. The system updates in real-time as you push new code and create new repositories.\"}),`\n`,(0,t.jsx)(e.h2,{children:\"Perfect For\"}),`\n`,(0,t.jsxs)(e.ul,{children:[`\n`,(0,t.jsx)(e.li,{children:\"Developers seeking new opportunities\"}),`\n`,(0,t.jsx)(e.li,{children:\"Freelancers building client trust\"}),`\n`,(0,t.jsx)(e.li,{children:\"Open source contributors showcasing impact\"}),`\n`,(0,t.jsx)(e.li,{children:\"Technical professionals maintaining online presence\"}),`\n`]}),`\n`,(0,t.jsx)(e.p,{children:\"Sign up for early access to be among the first to automate your professional portfolio.\"})]})}function p(n={}){let{wrapper:e}=n.components||{};return e?(0,t.jsx)(e,{...n,children:(0,t.jsx)(u,{...n})}):u(n)}return G(w);})();\n;return Component;"
+    },
+    "_id": "projects/gitcv/index.mdx",
+    "_raw": {
+      "sourceFilePath": "projects/gitcv/index.mdx",
+      "sourceFileName": "index.mdx",
+      "sourceFileDir": "projects/gitcv",
+      "contentType": "mdx",
+      "flattenedPath": "projects/gitcv"
+    },
+    "type": "Project",
+    "readingTime": {
+      "text": "1 min read",
+      "minutes": 0.765,
+      "time": 45900,
+      "words": 153
+    },
+    "slug": "gitcv",
+    "path": "projects/gitcv",
+    "filePath": "projects/gitcv/index.mdx",
+    "projectSlug": "gitcv",
+    "galleryImages": [
+      {
+        "src": "/projects/gitcv/01-Logo-GitCV.png",
+        "alt": " Logo GitCV",
+        "filename": "01-Logo-GitCV.png",
+        "type": "image",
+        "order": 0,
+        "isHero": true,
+        "category": "general"
+      }
+    ],
+    "primaryLink": {
+      "href": "https://gitcv.dev/early-access",
+      "label": "Sign up for early access",
+      "type": "signup"
+    },
+    "thumbnail": "/projects/gitcv/01-Logo-GitCV.png",
+    "secondImage": null
+  },
+  {
+    "title": "Poll-It",
+    "subtitle": "Interactive Polling Platform",
+    "description": [
+      "Create and share interactive polls with real-time results",
+      "Modern, responsive interface with beautiful visualizations",
+      "Built with cutting-edge web technologies for optimal performance"
+    ],
+    "techStack": [
+      "React",
+      "Node.js",
+      "WebSocket",
+      "Chart.js",
+      "MongoDB",
+      "Express"
+    ],
+    "category": "Web Application",
+    "links": [
+      {
+        "type": "demo",
+        "label": "View Live Demo",
+        "href": "https://poll-it-demo.vercel.app",
+        "primary": true
+      },
+      {
+        "type": "github",
+        "label": "View Source",
+        "href": "https://github.com/talaat/poll-it"
+      }
+    ],
+    "featured": true,
+    "showDetailPage": true,
+    "draft": false,
+    "publishedAt": "2024-11-10T00:00:00.000Z",
+    "updatedAt": "2024-11-15T00:00:00.000Z",
+    "tags": [
+      "polling",
+      "real-time",
+      "interactive",
+      "web-app",
+      "data-visualization"
+    ],
+    "body": {
+      "raw": "\n# Poll-It - Interactive Polling Made Simple\n\nA modern, responsive polling platform that makes it easy to create, share, and analyze polls with beautiful real-time visualizations.\n\n## Key Features\n\n- **Real-Time Results**: See poll results update in real-time as votes come in\n- **Beautiful Visualizations**: Interactive charts and graphs powered by Chart.js\n- **Responsive Design**: Works perfectly on desktop, tablet, and mobile devices\n- **Easy Sharing**: Share polls with simple, clean URLs\n- **Analytics Dashboard**: Detailed analytics and insights for poll creators\n\n## Technical Highlights\n\nBuilt with a modern tech stack featuring React for the frontend, Node.js with Express for the backend, and WebSocket connections for real-time updates. MongoDB provides flexible data storage for polls and responses.\n\n## Use Cases\n\n- **Market Research**: Gather customer feedback and preferences\n- **Event Planning**: Let participants vote on dates, venues, or activities\n- **Team Decisions**: Make group decisions through democratic voting\n- **Educational**: Create interactive quizzes and surveys for students\n- **Community Engagement**: Engage audiences with interactive content\n\nThe platform prioritizes user experience with intuitive interfaces and instant feedback, making it perfect for both casual and professional polling needs.",
+      "code": "var Component=(()=>{var p=Object.create;var a=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var g=Object.getOwnPropertyNames;var m=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var v=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),b=(n,e)=>{for(var i in e)a(n,i,{get:e[i],enumerable:!0})},s=(n,e,i,l)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let r of g(e))!f.call(n,r)&&r!==i&&a(n,r,{get:()=>e[r],enumerable:!(l=u(e,r))||l.enumerable});return n};var w=(n,e,i)=>(i=n!=null?p(m(n)):{},s(e||!n||!n.__esModule?a(i,\"default\",{value:n,enumerable:!0}):i,n)),y=n=>s(a({},\"__esModule\",{value:!0}),n);var c=v((j,o)=>{o.exports=_jsx_runtime});var x={};b(x,{default:()=>d,frontmatter:()=>k});var t=w(c()),k={title:\"Poll-It\",subtitle:\"Interactive Polling Platform\",description:[\"Create and share interactive polls with real-time results\",\"Modern, responsive interface with beautiful visualizations\",\"Built with cutting-edge web technologies for optimal performance\"],techStack:[\"React\",\"Node.js\",\"WebSocket\",\"Chart.js\",\"MongoDB\",\"Express\"],category:\"Web Application\",links:[{type:\"demo\",label:\"View Live Demo\",href:\"https://poll-it-demo.vercel.app\",primary:!0},{type:\"github\",label:\"View Source\",href:\"https://github.com/talaat/poll-it\"}],featured:!0,showDetailPage:!0,publishedAt:\"2024-11-10\",updatedAt:\"2024-11-15\",tags:[\"polling\",\"real-time\",\"interactive\",\"web-app\",\"data-visualization\"]};function h(n){let e={h1:\"h1\",h2:\"h2\",li:\"li\",p:\"p\",strong:\"strong\",ul:\"ul\",...n.components};return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsx)(e.h1,{children:\"Poll-It - Interactive Polling Made Simple\"}),`\n`,(0,t.jsx)(e.p,{children:\"A modern, responsive polling platform that makes it easy to create, share, and analyze polls with beautiful real-time visualizations.\"}),`\n`,(0,t.jsx)(e.h2,{children:\"Key Features\"}),`\n`,(0,t.jsxs)(e.ul,{children:[`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.strong,{children:\"Real-Time Results\"}),\": See poll results update in real-time as votes come in\"]}),`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.strong,{children:\"Beautiful Visualizations\"}),\": Interactive charts and graphs powered by Chart.js\"]}),`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.strong,{children:\"Responsive Design\"}),\": Works perfectly on desktop, tablet, and mobile devices\"]}),`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.strong,{children:\"Easy Sharing\"}),\": Share polls with simple, clean URLs\"]}),`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.strong,{children:\"Analytics Dashboard\"}),\": Detailed analytics and insights for poll creators\"]}),`\n`]}),`\n`,(0,t.jsx)(e.h2,{children:\"Technical Highlights\"}),`\n`,(0,t.jsx)(e.p,{children:\"Built with a modern tech stack featuring React for the frontend, Node.js with Express for the backend, and WebSocket connections for real-time updates. MongoDB provides flexible data storage for polls and responses.\"}),`\n`,(0,t.jsx)(e.h2,{children:\"Use Cases\"}),`\n`,(0,t.jsxs)(e.ul,{children:[`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.strong,{children:\"Market Research\"}),\": Gather customer feedback and preferences\"]}),`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.strong,{children:\"Event Planning\"}),\": Let participants vote on dates, venues, or activities\"]}),`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.strong,{children:\"Team Decisions\"}),\": Make group decisions through democratic voting\"]}),`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.strong,{children:\"Educational\"}),\": Create interactive quizzes and surveys for students\"]}),`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.strong,{children:\"Community Engagement\"}),\": Engage audiences with interactive content\"]}),`\n`]}),`\n`,(0,t.jsx)(e.p,{children:\"The platform prioritizes user experience with intuitive interfaces and instant feedback, making it perfect for both casual and professional polling needs.\"})]})}function d(n={}){let{wrapper:e}=n.components||{};return e?(0,t.jsx)(e,{...n,children:(0,t.jsx)(h,{...n})}):h(n)}return y(x);})();\n;return Component;"
+    },
+    "_id": "projects/poll-it/index.mdx",
+    "_raw": {
+      "sourceFilePath": "projects/poll-it/index.mdx",
+      "sourceFileName": "index.mdx",
+      "sourceFileDir": "projects/poll-it",
+      "contentType": "mdx",
+      "flattenedPath": "projects/poll-it"
+    },
+    "type": "Project",
+    "readingTime": {
+      "text": "1 min read",
+      "minutes": 0.93,
+      "time": 55800,
+      "words": 186
+    },
+    "slug": "poll-it",
+    "path": "projects/poll-it",
+    "filePath": "projects/poll-it/index.mdx",
+    "projectSlug": "poll-it",
+    "galleryImages": [
+      {
+        "src": "/projects/poll-it/01-logo.svg",
+        "alt": " logo",
+        "filename": "01-logo.svg",
+        "type": "image",
+        "order": 0,
+        "isHero": true,
+        "category": "general"
+      }
+    ],
+    "primaryLink": {
+      "href": "https://poll-it-demo.vercel.app",
+      "label": "View Live Demo",
+      "type": "demo"
+    },
+    "thumbnail": "/projects/poll-it/01-logo.svg",
+    "secondImage": null
+  },
+  {
+    "title": "Test Showcase Project",
+    "subtitle": "Testing image detection and content functionality",
+    "description": [
+      "A comprehensive test project to demonstrate the project system capabilities",
+      "Features automatic image detection, thumbnail generation, and MDX content rendering",
+      "Showcases the complete workflow from content creation to deployment"
+    ],
+    "techStack": [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Contentlayer",
+      "Tailwind CSS"
+    ],
+    "category": "Test Project",
+    "links": [
+      {
+        "type": "demo",
+        "label": "View Demo",
+        "href": "https://test-demo.example.com",
+        "primary": true
+      },
+      {
+        "type": "github",
+        "label": "GitHub Repository",
+        "href": "https://github.com/example/test-showcase"
+      }
+    ],
+    "featured": false,
+    "showDetailPage": false,
+    "draft": true,
+    "publishedAt": "2025-01-01T00:00:00.000Z",
+    "tags": [
+      "test",
+      "showcase",
+      "demo",
+      "example",
+      "contentlayer"
+    ],
+    "body": {
+      "raw": "\n# Test Showcase Project\n\nThis is a comprehensive test project designed to demonstrate all the capabilities of our enhanced project system, including automatic image detection, thumbnail generation, and MDX content rendering.\n\n## Key Features\n\n- **Automatic Image Detection**: All images in the project directory are automatically discovered and processed\n- **Thumbnail Generation**: The first image becomes the project thumbnail automatically\n- **Gallery Integration**: Images are organized into an interactive gallery with lightbox functionality\n- **MDX Content Support**: Rich content authoring with Markdown and React components\n- **Responsive Design**: Optimized for all screen sizes and devices\n\n## Technical Implementation\n\nThe project system leverages several modern technologies:\n\n### Content Management\n- **Contentlayer2**: Type-safe content processing with automatic generation\n- **MDX**: Rich content authoring with embedded React components\n- **Frontmatter**: Structured metadata for project configuration\n\n### Image Processing\n- **Automatic Detection**: Images are discovered using filesystem scanning\n- **Path Resolution**: Proper URL generation for both development and production\n- **Gallery Organization**: Automatic categorization and sorting\n\n### Build Process\n- **Webpack Integration**: Images are copied during the build process\n- **Static Generation**: All project pages are pre-rendered for optimal performance\n- **Deployment Optimization**: Assets are properly organized for CDN delivery\n\n## Example Use Cases\n\nThis system is perfect for:\n\n1. **Portfolio Websites**: Showcase projects with rich descriptions and image galleries\n2. **Documentation Sites**: Technical documentation with embedded examples\n3. **Marketing Pages**: Product showcases with compelling visuals\n4. **Case Studies**: Detailed project breakdowns with supporting media\n\n## Getting Started\n\nTo create a new project:\n\n1. Create a directory in `content/projects/your-project-name/`\n2. Add an `index.mdx` file with the required frontmatter\n3. Place images directly in the project directory\n4. The system automatically handles the rest!\n\nThe first image alphabetically becomes the thumbnail, and all images are available in the gallery.",
+      "code": "var Component=(()=>{var m=Object.create;var o=Object.defineProperty;var g=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var u=Object.getPrototypeOf,y=Object.prototype.hasOwnProperty;var f=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),b=(t,e)=>{for(var i in e)o(t,i,{get:e[i],enumerable:!0})},l=(t,e,i,c)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let r of p(e))!y.call(t,r)&&r!==i&&o(t,r,{get:()=>e[r],enumerable:!(c=g(e,r))||c.enumerable});return t};var w=(t,e,i)=>(i=t!=null?m(u(t)):{},l(e||!t||!t.__esModule?o(i,\"default\",{value:t,enumerable:!0}):i,t)),j=t=>l(o({},\"__esModule\",{value:!0}),t);var s=f((S,a)=>{a.exports=_jsx_runtime});var T={};b(T,{default:()=>h,frontmatter:()=>x});var n=w(s()),x={title:\"Test Showcase Project\",subtitle:\"Testing image detection and content functionality\",description:[\"A comprehensive test project to demonstrate the project system capabilities\",\"Features automatic image detection, thumbnail generation, and MDX content rendering\",\"Showcases the complete workflow from content creation to deployment\"],techStack:[\"React\",\"Next.js\",\"TypeScript\",\"Contentlayer\",\"Tailwind CSS\"],category:\"Test Project\",links:[{type:\"demo\",label:\"View Demo\",href:\"https://test-demo.example.com\",primary:!0},{type:\"github\",label:\"GitHub Repository\",href:\"https://github.com/example/test-showcase\"}],featured:!1,showDetailPage:!1,draft:!0,publishedAt:\"2025-01-01\",tags:[\"test\",\"showcase\",\"demo\",\"example\",\"contentlayer\"]};function d(t){let e={code:\"code\",h1:\"h1\",h2:\"h2\",h3:\"h3\",li:\"li\",ol:\"ol\",p:\"p\",strong:\"strong\",ul:\"ul\",...t.components};return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.h1,{children:\"Test Showcase Project\"}),`\n`,(0,n.jsx)(e.p,{children:\"This is a comprehensive test project designed to demonstrate all the capabilities of our enhanced project system, including automatic image detection, thumbnail generation, and MDX content rendering.\"}),`\n`,(0,n.jsx)(e.h2,{children:\"Key Features\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.strong,{children:\"Automatic Image Detection\"}),\": All images in the project directory are automatically discovered and processed\"]}),`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.strong,{children:\"Thumbnail Generation\"}),\": The first image becomes the project thumbnail automatically\"]}),`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.strong,{children:\"Gallery Integration\"}),\": Images are organized into an interactive gallery with lightbox functionality\"]}),`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.strong,{children:\"MDX Content Support\"}),\": Rich content authoring with Markdown and React components\"]}),`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.strong,{children:\"Responsive Design\"}),\": Optimized for all screen sizes and devices\"]}),`\n`]}),`\n`,(0,n.jsx)(e.h2,{children:\"Technical Implementation\"}),`\n`,(0,n.jsx)(e.p,{children:\"The project system leverages several modern technologies:\"}),`\n`,(0,n.jsx)(e.h3,{children:\"Content Management\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.strong,{children:\"Contentlayer2\"}),\": Type-safe content processing with automatic generation\"]}),`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.strong,{children:\"MDX\"}),\": Rich content authoring with embedded React components\"]}),`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.strong,{children:\"Frontmatter\"}),\": Structured metadata for project configuration\"]}),`\n`]}),`\n`,(0,n.jsx)(e.h3,{children:\"Image Processing\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.strong,{children:\"Automatic Detection\"}),\": Images are discovered using filesystem scanning\"]}),`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.strong,{children:\"Path Resolution\"}),\": Proper URL generation for both development and production\"]}),`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.strong,{children:\"Gallery Organization\"}),\": Automatic categorization and sorting\"]}),`\n`]}),`\n`,(0,n.jsx)(e.h3,{children:\"Build Process\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.strong,{children:\"Webpack Integration\"}),\": Images are copied during the build process\"]}),`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.strong,{children:\"Static Generation\"}),\": All project pages are pre-rendered for optimal performance\"]}),`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.strong,{children:\"Deployment Optimization\"}),\": Assets are properly organized for CDN delivery\"]}),`\n`]}),`\n`,(0,n.jsx)(e.h2,{children:\"Example Use Cases\"}),`\n`,(0,n.jsx)(e.p,{children:\"This system is perfect for:\"}),`\n`,(0,n.jsxs)(e.ol,{children:[`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.strong,{children:\"Portfolio Websites\"}),\": Showcase projects with rich descriptions and image galleries\"]}),`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.strong,{children:\"Documentation Sites\"}),\": Technical documentation with embedded examples\"]}),`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.strong,{children:\"Marketing Pages\"}),\": Product showcases with compelling visuals\"]}),`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.strong,{children:\"Case Studies\"}),\": Detailed project breakdowns with supporting media\"]}),`\n`]}),`\n`,(0,n.jsx)(e.h2,{children:\"Getting Started\"}),`\n`,(0,n.jsx)(e.p,{children:\"To create a new project:\"}),`\n`,(0,n.jsxs)(e.ol,{children:[`\n`,(0,n.jsxs)(e.li,{children:[\"Create a directory in \",(0,n.jsx)(e.code,{children:\"content/projects/your-project-name/\"})]}),`\n`,(0,n.jsxs)(e.li,{children:[\"Add an \",(0,n.jsx)(e.code,{children:\"index.mdx\"}),\" file with the required frontmatter\"]}),`\n`,(0,n.jsx)(e.li,{children:\"Place images directly in the project directory\"}),`\n`,(0,n.jsx)(e.li,{children:\"The system automatically handles the rest!\"}),`\n`]}),`\n`,(0,n.jsx)(e.p,{children:\"The first image alphabetically becomes the thumbnail, and all images are available in the gallery.\"})]})}function h(t={}){let{wrapper:e}=t.components||{};return e?(0,n.jsx)(e,{...t,children:(0,n.jsx)(d,{...t})}):d(t)}return j(T);})();\n;return Component;"
+    },
+    "_id": "projects/test-showcase/index.mdx",
+    "_raw": {
+      "sourceFilePath": "projects/test-showcase/index.mdx",
+      "sourceFileName": "index.mdx",
+      "sourceFileDir": "projects/test-showcase",
+      "contentType": "mdx",
+      "flattenedPath": "projects/test-showcase"
+    },
+    "type": "Project",
+    "readingTime": {
+      "text": "2 min read",
+      "minutes": 1.47,
+      "time": 88200,
+      "words": 294
+    },
+    "slug": "test-showcase",
+    "path": "projects/test-showcase",
+    "filePath": "projects/test-showcase/index.mdx",
+    "projectSlug": "test-showcase",
+    "galleryImages": [
+      {
+        "src": "/projects/test-showcase/01-screenshot.png",
+        "alt": " screenshot",
+        "filename": "01-screenshot.png",
+        "type": "image",
+        "order": 0,
+        "isHero": true,
+        "category": "general"
+      },
+      {
+        "src": "/projects/test-showcase/02-demo.jpg",
+        "alt": " demo",
+        "filename": "02-demo.jpg",
+        "type": "image",
+        "order": 1,
+        "isHero": false,
+        "category": "demo"
+      },
+      {
+        "src": "/projects/test-showcase/03-feature.png",
+        "alt": " feature",
+        "filename": "03-feature.png",
+        "type": "image",
+        "order": 2,
+        "isHero": false,
+        "category": "general"
+      }
+    ],
+    "primaryLink": {
+      "href": "https://test-demo.example.com",
+      "label": "View Demo",
+      "type": "demo"
+    },
+    "thumbnail": "/projects/test-showcase/01-screenshot.png",
+    "secondImage": "/projects/test-showcase/02-demo.jpg"
+  },
+  {
+    "title": "thinmint.dev",
+    "subtitle": "A web agency who still get's 'it'.",
+    "description": [
+      "15 Years of web development  & design experience",
+      "Expertise in creating stunning, user-friendly websites",
+      "Passion for blending timeless design with modern technologies",
+      "Commitment to delivering high-quality digital experiences"
+    ],
+    "techStack": [
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ],
+    "category": "Web Project",
+    "links": [
+      {
+        "type": "portfolio",
+        "label": "View Site",
+        "href": "https://thinmint.dev",
+        "primary": true
+      },
+      {
+        "type": "github",
+        "label": "GitHub",
+        "href": "https://github.com/thinmintdev"
+      }
+    ],
+    "featured": false,
+    "showDetailPage": true,
+    "draft": false,
+    "publishedAt": "2025-07-10T00:00:00.000Z",
+    "tags": [
+      "simple",
+      "clean",
+      "showcase"
+    ],
+    "body": {
+      "raw": "\n# thinmint.dev\n\nThis is a web agency who still get's \"it\". Timeless design and modern technologies combine flawlessly.\n\n## Highlights\n\n- 15 Years of web development & design experience\n- Expertise in creating stunning, user-friendly websites\n- Passion for blending timeless design with modern technologies\n- Commitment to delivering high-quality digital experiences\n\n## Skills\n\n- Web Development\n- UI/UX Design\n- Responsive Design\n- Performance Optimization\n",
+      "code": "var Component=(()=>{var g=Object.create;var s=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var u=Object.getPrototypeOf,b=Object.prototype.hasOwnProperty;var f=(i,e)=>()=>(e||i((e={exports:{}}).exports,e),e.exports),w=(i,e)=>{for(var t in e)s(i,t,{get:e[t],enumerable:!0})},o=(i,e,t,r)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let l of p(e))!b.call(i,l)&&l!==t&&s(i,l,{get:()=>e[l],enumerable:!(r=m(e,l))||r.enumerable});return i};var x=(i,e,t)=>(t=i!=null?g(u(i)):{},o(e||!i||!i.__esModule?s(t,\"default\",{value:i,enumerable:!0}):t,i)),y=i=>o(s({},\"__esModule\",{value:!0}),i);var c=f((D,h)=>{h.exports=_jsx_runtime});var _={};w(_,{default:()=>a,frontmatter:()=>v});var n=x(c()),v={title:\"thinmint.dev\",subtitle:\"A web agency who still get's 'it'.\",description:[\"15 Years of web development  & design experience\",\"Expertise in creating stunning, user-friendly websites\",\"Passion for blending timeless design with modern technologies\",\"Commitment to delivering high-quality digital experiences\"],techStack:[\"HTML\",\"CSS\",\"JavaScript\"],category:\"Web Project\",links:[{type:\"portfolio\",label:\"View Site\",href:\"https://thinmint.dev\",primary:!0},{type:\"github\",label:\"GitHub\",href:\"https://github.com/thinmintdev\"}],featured:!1,showDetailPage:!0,publishedAt:\"2025-07-10\",tags:[\"simple\",\"clean\",\"showcase\"]};function d(i){let e={h1:\"h1\",h2:\"h2\",li:\"li\",p:\"p\",ul:\"ul\",...i.components};return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.h1,{children:\"thinmint.dev\"}),`\n`,(0,n.jsx)(e.p,{children:`This is a web agency who still get's \"it\". Timeless design and modern technologies combine flawlessly.`}),`\n`,(0,n.jsx)(e.h2,{children:\"Highlights\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:\"15 Years of web development & design experience\"}),`\n`,(0,n.jsx)(e.li,{children:\"Expertise in creating stunning, user-friendly websites\"}),`\n`,(0,n.jsx)(e.li,{children:\"Passion for blending timeless design with modern technologies\"}),`\n`,(0,n.jsx)(e.li,{children:\"Commitment to delivering high-quality digital experiences\"}),`\n`]}),`\n`,(0,n.jsx)(e.h2,{children:\"Skills\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:\"Web Development\"}),`\n`,(0,n.jsx)(e.li,{children:\"UI/UX Design\"}),`\n`,(0,n.jsx)(e.li,{children:\"Responsive Design\"}),`\n`,(0,n.jsx)(e.li,{children:\"Performance Optimization\"}),`\n`]})]})}function a(i={}){let{wrapper:e}=i.components||{};return e?(0,n.jsx)(e,{...i,children:(0,n.jsx)(d,{...i})}):d(i)}return y(_);})();\n;return Component;"
+    },
+    "_id": "projects/thinmint/index.mdx",
+    "_raw": {
+      "sourceFilePath": "projects/thinmint/index.mdx",
+      "sourceFileName": "index.mdx",
+      "sourceFileDir": "projects/thinmint",
+      "contentType": "mdx",
+      "flattenedPath": "projects/thinmint"
+    },
+    "type": "Project",
+    "readingTime": {
+      "text": "1 min read",
+      "minutes": 0.33,
+      "time": 19800,
+      "words": 66
+    },
+    "slug": "thinmint",
+    "path": "projects/thinmint",
+    "filePath": "projects/thinmint/index.mdx",
+    "projectSlug": "thinmint",
+    "galleryImages": [
+      {
+        "src": "/projects/thinmint/thinmint.png",
+        "alt": "thinmint",
+        "filename": "thinmint.png",
+        "type": "image",
+        "order": 0,
+        "isHero": true,
+        "category": "general"
+      }
+    ],
+    "primaryLink": {
+      "href": "https://thinmint.dev",
+      "label": "View Site",
+      "type": "portfolio"
+    },
+    "thumbnail": "/projects/thinmint/thinmint.png",
+    "secondImage": null
+  }
+]

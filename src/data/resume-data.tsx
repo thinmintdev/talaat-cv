@@ -195,27 +195,6 @@ export const RESUME_DATA: ResumeData = {
     "SEO",
   ],
   projects: [
-    {
-      title: "Poll.it.com",
-      techStack: [
-        "React",
-        "Node.js",
-        "Next.js",
-        "TypeScript",
-        "PostgreSQL",
-        "Redis",
-        "Supabase",
-        "TailwindCSS",
-        "Socket.io",
-      ],
-      description:
-        "Real time polling platform with live updates and real-time results. Built with a modern tech stack including React, Node.js, and PostgreSQL. Scalable architecture supporting 100,000+ concurrent users. Features include advanced analytics dashboard, image polls, custom branding, user segmentation, and privacy controls.",
-      link: {
-        label: "View Demo",
-        href: "https://poll.it.com",
-      },
-      thumbnail:
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop&crop=center",
-    },
+    // Projects now managed through Contentlayer MDX files
   ],
 } as const;
