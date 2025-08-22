@@ -1,6 +1,18 @@
 import { allProjects, type Project } from "contentlayer/generated";
 import { RESUME_DATA } from "@/data/resume-data";
 
+interface LegacyProject {
+  title: string;
+  techStack: string[];
+  description: string | string[];
+  link?: {
+    label: string;
+    href: string;
+  };
+  thumbnail?: string;
+  secondImage?: string;
+}
+
 export interface GalleryImage {
   src: string;
   alt: string;
@@ -15,13 +27,6 @@ export interface ProjectLink {
   href: string;
   label: string;
   type: "demo" | "github" | "docs" | "internal";
-}
-
-export interface ReadingTime {
-  text: string; // e.g., "4 min read"
-  minutes?: number;
-  time?: number; // ms
-  words?: number;
 }
 
 export interface EnhancedProject {
@@ -49,7 +54,7 @@ export interface EnhancedProject {
 
   // MDX content (if exists)
   content?: string;
-  readingTime?: ReadingTime;
+  readingTime?: { text: string; minutes: number; time: number; words: number };
   subtitle?: string;
 }
 
@@ -142,15 +147,6 @@ function transformMDXProject(project: Project): EnhancedProject {
 }
 
 // Transform legacy project to enhanced format
-interface LegacyProject {
-  title: string;
-  description: string | string[];
-  techStack?: string[];
-  link?: { href: string; label?: string } | null;
-  thumbnail?: string;
-  secondImage?: string;
-}
-
 function transformLegacyProject(project: LegacyProject): EnhancedProject {
   const slug = slugify(project.title);
 

@@ -136,11 +136,11 @@ function SlidingTechRow({ row }: { row: SkillRow }) {
               row.direction === "reverse" ? "reverse" : "normal",
           }}
         >
-          {[...row.technologies, ...row.technologies].map((tech) => {
+          {[...row.technologies, ...row.technologies].map((tech, index) => {
             const IconComponent = iconMap[tech.icon];
             return (
               <div
-                key={`${row.id}-${tech.name}-${tech.icon}`}
+                key={`${row.id}-${tech.name}-${tech.icon}-${index}`}
                 className="flex items-center gap-3 bg-white border border-gray-200 rounded-lg px-4 py-2 shadow-sm flex-shrink-0"
               >
                 {IconComponent && (
