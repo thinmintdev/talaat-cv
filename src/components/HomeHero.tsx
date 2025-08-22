@@ -117,9 +117,10 @@ export const HomeHero = () => {
         {/* Right Side - Services Dropdown */}
         <div className="lg:col-span-5 flex flex-col justify-center lg:pl-12 relative">
           {services.map((service, index) => (
-            <div
+            <button
               key={service}
-              className={`transform transition-all duration-700 ease-out relative ${
+              type="button"
+              className={`text-left transform transition-all duration-700 ease-out relative focus:outline-none ${
                 showServices
                   ? "translate-y-0 opacity-100"
                   : "-translate-y-4 opacity-0"
@@ -131,14 +132,18 @@ export const HomeHero = () => {
                 minHeight: `${layout.minHeight}px`,
                 display: "flex",
                 alignItems: "center",
+                background: "transparent",
               }}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
+              onFocus={() => setHoveredIndex(index)}
+              onBlur={() => setHoveredIndex(null)}
+              aria-label={service}
             >
-              <div className="text-lg md:text-xl lg:text-3xl xl:text-4xl font-bold text-gray-800 tracking-wide hover:text-blue-600 transition-colors duration-300 cursor-pointer relative z-10">
+              <span className="text-lg md:text-xl lg:text-3xl xl:text-4xl font-bold text-gray-800 tracking-wide hover:text-blue-600 transition-colors duration-300 cursor-pointer relative z-10">
                 {service}
-              </div>
-            </div>
+              </span>
+            </button>
           ))}
 
           {/* Interactive blue line that follows hover */}

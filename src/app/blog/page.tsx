@@ -22,7 +22,9 @@ export default function BlogPage() {
   return (
     <>
       {/* Blog Structured Data */}
-  <script type="application/ld+json">{JSON.stringify(blogStructuredData)}</script>
+      <script type="application/ld+json">
+        {JSON.stringify(blogStructuredData)}
+      </script>
       <BlogPageClient posts={posts} />
     </>
   );

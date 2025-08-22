@@ -17,6 +17,13 @@ export interface ProjectLink {
   type: "demo" | "github" | "docs" | "internal";
 }
 
+export interface ReadingTime {
+  text: string; // e.g., "4 min read"
+  minutes?: number;
+  time?: number; // ms
+  words?: number;
+}
+
 export interface EnhancedProject {
   // Core data
   title: string;
@@ -42,7 +49,7 @@ export interface EnhancedProject {
 
   // MDX content (if exists)
   content?: string;
-  readingTime?: any;
+  readingTime?: ReadingTime;
   subtitle?: string;
 }
 
@@ -135,7 +142,16 @@ function transformMDXProject(project: Project): EnhancedProject {
 }
 
 // Transform legacy project to enhanced format
-function transformLegacyProject(project: any): EnhancedProject {
+interface LegacyProject {
+  title: string;
+  description: string | string[];
+  techStack?: string[];
+  link?: { href: string; label?: string } | null;
+  thumbnail?: string;
+  secondImage?: string;
+}
+
+function transformLegacyProject(project: LegacyProject): EnhancedProject {
   const slug = slugify(project.title);
 
   return {

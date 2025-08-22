@@ -2,29 +2,47 @@
 
 import { ChevronLeft, ChevronRight, Play, X, ZoomIn } from "lucide-react";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import type { GalleryImage } from "@/lib/projects";
 import { cn } from "@/lib/utils";
 
 interface ProjectGalleryProps {
   images: GalleryImage[];
-  title: string;
   className?: string;
 }
 
-export function ProjectGallery({
-  images,
-  title,
-  className,
-}: ProjectGalleryProps) {
+export function ProjectGallery({ images, className }: ProjectGalleryProps) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // Handle keyboard navigation
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (!isModalOpen || selectedIndex === null) return;
+  const closeModal = useCallback(() => {
+    setIsModalOpen(false);
+    setSelectedIndex(null);
+  }, []);
 
+  const navigateImage = useCallback(
+    (direction: "prev" | "next") => {
+      setSelectedIndex((current) => {
+        if (current === null) return current;
+        if (direction === "prev") {
+          return current === 0 ? images.length - 1 : current - 1;
+        }
+        return current === images.length - 1 ? 0 : current + 1;
+      });
+    },
+    [images.length]
+  );
+
+  const openModal = (index: number) => {
+    setSelectedIndex(index);
+    setIsModalOpen(true);
+  };
+
+  // Handle keyboard navigation (modal only)
+  useEffect(() => {
+    if (!isModalOpen) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         closeModal();
       } else if (e.key === "ArrowLeft") {
@@ -34,40 +52,14 @@ export function ProjectGallery({
       }
     };
 
-    if (isModalOpen) {
-      document.addEventListener("keydown", handleKeyDown);
-      document.body.style.overflow = "hidden";
-    }
+    document.addEventListener("keydown", handleKeyDown);
+    document.body.style.overflow = "hidden";
 
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
       document.body.style.overflow = "unset";
     };
-  }, [isModalOpen, selectedIndex, images.length]);
-
-  const openModal = (index: number) => {
-    setSelectedIndex(index);
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-    setSelectedIndex(null);
-  };
-
-  const navigateImage = (direction: "prev" | "next") => {
-    if (selectedIndex === null) return;
-
-    if (direction === "prev") {
-      setSelectedIndex(
-        selectedIndex === 0 ? images.length - 1 : selectedIndex - 1
-      );
-    } else {
-      setSelectedIndex(
-        selectedIndex === images.length - 1 ? 0 : selectedIndex + 1
-      );
-    }
-  };
+  }, [isModalOpen, closeModal, navigateImage]);
 
   if (images.length === 0) return null;
 
@@ -97,11 +89,13 @@ export function ProjectGallery({
             )}
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {imagesByCategory[category].map((image, index) => (
-                <div
+              {imagesByCategory[category].map((image) => (
+                <button
                   key={image.originalIndex}
-                  className="group relative overflow-hidden rounded-lg border bg-muted cursor-pointer transition-all duration-300 hover:shadow-lg hover:scale-[1.02]"
+                  type="button"
+                  className="group relative overflow-hidden rounded-lg border bg-muted cursor-pointer transition-all duration-300 hover:shadow-lg hover:scale-[1.02] text-left"
                   onClick={() => openModal(image.originalIndex)}
+                  aria-label={`Open media ${image.alt}`}
                 >
                   {image.type === "video" ? (
                     <div className="relative aspect-video">
@@ -112,7 +106,9 @@ export function ProjectGallery({
                         loop={true}
                         onMouseEnter={(e) => e.currentTarget.play()}
                         onMouseLeave={(e) => e.currentTarget.pause()}
-                      />
+                      >
+                        <track kind="captions" label="No captions available" />
+                      </video>
                       <div className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity">
                         <Play className="w-12 h-12 text-white" />
                       </div>
@@ -145,7 +141,7 @@ export function ProjectGallery({
                       </span>
                     </div>
                   )}
-                </div>
+                </button>
               ))}
             </div>
           </div>
@@ -157,9 +153,15 @@ export function ProjectGallery({
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 animate-in fade-in duration-300"
           onClick={closeModal}
+          role="dialog"
+          aria-modal="true"
+          onKeyDown={(e) => {
+            if (e.key === "Escape") closeModal();
+          }}
         >
           {/* Close Button */}
           <button
+            type="button"
             onClick={closeModal}
             className="absolute top-4 right-4 z-20 w-12 h-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
             aria-label="Close gallery"
@@ -171,6 +173,7 @@ export function ProjectGallery({
           {images.length > 1 && (
             <>
               <button
+                type="button"
                 onClick={(e) => {
                   e.stopPropagation();
                   navigateImage("prev");
@@ -182,6 +185,7 @@ export function ProjectGallery({
               </button>
 
               <button
+                type="button"
                 onClick={(e) => {
                   e.stopPropagation();
                   navigateImage("next");
@@ -203,6 +207,14 @@ export function ProjectGallery({
           <div
             className="relative max-w-7xl max-h-[90vh] w-full h-full flex items-center justify-center p-4"
             onClick={(e) => e.stopPropagation()}
+            role="document"
+            tabIndex={-1}
+            onKeyDown={(e) => {
+              if (e.key === "Escape") {
+                e.stopPropagation();
+                closeModal();
+              }
+            }}
           >
             {images[selectedIndex].type === "video" ? (
               <video
@@ -210,7 +222,9 @@ export function ProjectGallery({
                 controls={true}
                 autoPlay={true}
                 className="max-w-full max-h-full rounded-lg shadow-2xl"
-              />
+              >
+                <track kind="captions" label="No captions available" />
+              </video>
             ) : (
               <Image
                 src={images[selectedIndex].src}
@@ -238,7 +252,8 @@ export function ProjectGallery({
             <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 bg-black/50 p-2 rounded-lg backdrop-blur-sm max-w-[90vw] overflow-x-auto">
               {images.map((image, index) => (
                 <button
-                  key={index}
+                  key={image.src}
+                  type="button"
                   onClick={(e) => {
                     e.stopPropagation();
                     setSelectedIndex(index);

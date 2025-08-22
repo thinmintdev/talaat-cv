@@ -70,7 +70,9 @@ export const BlogPagination: React.FC<BlogPaginationProps> = ({
       {/* Page numbers */}
       <div className="flex items-center gap-1">
         {pageNumbers.map((page, index) => (
-          <React.Fragment key={`page-${page}-${index}`}>
+          <React.Fragment
+            key={page === "..." ? `ellipsis-${index}` : `page-${page}`}
+          >
             {page === "..." ? (
               <span className="px-3 py-2 text-gray-500 dark:text-gray-400">
                 ...

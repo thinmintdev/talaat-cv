@@ -109,8 +109,10 @@ export default async function PostPage({ params }: PostPageProps) {
   return (
     <>
       {/* Article Structured Data */}
-  {/* Structured data (safe JSON injection without dangerouslySetInnerHTML) */}
-  <script type="application/ld+json">{JSON.stringify(articleStructuredData)}</script>
+      {/* Structured data (safe JSON injection without dangerouslySetInnerHTML) */}
+      <script type="application/ld+json">
+        {JSON.stringify(articleStructuredData)}
+      </script>
 
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-4xl mx-auto">

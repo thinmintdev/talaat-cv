@@ -1,5 +1,88 @@
 [
   {
+    "title": "GitCV",
+    "subtitle": "GitHub-Based CV Generator",
+    "description": [
+      "Automatically generate and maintain professional CVs from GitHub activity",
+      "Eliminates the need to constantly update portfolios manually",
+      "Free blog and portfolio features with automatic maintenance"
+    ],
+    "techStack": [
+      "Next.js",
+      "TypeScript",
+      "GitHub API",
+      "Tailwind CSS",
+      "PDF Generation"
+    ],
+    "category": "Developer Tools",
+    "links": [
+      {
+        "type": "signup",
+        "label": "Sign up for early access",
+        "href": "https://gitcv.dev/early-access",
+        "primary": true
+      },
+      {
+        "type": "github",
+        "label": "GitHub",
+        "href": "https://github.com/talaat/gitcv"
+      }
+    ],
+    "featured": true,
+    "showDetailPage": true,
+    "draft": false,
+    "publishedAt": "2024-12-15T00:00:00.000Z",
+    "updatedAt": "2024-12-20T00:00:00.000Z",
+    "tags": [
+      "automation",
+      "portfolio",
+      "github",
+      "cv",
+      "developer-tools"
+    ],
+    "body": {
+      "raw": "\n# GitCV - Automated Developer Portfolios\n\nGitCV automatically generates and maintains professional CVs and portfolios from your GitHub activity. Never manually update your portfolio again.\n\n## Key Features\n\n- **Automatic CV Generation**: Creates professional CVs from your GitHub contributions\n- **Portfolio Maintenance**: Keeps your portfolio updated with your latest work\n- **Blog Integration**: Includes blog functionality for thought leadership\n- **PDF Export**: Generate PDF versions of your CV for applications\n- **Custom Domains**: Use your own domain for professional presentation\n\n## How It Works\n\nGitCV analyzes your GitHub activity, repositories, and contributions to automatically generate a comprehensive professional portfolio. The system updates in real-time as you push new code and create new repositories.\n\n## Perfect For\n\n- Developers seeking new opportunities\n- Freelancers building client trust\n- Open source contributors showcasing impact\n- Technical professionals maintaining online presence\n\nSign up for early access to be among the first to automate your professional portfolio.",
+      "code": "var Component=(()=>{var h=Object.create;var r=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var m=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var y=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),b=(n,e)=>{for(var o in e)r(n,o,{get:e[o],enumerable:!0})},l=(n,e,o,a)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let i of f(e))!g.call(n,i)&&i!==o&&r(n,i,{get:()=>e[i],enumerable:!(a=d(e,i))||a.enumerable});return n};var C=(n,e,o)=>(o=n!=null?h(m(n)):{},l(e||!n||!n.__esModule?r(o,\"default\",{value:n,enumerable:!0}):o,n)),G=n=>l(r({},\"__esModule\",{value:!0}),n);var c=y((D,s)=>{s.exports=_jsx_runtime});var w={};b(w,{default:()=>p,frontmatter:()=>v});var t=C(c()),v={title:\"GitCV\",subtitle:\"GitHub-Based CV Generator\",description:[\"Automatically generate and maintain professional CVs from GitHub activity\",\"Eliminates the need to constantly update portfolios manually\",\"Free blog and portfolio features with automatic maintenance\"],techStack:[\"Next.js\",\"TypeScript\",\"GitHub API\",\"Tailwind CSS\",\"PDF Generation\"],category:\"Developer Tools\",links:[{type:\"signup\",label:\"Sign up for early access\",href:\"https://gitcv.dev/early-access\",primary:!0},{type:\"github\",label:\"GitHub\",href:\"https://github.com/talaat/gitcv\"}],featured:!0,showDetailPage:!0,publishedAt:\"2024-12-15\",updatedAt:\"2024-12-20\",tags:[\"automation\",\"portfolio\",\"github\",\"cv\",\"developer-tools\"]};function u(n){let e={h1:\"h1\",h2:\"h2\",li:\"li\",p:\"p\",strong:\"strong\",ul:\"ul\",...n.components};return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsx)(e.h1,{children:\"GitCV - Automated Developer Portfolios\"}),`\n`,(0,t.jsx)(e.p,{children:\"GitCV automatically generates and maintains professional CVs and portfolios from your GitHub activity. Never manually update your portfolio again.\"}),`\n`,(0,t.jsx)(e.h2,{children:\"Key Features\"}),`\n`,(0,t.jsxs)(e.ul,{children:[`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.strong,{children:\"Automatic CV Generation\"}),\": Creates professional CVs from your GitHub contributions\"]}),`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.strong,{children:\"Portfolio Maintenance\"}),\": Keeps your portfolio updated with your latest work\"]}),`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.strong,{children:\"Blog Integration\"}),\": Includes blog functionality for thought leadership\"]}),`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.strong,{children:\"PDF Export\"}),\": Generate PDF versions of your CV for applications\"]}),`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.strong,{children:\"Custom Domains\"}),\": Use your own domain for professional presentation\"]}),`\n`]}),`\n`,(0,t.jsx)(e.h2,{children:\"How It Works\"}),`\n`,(0,t.jsx)(e.p,{children:\"GitCV analyzes your GitHub activity, repositories, and contributions to automatically generate a comprehensive professional portfolio. The system updates in real-time as you push new code and create new repositories.\"}),`\n`,(0,t.jsx)(e.h2,{children:\"Perfect For\"}),`\n`,(0,t.jsxs)(e.ul,{children:[`\n`,(0,t.jsx)(e.li,{children:\"Developers seeking new opportunities\"}),`\n`,(0,t.jsx)(e.li,{children:\"Freelancers building client trust\"}),`\n`,(0,t.jsx)(e.li,{children:\"Open source contributors showcasing impact\"}),`\n`,(0,t.jsx)(e.li,{children:\"Technical professionals maintaining online presence\"}),`\n`]}),`\n`,(0,t.jsx)(e.p,{children:\"Sign up for early access to be among the first to automate your professional portfolio.\"})]})}function p(n={}){let{wrapper:e}=n.components||{};return e?(0,t.jsx)(e,{...n,children:(0,t.jsx)(u,{...n})}):u(n)}return G(w);})();\n;return Component;"
+    },
+    "_id": "projects/gitcv/index.mdx",
+    "_raw": {
+      "sourceFilePath": "projects/gitcv/index.mdx",
+      "sourceFileName": "index.mdx",
+      "sourceFileDir": "projects/gitcv",
+      "contentType": "mdx",
+      "flattenedPath": "projects/gitcv"
+    },
+    "type": "Project",
+    "readingTime": {
+      "text": "1 min read",
+      "minutes": 0.765,
+      "time": 45900,
+      "words": 153
+    },
+    "slug": "gitcv",
+    "path": "projects/gitcv",
+    "filePath": "projects/gitcv/index.mdx",
+    "projectSlug": "gitcv",
+    "galleryImages": [
+      {
+        "src": "/projects/gitcv/01-Logo-GitCV.png",
+        "alt": " Logo GitCV",
+        "filename": "01-Logo-GitCV.png",
+        "type": "image",
+        "order": 0,
+        "isHero": true,
+        "category": "general"
+      }
+    ],
+    "primaryLink": {
+      "href": "https://gitcv.dev/early-access",
+      "label": "Sign up for early access",
+      "type": "signup"
+    },
+    "thumbnail": "/projects/gitcv/01-Logo-GitCV.png",
+    "secondImage": null
+  },
+  {
     "title": "Poll-It",
     "subtitle": "Interactive Polling Platform",
     "description": [
@@ -81,89 +164,6 @@
       "type": "demo"
     },
     "thumbnail": "/projects/poll-it/01-logo.svg",
-    "secondImage": null
-  },
-  {
-    "title": "GitCV",
-    "subtitle": "GitHub-Based CV Generator",
-    "description": [
-      "Automatically generate and maintain professional CVs from GitHub activity",
-      "Eliminates the need to constantly update portfolios manually",
-      "Free blog and portfolio features with automatic maintenance"
-    ],
-    "techStack": [
-      "Next.js",
-      "TypeScript",
-      "GitHub API",
-      "Tailwind CSS",
-      "PDF Generation"
-    ],
-    "category": "Developer Tools",
-    "links": [
-      {
-        "type": "signup",
-        "label": "Sign up for early access",
-        "href": "https://gitcv.dev/early-access",
-        "primary": true
-      },
-      {
-        "type": "github",
-        "label": "GitHub",
-        "href": "https://github.com/talaat/gitcv"
-      }
-    ],
-    "featured": true,
-    "showDetailPage": true,
-    "draft": false,
-    "publishedAt": "2024-12-15T00:00:00.000Z",
-    "updatedAt": "2024-12-20T00:00:00.000Z",
-    "tags": [
-      "automation",
-      "portfolio",
-      "github",
-      "cv",
-      "developer-tools"
-    ],
-    "body": {
-      "raw": "\n# GitCV - Automated Developer Portfolios\n\nGitCV automatically generates and maintains professional CVs and portfolios from your GitHub activity. Never manually update your portfolio again.\n\n## Key Features\n\n- **Automatic CV Generation**: Creates professional CVs from your GitHub contributions\n- **Portfolio Maintenance**: Keeps your portfolio updated with your latest work\n- **Blog Integration**: Includes blog functionality for thought leadership\n- **PDF Export**: Generate PDF versions of your CV for applications\n- **Custom Domains**: Use your own domain for professional presentation\n\n## How It Works\n\nGitCV analyzes your GitHub activity, repositories, and contributions to automatically generate a comprehensive professional portfolio. The system updates in real-time as you push new code and create new repositories.\n\n## Perfect For\n\n- Developers seeking new opportunities\n- Freelancers building client trust\n- Open source contributors showcasing impact\n- Technical professionals maintaining online presence\n\nSign up for early access to be among the first to automate your professional portfolio.",
-      "code": "var Component=(()=>{var h=Object.create;var r=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var m=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var y=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),b=(n,e)=>{for(var o in e)r(n,o,{get:e[o],enumerable:!0})},l=(n,e,o,a)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let i of f(e))!g.call(n,i)&&i!==o&&r(n,i,{get:()=>e[i],enumerable:!(a=d(e,i))||a.enumerable});return n};var C=(n,e,o)=>(o=n!=null?h(m(n)):{},l(e||!n||!n.__esModule?r(o,\"default\",{value:n,enumerable:!0}):o,n)),G=n=>l(r({},\"__esModule\",{value:!0}),n);var c=y((D,s)=>{s.exports=_jsx_runtime});var w={};b(w,{default:()=>p,frontmatter:()=>v});var t=C(c()),v={title:\"GitCV\",subtitle:\"GitHub-Based CV Generator\",description:[\"Automatically generate and maintain professional CVs from GitHub activity\",\"Eliminates the need to constantly update portfolios manually\",\"Free blog and portfolio features with automatic maintenance\"],techStack:[\"Next.js\",\"TypeScript\",\"GitHub API\",\"Tailwind CSS\",\"PDF Generation\"],category:\"Developer Tools\",links:[{type:\"signup\",label:\"Sign up for early access\",href:\"https://gitcv.dev/early-access\",primary:!0},{type:\"github\",label:\"GitHub\",href:\"https://github.com/talaat/gitcv\"}],featured:!0,showDetailPage:!0,publishedAt:\"2024-12-15\",updatedAt:\"2024-12-20\",tags:[\"automation\",\"portfolio\",\"github\",\"cv\",\"developer-tools\"]};function u(n){let e={h1:\"h1\",h2:\"h2\",li:\"li\",p:\"p\",strong:\"strong\",ul:\"ul\",...n.components};return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsx)(e.h1,{children:\"GitCV - Automated Developer Portfolios\"}),`\n`,(0,t.jsx)(e.p,{children:\"GitCV automatically generates and maintains professional CVs and portfolios from your GitHub activity. Never manually update your portfolio again.\"}),`\n`,(0,t.jsx)(e.h2,{children:\"Key Features\"}),`\n`,(0,t.jsxs)(e.ul,{children:[`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.strong,{children:\"Automatic CV Generation\"}),\": Creates professional CVs from your GitHub contributions\"]}),`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.strong,{children:\"Portfolio Maintenance\"}),\": Keeps your portfolio updated with your latest work\"]}),`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.strong,{children:\"Blog Integration\"}),\": Includes blog functionality for thought leadership\"]}),`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.strong,{children:\"PDF Export\"}),\": Generate PDF versions of your CV for applications\"]}),`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.strong,{children:\"Custom Domains\"}),\": Use your own domain for professional presentation\"]}),`\n`]}),`\n`,(0,t.jsx)(e.h2,{children:\"How It Works\"}),`\n`,(0,t.jsx)(e.p,{children:\"GitCV analyzes your GitHub activity, repositories, and contributions to automatically generate a comprehensive professional portfolio. The system updates in real-time as you push new code and create new repositories.\"}),`\n`,(0,t.jsx)(e.h2,{children:\"Perfect For\"}),`\n`,(0,t.jsxs)(e.ul,{children:[`\n`,(0,t.jsx)(e.li,{children:\"Developers seeking new opportunities\"}),`\n`,(0,t.jsx)(e.li,{children:\"Freelancers building client trust\"}),`\n`,(0,t.jsx)(e.li,{children:\"Open source contributors showcasing impact\"}),`\n`,(0,t.jsx)(e.li,{children:\"Technical professionals maintaining online presence\"}),`\n`]}),`\n`,(0,t.jsx)(e.p,{children:\"Sign up for early access to be among the first to automate your professional portfolio.\"})]})}function p(n={}){let{wrapper:e}=n.components||{};return e?(0,t.jsx)(e,{...n,children:(0,t.jsx)(u,{...n})}):u(n)}return G(w);})();\n;return Component;"
-    },
-    "_id": "projects/gitcv/index.mdx",
-    "_raw": {
-      "sourceFilePath": "projects/gitcv/index.mdx",
-      "sourceFileName": "index.mdx",
-      "sourceFileDir": "projects/gitcv",
-      "contentType": "mdx",
-      "flattenedPath": "projects/gitcv"
-    },
-    "type": "Project",
-    "readingTime": {
-      "text": "1 min read",
-      "minutes": 0.765,
-      "time": 45900,
-      "words": 153
-    },
-    "slug": "gitcv",
-    "path": "projects/gitcv",
-    "filePath": "projects/gitcv/index.mdx",
-    "projectSlug": "gitcv",
-    "galleryImages": [
-      {
-        "src": "/projects/gitcv/01-Logo-GitCV.png",
-        "alt": " Logo GitCV",
-        "filename": "01-Logo-GitCV.png",
-        "type": "image",
-        "order": 0,
-        "isHero": true,
-        "category": "general"
-      }
-    ],
-    "primaryLink": {
-      "href": "https://gitcv.dev/early-access",
-      "label": "Sign up for early access",
-      "type": "signup"
-    },
-    "thumbnail": "/projects/gitcv/01-Logo-GitCV.png",
     "secondImage": null
   },
   {

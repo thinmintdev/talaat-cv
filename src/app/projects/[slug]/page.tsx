@@ -134,9 +134,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
             {/* Project Description */}
             <div className="mb-6">
-              {project.description.map((paragraph, index) => (
+              {project.description.map((paragraph) => (
                 <p
-                  key={index}
+                  key={paragraph.slice(0, 32)}
                   className="text-lg text-muted-foreground mb-3 leading-relaxed"
                 >
                   {paragraph}
@@ -163,9 +163,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             {/* Project Links */}
             {project.allLinks.length > 0 && (
               <div className="flex gap-4 mb-8 flex-wrap">
-                {project.allLinks.map((link, index) => (
+                {project.allLinks.map((link) => (
                   <Button
-                    key={index}
+                    key={`${link.type}-${link.href}`}
                     asChild={true}
                     variant={link.type === "demo" ? "default" : "outline"}
                   >
@@ -201,7 +201,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           {project.gallery.length > 0 && (
             <div className="mb-10">
               <h2 className="text-2xl font-semibold mb-6">Project Gallery</h2>
-              <ProjectGallery images={project.gallery} title={project.title} />
+              <ProjectGallery images={project.gallery} />
             </div>
           )}
 

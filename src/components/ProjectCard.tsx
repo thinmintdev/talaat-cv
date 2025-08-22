@@ -106,9 +106,9 @@ export function ProjectCard({
             <ul
               className={`text-base sm:text-lg text-gray-600 leading-relaxed space-y-2 ${hasLink ? "pr-12 sm:pr-14 md:pr-16" : ""}`}
             >
-              {description.map((line, i) => (
+              {description.map((line) => (
                 <li
-                  key={`${title}-bullet-${i}`}
+                  key={`${title}-bullet-${line.slice(0, 30)}`}
                   className="flex items-start gap-2"
                 >
                   <span className="inline-block w-3 h-3 mt-2 rounded-sm bg-blue-600 flex-shrink-0" />

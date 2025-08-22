@@ -9,8 +9,12 @@ export function StructuredData() {
 
   return (
     <>
-  <script type="application/ld+json">{JSON.stringify(personStructuredData)}</script>
-  <script type="application/ld+json">{JSON.stringify(businessStructuredData)}</script>
+      <script type="application/ld+json">
+        {JSON.stringify(personStructuredData)}
+      </script>
+      <script type="application/ld+json">
+        {JSON.stringify(businessStructuredData)}
+      </script>
     </>
   );
 }

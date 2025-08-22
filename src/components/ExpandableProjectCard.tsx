@@ -88,17 +88,10 @@ export function ExpandableProjectCard({
   return (
     <>
       {/* Card Trigger */}
-      <div
-        className="group relative cursor-pointer transition-all duration-300 hover:-translate-y-1"
+      <button
+        type="button"
+        className="group relative w-full text-left cursor-pointer transition-all duration-300 hover:-translate-y-1"
         onClick={handleCardClick}
-        onKeyDown={(e) => {
-          if (e.key === "Enter" || e.key === " ") {
-            e.preventDefault();
-            setIsExpanded(true);
-          }
-        }}
-        role="button"
-        tabIndex={0}
         aria-label={`Expand ${title} project details`}
       >
         <div className="block relative p-4 sm:p-6 md:p-8 bg-gray-50 rounded-xl sm:rounded-2xl border border-gray-200 transition-all duration-300 hover:bg-white hover:shadow-xl hover:border-gray-300">
@@ -164,9 +157,9 @@ export function ExpandableProjectCard({
               <ul
                 className={`text-base sm:text-lg text-gray-600 leading-relaxed space-y-2 ${hasLink ? "pr-12 sm:pr-14 md:pr-16" : ""}`}
               >
-                {description.slice(0, 2).map((line, i) => (
+                {description.slice(0, 2).map((line) => (
                   <li
-                    key={`${title}-bullet-${i}`}
+                    key={`${title}-bullet-${line.slice(0, 30)}`}
                     className="flex items-start gap-2"
                   >
                     <span className="inline-block w-3 h-3 mt-2 rounded-sm bg-blue-600 flex-shrink-0" />
@@ -201,21 +194,37 @@ export function ExpandableProjectCard({
             </div>
           </div>
         </div>
-      </div>
+      </button>
 
       {/* Expanded Modal */}
       {isExpanded && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center p-4 animate-in fade-in duration-300"
+          role="dialog"
+          aria-modal="true"
           onClick={() => setIsExpanded(false)}
+          onKeyDown={(e) => {
+            if (e.key === "Escape") setIsExpanded(false);
+          }}
         >
           {/* Backdrop */}
-          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200" />
+          <div
+            className="absolute inset-0 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200"
+            aria-hidden="true"
+          />
 
           {/* Modal Content - Made Larger */}
           <div
             className="relative bg-white rounded-2xl shadow-2xl w-full max-w-7xl max-h-[95vh] overflow-hidden animate-in zoom-in-95 slide-in-from-bottom-4 duration-300"
             onClick={(e) => e.stopPropagation()}
+            onKeyDown={(e) => {
+              if (e.key === "Escape") {
+                e.stopPropagation();
+                setIsExpanded(false);
+              }
+            }}
+            role="document"
+            tabIndex={-1}
           >
             {/* Close Button */}
             <button
@@ -264,19 +273,22 @@ export function ExpandableProjectCard({
 
                         {/* Image Dots Indicator */}
                         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3">
-                          {images.map((_, index) => (
-                            <button
-                              key={`image-dot-${index}`}
-                              type="button"
-                              onClick={() => setCurrentImageIndex(index)}
-                              className={`w-3 h-3 rounded-full transition-all duration-200 ${
-                                index === currentImageIndex
-                                  ? "bg-white scale-125 shadow-lg"
-                                  : "bg-white/60 hover:bg-white/80"
-                              }`}
-                              aria-label={`Go to image ${index + 1}`}
-                            />
-                          ))}
+                          {images.map((img) => {
+                            const idx = images.indexOf(img);
+                            return (
+                              <button
+                                key={`image-dot-${img}`}
+                                type="button"
+                                onClick={() => setCurrentImageIndex(idx)}
+                                className={`w-3 h-3 rounded-full transition-all duration-200 ${
+                                  idx === currentImageIndex
+                                    ? "bg-white scale-125 shadow-lg"
+                                    : "bg-white/60 hover:bg-white/80"
+                                }`}
+                                aria-label={`Go to image ${idx + 1}`}
+                              />
+                            );
+                          })}
                         </div>
                       </>
                     )}
@@ -305,9 +317,9 @@ export function ExpandableProjectCard({
                     {/* Description */}
                     <div className="space-y-4">
                       <ul className="space-y-4">
-                        {description.map((line, i) => (
+                        {description.map((line) => (
                           <li
-                            key={`${title}-detail-${i}`}
+                            key={`${title}-detail-${line.slice(0, 30)}`}
                             className="flex items-start gap-3"
                           >
                             <span className="inline-block w-2.5 h-2.5 mt-2.5 rounded-full bg-blue-600 flex-shrink-0" />
