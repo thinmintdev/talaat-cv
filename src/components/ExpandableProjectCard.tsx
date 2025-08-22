@@ -107,7 +107,7 @@ export function ExpandableProjectCard({
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="absolute top-4 right-4 sm:top-6 sm:right-6 md:top-8 md:right-8 w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 flex items-center justify-center rounded-full text-gray-900 transition-all duration-300 bg-[#FFE3DD] group-hover:bg-brandSecondary hover:scale-110 z-10"
+              className="absolute top-4 right-4 sm:top-6 sm:right-6 md:top-8 md:right-8 w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 flex items-center justify-center rounded-full text-gray-900 transition-all duration-300 bg-[#d4e6ff] hover:bg-[#d4e6ff] hover:scale-110 z-10"
               aria-label={`Visit ${title} project`}
               onClick={(e) => e.stopPropagation()}
             >
@@ -120,7 +120,7 @@ export function ExpandableProjectCard({
               <div className="w-full sm:flex-shrink-0 sm:w-auto order-first sm:order-none">
                 <div className="flex flex-row sm:flex-col gap-3 justify-center sm:justify-start">
                   {thumbnail && (
-                    <div className="w-full sm:w-32 sm:w-36 md:w-[150px] aspect-[4/3] overflow-hidden rounded-lg bg-gray-200 p-3">
+                    <div className="w-full sm:w-36 md:w-[150px] aspect-[4/3] overflow-hidden rounded-lg bg-gray-200 p-3">
                       {thumbnail.endsWith('.svg') ? (
                         <img
                           src={thumbnail}
@@ -141,7 +141,7 @@ export function ExpandableProjectCard({
                     </div>
                   )}
                   {secondImage && !thumbnail && (
-                    <div className="w-full sm:w-32 sm:w-36 md:w-[150px] aspect-[4/3] overflow-hidden rounded-lg bg-gray-200 p-3">
+                    <div className="w-full sm:w-36 md:w-[150px] aspect-[4/3] overflow-hidden rounded-lg bg-gray-200 p-3">
                       {secondImage.endsWith('.svg') ? (
                         <img
                           src={secondImage}
