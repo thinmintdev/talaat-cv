@@ -126,3 +126,26 @@ vite.config.ts.timestamp-*
 
 # Diagnostic reports
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# Turbo
+.turbo/
+
+# Biome
+.biome/
+
+# Additional build artifacts
+*.tgz
+*.tar.gz
+
+# Storybook
+storybook-static/
+
+# Cypress
+cypress/videos/
+cypress/screenshots/
+cypress/downloads/
+
+# Playwright
+test-results/
+playwright-report/
+playwright/.cache/
